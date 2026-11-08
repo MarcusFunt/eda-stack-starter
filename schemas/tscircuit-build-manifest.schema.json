@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.dev/schemas/tscircuit-build-manifest.schema.json",
+  "title": "EDA Stack tscircuit project build manifest",
+  "type": "object",
+  "required": ["schema_version", "status", "project_name", "entrypoint", "created_at_utc", "source_files", "source_graph_counts", "toolchain", "circuit_json_sha256", "source_graph_sha256", "kicad_export_files", "artifacts"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "status": { "const": "compiled" },
+    "project_name": { "type": "string" },
+    "entrypoint": { "type": "string", "pattern": "^src/[^.].*\\.tsx?$" },
+    "created_at_utc": { "type": "string", "format": "date-time" },
+    "source_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "bytes"],
+        "properties": {
+          "path": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "bytes": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "source_graph_counts": {
+      "type": "object",
+      "required": ["components", "ports", "nets"],
+      "properties": {
+        "components": { "type": "integer", "minimum": 1 },
+        "ports": { "type": "integer", "minimum": 1 },
+        "nets": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "toolchain": {
+      "type": "object",
+      "required": ["node", "tscircuit", "react", "compiler_runtime", "compiler_lock_sha256", "sandbox_image", "circuit_json_to_kicad", "worker"],
+      "properties": {
+        "node": { "type": "string" },
+        "tscircuit": { "type": "string" },
+        "react": { "type": "string" },
+        "compiler_runtime": { "type": "string" },
+        "compiler_lock_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "sandbox_image": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+        "circuit_json_to_kicad": { "type": "string" },
+        "worker": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "circuit_json_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "source_graph_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "kicad_export_files": { "type": "array", "items": { "type": "string" } },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["sha256", "bytes"],
+        "properties": {
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "bytes": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

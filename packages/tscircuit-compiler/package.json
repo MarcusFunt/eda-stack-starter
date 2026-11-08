@@ -1,0 +1,15 @@
+{
+  "name": "@edastack/tscircuit-compiler-runtime",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pinned tscircuit runtime executed only inside the project build sandbox",
+  "dependencies": {
+    "@tscircuit/math-utils": "0.0.36",
+    "circuit-json": "0.0.548",
+    "react": "19.3.1",
+    "tscircuit": "0.0.3114",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  }
+}

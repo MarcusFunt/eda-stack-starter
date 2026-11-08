@@ -8,12 +8,15 @@
     "build": "tsc --project tsconfig.json",
     "test": "tsx --test tests/*.test.ts",
     "export": "tsx src/cli.ts",
+    "build:project": "tsx src/build-cli.ts",
+    "sandbox:image": "tsx scripts/build-sandbox-image.ts",
     "fixtures:generate": "node scripts/generate-fixtures.mjs",
     "verify:native": "tsx scripts/verify-native.ts"
   },
   "dependencies": {
     "@tscircuit/circuit-json-util": "0.0.131",
-    "circuit-json": "0.0.547",
+    "ajv": "8.20.0",
+    "circuit-json": "0.0.548",
     "circuit-json-to-connectivity-map": "0.0.33",
     "circuit-json-to-kicad": "0.0.270",
     "earcut": "3.2.4",

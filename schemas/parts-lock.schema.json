@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.dev/schemas/parts-lock.schema.json",
+  "title": "EDA Stack project part lock",
+  "type": "object",
+  "required": ["schema_version", "status", "parts"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "status": { "enum": ["unverified", "partially_verified", "verified"] },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["reference", "manufacturer_part_number", "pin_map_status"],
+        "properties": {
+          "reference": { "type": "string", "pattern": "^[A-Za-z]+[0-9]+$" },
+          "manufacturer_part_number": { "type": ["string", "null"] },
+          "footprint": { "type": ["string", "null"] },
+          "pin_map_status": { "enum": ["unverified", "datasheet_reviewed"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
