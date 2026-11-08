@@ -37,6 +37,7 @@
 - The Docker-isolated RC example passed all three scenarios after every Docker CLI output channel received a host-memory cap. Container inputs are size-checked before reading; status, logs, and waveforms use bounded reads that reject symlinks and special files.
 - The tscircuit nominal/fault proof passed: nominal meets all original bounds, while the 3 kΩ fault fails on a finite, out-of-range 100 µs measurement with no simulator errors. Candidate runs with incomplete or errored evidence are classified as infrastructure/source failures.
 - The deliberately nonconvergent behavioral circuit failed closed on both host ngspice 47 and the pinned Docker image; both reports preserve the exact timestep/operating-point diagnostics and log path. See `docs/REAL_NGSPICE_VALIDATION.md`.
+- The initial GitHub Actions run on the public repository passed all six Python OS/version jobs, Ruff lint, and the real-ngspice/tscircuit/KiCad integration job. [Run 42487333522](https://github.com/MarcusFunt/eda-stack-starter/actions/runs/42487333522).
 - After the final native KiCad review, fail-closed checks now cover the original tscircuit source graph (including omitted converter components and unknown trace identities), numeric SPICE value normalization, disjoint/no-symlink output paths, stale-success cleanup, hardlinked output targets, and blank placement fields. Revalidation passed 45 Node tests, all 82 Python tests with real ngspice 47 enabled, Ruff, `pip check`, and KiCad 10.0.8 ERC/DRC/parity with zero findings.
 
 ## Verified with real ngspice
@@ -53,14 +54,11 @@
 
 ## Blocked / not yet verified
 
-- The reproducible Ubuntu/Windows workflow is configured; hosted GitHub Actions validation of the public repository is still pending.
 - The tscircuit simulation spike and generated native KiCad handoff cover only a small RC design with fixed KiCad symbols, footprints, and PCB geometry. The board has not been fabricated or bench-tested, and general-purpose tscircuit-to-KiCad geometry export is not integrated. A local LLM runtime is not integrated into this repository.
 - The pinned Node tscircuit dependency graph currently reports 29 npm audit advisories (23 high); see `docs/TSCIRCUIT_SPIKE.md` before treating it as a production dependency.
 - Catalog source, license, manufacturer, operating-range and rating statements remain author-supplied provenance; model files, hashes, declared subcircuit pin order and mapped circuit connectivity are checked. No statistical/Monte Carlo, thermal or signal-integrity verification is implemented.
 - P7 remains partial: Docker isolation, the offline results dashboard, and an RC electrical power/derating screen are implemented and locally validated. The screen does not estimate component temperature rise; parasitic extraction is not warranted for this low-frequency reference; no current fixture requires another simulator backend; and a protected release pipeline remains future work.
-- GitHub Actions has not yet been reviewed on the newly published public repository.
 
 ## Next concrete milestones
 
 1. Review component fit and the generated manufacturing files with a fabricator before any board order.
-2. Review the initial GitHub Actions run on the public repository and fix any CI-only issues.
