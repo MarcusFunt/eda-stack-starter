@@ -277,7 +277,7 @@
   },
   "head": {
     "created": "2026-11-07T21:49:12.666Z",
-    "generator": "circuit-json-to-kicad",
+    "generator": "EDA Stack Starter",
     "generator_version": "0.0.1",
     "modified": "2026-11-07T21:49:12.666Z",
     "project_name": "rc_filter"

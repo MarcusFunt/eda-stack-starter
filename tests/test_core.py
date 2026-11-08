@@ -56,9 +56,8 @@ class ExecutableResolutionTests(unittest.TestCase):
                 exit_code = cli_main(["doctor", "--ngspice", str(gui_binary)])
 
             self.assertEqual(exit_code, 0)
-            self.assertEqual(
-                json.loads(output.getvalue())["ngspice_path"], str(console_binary)
-            )
+            reported_binary = Path(json.loads(output.getvalue())["ngspice_path"])
+            self.assertTrue(reported_binary.samefile(console_binary))
 
 
 class SpecTests(unittest.TestCase):

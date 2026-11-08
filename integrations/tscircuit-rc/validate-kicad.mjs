@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import { assertCircuitMapping, parseKicadNetlist } from "./kicad-consistency.mjs";
 import { validateManufacturingExports } from "./manufacturing-exports.mjs";
 import { buildNativeKicadProject } from "./native-kicad-project.mjs";
+import { dockerUserOptions } from "./kicad-container.mjs";
 import { prepareKicadValidationOutput } from "./kicad-validation-output.mjs";
 import { buildSpiceSourceManifest } from "./source-build.mjs";
 import { assertPathsDisjoint, workspaceRelativePath } from "./workspace-path.mjs";
@@ -45,6 +46,7 @@ function dockerKicad(args) {
     [
       "run",
       "--rm",
+      ...dockerUserOptions(),
       "--pull=missing",
       "--mount",
       "type=bind,source=" + mountSource + ",target=" + containerRoot,
