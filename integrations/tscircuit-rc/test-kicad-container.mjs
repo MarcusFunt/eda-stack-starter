@@ -16,5 +16,8 @@ test("leaves Docker Desktop user mapping to the container on Windows", () => {
 });
 
 test("requires a numeric host identity for POSIX container runs", () => {
-  assert.throws(() => dockerUserOptions({ platform: "linux" }), /host UID and GID/);
+  assert.throws(
+    () => dockerUserOptions({ platform: "linux", uid: null, gid: null }),
+    /host UID and GID/,
+  );
 });
