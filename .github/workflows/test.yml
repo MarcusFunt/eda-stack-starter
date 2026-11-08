@@ -6,6 +6,53 @@ on:
   workflow_dispatch:
 
 jobs:
+  kicad-worker-unit:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: npm
+          cache-dependency-path: packages/tscircuit-worker/package-lock.json
+      - run: npm install --global npm@11.12.1
+      - run: npm ci
+        working-directory: packages/tscircuit-worker
+      - run: npm test
+        working-directory: packages/tscircuit-worker
+      - run: npm run build
+        working-directory: packages/tscircuit-worker
+
+  kicad-worker-native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: npm
+          cache-dependency-path: |
+            integrations/tscircuit-rc/package-lock.json
+            packages/tscircuit-worker/package-lock.json
+      - run: npm install --global npm@11.12.1
+      - run: npm ci
+        working-directory: integrations/tscircuit-rc
+      - run: npm ci
+        working-directory: packages/tscircuit-worker
+      - name: Export with KiCad and compare native pin-net membership
+        run: npm run verify:native
+        working-directory: packages/tscircuit-worker
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kicad-worker-native-evidence
+          path: build/tscircuit-worker-native-*/
+          retention-days: 30
+
   lint:
     runs-on: ubuntu-24.04
     steps:

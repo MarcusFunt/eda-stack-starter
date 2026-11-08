@@ -1,0 +1,34 @@
+{
+  "name": "@edastack/tscircuit-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Circuit JSON conversion and native KiCad connectivity verification",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "test": "tsx --test tests/*.test.ts",
+    "export": "tsx src/cli.ts",
+    "fixtures:generate": "node scripts/generate-fixtures.mjs",
+    "verify:native": "tsx scripts/verify-native.ts"
+  },
+  "dependencies": {
+    "@tscircuit/circuit-json-util": "0.0.131",
+    "circuit-json": "0.0.547",
+    "circuit-json-to-connectivity-map": "0.0.33",
+    "circuit-json-to-kicad": "0.0.270",
+    "earcut": "3.2.4",
+    "format-si-unit": "0.0.14",
+    "kicadts": "0.0.57",
+    "polygon-clipping": "0.15.7",
+    "schematic-symbols": "0.0.251",
+    "transformation-matrix": "3.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "overrides": {
+    "zod": "4.6.6"
+  }
+}

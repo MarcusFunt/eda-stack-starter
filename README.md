@@ -107,10 +107,12 @@ Set `EDA_STACK_ROOT` to this project's absolute folder and `NGSPICE_EXE` to ngsp
 | Simulation & verification | ngspice + this harness | Implemented; exercised with real ngspice 47 on Windows |
 | Agent integration | Codex + local MCP services | Traces sourcing and read-only verification MCP registered; source edits remain reviewed |
 | Sourcing | traces via its separate MCP | Installed and exercised locally; source-linked example BOM recorded |
-| Native KiCad handoff | KiCad CLI 10.0.8 | Fixed RC template adapter passes ERC/DRC and schematic/PCB parity; general source-to-board export is not integrated |
+| Native KiCad handoff | KiCad CLI 10.0.8 | RC template adapter passes ERC/DRC; separate general Circuit JSON worker matches native pin-net membership on three fixtures, with ERC/DRC review findings still open |
 | Final PCB layout | KiCad | The reference board still needs physical fit and fabricator review before release |
 
 Avoid routing decisions or fabrication until schematic correctness, model quality, electrical limits, ERC/DRC, and physical checks have been independently verified.
+
+The general Circuit JSON to KiCad export spike is documented in [`packages/tscircuit-worker/README.md`](packages/tscircuit-worker/README.md). It is not yet integrated as the repository's general authoring or manufacturing pipeline.
 
 ## Included examples
 
