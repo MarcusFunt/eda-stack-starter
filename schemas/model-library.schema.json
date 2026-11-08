@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.local/schemas/model-library.schema.json",
+  "title": "EDA Stack versioned model library",
+  "description": "Structural schema for local model identity, provenance, pin maps, operating assumptions, and checksummed validation fixtures. Runtime validation checks files, hashes, and netlist pin order.",
+  "type": "object",
+  "required": ["schema_version", "library_version", "models"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "library_version": {"type": "string", "minLength": 1},
+    "models": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/model"}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "pin": {"type": "string", "pattern": "^[A-Za-z0-9_]{1,64}$"},
+    "hash": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "bounds": {
+      "type": "object",
+      "required": ["min", "max", "basis"],
+      "properties": {
+        "min": {"type": ["number", "null"]},
+        "max": {"type": ["number", "null"]},
+        "basis": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": [
+        "id", "kind", "pin_order", "physical_pin_map", "source", "version",
+        "license", "manufacturer", "part_number", "operating_conditions",
+        "limitations", "validation_fixture", "validation_fixture_sha256"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/pin"},
+        "kind": {"enum": ["spice_primitive", "subcircuit"]},
+        "subckt_name": {"$ref": "#/$defs/pin"},
+        "component_type": {"type": "string", "pattern": "^[A-Za-z]$"},
+        "file": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "pin_order": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/pin"}},
+        "physical_pin_map": {"type": "object", "minProperties": 1, "additionalProperties": {"$ref": "#/$defs/pin"}},
+        "source": {"type": "string", "minLength": 1, "maxLength": 512},
+        "version": {"type": "string", "minLength": 1, "maxLength": 512},
+        "license": {"type": "string", "minLength": 1, "maxLength": 512},
+        "manufacturer": {"type": ["string", "null"]},
+        "part_number": {"type": ["string", "null"]},
+        "operating_conditions": {
+          "type": "object",
+          "required": ["temperature_C", "voltage_V", "assumptions"],
+          "properties": {
+            "temperature_C": {"$ref": "#/$defs/bounds"},
+            "voltage_V": {"$ref": "#/$defs/bounds"},
+            "assumptions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+          },
+          "additionalProperties": false
+        },
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 512}},
+        "validation_fixture": {"type": "string", "minLength": 1},
+        "validation_fixture_sha256": {"$ref": "#/$defs/hash"}
+      },
+      "allOf": [
+        {"if": {"properties": {"kind": {"const": "subcircuit"}}, "required": ["kind"]}, "then": {"required": ["subckt_name", "file", "sha256"], "not": {"required": ["component_type"]}}},
+        {"if": {"properties": {"kind": {"const": "spice_primitive"}}, "required": ["kind"]}, "then": {"required": ["component_type"], "not": {"required": ["subckt_name"]}}}
+      ],
+      "additionalProperties": false
+    }
+  }
+}

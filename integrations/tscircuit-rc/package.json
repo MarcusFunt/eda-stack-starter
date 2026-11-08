@@ -1,0 +1,19 @@
+{
+  "name": "edastack-tscircuit-rc-spike",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Pinned tscircuit RC source-to-SPICE integration spike for edastack",
+  "scripts": {
+    "build:spice": "node build-spice.mjs",
+    "verify": "node verify.mjs",
+    "candidate:verify": "node candidate-loop.mjs",
+    "kicad:validate": "node validate-kicad.mjs",
+    "test": "node --test test-*.mjs"
+  },
+  "dependencies": {
+    "@tscircuit/math-utils": "0.0.36",
+    "circuit-json-to-spice": "0.0.46",
+    "tscircuit": "0.0.3114"
+  }
+}

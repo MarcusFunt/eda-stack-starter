@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+node_modules/
+**/node_modules/
+*.kicad_prl
+build/
+.edastack_wave_*.dat
+.pytest_cache/
+.superpowers/
+.worktrees/

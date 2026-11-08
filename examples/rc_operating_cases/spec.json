@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "name": "rc_operating_cases",
+  "netlist": "operating_cases.cir",
+  "parameters": {"V": "5", "R": "1k", "C": "100n", "ILOAD": "0.5m"},
+  "untested_conditions": [
+    "Supply below 4.5 V or above 5.5 V.",
+    "Load steps below 0.5 mA or above 1.5 mA, short circuits, and open circuits.",
+    "Temperature variation, capacitor ESR/ESL, resistor temperature coefficient, and other parasitics; the fixture components are ideal.",
+    "Repeated power cycling and events outside the first startup, load step, and shutdown windows."
+  ],
+  "scenarios": [
+    {"name": "nominal", "category": "nominal", "set": {}},
+    {"name": "supply_min", "category": "corner", "set": {"V": "4.5"}},
+    {"name": "supply_max", "category": "corner", "set": {"V": "5.5"}},
+    {"name": "fast_components", "category": "corner", "set": {"R": "900", "C": "90n"}},
+    {"name": "slow_components", "category": "corner", "set": {"R": "1.1k", "C": "110n"}},
+    {"name": "light_load_step", "category": "corner", "set": {"ILOAD": "0.5m"}},
+    {"name": "heavy_load_step", "category": "corner", "set": {"ILOAD": "1.5m"}},
+    {"name": "combined_high", "category": "corner", "set": {"V": "5.5", "R": "1.1k", "C": "110n", "ILOAD": "1.5m"}}
+  ],
+  "analyses": [
+    {"id": "startup", "command": "tran 0.2u 400u"},
+    {"id": "load_step", "command": "tran 0.2u 700u"},
+    {"id": "shutdown", "command": "tran 0.2u 1.2m"}
+  ],
+  "measurements": [
+    {"id": "vin_peak", "analysis": "startup", "directive": "meas tran vin_peak MAX v(in) FROM=0u TO=400u", "unit": "V", "min": 4.49, "max": 5.51, "description": "Applied supply level at the selected minimum, nominal, and maximum input cases."},
+    {"id": "vout_100u", "analysis": "startup", "directive": "meas tran vout_100u FIND v(out) AT=100u", "unit": "V", "min": 2.4, "max": 3.9, "description": "Startup response near one nominal time constant."},
+    {"id": "startup_rise_time", "analysis": "startup", "directive": "meas tran startup_rise_time TRIG v(out) VAL=0.45 RISE=1 TARG v(out) VAL=4.05 RISE=1", "unit": "s", "min": 0.0001, "max": 0.0003, "description": "Rise time to 90 percent of the minimum selected supply."},
+    {"id": "load_step_delta", "analysis": "load_step", "directive": "meas tran load_step_delta PP v(out) FROM=490u TO=610u", "unit": "V", "min": 0.1, "max": 2.0, "description": "Peak-to-peak output movement after a load step on an established output."},
+    {"id": "shutdown_voltage", "analysis": "shutdown", "directive": "meas tran shutdown_voltage FIND v(out) AT=900u", "unit": "V", "min": 0.5, "max": 3.0, "description": "Output voltage 100 microseconds after input shutdown."}
+  ],
+  "waveforms": [
+    {"id": "startup_trace", "analysis": "startup", "signals": ["v(in)", "v(out)"]},
+    {"id": "load_step_trace", "analysis": "load_step", "signals": ["v(in)", "v(out)"]},
+    {"id": "shutdown_trace", "analysis": "shutdown", "signals": ["v(in)", "v(out)"]}
+  ]
+}

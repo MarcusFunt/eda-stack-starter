@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "servers": {
+      "eda_spice": {
+        "type": "local",
+        "command": ["edastack-mcp"],
+        "environment": {
+          "EDA_STACK_ROOT": "C:\\ABSOLUTE\\PATH\\TO\\eda-stack-starter",
+          "NGSPICE_EXE": "ngspice"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "parameters": {
+    "resistance": "1k",
+    "capacitance": "100n"
+  }
+}

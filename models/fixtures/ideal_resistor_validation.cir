@@ -1,0 +1,5 @@
+* Validation fixture for the ideal ngspice resistor primitive entry.
+V1 IN 0 1
+R1 IN 0 1k
+.op
+.end

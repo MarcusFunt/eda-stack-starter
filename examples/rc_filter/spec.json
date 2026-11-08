@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "name": "rc_filter",
+  "netlist": "rc_lowpass.cir",
+  "parameters": {"R": "1k", "C": "100n"},
+  "scenarios": [
+    {"name": "nominal", "set": {}},
+    {"name": "fast_corner", "set": {"R": "900", "C": "90n"}},
+    {"name": "slow_corner", "set": {"R": "1.1k", "C": "110n"}}
+  ],
+  "analyses": ["tran 0.2u 400u"],
+  "measurements": [
+    {"id": "vin_peak", "directive": "meas tran vin_peak MAX v(in) FROM=0u TO=400u", "unit": "V", "min": 4.99, "max": 5.01, "description": "Applied step amplitude"},
+    {"id": "vout_100u", "directive": "meas tran vout_100u FIND v(out) AT=100u", "unit": "V", "min": 2.7, "max": 3.7, "description": "Step response near one time constant"},
+    {"id": "rise_time_10_90", "directive": "meas tran rise_time_10_90 TRIG v(out) VAL=0.5 RISE=1 TARG v(out) VAL=4.5 RISE=1", "unit": "s", "min": 0.00017, "max": 0.00027, "description": "Output rise time from 10 to 90 percent of the 5 V step"},
+    {"id": "vout_peak", "directive": "meas tran vout_peak MAX v(out) FROM=0u TO=400u", "unit": "V", "min": 4.70, "max": 5.01, "description": "Peak output voltage must remain below supply"}
+  ]
+}

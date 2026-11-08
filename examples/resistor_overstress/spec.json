@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "name": "resistor_overstress",
+  "netlist": "resistor_overstress.cir",
+  "model_library": "../../models/library.json",
+  "parameters": {"R": "1k", "C": "100n", "V": "4"},
+  "sweeps": [
+    {"name": "supply", "values": {"V": ["4", "5", "6"]}}
+  ],
+  "analyses": [
+    {"id": "startup", "command": "tran 0.2u 400u"},
+    {"id": "startup_fine", "command": "tran 0.1u 10u"}
+  ],
+  "measurements": [
+    {
+      "id": "resistor_p_max",
+      "analysis": "startup",
+      "directive": "meas tran resistor_p_max MAX V(in,out)*I(R1) FROM=0u TO=400u",
+      "signal": "V(in,out)*I(R1)",
+      "model_ref": "R1_ideal",
+      "unit": "W",
+      "max": 0.02,
+      "description": "Instantaneous dissipation in R1 must stay within the specified 20 mW check limit."
+    },
+    {
+      "id": "vout_100u",
+      "analysis": "startup",
+      "directive": "meas tran vout_100u FIND V(out) AT=100u",
+      "signal": "V(out)",
+      "unit": "V",
+      "min": 0.0,
+      "max": 5.01,
+      "description": "RC output at 100 microseconds."
+    },
+    {
+      "id": "rms_resistor_current",
+      "analysis": "startup",
+      "directive": "meas tran rms_resistor_current RMS I(R1) FROM=0u TO=400u",
+      "signal": "I(R1)",
+      "model_ref": "R1_ideal",
+      "unit": "A",
+      "description": "RMS resistor current over the startup window."
+    },
+    {
+      "id": "resistor_p_average",
+      "analysis": "startup",
+      "directive": "meas tran resistor_p_average AVG V(in,out)*I(R1) FROM=0u TO=400u",
+      "signal": "V(in,out)*I(R1)",
+      "model_ref": "R1_ideal",
+      "unit": "W",
+      "description": "Average resistor dissipation over the startup window."
+    },
+    {
+      "id": "vout_short_window_peak",
+      "analysis": "startup_fine",
+      "directive": "meas tran vout_short_window_peak MAX V(out) FROM=0u TO=10u",
+      "signal": "V(out)",
+      "unit": "V",
+      "min": 0.0,
+      "max": 5.01,
+      "description": "Output peak in the first 10 microseconds."
+    }
+  ],
+  "waveforms": [
+    {"id": "startup_nodes", "analysis": "startup", "signals": ["v(in)", "v(out)", "i(R1)"]}
+  ],
+  "models": [
+    {
+      "id": "R1_ideal",
+      "component": "R1",
+      "library_ref": "ngspice_ideal_resistor",
+      "connections": {"1": "IN", "2": "OUT"}
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Illustrative 5 V step through an ideal RC low-pass. This intentionally uses an overstressed 1 kohm resistor limit for verification testing.
+V1 IN 0 PULSE(0 {{V}} 0 1n 1n 1m 2m)
+R1 IN OUT {{R}}
+C1 OUT 0 {{C}}
+.end

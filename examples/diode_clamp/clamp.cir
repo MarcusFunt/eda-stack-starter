@@ -1,0 +1,6 @@
+* Diode clipper: demonstrate nonlinear SPICE peak measurement.
+VIN IN 0 SIN(0 5 1k)
+RLIMIT IN OUT {{R}}
+D1 OUT 0 DCLAMP
+.model DCLAMP D(IS=2n N=1.8 RS=0.2)
+.end

@@ -1,0 +1,6 @@
+* RC startup, pulsed load-step, and shutdown envelope.
+V1 IN 0 PULSE(0 {{V}} 0 1n 1n 800u 2m)
+R1 IN OUT {{R}}
+C1 OUT 0 {{C}}
+ILOAD OUT 0 PULSE(0 {{ILOAD}} 500u 1n 1n 100u 2m)
+.end

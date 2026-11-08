@@ -1,0 +1,4 @@
+* Local validation fixture; this is not a vendor device model.
+.SUBCKT TESTRES P N
+RCORE P N 1k
+.ENDS TESTRES

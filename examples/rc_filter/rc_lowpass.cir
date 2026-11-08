@@ -1,0 +1,5 @@
+* RC low-pass: 5V fast step, corners substituted by edastack.
+V1 IN 0 PULSE(0 5 0 1n 1n 800u 1600u)
+R1 IN OUT {{R}}
+C1 OUT 0 {{C}}
+.end

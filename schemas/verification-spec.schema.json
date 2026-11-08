@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.local/schemas/verification-spec.schema.json",
+  "title": "EDA Stack verification spec",
+  "description": "Structural schema for a version 1 edastack verification specification. Runtime validation also checks paths, cross references, and SPICE-safe values.",
+  "type": "object",
+  "required": ["schema_version", "name", "netlist", "analyses", "measurements"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "name": {"$ref": "#/$defs/name"},
+    "netlist": {"type": "string", "minLength": 1},
+    "parameters": {
+      "type": "object",
+      "propertyNames": {"$ref": "#/$defs/name"},
+      "additionalProperties": {"type": "string"}
+    },
+    "scenarios": {
+      "type": "array",
+      "maxItems": 32,
+      "items": {"$ref": "#/$defs/scenario"}
+    },
+    "analyses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"oneOf": [
+        {"type": "string", "pattern": "^(?:[Tt][Rr][Aa][Nn]|[Aa][Cc]|[Dd][Cc])\\s+\\S+(?:\\s+\\S+)*$"},
+        {"$ref": "#/$defs/namedAnalysis"}
+      ]}
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/measurement"}
+    },
+    "sweeps": {"type": "array", "items": {"$ref": "#/$defs/sweep"}},
+    "waveforms": {"type": "array", "items": {"$ref": "#/$defs/waveform"}},
+    "model_library": {"type": "string", "minLength": 1},
+    "untested_conditions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 1024}},
+    "models": {"type": "array", "items": {"oneOf": [
+      {"$ref": "#/$defs/model"},
+      {"$ref": "#/$defs/modelMapping"}
+    ]}}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "name": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$"},
+    "spiceValue": {"type": "string", "pattern": "^[+-]?(?:[0-9]+\\.?[0-9]*|\\.[0-9]+)(?:[Ee][+-]?[0-9]+)?(?:[TtGgMmKkUuNnPpFf]|[Mm][Ee][Gg])?$"},
+    "scenario": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {"$ref": "#/$defs/name"},
+        "category": {"enum": ["nominal", "corner", "fault", "statistical_sample", "other"]},
+        "set": {
+          "type": "object",
+          "propertyNames": {"$ref": "#/$defs/name"},
+          "additionalProperties": {"$ref": "#/$defs/spiceValue"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "measurement": {
+      "type": "object",
+      "required": ["id", "directive"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "directive": {"type": "string", "pattern": "^[Mm][Ee][Aa][Ss]\\s+(?:[Tt][Rr][Aa][Nn]|[Aa][Cc]|[Dd][Cc])\\s+[A-Za-z][A-Za-z0-9_]{0,63}\\s+.+$"},
+        "unit": {"type": "string"},
+        "min": {"type": "number"},
+        "max": {"type": "number"},
+        "description": {"type": "string"},
+        "analysis": {"$ref": "#/$defs/name"},
+        "signal": {"type": "string", "minLength": 1, "maxLength": 256},
+        "model_ref": {"$ref": "#/$defs/name"}
+      },
+      "additionalProperties": false
+    },
+    "namedAnalysis": {
+      "type": "object",
+      "required": ["id", "command"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "command": {"type": "string", "pattern": "^(?:[Tt][Rr][Aa][Nn]|[Aa][Cc]|[Dd][Cc])\\s+\\S+(?:\\s+\\S+)*$"},
+        "kind": {"enum": ["tran", "ac", "dc"]}
+      },
+      "additionalProperties": false
+    },
+    "sweep": {
+      "type": "object",
+      "required": ["name", "values"],
+      "properties": {
+        "name": {"$ref": "#/$defs/name"},
+        "values": {
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": {"$ref": "#/$defs/name"},
+          "additionalProperties": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/spiceValue"}}
+        }
+      },
+      "additionalProperties": false
+    },
+    "waveform": {
+      "type": "object",
+      "required": ["id", "analysis", "signals"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "analysis": {"$ref": "#/$defs/name"},
+        "signals": {
+          "type": "array", "minItems": 1, "maxItems": 32,
+          "items": {"type": "string", "pattern": "^(?:(?:[Vv]|[Ii])\\([A-Za-z0-9_]+(?:\\s*,\\s*[A-Za-z0-9_]+)?\\)|@[A-Za-z][A-Za-z0-9_]*\\[[iI]\\])$"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "required": ["id", "component", "kind", "source", "version", "limitations"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "component": {"$ref": "#/$defs/name"},
+        "kind": {"enum": ["spice_primitive", "subcircuit", "behavioral"]},
+        "source": {"type": "string", "minLength": 1, "maxLength": 512},
+        "version": {"type": "string", "minLength": 1, "maxLength": 512},
+        "sha256": {"oneOf": [{"type": "string", "pattern": "^[0-9a-fA-F]{64}$"}, {"type": "null"}]},
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 512}}
+      },
+      "additionalProperties": false
+    },
+    "modelMapping": {
+      "type": "object",
+      "required": ["id", "component", "library_ref", "connections"],
+      "properties": {
+        "id": {"$ref": "#/$defs/name"},
+        "component": {"$ref": "#/$defs/name"},
+        "library_ref": {"$ref": "#/$defs/name"},
+        "connections": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"}
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

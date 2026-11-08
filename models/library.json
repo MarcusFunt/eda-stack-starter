@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "library_version": "1.0.0",
+  "models": [
+    {
+      "id": "ngspice_ideal_resistor",
+      "kind": "spice_primitive",
+      "component_type": "R",
+      "pin_order": ["1", "2"],
+      "physical_pin_map": {"1": "1", "2": "2"},
+      "source": "ngspice built-in resistor primitive",
+      "version": "ngspice built-in primitive",
+      "license": "See the ngspice project license for the simulator distribution",
+      "manufacturer": null,
+      "part_number": null,
+      "operating_conditions": {
+        "temperature_C": {"min": null, "max": null, "basis": "No component rating; ideal primitive"},
+        "voltage_V": {"min": null, "max": null, "basis": "No component rating; ideal primitive"},
+        "assumptions": ["Constant resistance without parasitics, tolerance, temperature coefficient, or thermal behavior."]
+      },
+      "limitations": ["Ideal resistance only; this entry carries no physical part ratings or power derating."],
+      "validation_fixture": "fixtures/ideal_resistor_validation.cir",
+      "validation_fixture_sha256": "d7c87b96f71df05e84f2a06fea3f402b0ebe3267947e6661756c4a1f95bb0104"
+    },
+    {
+      "id": "two_pin_ideal_resistor_fixture",
+      "kind": "subcircuit",
+      "subckt_name": "TESTRES",
+      "file": "fixtures/ideal_two_pin_resistor.lib",
+      "sha256": "fdcd7c82f309965ac6eca9d5ea64fb9013c9b95c8adb2e52e0ace642cc3052bf",
+      "pin_order": ["P", "N"],
+      "physical_pin_map": {"1": "P", "2": "N"},
+      "source": "EDA Stack local validation fixture; not a vendor model",
+      "version": "1.0.0",
+      "license": "MIT",
+      "manufacturer": null,
+      "part_number": null,
+      "operating_conditions": {
+        "temperature_C": {"min": 27, "max": 27, "basis": "Local simulator fixture only; no component rating"},
+        "voltage_V": {"min": -1, "max": 1, "basis": "Local simulator fixture only; no component rating"},
+        "assumptions": ["The subcircuit contains only a fixed 1 kohm ideal resistor."]
+      },
+      "limitations": ["Local pin-order and connectivity fixture; not a vendor model and has no physical component ratings."],
+      "validation_fixture": "fixtures/ideal_two_pin_fixture.cir",
+      "validation_fixture_sha256": "997aa85cb553f1a2306057b7e18b03ac7851c005542b6bbb1ab65931768c671d"
+    }
+  ]
+}

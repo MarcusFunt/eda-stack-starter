@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "name": "nonconvergent_behavioral_source",
+  "netlist": "nonconvergent_behavioral.cir",
+  "parameters": {},
+  "scenarios": [
+    { "name": "nonconvergent", "set": {} }
+  ],
+  "analyses": ["tran 1u 10u"],
+  "measurements": [
+    {
+      "id": "impossible_node_voltage",
+      "directive": "meas tran impossible_node_voltage FIND v(n) AT=10u",
+      "min": 0.0,
+      "max": 5.0
+    }
+  ]
+}

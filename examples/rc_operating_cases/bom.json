@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "snapshot_time_utc": "2026-11-08T02:01:05Z",
+  "design_context": {
+    "example": "examples/rc_operating_cases",
+    "topology": "R1 connects IN to OUT; C1 connects OUT to ground.",
+    "nominal_values": {
+      "R1": "1 kohm",
+      "C1": "100 nF"
+    },
+    "supply_range_V": [4.5, 5.5],
+    "simulation_status": "The checked-in netlist remains an ideal R/C example. This BOM is a source-linked physical-part mapping, not a claim that the existing simulation uses vendor models or that a PCB exists."
+  },
+  "requirements": {
+    "R1": {
+      "resistance_ohm": 1000,
+      "tolerance_pct_max": 1,
+      "package": "0603 / EIA 1608",
+      "continuous_power_W_min_at_70C": 0.1,
+      "continuous_voltage_V_min": 75,
+      "maximum_component_voltage_V": 5.5,
+      "maximum_power_fraction_of_rating_at_70C": 0.5
+    },
+    "C1": {
+      "capacitance_F": 1e-7,
+      "tolerance_pct_max_at_25C": 10,
+      "dielectric": "X7R or better",
+      "package": "0603 / EIA 1608",
+      "dc_voltage_V_min": 50,
+      "maximum_component_voltage_V": 5.5,
+      "maximum_voltage_fraction_of_rating": 0.25,
+      "environmental_effects_to_review": [
+        "Capacitance change over temperature",
+        "Capacitance change under DC bias",
+        "Aging, ESR, ESL, and leakage"
+      ]
+    }
+  },
+  "derating_assessment": {
+    "declared_resistor_ambient_C_max_for_this_example": 70,
+    "resistor_worst_case_estimate": {
+      "calculation": "5.5 V squared divided by (1000 ohm times (1 - 0.01))",
+      "power_W": 0.03056,
+      "fraction_of_0_1W_rating": 0.3056,
+      "fraction_of_rating_limit": 0.5,
+      "result": "pass for the stated <=70 C ambient assumption in a tolerance-only calculation; excludes TCR and self-heating, so it is not a complete continuous worst-case bound"
+    },
+    "capacitor_dc_voltage": {
+      "maximum_V": 5.5,
+      "fraction_of_50V_rating": 0.11,
+      "fraction_of_rating_limit": 0.25,
+      "result": "pass for the stated supply range; effective capacitance under DC bias and temperature is not represented by the ideal C primitive"
+    },
+    "temperature_scope": "The 30.56 mW resistor estimate uses initial tolerance and excludes TCR and self-heating. An illustrative negative 100 ppm/C TCR adjustment from 25 C to 70 C gives 30.69 mW only if the resistor element stays at ambient; actual element temperature is unknown. Resistor power rating is specified at 70 C; use above 70 C requires the Yageo series derating curve and a refreshed power check. Capacitor operating range is -55 C to +125 C, but the checked-in operating-case sweep does not vary temperature."
+  },
+  "mapping_review": {
+    "reviewed_at_utc": "2026-11-07T23:13:14Z",
+    "manufacturer_data_source": "YAGEO product specification pages linked on each selected part",
+    "kicad_version": "10.0.8",
+    "kicad_image": "kicad/kicad@sha256:3f4a01786dfbe803a65f345c3342b765db9add913f5e9448f8356793714ddc34",
+    "note": "The standard footprint files and passive pad numbering were checked; this is library/part mapping evidence, not a claim that a KiCad board has passed P5 ERC/DRC or parity."
+  },
+  "sourcing": {
+    "service": "Traces component-sourcing MCP",
+    "supplier": "JLCPCB/LCSC",
+    "supplier_tool": "source_component",
+    "query_mode": "Exact manufacturer part number, one candidate, 0603 footprint",
+    "llm": "Ollama gemma4 (local); used to interpret the query, not to establish datasheet ratings",
+    "supplier_response_has_timestamp": false,
+    "timestamp_note": "snapshot_time_utc is the local UTC capture time for the two MCP requests; the supplier responses do not carry timestamps. Refreshed on 2026-11-08; exact MPNs were returned by Traces 3.4.2 using local Ollama gemma4.",
+    "credentials": "No JLCPCB/LCSC API credential was configured or required for this test",
+    "lead_time": null,
+    "lead_time_note": "Not returned by the tested source_component response; recheck with the supplier before ordering",
+    "substitution_policy": "No alternatives are pre-approved. Any substituted manufacturer part number requires a new original-datasheet review, package/pad check, supplier snapshot, operating-limit and derating review, model-pin review, and re-run of applicable verification cases."
+  },
+  "items": [
+    {
+      "reference": "R1",
+      "quantity": 1,
+      "role": "Series resistor from IN to OUT",
+      "selected_part": {
+        "manufacturer": "YAGEO",
+        "manufacturer_part_number": "RC0603FR-071KL",
+        "supplier_part_number": "C22548",
+        "supplier": "JLCPCB/LCSC",
+        "supplier_unit_price": 0.0036,
+        "supplier_price_currency": "USD",
+        "supplier_stock_quantity": 14118671,
+        "supplier_minimum_order_quantity": null,
+        "supplier_standard_packaging_quantity": null,
+        "manufacturer_datasheet": "https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-071KL",
+        "supplier_record": "https://www.lcsc.com/product-detail/C22548.html",
+        "traces_datasheet_copy": "https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_YAGEO-RC0603FR-071KL_C22548.pdf",
+        "availability_price_snapshot_utc": "2026-11-08T02:01:05Z",
+        "price_basis": "Unit price returned by Traces; price break and minimum order quantity were not included in that response. Treat as a sourcing snapshot, not a purchase quote."
+      },
+      "manufacturer_verified_properties": {
+        "resistance_ohm": 1000,
+        "tolerance_pct": 1,
+        "rated_power_W_at_70C": 0.1,
+        "temperature_coefficient_ppm_per_C": 100,
+        "operating_temperature_C": [-55, 155],
+        "maximum_continuous_voltage_V_at_full_rated_power": 75,
+        "package": "0603 / 1608 metric",
+        "body_mm": [1.6, 0.8, 0.45]
+      },
+      "footprint_and_pin_map": {
+        "symbol": "Device:R",
+        "footprint": "Resistor_SMD:R_0603_1608Metric",
+        "kicad_library_evidence": {
+          "footprint_file": "Resistor_SMD.pretty/R_0603_1608Metric.kicad_mod",
+          "footprint_sha256": "7190ac4a00125b807e54129ef0d87d87f2a658eeb74d025a7028203419b09f23",
+          "fab_outline_mm": [1.6, 0.825],
+          "pad_centers_x_mm": [-0.825, 0.825],
+          "pad_size_mm": [0.8, 0.95]
+        },
+        "symbol_pin_to_footprint_pad": {
+          "1": "1",
+          "2": "2"
+        },
+        "net_mapping": {
+          "pin_1": "IN",
+          "pin_2": "OUT"
+        },
+        "note": "The resistor is non-polarized; its two terminals are electrically interchangeable. KiCad standard-library pad numbering, geometry and file hash were checked against the pinned KiCad 10.0.8 image recorded in mapping_review."
+      },
+      "simulation_model_mapping": {
+        "model": "ngspice built-in R primitive",
+        "physical_pin_to_spice_terminal": {
+          "footprint_pad_1": "R1 terminal 1 / IN",
+          "footprint_pad_2": "R1 terminal 2 / OUT"
+        },
+        "vendor_model_used": false,
+        "limitation": "The current example uses the ideal resistance parameter; it does not load a Yageo SPICE model or simulate TCR, parasitics, self-heating, or the selected part's power curve."
+      }
+    },
+    {
+      "reference": "C1",
+      "quantity": 1,
+      "role": "Shunt capacitor from OUT to ground",
+      "selected_part": {
+        "manufacturer": "YAGEO",
+        "manufacturer_part_number": "CC0603KRX7R9BB104",
+        "supplier_part_number": "C14663",
+        "supplier": "JLCPCB/LCSC",
+        "supplier_unit_price": 0.0155,
+        "supplier_price_currency": "USD",
+        "supplier_stock_quantity": 34035481,
+        "supplier_minimum_order_quantity": null,
+        "supplier_standard_packaging_quantity": null,
+        "manufacturer_datasheet": "https://yageogroup.com/download/specsheet/CC0603KRX7R9BB104",
+        "supplier_record": "https://www.lcsc.com/product-detail/YAGEO-C14663.html",
+        "traces_datasheet_copy": "https://www.lcsc.com/datasheet/lcsc_datasheet_2211101700_YAGEO-CC0603KRX7R9BB104_C14663.pdf",
+        "availability_price_snapshot_utc": "2026-11-08T02:01:05Z",
+        "price_basis": "Unit price returned by Traces; price break and minimum order quantity were not included in that response. Treat as a sourcing snapshot, not a purchase quote."
+      },
+      "manufacturer_verified_properties": {
+        "capacitance_F": 1e-7,
+        "tolerance_pct": 10,
+        "dielectric": "X7R",
+        "rated_dc_voltage_V": 50,
+        "operating_temperature_C": [-55, 125],
+        "package": "0603 / 1608 metric",
+        "body_mm": [1.6, 0.8, 0.8],
+        "polarity": "non-polarized"
+      },
+      "footprint_and_pin_map": {
+        "symbol": "Device:C",
+        "footprint": "Capacitor_SMD:C_0603_1608Metric",
+        "kicad_library_evidence": {
+          "footprint_file": "Capacitor_SMD.pretty/C_0603_1608Metric.kicad_mod",
+          "footprint_sha256": "fe0dbfefbb181a0466f93a8de52d84ba7b00fcd9acdbb69575f4128a0af4e405",
+          "fab_outline_mm": [1.6, 0.8],
+          "pad_centers_x_mm": [-0.775, 0.775],
+          "pad_size_mm": [0.9, 0.95]
+        },
+        "symbol_pin_to_footprint_pad": {
+          "1": "1",
+          "2": "2"
+        },
+        "net_mapping": {
+          "pin_1": "OUT",
+          "pin_2": "GND"
+        },
+        "note": "The capacitor is non-polarized. KiCad standard-library pad numbering, geometry and file hash were checked against the pinned KiCad 10.0.8 image recorded in mapping_review."
+      },
+      "simulation_model_mapping": {
+        "model": "ngspice built-in C primitive",
+        "physical_pin_to_spice_terminal": {
+          "footprint_pad_1": "C1 terminal 1 / OUT",
+          "footprint_pad_2": "C1 terminal 2 / GND"
+        },
+        "vendor_model_used": false,
+        "limitation": "The current example uses an ideal capacitance parameter; it does not load a Yageo SPICE model or include the selected part's DC-bias, temperature, aging, ESR, ESL, ripple-current, or leakage behavior."
+      }
+    }
+  ]
+}

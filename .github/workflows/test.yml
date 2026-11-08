@@ -1,0 +1,87 @@
+name: Validate EDA Stack
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements-dev.txt
+      - run: ruff check src tests
+
+  unit:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+        python-version: ['3.10', '3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - if: matrix.python-version == '3.10'
+        run: python -m pip install -e .
+      - if: matrix.python-version != '3.10'
+        run: python -m pip install -e . -r requirements-dev.txt
+      - run: python -m unittest discover -s tests -v
+
+  real-ngspice:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.15.0'
+          cache: npm
+          cache-dependency-path: integrations/tscircuit-rc/package-lock.json
+      - run: npm install --global npm@11.12.1
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ngspice=42+ds-3build1
+      - run: python -m pip install -e . -r requirements-dev.txt
+      - run: ngspice -v
+      - run: edastack doctor
+      - name: Record integration toolchain
+        run: |
+          mkdir -p build
+          python --version > build/toolchain.txt
+          python -m pip freeze >> build/toolchain.txt
+          node --version >> build/toolchain.txt
+          npm --version >> build/toolchain.txt
+          ngspice -v >> build/toolchain.txt 2>&1
+          edastack doctor >> build/toolchain.txt
+      - name: Run full suite with real ngspice
+        run: |
+          mkdir -p build
+          set -o pipefail
+          python -m unittest discover -s tests -v 2>&1 | tee build/unittest.log
+      - run: edastack verify examples/rc_filter/spec.json --out build/rc_filter
+      - run: edastack verify examples/diode_clamp/spec.json --out build/diode_clamp
+      - name: Install pinned tscircuit dependencies
+        working-directory: integrations/tscircuit-rc
+        run: npm ci
+      - name: Run tscircuit integration checks
+        working-directory: integrations/tscircuit-rc
+        run: npm test
+      - name: Validate KiCad interchange and manufacturing exports
+        working-directory: integrations/tscircuit-rc
+        run: npm run kicad:validate
+      - name: Verify tscircuit source against real ngspice
+        working-directory: integrations/tscircuit-rc
+        run: npm run verify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: spice-verification-reports
+          path: build/
+          retention-days: 30

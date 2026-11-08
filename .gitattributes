@@ -1,0 +1,3 @@
+models/fixtures/ideal_resistor_validation.cir -text
+models/fixtures/ideal_two_pin_fixture.cir -text
+models/fixtures/ideal_two_pin_resistor.lib -text

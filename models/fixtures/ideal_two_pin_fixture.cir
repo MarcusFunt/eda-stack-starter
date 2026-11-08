@@ -1,0 +1,6 @@
+* Local subcircuit fixture; this is not a vendor device model.
+.include "ideal_two_pin_resistor.lib"
+V1 P 0 1
+RLOAD N 0 1k
+XU1 P N TESTRES
+.end

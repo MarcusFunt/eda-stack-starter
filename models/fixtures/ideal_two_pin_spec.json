@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "name": "ideal_two_pin_fixture",
+  "netlist": "ideal_two_pin_fixture.cir",
+  "model_library": "../library.json",
+  "untested_conditions": ["Only the declared 27 degree C ideal-resistor fixture is simulated."],
+  "parameters": {},
+  "scenarios": [{"name": "nominal", "category": "nominal", "set": {}}],
+  "analyses": [{"id": "transient", "command": "tran 1n 10n"}],
+  "measurements": [
+    {
+      "id": "node_voltage",
+      "analysis": "transient",
+      "directive": "meas tran node_voltage FIND V(N) AT=9n",
+      "signal": "V(N)",
+      "model_ref": "XU1_fixture",
+      "unit": "V",
+      "min": 0.49,
+      "max": 0.51,
+      "description": "Midpoint voltage of two equal ideal resistors."
+    }
+  ],
+  "waveforms": [
+    {"id": "fixture_nodes", "analysis": "transient", "signals": ["v(P)", "v(N)"]}
+  ],
+  "models": [
+    {
+      "id": "XU1_fixture",
+      "component": "XU1",
+      "library_ref": "two_pin_ideal_resistor_fixture",
+      "connections": {"1": "P", "2": "N"}
+    }
+  ]
+}
