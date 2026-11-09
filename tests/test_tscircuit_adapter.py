@@ -46,10 +46,10 @@ class TscircuitAdapterTests(unittest.TestCase):
             command = run.call_args.args[0]
             self.assertEqual(command[0:3], ["node", "--import", "tsx"])
             self.assertIn("--project-root", command)
-            self.assertIn(str(root / "project with spaces"), command)
+            self.assertIn(str((root / "project with spaces").resolve()), command)
             self.assertIn("src/custom-board.tsx", command)
             self.assertFalse(run.call_args.kwargs["shell"])
-            self.assertEqual(run.call_args.kwargs["cwd"], worker)
+            self.assertEqual(run.call_args.kwargs["cwd"], worker.resolve())
             self.assertEqual(run.call_args.kwargs["timeout"], 45)
 
     def test_reports_worker_diagnostic_and_code_on_failure(self):

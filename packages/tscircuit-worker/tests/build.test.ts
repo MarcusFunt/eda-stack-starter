@@ -160,7 +160,7 @@ test("sandbox runner diagnostics preserve explicit failure codes", () => {
 
 test("project snapshots reject symbolic links", { skip: process.platform === "win32" }, async () => {
   const root = await makeProject();
-  await rm(path.join(root, "node_modules"), { recursive: true });
+  await rm(path.join(root, "node_modules"), { recursive: true, force: true });
   await symlink(path.join(root, "src", "board.tsx"), path.join(root, "src", "linked.tsx"));
   await assert.rejects(snapshotProject(root, "src/board.tsx"), /symbolic link|symlink/i);
 });
