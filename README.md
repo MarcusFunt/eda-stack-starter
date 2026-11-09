@@ -46,7 +46,7 @@ To create a self-contained offline dashboard from archived runs, pass reports in
 edastack dashboard build/tscircuit-rc/reports/nominal/report.json build/tscircuit-rc/reports/resistor_fault/report.json --bom examples/rc_operating_cases/bom.json --out build/dashboard/index.html
 ```
 
-The page summarizes scenario checks and limits, overlays exported waveforms, shows BOM snapshot data, and diffs archived scenario decks. See `docs/P7_RESULTS_DASHBOARD.md` for scope and limitations.
+The self-contained HTML page prioritizes failures, distinguishes **measured-only** values from verified limits, filters runs and measurements, supports waveform zoom/cursors/trace selection, compares same-project runs, opens archived evidence, and shows BOM snapshots. It uses peak-preserving display sampling while retaining original waveform CSVs. Browser interaction tests and scope limitations are described in `docs/P7_RESULTS_DASHBOARD.md`.
 
 The CLI returns exit code **0 on PASS**, **1 on limit or simulation failure**, and **2 for bad configuration/missing tools**. Check `build/rc_filter/report.md` and the JSON/CSV results. Each invocation writes a unique snapshot under `build/rc_filter/runs/<run-id>/` and refreshes the top-level report and `run_manifest.json`. No cloud calls or paid APIs are made.
 

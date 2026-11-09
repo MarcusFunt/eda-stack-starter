@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>EDA Stack · Verification workspace</title>
+<style>
+:root { color-scheme:dark; font:14px/1.5 system-ui,"Segoe UI",sans-serif; background:#0c1119; color:#e6edf7; }
+* {box-sizing:border-box}
+body {margin:0}
+button,select,input {font:inherit;color:inherit}
+button,select,input[type="search"] {background:#172436;border:1px solid #354760;border-radius:7px;padding:8px 10px}
+button {cursor:pointer} button:hover:not(:disabled) {background:#25384f} button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,canvas:focus-visible {outline:2px solid #91baff;outline-offset:2px}
+a {color:#8bbfff} a:hover {color:#c4dcff}
+header {background:#111b2a;border-bottom:1px solid #324255;padding:20px max(24px,calc((100vw - 1500px)/2))}
+header h1 {font-size:1.55rem;letter-spacing:-.025em;margin:0}
+.subtitle,.muted {color:#aabbd0}
+header p {margin:3px 0 0}
+main {max-width:1548px;margin:auto;padding:22px 24px 72px}
+.summary {display:grid;grid-template-columns:repeat(5,minmax(140px,1fr));gap:12px;margin-bottom:16px}
+.metric {padding:15px 18px;border:1px solid #33465b;border-radius:10px;background:#172333}
+.metric strong {display:block;font-size:1.6rem;font-variant-numeric:tabular-nums}
+.metric span {color:#b7c7da;font-size:.88rem}
+.panel {border:1px solid #2d4055;border-radius:11px;background:#131f2e;padding:20px;margin:14px 0}
+.panel-head {display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+h2 {font-size:1.13rem;margin:0;font-weight:660} h3 {font-size:1rem;margin:12px 0 6px}
+.toolbar {display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.toolbar label {display:flex;gap:7px;align-items:center;color:#b7c7da}
+.toolbar input[type="search"] {min-width:230px;flex:1}
+.tools {display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.helper {font-size:.86rem;color:#aabbd0;margin:6px 0}
+.table-wrap {overflow-x:auto}
+table {border-collapse:collapse;width:100%;min-width:780px}
+th,td {padding:10px;border-bottom:1px solid #29394e;text-align:left;vertical-align:middle}
+th {color:#b7c7da;font-weight:590;background:#182535;font-size:.85rem}
+td {font-variant-numeric:tabular-nums}
+tr:last-child td {border-bottom:0}
+tr.problem td {background:#3b252b}
+tr[data-status="failed"] td:last-child {font-weight:700}
+tr[role="button"] {cursor:pointer} tr[role="button"]:hover td {background:#24334a}
+.badge {display:inline-block;font-size:.78rem;font-weight:650;padding:2px 8px;border-radius:5px;border:1px solid transparent}
+.badge.passed {color:#9ce6b3;background:#18382f;border-color:#315e4d}
+.badge.failed {color:#ffb0ac;background:#442a2e;border-color:#754047}
+.badge.measured {color:#b0d9ff;background:#21374a;border-color:#395570}
+.badge.error {color:#ffcc86;background:#423321;border-color:#776039}
+.badge.not-run {color:#bbc5d1;background:#293242;border-color:#49576b}
+.mono {font-family:ui-monospace,Consolas,monospace;font-size:.86rem;overflow-wrap:anywhere}
+.truncate {max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.small {font-size:.87rem}
+.fail-list {display:grid;gap:8px}
+.fail-item {border:1px solid #64454b;background:#302329;border-radius:8px;padding:12px 14px;display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.fail-item strong {color:#ffc0b9}
+.fail-item button {white-space:nowrap}
+.empty {border:1px dashed #456077;border-radius:8px;color:#aac3d7;padding:18px;text-align:center}
+.canvas-shell {position:relative}
+canvas {width:100%;height:390px;display:block;border:1px solid #374a62;border-radius:8px;background:#0b1724;cursor:crosshair;touch-action:none}
+.canvas-tip {position:absolute;top:12px;left:12px;pointer-events:none;background:#0d1829e8;border:1px solid #49647d;padding:6px 9px;border-radius:7px;font-variant-numeric:tabular-nums}
+.legend {display:flex;flex-wrap:wrap;gap:8px 18px;margin:12px 0}
+.legend label {display:flex;align-items:center;gap:7px;cursor:pointer;font-size:.83rem}
+.swatch {width:14px;height:4px;display:inline-block;border-radius:2px}
+.cursor-readout {padding:10px 0;min-height:38px;font-variant-numeric:tabular-nums}
+.pair {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+details {border:1px solid #35465c;border-radius:8px;margin:10px 0;padding:12px;background:#101b2a}
+summary {cursor:pointer;font-weight:600}
+pre {overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1420;padding:14px;border:1px solid #2e3a4b;border-radius:8px;max-height:420px}
+.evidence-links {display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+.evidence-links a {font-size:.87rem;border:1px solid #3d5770;border-radius:6px;padding:5px 9px}
+.notice {color:#f1ce94;border-left:3px solid #be9259;background:#302a24;padding:10px 14px;margin:12px 0}
+.status-heading {display:flex;align-items:center;gap:12px}
+#filter-count {margin-left:auto}
+@media(max-width:850px) {.summary{grid-template-columns:repeat(2,minmax(120px,1fr))}.pair{grid-template-columns:1fr}main{padding:12px}header{padding:15px}.panel{padding:12px}.toolbar input[type="search"]{min-width:170px}}
+</style>
+</head>
+<body>
+<header>
+<h1>EDA Stack <span class="muted">/ Verification workspace</span></h1>
+<p class="subtitle">Offline, read-only engineering evidence. Simulation alone does not certify a design or PCB.</p>
+</header>
+<main>
+<div class="summary" id="summary" aria-label="Verification summary"></div>
+<section class="panel" aria-label="Filter results">
+  <div class="panel-head"><h2>Explore results</h2><span id="filter-count" class="muted" aria-live="polite"></span></div>
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search runs, scenarios, measurements…" aria-label="Search results">
+    <label for="project-filter">Project <select id="project-filter"></select></label>
+    <label for="status-filter">Status <select id="status-filter">
+      <option value="all">All statuses</option>
+      <option value="failed">Failed</option>
+      <option value="error">Errors</option>
+      <option value="passed">Passed</option>
+      <option value="measured">Measured only</option>
+      <option value="not-run">Not run</option>
+    </select></label>
+    <button id="clear-filters" type="button">Clear filters</button>
+  </div>
+</section>
+<section class="panel" id="issues-panel">
+ <div class="panel-head"><h2>Attention required</h2><span class="muted small">Failed and errored checks first</span></div>
+ <div id="issues" class="fail-list" aria-live="polite"></div>
+</section>
+<section class="panel" id="matrix-panel">
+ <div class="panel-head"><h2>Experiment matrix</h2><span class="muted small">Select a scenario for archived evidence</span></div>
+ <div class="table-wrap"><table><thead><tr><th>Project / run</th><th>Scenario</th><th>Category</th><th>Parameters</th><th>Verified / measured</th><th>Result</th></tr></thead><tbody id="matrix"></tbody></table></div>
+</section>
+<section class="panel" id="measurements-panel">
+ <div class="panel-head"><h2>Measurement limits</h2><span class="muted small">Unbounded values are measured, not verified</span></div>
+ <div class="table-wrap"><table><thead><tr><th>Run / scenario</th><th>Measurement</th><th>Value</th><th>Minimum</th><th>Maximum</th><th>Margin / reason</th><th>Result</th></tr></thead><tbody id="checks"></tbody></table></div>
+</section>
+<section class="panel" id="waveform-panel">
+ <div class="panel-head"><h2>Waveform overlays</h2><div class="tools"><label for="signal">Signal <select id="signal"></select></label><button id="wave-reset" type="button">Reset zoom</button><button id="cursor-clear" type="button">Clear cursors</button></div></div>
+ <p class="helper">Drag to zoom into a time interval; scroll over the graph to zoom around the pointer. Click twice to place measurement cursors A and B. The original waveform CSV remains unchanged.</p>
+ <div class="canvas-shell"><canvas id="chart" aria-label="Interactive waveform chart" tabindex="0"></canvas><div class="canvas-tip" id="canvas-tip" hidden></div></div>
+ <div class="legend" id="legend" aria-label="Toggle waveform traces"></div>
+ <div class="cursor-readout muted" id="cursor-readout" aria-live="polite"></div>
+ <p class="muted small" id="waveform-note"></p>
+</section>
+<section class="panel" id="compare-panel">
+ <div class="panel-head"><h2>Run comparison</h2><span class="muted small">Only runs from the same project may be compared</span></div>
+ <div class="tools">
+   <label for="compare-base">Baseline <select id="compare-base"></select></label>
+   <label for="compare-target">Candidate <select id="compare-target"></select></label>
+ </div>
+ <p id="compare-note" class="helper" aria-live="polite"></p>
+ <div class="table-wrap"><table><thead><tr><th>Scenario</th><th>Measurement</th><th>Baseline</th><th>Candidate</th><th>Delta</th><th>Candidate status</th></tr></thead><tbody id="compare-table"></tbody></table></div>
+</section>
+<section class="panel" id="evidence-panel">
+ <div class="panel-head"><h2>Archived evidence</h2><label for="evidence-select">Scenario <select id="evidence-select"></select></label></div>
+ <p class="helper">Files are original local artifacts captured at dashboard generation. Previews are capped; links may not work if this HTML is copied away from the original machine.</p>
+ <div id="evidence"></div>
+</section>
+<section class="panel" id="diff-panel">
+ <div class="panel-head"><h2>Deck differences</h2><span class="muted small">Archived simulator input; not PCB equivalence</span></div>
+ <div id="diffs"></div>
+</section>
+<section class="panel" id="bom-panel">
+ <div class="panel-head"><h2>BOM status</h2><span class="muted small">Supplier values are historical snapshots</span></div>
+ <div id="boms"></div>
+</section>
+</main>
+<script>
+"use strict";
+const DATA = __DATA__;
+const $ = id => document.getElementById(id);
+const els = {summary:$("summary"), matrix:$("matrix"), checks:$("checks"), issues:$("issues")};
+const ALL = DATA.runs.flatMap((run,ri) => run.scenarios.map((scenario,si) => ({run,scenario,ri,si,key:String(ri)+":"+String(si)})));
+const checksFor = rows => rows.flatMap(row => row.scenario.checks.map(check => ({row,check})));
+const badgeText = {passed:"Passed",failed:"Failed",measured:"Measured",error:"Error","not-run":"Not run"};
+const COLORS = ["#66baf4","#e6ad57","#82dabb","#d59cd0","#f0d678","#f58f8f","#ac9cff","#6dcbbe"];
+const state = {project:"all",status:"all",search:"",signal:null,visible:new Set(),waveRange:null,cursorA:null,cursorB:null,evidence:null,baseline:0,candidate:1};
+function el(tag,className,content) {const node=document.createElement(tag);if(className)node.className=className;if(content!==undefined)node.textContent=String(content);return node}
+function cell(row,value,className) {const td=el("td",className,value);row.appendChild(td);return td}
+function fmtNumber(value) {return Number.isFinite(value)?Number(value).toPrecision(5).replace(/(\.\d*?[1-9])0+$/,"$1").replace(/\.0+$/,""): "—"}
+function unitScale(values,unit) {
+ const names={V:"V",A:"A",W:"W",s:"s",Hz:"Hz",Ohm:"Ω",Ω:"Ω",F:"F",H:"H"};
+ if(!names[unit])return {factor:1,symbol:unit||""};
+ const valid=values.filter(v=>typeof v==="number"&&Number.isFinite(v)&&v!==0).map(v=>Math.abs(v));
+ const peak=valid.length?Math.max(...valid):0;
+ let factor=1,prefix="";
+ for(const [threshold,pfx] of [[1e9,"G"],[1e6,"M"],[1e3,"k"],[1,""],[1e-3,"m"],[1e-6,"µ"],[1e-9,"n"],[1e-12,"p"]]) {if(peak>=threshold){factor=threshold;prefix=pfx;break}}
+ return {factor,symbol:prefix+names[unit]};
+}
+function formatted(value,unit,scale) {if(value===null||value===undefined||!Number.isFinite(Number(value)))return "—";const s=scale||unitScale([Number(value)],unit);return fmtNumber(Number(value)/s.factor)+(s.symbol?" "+s.symbol:"")}
+function pill(status) {return el("span","badge "+(badgeText[status]?status:"not-run"),badgeText[status]||"Not run")}
+function runName(run) {return run.project+" · "+run.run_id.slice(0,10)}
+function option(value,text) {const node=el("option","",text);node.value=String(value);return node}
+function filters() {
+ const words=state.search.trim().toLowerCase();
+ return ALL.filter(item => {
+  const s=item.scenario,run=item.run;
+  if(state.project!=="all"&&run.project!==state.project)return false;
+  if(state.status!=="all" && s.display_status!==state.status && !s.checks.some(c=>c.display_status===state.status))return false;
+  if(!words)return true;
+  return [run.project,run.run_id,s.name,s.category,JSON.stringify(s.parameters||{}),...s.checks.map(c=>c.id)].join(" ").toLowerCase().includes(words);
+ });
+}
+function matchChecks(list) {
+ const q=state.search.trim().toLowerCase();
+ return checksFor(list).filter(({row,check}) => (state.status==="all"||check.display_status===state.status) && (!q||[check.id,row.run.project,row.run.run_id,row.scenario.name].join(" ").toLowerCase().includes(q)));
+}
+function renderSummary() {
+ const checks=checksFor(ALL);
+ const metrics=[["Runs",DATA.runs.length],["Verified checks",checks.filter(x=>x.check.display_status==="passed").length],["Failed",checks.filter(x=>x.check.display_status==="failed").length],["Errors",checks.filter(x=>x.check.display_status==="error").length],["Measured only",checks.filter(x=>x.check.display_status==="measured").length]];
+ els.summary.replaceChildren();
+ for(const [title,value] of metrics){const node=el("div","metric");node.append(el("strong","",value),el("span","",title));els.summary.appendChild(node)}
+}
+function renderResults() {
+ const list=filters();
+ const checks=matchChecks(list);
+ $("filter-count").textContent=String(list.length)+" scenarios · "+String(checks.length)+" measurements";
+ els.matrix.replaceChildren();
+ for(const {run,scenario,key} of list) {
+  const row=el("tr",["failed","error"].includes(scenario.display_status)?"problem":"");row.dataset.status=scenario.display_status;row.tabIndex=0;row.setAttribute("role","button");
+  const choose=()=>{state.evidence=key;$("evidence-select").value=key;renderEvidence();$("evidence-panel").scrollIntoView({behavior:"smooth",block:"start"})};
+  row.addEventListener("click",choose);row.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();choose()}});
+  cell(row,runName(run),"mono");cell(row,scenario.name);cell(row,scenario.category||"—");cell(row,Object.entries(scenario.parameters||{}).map(([key,value])=>key+"="+value).join(", "),"mono");
+  const verified=scenario.checks.filter(c=>c.display_status==="passed"||c.display_status==="failed").length;
+  const measured=scenario.checks.filter(c=>c.display_status==="measured").length;
+  cell(row,String(verified)+" verified · "+String(measured)+" measured");const status=el("td");status.appendChild(pill(scenario.display_status));row.appendChild(status);els.matrix.appendChild(row);
+ }
+ if(!list.length){const r=el("tr");const c=cell(r,"No matching scenarios.");c.colSpan=6;els.matrix.appendChild(r)}
+ const sorted=checks.sort((a,b)=>({error:0,failed:1,"not-run":2,measured:3,passed:4}[a.check.display_status]??5)-({error:0,failed:1,"not-run":2,measured:3,passed:4}[b.check.display_status]??5));
+ els.checks.replaceChildren();
+ for(const {row,check} of sorted) {
+  const tr=el("tr",["failed","error"].includes(check.display_status)?"problem":"");tr.dataset.status=check.display_status;
+  const scale=unitScale([check.value,check.min,check.max].filter(Number.isFinite),check.unit||"");
+  cell(tr,runName(row.run)+" · "+row.scenario.name,"mono");cell(tr,check.id,"mono");
+  cell(tr,formatted(check.value,check.unit,scale));cell(tr,formatted(check.min,check.unit,scale));cell(tr,formatted(check.max,check.unit,scale));
+  let info="—";
+  if(check.display_status==="measured")info="No acceptance limits";
+  else if(check.display_status==="error")info=check.error||"Measurement unavailable";
+  else if(check.display_status==="failed")info="Outside configured limits";
+  else if(check.display_status==="passed") {
+   const m=[Number.isFinite(check.min)?check.value-check.min:null,Number.isFinite(check.max)?check.max-check.value:null].filter(v=>v!==null);
+   if(m.length)info="Margin "+formatted(Math.min(...m),check.unit,scale);
+  }
+  cell(tr,info);const last=el("td");last.appendChild(pill(check.display_status));tr.appendChild(last);els.checks.appendChild(tr);
+ }
+ if(!sorted.length){const r=el("tr");const c=cell(r,"No matching measurements.");c.colSpan=7;els.checks.appendChild(r)}
+ els.issues.replaceChildren();
+ const problems=checks.filter(x=>["failed","error"].includes(x.check.display_status)).sort((a,b)=>Number(a.check.display_status!=="error")-Number(b.check.display_status!=="error"));
+ if(!problems.length)els.issues.appendChild(el("div","empty","No failed or errored checks in this selection."));
+ for(const {row,check} of problems) {
+  const n=el("div","fail-item");const info=el("div");info.append(el("strong","",check.id+" · "+badgeText[check.display_status]),el("div","small",runName(row.run)+" / "+row.scenario.name),el("div","small",check.error||("Measured "+formatted(check.value,check.unit)+"; expected "+[formatted(check.min,check.unit),formatted(check.max,check.unit)].join(" to "))));
+  const link=el("button","","View evidence");link.type="button";link.addEventListener("click",()=>{state.evidence=row.key;$("evidence-select").value=row.key;renderEvidence();$("evidence-panel").scrollIntoView({behavior:"smooth"})});
+  n.append(info,link);els.issues.appendChild(n);
+ }
+}
+function fillSelect(id,values) {const select=$(id);select.replaceChildren(...values.map(a=>option(a[0],a[1])))}
+function initializeFilters() {
+ fillSelect("project-filter",[["all","All projects"],...[...new Set(DATA.runs.map(r=>r.project))].sort().map(v=>[v,v])]);
+ $("search").addEventListener("input",e=>{state.search=e.target.value;renderResults()});
+ $("project-filter").addEventListener("change",e=>{state.project=e.target.value;renderResults()});
+ $("status-filter").addEventListener("change",e=>{state.status=e.target.value;renderResults()});
+ $("clear-filters").addEventListener("click",()=>{state.search="";state.status="all";state.project="all";$("search").value="";$("status-filter").value="all";$("project-filter").value="all";renderResults()});
+}
+function renderCompareSelectors(){
+ const options=DATA.runs.map((run,i)=>[i,runName(run)]);
+ fillSelect("compare-base",options);fillSelect("compare-target",options);
+ const compatible=DATA.runs.findIndex((r,i)=>i>0&&r.project===DATA.runs[0].project);
+ state.baseline=0;state.candidate=compatible>=0?compatible:Math.min(1,DATA.runs.length-1);
+ $("compare-base").value=String(state.baseline);$("compare-target").value=String(state.candidate);
+ $("compare-base").addEventListener("change",e=>{state.baseline=Number(e.target.value);renderComparison()});
+ $("compare-target").addEventListener("change",e=>{state.candidate=Number(e.target.value);renderComparison()});
+ renderComparison();
+}
+function renderComparison(){
+ const base=DATA.runs[state.baseline],target=DATA.runs[state.candidate],body=$("compare-table");body.replaceChildren();
+ const note=$("compare-note");
+ if(!base||!target||state.baseline===state.candidate){note.textContent="Select two different runs.";return}
+ if(base.project!==target.project){note.textContent="Comparison blocked: runs belong to different projects.";return}
+ const a=new Map(base.scenarios.map(s=>[s.name,s])),b=new Map(target.scenarios.map(s=>[s.name,s]));
+ const common=[...a.keys()].filter(key=>b.has(key));note.textContent=common.length+" matching scenarios · baseline "+base.run_id.slice(0,10)+" → candidate "+target.run_id.slice(0,10);
+ if(!common.length){note.textContent+=". No same-named scenarios to compare.";return}
+ for(const name of common) {
+  const left=new Map(a.get(name).checks.map(c=>[c.id,c]));
+  for(const check of b.get(name).checks) {
+   const prev=left.get(check.id);if(!prev)continue;
+   const scale=unitScale([prev.value,check.value,prev.min,prev.max,check.min,check.max].filter(Number.isFinite),check.unit||"");
+   const unitsMatch=(prev.unit||"")===(check.unit||"");
+   const baselineScale=unitsMatch?scale:unitScale([prev.value,prev.min,prev.max].filter(Number.isFinite),prev.unit||"");
+   const delta=unitsMatch&&Number.isFinite(prev.value)&&Number.isFinite(check.value)?check.value-prev.value:null;
+   const tr=el("tr",["failed","error"].includes(check.display_status)?"problem":"");
+   cell(tr,name);cell(tr,check.id,"mono");cell(tr,formatted(prev.value,prev.unit,baselineScale));cell(tr,formatted(check.value,check.unit,scale));
+   cell(tr,!unitsMatch?"Unit mismatch":delta===null?"—":(delta>0?"+":"")+formatted(delta,check.unit,scale));
+   const last=el("td");last.appendChild(pill(check.display_status));tr.appendChild(last);body.appendChild(tr);
+  }
+ }
+ if(!body.children.length)note.textContent+=". No matching measurement IDs.";
+}
+function renderEvidence(){
+ const select=$("evidence-select"),target=$("evidence");
+ const item=ALL.find(r=>r.key===state.evidence)||ALL[0];target.replaceChildren();
+ if(!item){target.appendChild(el("div","empty","No scenarios supplied."));return}
+ state.evidence=item.key;select.value=item.key;
+ const evidence=item.scenario.evidence||[];
+ if(!evidence.length){target.appendChild(el("div","empty","No archived evidence recorded for this scenario."));return}
+ for(const entry of evidence) {
+  const details=el("details");const title=el("summary","",entry.label+(entry.available?"":" · unavailable"));
+  const meta=el("p","small muted",entry.path||"No path recorded");const links=el("div","evidence-links");
+  if(entry.available&&entry.uri){const a=el("a","","Open original file");a.href=entry.uri;a.target="_blank";a.rel="noopener noreferrer";links.appendChild(a)}
+  const copy=el("button","","Copy path");copy.type="button";copy.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(entry.path||"");copy.textContent="Copied"}catch(_){copy.textContent="Clipboard unavailable"}});links.appendChild(copy);
+  const pre=el("pre","mono",entry.preview||"No text preview available.");
+  details.append(title,meta,links,pre);
+  if(entry.truncated)details.appendChild(el("p","notice","Preview truncated. Open the original file to inspect the complete evidence."));
+  target.appendChild(details);
+ }
+}
+function prepareEvidence(){
+ fillSelect("evidence-select",ALL.map(r=>[r.key,runName(r.run)+" / "+r.scenario.name]));
+ $("evidence-select").addEventListener("change",e=>{state.evidence=e.target.value;renderEvidence()});
+ renderEvidence();
+}
+function renderDiffs() {
+ const target=$("diffs");target.replaceChildren();
+ if(!DATA.diffs.length){target.appendChild(el("div","empty","No comparable archived decks. Supply two runs of the same project."));return}
+ for(const diff of DATA.diffs){
+  const d=el("details");d.append(el("summary","",diff.label),el("pre","mono",diff.text));target.appendChild(d);
+ }
+}
+function renderBoms(){
+ const target=$("boms");target.replaceChildren();
+ if(!DATA.boms.length){target.appendChild(el("div","empty","No BOM snapshot supplied."));return}
+ for(const bom of DATA.boms){
+  target.appendChild(el("h3","",bom.name+" · snapshot "+(bom.snapshot||"not timestamped")));
+  const wrap=el("div","table-wrap"),table=el("table"),head=el("thead"),hrow=el("tr"),body=el("tbody");
+  for(const h of ["Reference","Qty","Manufacturer part","Supplier part","Stock snapshot","Datasheet"]){hrow.appendChild(el("th","",h))}
+  head.appendChild(hrow);
+  for(const item of bom.items){
+   const part=item.part||{},row=el("tr");
+   cell(row,item.reference);cell(row,item.quantity);cell(row,[part.manufacturer,part.manufacturer_part_number].filter(Boolean).join(" "));
+   cell(row,[part.supplier,part.supplier_part_number].filter(Boolean).join(" "));
+   cell(row,String(part.supplier_stock_quantity??"Not recorded")+(part.availability_price_snapshot_utc?" · "+part.availability_price_snapshot_utc:""));
+   const last=el("td");const url=part.manufacturer_datasheet;
+   if(typeof url==="string"&&url.startsWith("https://")){const a=el("a","","Manufacturer datasheet");a.href=url;a.target="_blank";a.rel="noopener noreferrer";last.appendChild(a)}else last.textContent="Not linked";
+   row.appendChild(last);body.appendChild(row);
+  }
+  table.append(head,body);wrap.appendChild(table);target.appendChild(wrap);
+ }
+}
+function waveformsForSignal(){
+ return DATA.waveforms.filter(w=>w.signal===state.signal);
+}
+function activeTraces(){
+ return waveformsForSignal().filter((w,i)=>state.visible.has(i));
+}
+function resetWave(){
+ const traces=activeTraces();state.waveRange=null;state.cursorA=null;state.cursorB=null;
+ if(traces.length){const all=traces.flatMap(w=>[w.x[0],w.x[w.x.length-1]]);state.waveRange=[Math.min(...all),Math.max(...all)]}
+ drawWave();
+}
+function setupWaveform(){
+ const signals=[...new Set(DATA.waveforms.map(w=>w.signal))];
+ fillSelect("signal",signals.map(s=>[s,s]));state.signal=signals[0]||null;
+ $("signal").disabled=!state.signal;
+ $("signal").addEventListener("change",e=>{state.signal=e.target.value;refreshLegend();resetWave()});
+ $("wave-reset").addEventListener("click",resetWave);
+ $("cursor-clear").addEventListener("click",()=>{state.cursorA=null;state.cursorB=null;drawWave()});
+ refreshLegend();resetWave();
+ if(!signals.length)$("waveform-note").textContent="No waveform CSVs were included.";
+ const canvas=$("chart");
+ let drag=null;
+ const bounds=()=>{const r=canvas.getBoundingClientRect();return {r,left:64,right:r.width-18,width:r.width-82}};
+ const xAt=clientX=>{const b=bounds();const u=Math.max(0,Math.min(1,(clientX-b.r.left-b.left)/b.width));const span=state.waveRange||[0,1];return span[0]+u*(span[1]-span[0])};
+ canvas.addEventListener("pointerdown",e=>{if(!state.signal)return;drag={x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});
+ canvas.addEventListener("pointerup",e=>{
+  if(!drag||!state.waveRange)return;
+  const dx=Math.abs(e.clientX-drag.x);
+  if(dx>10) {const a=xAt(drag.x),b=xAt(e.clientX);if(Math.abs(a-b)>1e-15)state.waveRange=[Math.min(a,b),Math.max(a,b)]}
+  else {const x=xAt(e.clientX);if(state.cursorA===null||state.cursorB!==null){state.cursorA=x;state.cursorB=null}else state.cursorB=x}
+  drag=null;drawWave();
+ });
+ canvas.addEventListener("pointermove",e=>{const tip=$("canvas-tip");if(!state.signal||!activeTraces().length||!state.waveRange){tip.hidden=true;return}const x=xAt(e.clientX);const trace=activeTraces()[0];let nearest=0,delta=Infinity;for(let i=0;i<trace.x.length;i++){const d=Math.abs(trace.x[i]-x);if(d<delta){delta=d;nearest=i}}tip.hidden=false;tip.textContent=formatted(trace.x[nearest],"s")+" · "+formatted(trace.y[nearest],signalUnit(state.signal))});
+ canvas.addEventListener("pointerleave",()=>{$("canvas-tip").hidden=true});
+ canvas.addEventListener("wheel",e=>{if(!state.waveRange)return;e.preventDefault();const x=xAt(e.clientX),[lo,hi]=state.waveRange;const factor=e.deltaY>0?1.3:0.75;const next=[x-(x-lo)*factor,x+(hi-x)*factor];if(next[1]-next[0]>1e-15){state.waveRange=next;drawWave()}},{passive:false});
+ window.addEventListener("resize",drawWave);
+}
+function signalUnit(signal){if(signal.startsWith("v("))return "V";if(signal.startsWith("i("))return "A";return ""}
+function refreshLegend(){
+ const target=$("legend");target.replaceChildren();state.visible=new Set(waveformsForSignal().map((_,i)=>i));
+ waveformsForSignal().forEach((trace,i)=>{
+  const label=el("label"),check=el("input");check.type="checkbox";check.checked=true;check.dataset.trace=String(i);
+  const swatch=el("span","swatch");swatch.style.backgroundColor=COLORS[i%COLORS.length];
+  check.addEventListener("change",()=>{if(check.checked)state.visible.add(i);else state.visible.delete(i);drawWave()});
+  label.append(check,swatch,el("span","",trace.label));target.appendChild(label);
+ });
+}
+function drawWave() {
+ const canvas=$("chart"),ctx=canvas.getContext("2d");if(!ctx)return;
+ const width=Math.max(360,canvas.clientWidth),height=390,dpr=window.devicePixelRatio||1;
+ canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);
+ const p={l:64,r:18,t:18,b:42},w=width-p.l-p.r,h=height-p.t-p.b;
+ const traces=activeTraces();
+ if(!traces.length){$("cursor-readout").textContent="No visible traces.";return}
+ if(!state.waveRange) {const ts=traces.flatMap(t=>[t.x[0],t.x[t.x.length-1]]);state.waveRange=[Math.min(...ts),Math.max(...ts)]}
+ let [lo,hi]=state.waveRange;if(hi<=lo)hi=lo+1;
+ const relevant=traces.flatMap(t=>t.y.filter((v,i)=>t.x[i]>=lo&&t.x[i]<=hi));
+ if(!relevant.length){$("cursor-readout").textContent="No samples in selected interval. Reset zoom.";return}
+ let ymin=Math.min(...relevant),ymax=Math.max(...relevant);if(ymin===ymax){ymin-=1;ymax+=1}
+ const yPad=(ymax-ymin)*.08;ymin-=yPad;ymax+=yPad;
+ const xx=x=>p.l+(x-lo)/(hi-lo)*w,yy=y=>p.t+(ymax-y)/(ymax-ymin)*h;
+ ctx.font="12px system-ui";ctx.lineWidth=1;ctx.strokeStyle="#34465b";ctx.fillStyle="#b7c7da";
+ for(let i=0;i<=5;i++){const fy=p.t+i*h/5;ctx.beginPath();ctx.moveTo(p.l,fy);ctx.lineTo(width-p.r,fy);ctx.stroke();ctx.fillText(formatted(ymax-i*(ymax-ymin)/5,signalUnit(state.signal)),6,fy+4)}
+ ctx.fillText(formatted(lo,"s"),p.l,height-12);ctx.textAlign="right";ctx.fillText(formatted(hi,"s"),width-12,height-12);ctx.textAlign="left";
+ const all=waveformsForSignal();
+ for(const trace of traces){const index=all.indexOf(trace);ctx.beginPath();ctx.strokeStyle=COLORS[index%COLORS.length];ctx.lineWidth=1.7;
+  let started=false;for(let i=0;i<trace.x.length;i++){const x=trace.x[i];if(x<lo||x>hi)continue;if(!started){ctx.moveTo(xx(x),yy(trace.y[i]));started=true}else ctx.lineTo(xx(x),yy(trace.y[i]))}
+  ctx.stroke();
+ }
+ for(const [cursor,color] of [[state.cursorA,"#e8b760"],[state.cursorB,"#fc93bb"]]){
+  if(cursor===null)continue;ctx.strokeStyle=color;ctx.setLineDash([5,4]);ctx.beginPath();ctx.moveTo(xx(cursor),p.t);ctx.lineTo(xx(cursor),height-p.b);ctx.stroke();ctx.setLineDash([]);
+ }
+ const readout=$("cursor-readout");
+ if(state.cursorA!==null&&state.cursorB!==null)readout.textContent="Cursor A: "+formatted(state.cursorA,"s")+" · B: "+formatted(state.cursorB,"s")+" · Δt: "+formatted(Math.abs(state.cursorB-state.cursorA),"s");
+ else if(state.cursorA!==null)readout.textContent="Cursor A: "+formatted(state.cursorA,"s")+" · click to place cursor B.";
+ else readout.textContent="Drag to zoom or click to place cursor A.";
+ $("waveform-note").textContent="Displaying up to "+String(DATA.max_display_points||2000)+" extrema-preserving samples per trace; source CSVs are unchanged.";
+}
+renderSummary();initializeFilters();renderResults();renderCompareSelectors();prepareEvidence();renderDiffs();renderBoms();setupWaveform();
+</script>
+</body>
+</html>

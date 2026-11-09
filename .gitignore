@@ -10,3 +10,5 @@ build/
 .pytest_cache/
 .superpowers/
 .worktrees/
+tests/browser/test-results/
+tests/browser/playwright-report/
