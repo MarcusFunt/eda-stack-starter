@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import { afterEach, test } from "node:test";
 import {
+  buildProject,
   createSandboxContainerArgs,
   parseSandboxFailureDiagnostic,
   parseSandboxResultLogs,
@@ -11,6 +12,7 @@ import {
   validateCircuitJsonSchema,
 } from "../src/build.js";
 import { createHash } from "node:crypto";
+import { Ajv2020 } from "ajv/dist/2020.js";
 
 const temporaryDirectories: string[] = [];
 
@@ -147,6 +149,33 @@ test("unsupported Circuit JSON record types fail explicitly", () => {
   );
 });
 
+test("build manifest schema accepts the parts verification emitted by project builds", async () => {
+  const schema = JSON.parse(await readFile(new URL("../../../schemas/tscircuit-build-manifest.schema.json", import.meta.url), "utf8"));
+  const ajv = new Ajv2020({ allErrors: true, strict: false });
+  ajv.addFormat("date-time", (value: string) => !Number.isNaN(Date.parse(value)));
+  const validator = ajv.compile(schema);
+  const manifest = {
+    schema_version: 1,
+    status: "compiled",
+    project_name: "test-board",
+    entrypoint: "src/board.tsx",
+    created_at_utc: new Date().toISOString(),
+    source_files: [],
+    source_graph_counts: { components: 1, ports: 1, nets: 1 },
+    toolchain: {
+      node: "v24.15.0", tscircuit: "0.0.3114", react: "19.3.1", compiler_runtime: "0.1.0",
+      compiler_lock_sha256: "a".repeat(64), sandbox_image: "sha256:" + "b".repeat(64),
+      circuit_json_to_kicad: "0.0.270", worker: "0.1.0",
+    },
+    circuit_json_sha256: "c".repeat(64),
+    source_graph_sha256: "d".repeat(64),
+    parts_verification: { status: "verified", unresolved: 0, sha256: "e".repeat(64) },
+    kicad_export_files: [],
+    artifacts: {},
+  };
+  assert.equal(validator(manifest), true, ajv.errorsText(validator.errors));
+});
+
 test("sandbox runner diagnostics preserve explicit failure codes", () => {
   assert.deepEqual(
     parseSandboxFailureDiagnostic([
@@ -163,6 +192,14 @@ test("project snapshots reject symbolic links", { skip: process.platform === "wi
   await rm(path.join(root, "node_modules"), { recursive: true, force: true });
   await symlink(path.join(root, "src", "board.tsx"), path.join(root, "src", "linked.tsx"));
   await assert.rejects(snapshotProject(root, "src/board.tsx"), /symbolic link|symlink/i);
+});
+
+test("build output containment is case-insensitive on Windows", { skip: process.platform !== "win32" }, async () => {
+  const root = await makeProject();
+  await assert.rejects(
+    buildProject({ projectRoot: root, outputDir: path.join(root.toUpperCase(), "generated-build"), dockerExecutable: process.execPath }),
+    /INVALID_OUTPUT: output directory must remain outside the source project/,
+  );
 });
 
 test("sandbox Docker arguments constrain code and expose only read-only source plus bounded scratch", () => {

@@ -23,6 +23,7 @@ class ModelBackedTests(unittest.TestCase):
         self.model.write_bytes(model_bytes)
         catalog = {"schema_version": 1, "models": [{
             "id": "diodes-2n7002-2017",
+            "manufacturer_part_numbers": ["2N7002-7-F"],
             "sha256": hashlib.sha256(model_bytes).hexdigest(),
             "terminal_order": ["D", "G", "S"],
             "sot23_physical_pin_map": {"D": "3", "G": "1", "S": "2"},
@@ -58,7 +59,8 @@ class ModelBackedTests(unittest.TestCase):
         self.parts = {"schema_version": 1, "status": "partially_verified",
                       "entries": [
                           {"reference": ref, "model_id": "diodes-2n7002-2017" if ref == "Q1" else None,
-                           "model_verified": ref == "Q1"}
+                           "model_verified": ref == "Q1",
+                           "manufacturer_part_number": "2N7002-7-F" if ref == "Q1" else None}
                           for ref in ("J1", "J2", "Q1", "R1", "R2", "R3", "C1")]}
         self._save_parts()
 
@@ -82,6 +84,12 @@ class ModelBackedTests(unittest.TestCase):
     def test_rejects_modified_model_checksum(self):
         self.model.write_text(self.model.read_text() + "* changed\n")
         with self.assertRaisesRegex(ModelBackedError, "SHA-256"):
+            self._run()
+
+    def test_rejects_model_bound_to_a_different_manufacturer_part(self):
+        next(entry for entry in self.parts["entries"] if entry["reference"] == "Q1")["manufacturer_part_number"] = "BSS84"
+        self._save_parts()
+        with self.assertRaisesRegex(ModelBackedError, "does not match locked Q1 manufacturer part"):
             self._run()
 
     def test_rejects_swapped_ground_pin(self):

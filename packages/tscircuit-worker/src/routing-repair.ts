@@ -81,6 +81,11 @@ export function planRoutingRepair(circuitJson: unknown, pcbConstraints: unknown)
   }
   if (new Set(moves.map(m=>m.reference)).size !== moves.length) blockers.push("Multiple conflicting moves for one component");
   if (blockers.length) return { status:"blocked",source_error_count:errors.length,moves:[],blockers };
+  const hasSourceConnectivity = circuitJson.some((item) => isObject(item) && item.type === "source_trace");
+  const hasPcbCopper = circuitJson.some((item) => isObject(item) && item.type === "pcb_trace");
+  if (errors.length === 0 && moves.length === 0 && hasSourceConnectivity && !hasPcbCopper) {
+    return { status:"blocked",source_error_count:0,moves:[],blockers:["No PCB copper traces were generated for source connectivity"] };
+  }
   return {status:moves.length?"repair-proposed": errors.length?"blocked":"no-errors",source_error_count:errors.length,
     moves,blockers:errors.length&&!moves.length?["No supported placement corrections for remaining PCB errors"]:[]};
 }

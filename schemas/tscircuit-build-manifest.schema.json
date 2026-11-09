@@ -3,7 +3,7 @@
   "$id": "https://edastack.dev/schemas/tscircuit-build-manifest.schema.json",
   "title": "EDA Stack tscircuit project build manifest",
   "type": "object",
-  "required": ["schema_version", "status", "project_name", "entrypoint", "created_at_utc", "source_files", "source_graph_counts", "toolchain", "circuit_json_sha256", "source_graph_sha256", "kicad_export_files", "artifacts"],
+  "required": ["schema_version", "status", "project_name", "entrypoint", "created_at_utc", "source_files", "source_graph_counts", "toolchain", "circuit_json_sha256", "source_graph_sha256", "parts_verification", "kicad_export_files", "artifacts"],
   "properties": {
     "schema_version": { "const": 1 },
     "status": { "const": "compiled" },
@@ -50,6 +50,16 @@
     },
     "circuit_json_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "source_graph_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "parts_verification": {
+      "type": "object",
+      "required": ["status", "unresolved", "sha256"],
+      "properties": {
+        "status": { "enum": ["unverified", "partially_verified", "verified"] },
+        "unresolved": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "additionalProperties": false
+    },
     "kicad_export_files": { "type": "array", "items": { "type": "string" } },
     "artifacts": {
       "type": "object",

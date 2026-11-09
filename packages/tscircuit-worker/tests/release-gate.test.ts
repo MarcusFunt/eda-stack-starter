@@ -4,7 +4,8 @@ import { checkGeneralNativeRelease, checkReviewedRcRelease } from "../src/releas
 
 function cleanFixture() {
   return { fixture: "board-a", pin_net_membership: "exact", erc_finding_count: 0, erc_findings: [], erc_ignored_checks: [],
-    pcb_drc_violations: 0, pcb_drc_findings: [], pcb_drc_ignored_checks: [] };
+    pcb_drc_violations: 0, pcb_drc_findings: [], pcb_drc_ignored_checks: [],
+    pcb_unconnected_items: [], pcb_schematic_parity_issues: [] };
 }
 test("strict release accepts a native design only when every required check is clean", () => {
   const report = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [cleanFixture()] };
@@ -30,6 +31,22 @@ test("strict PCB release requires complete DRC evidence and does not conflate it
   const report = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [fixture] };
   assert.equal(checkGeneralNativeRelease(report, ["board-a"], "schematic").ready, true);
   assert.equal(checkGeneralNativeRelease(report, ["board-a"], "pcb").ready, false);
+});
+test("strict PCB release rejects separately reported unconnected items", () => {
+  const report = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [
+    { ...cleanFixture(), pcb_unconnected_items: [{ description: "J1 pin 2 not connected" }] },
+  ] };
+  const result = checkGeneralNativeRelease(report, ["board-a"], "pcb");
+  assert.equal(result.ready, false);
+  assert.match(result.blockers.join(";"), /unconnected/i);
+});
+test("strict PCB release rejects schematic parity issues", () => {
+  const report = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [
+    { ...cleanFixture(), pcb_schematic_parity_issues: [{ description: "pad net differs from schematic" }] },
+  ] };
+  const result = checkGeneralNativeRelease(report, ["board-a"], "pcb");
+  assert.equal(result.ready, false);
+  assert.match(result.blockers.join(";"), /schematic parity/i);
 });
 test("unseen, duplicate, or missing fixture evidence never passes", () => {
   const report = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [cleanFixture(),cleanFixture()] };

@@ -300,6 +300,29 @@ function dockerPath(value: string): string {
   return portable;
 }
 
+async function resolvePathThroughExistingAncestor(value: string): Promise<string> {
+  let current = path.resolve(value);
+  const missingSegments: string[] = [];
+  while (true) {
+    try {
+      await lstat(current);
+      const realAncestor = await realpath(current);
+      return path.resolve(realAncestor, ...missingSegments.reverse());
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+      const parent = path.dirname(current);
+      if (parent === current) throw error;
+      missingSegments.push(path.basename(current));
+      current = parent;
+    }
+  }
+}
+
+function isWithinDirectory(directory: string, candidate: string): boolean {
+  const relative = path.relative(directory, candidate);
+  return relative === "" || (relative !== ".." && !relative.startsWith(".." + path.sep) && !path.isAbsolute(relative));
+}
+
 export function createSandboxContainerArgs({
   containerName,
   projectPath,
@@ -602,8 +625,8 @@ export async function buildProject(options: ProjectBuildOptions): Promise<Projec
     throw new Error("BUILD_LIMIT: timeoutMs must be between 1000 and 120000");
   }
   const snapshot = await snapshotProject(options.projectRoot, options.entrypoint);
-  const outputDir = path.resolve(options.outputDir);
-  if (outputDir === snapshot.root || outputDir.startsWith(snapshot.root + path.sep)) {
+  const outputDir = await resolvePathThroughExistingAncestor(options.outputDir);
+  if (isWithinDirectory(snapshot.root, outputDir)) {
     throw new Error("INVALID_OUTPUT: output directory must remain outside the source project");
   }
   const dockerExecutable = options.dockerExecutable ?? "docker";
