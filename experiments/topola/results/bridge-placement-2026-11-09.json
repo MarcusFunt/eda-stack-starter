@@ -1,0 +1,164 @@
+{
+  "experiment": "topola-dsn-ses-bridge-placement-mutations",
+  "fixture": "experiments/topola/fixtures/bridge.dsn",
+  "fixture_origin": "mikwielgus/topola@666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+  "kicad": "10.0.8",
+  "limitations": [
+    "All placement variants are freshly routed, not topologically reused",
+    "Session wire geometry includes original or auxiliary paths; it is not verified incremental trace length",
+    "Zero unconnected items is not zero DRC violations",
+    "0.2 mm build is locally patched and not an unmodified Topola release",
+    "No electrical or manufacturing release claim"
+  ],
+  "source_board_drc_findings": 12,
+  "source_board_unconnected_count": 8,
+  "source_board_violation_types": {
+    "lib_footprint_issues": 6,
+    "silk_edge_clearance": 2,
+    "silk_overlap": 4
+  },
+  "width100_default": {
+    "cases": [
+      {
+        "dx_mm": 0.0,
+        "id": "00_D3_x_+0mm",
+        "native_drc_exit_code": 5,
+        "native_drc_violations": 211,
+        "native_release_ready": false,
+        "native_track_count": 258,
+        "native_unconnected_count": 0,
+        "native_via_count": 0,
+        "native_violation_types": {
+          "lib_footprint_issues": 6,
+          "silk_edge_clearance": 2,
+          "silk_overlap": 4,
+          "track_width": 199
+        },
+        "ses_net_count": 4,
+        "ses_wire_geometry_mm": 183.1287,
+        "ses_wire_path_count": 60,
+        "topola_seconds": 0.2829
+      },
+      {
+        "dx_mm": -1.0,
+        "id": "01_D3_x_-1mm",
+        "native_drc_exit_code": 5,
+        "native_drc_violations": 212,
+        "native_release_ready": false,
+        "native_track_count": 258,
+        "native_unconnected_count": 0,
+        "native_via_count": 0,
+        "native_violation_types": {
+          "courtyards_overlap": 1,
+          "lib_footprint_issues": 6,
+          "silk_edge_clearance": 2,
+          "silk_overlap": 4,
+          "track_width": 199
+        },
+        "ses_net_count": 4,
+        "ses_wire_geometry_mm": 183.3237,
+        "ses_wire_path_count": 60,
+        "topola_seconds": 0.2241
+      },
+      {
+        "dx_mm": -2.0,
+        "id": "02_D3_x_-2mm",
+        "native_drc_exit_code": 5,
+        "native_drc_violations": 224,
+        "native_release_ready": false,
+        "native_track_count": 258,
+        "native_unconnected_count": 0,
+        "native_via_count": 0,
+        "native_violation_types": {
+          "courtyards_overlap": 1,
+          "lib_footprint_issues": 6,
+          "pth_inside_courtyard": 1,
+          "silk_edge_clearance": 2,
+          "silk_over_copper": 1,
+          "silk_overlap": 14,
+          "track_width": 199
+        },
+        "ses_net_count": 4,
+        "ses_wire_geometry_mm": 183.6697,
+        "ses_wire_path_count": 60,
+        "topola_seconds": 0.2129
+      }
+    ],
+    "method": "fresh-reroute-per-placement; not a persistent-homotopy benchmark",
+    "mutation_ref": "D3",
+    "source_sha256": "6a885ec363a36df53962d6d1177037ff1d11e9e29c37a26c517586774c09529e",
+    "topola_binary_sha256": "73da429f5e6f15d3430e9771a18280d9e965713cb662a854d7fe99c93d14c5fa"
+  },
+  "width200_single_source_line_patch": {
+    "cases": [
+      {
+        "dx_mm": 0.0,
+        "id": "00_D3_x_+0mm",
+        "native_drc_exit_code": 5,
+        "native_drc_violations": 60,
+        "native_release_ready": false,
+        "native_track_count": 258,
+        "native_unconnected_count": 0,
+        "native_via_count": 0,
+        "native_violation_types": {
+          "lib_footprint_issues": 6,
+          "silk_edge_clearance": 2,
+          "silk_overlap": 4,
+          "track_width": 48
+        },
+        "ses_net_count": 4,
+        "ses_wire_geometry_mm": 183.2109,
+        "ses_wire_path_count": 60,
+        "topola_seconds": 0.2242
+      },
+      {
+        "dx_mm": -1.0,
+        "id": "01_D3_x_-1mm",
+        "native_drc_exit_code": 5,
+        "native_drc_violations": 61,
+        "native_release_ready": false,
+        "native_track_count": 258,
+        "native_unconnected_count": 0,
+        "native_via_count": 0,
+        "native_violation_types": {
+          "courtyards_overlap": 1,
+          "lib_footprint_issues": 6,
+          "silk_edge_clearance": 2,
+          "silk_overlap": 4,
+          "track_width": 48
+        },
+        "ses_net_count": 4,
+        "ses_wire_geometry_mm": 183.4058,
+        "ses_wire_path_count": 60,
+        "topola_seconds": 0.2535
+      },
+      {
+        "dx_mm": -2.0,
+        "id": "02_D3_x_-2mm",
+        "native_drc_exit_code": 5,
+        "native_drc_violations": 73,
+        "native_release_ready": false,
+        "native_track_count": 258,
+        "native_unconnected_count": 0,
+        "native_via_count": 0,
+        "native_violation_types": {
+          "courtyards_overlap": 1,
+          "lib_footprint_issues": 6,
+          "pth_inside_courtyard": 1,
+          "silk_edge_clearance": 2,
+          "silk_over_copper": 1,
+          "silk_overlap": 14,
+          "track_width": 48
+        },
+        "ses_net_count": 4,
+        "ses_wire_geometry_mm": 183.7519,
+        "ses_wire_path_count": 60,
+        "topola_seconds": 0.2956
+      }
+    ],
+    "method": "fresh-reroute-per-placement; not a persistent-homotopy benchmark",
+    "mutation_ref": "D3",
+    "source_sha256": "6a885ec363a36df53962d6d1177037ff1d11e9e29c37a26c517586774c09529e",
+    "topola_binary_sha256": "ecf473f64550d286c69a5d8c7264e8f587deb37298d447f939b5ad05620d0940"
+  }
+}
