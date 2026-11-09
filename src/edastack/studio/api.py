@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import ipaddress
+import json
 import logging
 import os
 import re
@@ -11,11 +12,12 @@ import secrets
 import stat
 import uuid
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from typing import Callable
 from urllib.parse import urlsplit
 
-from fastapi import Depends, FastAPI, Path as ApiPath, Request
+from fastapi import Depends, FastAPI, Request
+from fastapi import Path as ApiPath
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -28,6 +30,10 @@ from edastack.studio.contracts import (
     CompileResponse,
     ErrorResponse,
     HealthResponse,
+    ProjectDetailResponse,
+    ProjectListResponse,
+    ProjectSourceFile,
+    ProjectSummary,
     SessionResponse,
     ToolchainResponse,
 )
@@ -37,6 +43,7 @@ _LOG = logging.getLogger(__name__)
 _PROJECT_ID_PATTERN = r"^[a-z][a-z0-9-]{0,62}$"
 _MAX_BUILD_MANIFEST_BYTES = 1024 * 1024
 _MAX_ARTIFACT_BYTES = 512 * 1024 * 1024
+_MAX_PROJECT_MANIFEST_BYTES = 64 * 1024
 
 
 @dataclass(frozen=True)
@@ -172,16 +179,21 @@ def _safe_directory(path: Path, root: Path) -> Path:
     return resolved
 
 
-def _project_directory(settings: StudioSettings, project_id: str) -> tuple[Path, Path]:
+def _workspace_root(settings: StudioSettings) -> Path:
     if settings.workspace_root is None:
-        raise StudioAPIError(503, "WORKSPACE_NOT_CONFIGURED", "Set EDA_STUDIO_WORKSPACE_ROOT before compiling projects.")
+        raise StudioAPIError(
+            503, "WORKSPACE_NOT_CONFIGURED", "Set EDA_STUDIO_WORKSPACE_ROOT before opening projects."
+        )
     try:
         workspace_root = settings.workspace_root.expanduser().resolve(strict=True)
     except OSError:
         raise StudioAPIError(503, "WORKSPACE_NOT_CONFIGURED", "The configured workspace root is unavailable.") from None
     if not workspace_root.is_dir():
         raise StudioAPIError(503, "WORKSPACE_NOT_CONFIGURED", "The configured workspace root is unavailable.")
+    return workspace_root
 
+
+def _project_root(workspace_root: Path, project_id: str) -> Path:
     candidate = workspace_root / project_id
     try:
         info = candidate.lstat()
@@ -192,6 +204,76 @@ def _project_directory(settings: StudioSettings, project_id: str) -> tuple[Path,
     project_root = candidate.resolve(strict=True)
     if not project_root.is_relative_to(workspace_root):
         raise StudioAPIError(400, "PROJECT_PATH_UNSAFE", "The project must remain inside the configured workspace.")
+    return project_root
+
+
+def _project_source_files(project_root: Path) -> list[ProjectSourceFile]:
+    source_root = project_root / "src"
+    try:
+        source_info = source_root.lstat()
+    except OSError:
+        return []
+    if stat.S_ISLNK(source_info.st_mode) or not stat.S_ISDIR(source_info.st_mode):
+        return []
+
+    files: list[ProjectSourceFile] = []
+    for current, directories, names in os.walk(source_root, followlinks=False):
+        current_path = Path(current)
+        directories[:] = [name for name in directories if not (current_path / name).is_symlink()]
+        for name in names:
+            path = current_path / name
+            if path.suffix.lower() not in {".ts", ".tsx"} or path.is_symlink() or not path.is_file():
+                continue
+            try:
+                relative = path.relative_to(project_root).as_posix()
+                files.append(ProjectSourceFile(path=relative, bytes=path.stat().st_size))
+            except (OSError, ValueError):
+                continue
+            if len(files) > 500:
+                return []
+    return sorted(files, key=lambda source: source.path)
+
+
+def _project_detail(workspace_root: Path, project_id: str) -> ProjectDetailResponse | None:
+    try:
+        project_root = _project_root(workspace_root, project_id)
+        manifest_path = project_root / "eda.project.json"
+        manifest_info = manifest_path.lstat()
+        if (
+            stat.S_ISLNK(manifest_info.st_mode)
+            or not stat.S_ISREG(manifest_info.st_mode)
+            or manifest_info.st_size > _MAX_PROJECT_MANIFEST_BYTES
+        ):
+            return None
+        manifest = json.loads(manifest_path.read_bytes(), object_pairs_hook=_unique_json_object)
+    except (OSError, ValueError, RecursionError, StudioAPIError):
+        return None
+    if not isinstance(manifest, dict) or manifest.get("project_id") != project_id:
+        return None
+    if manifest.get("schema_version") != 1 or manifest.get("authoring_backend") != "tscircuit":
+        return None
+    entrypoint = manifest.get("entrypoint")
+    sources = _project_source_files(project_root)
+    if not isinstance(entrypoint, str) or entrypoint not in {source.path for source in sources}:
+        return None
+    display_name = manifest.get("name")
+    if not isinstance(display_name, str) or not display_name.strip():
+        display_name = project_id
+    try:
+        return ProjectDetailResponse(
+            project_id=project_id,
+            name=display_name.strip()[:128],
+            entrypoint=entrypoint,
+            source_file_count=len(sources),
+            source_files=sources,
+        )
+    except Exception:
+        return None
+
+
+def _project_directory(settings: StudioSettings, project_id: str) -> tuple[Path, Path]:
+    workspace_root = _workspace_root(settings)
+    project_root = _project_root(workspace_root, project_id)
 
     studio_root = _safe_directory(workspace_root / ".eda-studio", workspace_root)
     builds_root = _safe_directory(studio_root / "builds", workspace_root)
@@ -233,6 +315,58 @@ def _verify_artifact_tree(output_dir: Path, manifest: BuildManifest) -> None:
                 raise StudioAPIError(502, "BUILD_MANIFEST_INVALID", "The compiler artifact hash verification failed.")
     if actual != indexed:
         raise StudioAPIError(502, "BUILD_MANIFEST_INVALID", "The compiler manifest does not index every artifact.")
+
+
+def _verify_source_files(project_root: Path, manifest: BuildManifest) -> None:
+    root = project_root.resolve(strict=True)
+    for source in manifest.source_files:
+        path = root
+        for part in PurePosixPath(source.path).parts:
+            path = path / part
+            try:
+                info = path.lstat()
+            except OSError:
+                raise StudioAPIError(
+                    502, "BUILD_MANIFEST_INVALID", "The compiler referenced a missing project source file."
+                ) from None
+            if stat.S_ISLNK(info.st_mode):
+                raise StudioAPIError(
+                    502, "BUILD_MANIFEST_INVALID", "The compiler referenced an unsafe project source file."
+                )
+        try:
+            resolved = path.resolve(strict=True)
+        except OSError:
+            raise StudioAPIError(
+                502, "BUILD_MANIFEST_INVALID", "The compiler referenced a missing project source file."
+            ) from None
+        if not resolved.is_relative_to(root) or not resolved.is_file():
+            raise StudioAPIError(
+                502, "BUILD_MANIFEST_INVALID", "The compiler referenced an unsafe project source file."
+            )
+        digest = hashlib.sha256()
+        size = 0
+        try:
+            with resolved.open("rb") as stream:
+                while chunk := stream.read(1024 * 1024):
+                    size += len(chunk)
+                    digest.update(chunk)
+        except OSError:
+            raise StudioAPIError(
+                502, "BUILD_MANIFEST_INVALID", "The compiler could not verify a project source file."
+            ) from None
+        if size != source.bytes or digest.hexdigest() != source.sha256:
+            raise StudioAPIError(
+                502, "BUILD_MANIFEST_INVALID", "The compiler source provenance does not match the project."
+            )
+
+
+def _unique_json_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
+    value: dict[str, object] = {}
+    for key, item in pairs:
+        if key in value:
+            raise ValueError("duplicate JSON object key")
+        value[key] = item
+    return value
 
 
 def create_app(
@@ -351,6 +485,60 @@ def create_app(
     def session() -> SessionResponse:
         return SessionResponse(session_token=application.state.session_token)
 
+    @application.get(
+        "/api/v1/projects",
+        response_model=ProjectListResponse,
+        tags=["projects"],
+        operation_id="list_projects",
+    )
+    def projects() -> ProjectListResponse:
+        if config.workspace_root is None:
+            return ProjectListResponse(workspace_status="not_configured", projects=[])
+        try:
+            workspace_root = _workspace_root(config)
+            children = sorted(workspace_root.iterdir(), key=lambda path: path.name.casefold())
+        except (OSError, StudioAPIError):
+            return ProjectListResponse(workspace_status="unavailable", projects=[])
+        project_summaries = []
+        for child in children:
+            if not re.fullmatch(_PROJECT_ID_PATTERN, child.name):
+                continue
+            try:
+                info = child.lstat()
+            except OSError:
+                continue
+            if stat.S_ISLNK(info.st_mode) or not stat.S_ISDIR(info.st_mode):
+                continue
+            detail = _project_detail(workspace_root, child.name)
+            if detail is not None:
+                project_summaries.append(
+                    ProjectSummary(
+                        project_id=detail.project_id,
+                        name=detail.name,
+                        entrypoint=detail.entrypoint,
+                        source_file_count=detail.source_file_count,
+                    )
+                )
+        return ProjectListResponse(
+            workspace_status="available",
+            workspace_name=workspace_root.name,
+            projects=project_summaries,
+        )
+
+    @application.get(
+        "/api/v1/projects/{project_id}",
+        response_model=ProjectDetailResponse,
+        tags=["projects"],
+        operation_id="get_project",
+        responses={404: {"model": ErrorResponse}, 422: {"model": ErrorResponse}, 503: {"model": ErrorResponse}},
+    )
+    def project_detail(project_id: str = ApiPath(pattern=_PROJECT_ID_PATTERN)) -> ProjectDetailResponse:
+        workspace_root = _workspace_root(config)
+        detail = _project_detail(workspace_root, project_id)
+        if detail is None:
+            raise StudioAPIError(404, "PROJECT_NOT_FOUND", "The requested project was not found in the workspace.")
+        return detail
+
     @application.post(
         "/api/v1/projects/{project_id}/compile",
         response_model=CompileResponse,
@@ -399,9 +587,11 @@ def create_app(
         if len(manifest_bytes) > _MAX_BUILD_MANIFEST_BYTES:
             raise StudioAPIError(502, "BUILD_MANIFEST_INVALID", "The compiler manifest exceeds the API size limit.")
         try:
-            manifest = BuildManifest.model_validate_json(manifest_bytes)
+            manifest_data = json.loads(manifest_bytes, object_pairs_hook=_unique_json_object)
+            manifest = BuildManifest.model_validate(manifest_data)
         except Exception:
             raise StudioAPIError(502, "BUILD_MANIFEST_INVALID", "The compiler returned a malformed build manifest.") from None
+        _verify_source_files(project_root, manifest)
         _verify_artifact_tree(output_dir, manifest)
         return CompileResponse(
             **manifest.model_dump(),
@@ -410,6 +600,26 @@ def create_app(
             manifest_sha256=hashlib.sha256(manifest_bytes).hexdigest(),
         )
 
+    generate_openapi = application.openapi
+
+    def stable_openapi() -> dict[str, object]:
+        if application.openapi_schema:
+            return application.openapi_schema
+        schema = generate_openapi()
+        for path_item in schema.get("paths", {}).values():
+            for operation in path_item.values():
+                if not isinstance(operation, dict):
+                    continue
+                responses = operation.get("responses")
+                if not isinstance(responses, dict):
+                    continue
+                validation_response = responses.get("422")
+                if isinstance(validation_response, dict):
+                    validation_response["description"] = "Validation Error"
+        application.openapi_schema = schema
+        return schema
+
+    application.openapi = stable_openapi
     return application
 
 

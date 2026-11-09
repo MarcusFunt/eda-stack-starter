@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "workspace_status": "available",
+  "workspace_name": "fixtures",
+  "projects": [
+    {
+      "project_id": "voltage-divider",
+      "name": "Voltage Divider",
+      "entrypoint": "src/board.tsx",
+      "source_file_count": 1
+    }
+  ]
+}

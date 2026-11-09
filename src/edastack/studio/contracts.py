@@ -75,6 +75,7 @@ class ToolchainEntry(BaseModel):
 
     status: Literal["available", "unavailable", "error"]
     version: str | None = None
+    executable: str | None = None
     reason: str | None = None
 
 
@@ -84,6 +85,46 @@ class ToolchainResponse(BaseModel):
     schema_version: Literal[1] = 1
     checked_at_utc: datetime
     tools: dict[str, ToolchainEntry]
+
+
+class ProjectSourceFile(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    path: str
+    bytes: int = Field(ge=0)
+
+    @field_validator("path")
+    @classmethod
+    def path_is_relative(cls, value: str) -> str:
+        return _safe_relative_path(value)
+
+
+class ProjectSummary(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    project_id: str = Field(pattern=r"^[a-z][a-z0-9-]{0,62}$")
+    name: str = Field(min_length=1, max_length=128)
+    entrypoint: str
+    source_file_count: int = Field(ge=1)
+
+    @field_validator("entrypoint")
+    @classmethod
+    def entrypoint_is_relative(cls, value: str) -> str:
+        return _safe_relative_path(value)
+
+
+class ProjectListResponse(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    schema_version: Literal[1] = 1
+    workspace_status: Literal["available", "not_configured", "unavailable"]
+    workspace_name: str | None = None
+    projects: list[ProjectSummary]
+
+
+class ProjectDetailResponse(ProjectSummary):
+    schema_version: Literal[1] = 1
+    source_files: list[ProjectSourceFile]
 
 
 class SourceFileDigest(BaseModel):
@@ -165,9 +206,24 @@ class BuildManifest(BaseModel):
         return [_safe_relative_path(value) for value in values]
 
     @model_validator(mode="after")
-    def artifact_keys_are_relative(self) -> BuildManifest:
+    def manifest_relationships_are_consistent(self) -> BuildManifest:
         for path in self.artifacts:
             _safe_relative_path(path)
+        source_paths = [source.path for source in self.source_files]
+        if len(source_paths) != len(set(source_paths)):
+            raise ValueError("source file paths must be unique")
+        if self.entrypoint not in source_paths:
+            raise ValueError("entrypoint must be present in the source file index")
+        if len(self.kicad_export_files) != len(set(self.kicad_export_files)):
+            raise ValueError("KiCad export paths must be unique")
+        if "circuit.json" not in self.artifacts or "source-graph.json" not in self.artifacts:
+            raise ValueError("circuit and source graph artifacts are required")
+        if self.circuit_json_sha256 != self.artifacts["circuit.json"].sha256:
+            raise ValueError("circuit JSON digest must match its indexed artifact")
+        if self.source_graph_sha256 != self.artifacts["source-graph.json"].sha256:
+            raise ValueError("source graph digest must match its indexed artifact")
+        if any(path not in self.artifacts for path in self.kicad_export_files):
+            raise ValueError("KiCad exports must be present in the artifact index")
         return self
 
 

@@ -233,3 +233,102 @@ a { color: inherit; text-decoration: none; }
   .panel-tabs { gap: 13px; padding: 0 12px; }
   .panel-content { padding: 8px 12px; }
 }
+
+/* Readable project selection and build evidence states. */
+.retry-api { padding: 5px 8px; border: 1px solid #52616a; border-radius: 5px; background: transparent; color: #d5e2e4; font-size: 11px; cursor: pointer; }
+.navigation-heading { font-size: 10px; }
+.navigation-heading button { cursor: pointer; font-size: 16px; }
+.project-list { display: flex; flex-direction: column; gap: 6px; }
+.project-choice { display: flex; align-items: center; min-width: 0; gap: 9px; padding: 8px; border: 1px solid #e8edef; border-radius: 7px; background: #fff; text-align: left; cursor: pointer; }
+.project-choice.selected { border-color: #8dcdbb; background: #f0faf6; box-shadow: 0 0 0 2px #18aa8814; }
+.project-choice .folder-icon { flex: 0 0 31px; }
+.project-choice > span:last-child { display: flex; min-width: 0; flex-direction: column; gap: 3px; }
+.project-choice strong { overflow: hidden; color: #334758; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.project-choice small { color: #61727e; font-size: 10px; }
+.workspace-message { display: flex; flex-direction: column; gap: 7px; margin-bottom: 10px; padding: 10px; border: 1px solid #e5ebe9; border-radius: 6px; background: #f8fbfa; color: #51636d; font-size: 11px; line-height: 1.45; }
+.workspace-message strong { color: #30485a; font-size: 12px; }
+.workspace-message a { color: #107c69; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.workspace-message button { align-self: flex-start; padding: 0; border: 0; background: transparent; color: #107c69; font-size: 11px; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.workspace-message.warning { border-color: #eadcc9; background: #fffbf5; color: #745d3f; }
+.navigation-loading { padding: 10px; color: #61727e; font-size: 11px; }
+.tree-file { display: flex; align-items: center; min-width: 0; height: 31px; gap: 9px; padding: 0 9px; overflow: hidden; color: #596d79; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.tree-file .tree-icon { flex: 0 0 13px; }
+.text-action { margin-top: 8px; padding: 4px; border: 0; background: transparent; color: #167b69; font-size: 11px; cursor: pointer; }
+.settings-card { display: flex; max-width: 680px; flex-direction: column; align-self: center; gap: 14px; margin: auto; padding: 24px; border: 1px solid #e1e8e9; border-radius: 9px; background: #fff; color: #526571; font-size: 12px; line-height: 1.55; }
+.settings-card p { margin: 0; }
+.settings-status { display: flex; align-items: center; gap: 9px; color: #314859; }
+.settings-status strong { font-size: 14px; }
+.state-chip { width: 9px; height: 9px; border-radius: 50%; background: #bac4c8; }
+.state-available { background: #1fa77f; }
+.state-unavailable { background: #c18144; }
+.state-not_configured { background: #c18144; }
+.settings-card code { width: fit-content; padding: 6px 9px; border-radius: 4px; background: #eff4f4; color: #365465; font-size: 12px; }
+.settings-card .settings-help { color: #61717c; }
+.settings-card .setup-link { align-self: flex-start; cursor: pointer; }
+.design-project { display: grid; min-height: 0; flex: 1; grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.4fr); gap: 12px; overflow: auto; }
+.design-source-card, .build-report, .build-placeholder, .compile-error { min-width: 0; padding: 16px; border: 1px solid #e1e8e9; border-radius: 8px; background: #fff; }
+.design-source-card { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; color: #526571; font-size: 12px; line-height: 1.5; }
+.design-source-card h2, .build-report h2 { margin: 0; color: #263d4e; font-size: 16px; }
+.design-source-card p { margin: 0; }
+.design-source-card code { color: #276b60; font-size: 11px; overflow-wrap: anywhere; }
+.design-source-card > span:last-of-type { color: #596d79; }
+.design-source-card .setup-link { margin-top: auto; font-size: 11px; cursor: pointer; }
+.design-source-card .setup-link:disabled { opacity: .65; cursor: wait; }
+.build-report { display: flex; min-height: 0; flex-direction: column; gap: 12px; overflow: auto; }
+.build-report-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.build-report-heading .eyebrow { display: block; margin-bottom: 6px; font-size: 10px; }
+.build-status { padding: 4px 7px; border-radius: 4px; background: #eff7f4; color: #28795f; font-size: 11px; font-weight: 600; white-space: nowrap; }
+.build-summary { display: flex; flex-wrap: wrap; gap: 8px; color: #425967; font-size: 12px; }
+.build-summary span { padding: 7px 9px; border: 1px solid #e7edee; border-radius: 5px; background: #fafcfc; }
+.build-provenance { display: flex; flex-direction: column; gap: 4px; color: #465c68; font-size: 11px; }
+.build-provenance strong { font-size: 12px; }
+.build-provenance code { color: #536a77; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; overflow-wrap: anywhere; }
+.artifact-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; color: #405765; font-size: 12px; }
+.artifact-heading span { color: #64747d; font-size: 10px; }
+.artifact-list { display: flex; flex-direction: column; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.artifact-list li { display: grid; grid-template-columns: minmax(100px, 1fr) auto auto; align-items: center; gap: 9px; padding: 7px 8px; border: 1px solid #edf0f1; border-radius: 4px; color: #465c68; font-size: 11px; }
+.artifact-list code { overflow: hidden; color: #286d60; text-overflow: ellipsis; white-space: nowrap; }
+.artifact-list small { color: #657680; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
+.manifest-digest { display: flex; flex-wrap: wrap; gap: 7px; color: #61727e; font-size: 10px; }
+.manifest-digest code { overflow-wrap: anywhere; color: #405765; }
+.build-placeholder { display: grid; place-items: center; color: #5b6c77; font-size: 12px; line-height: 1.6; text-align: center; }
+.compile-error { display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1; border-color: #eed9d2; background: #fff8f5; color: #8b5145; font-size: 12px; }
+.compile-error strong { font-size: 13px; }
+
+/* Keep the shell inside short and narrow viewports without clipping the page. */
+body { min-width: 0; min-height: 100dvh; }
+.studio-shell { min-height: 0; }
+.context-label, .eyebrow { font-size: 10px; }
+.navigation-heading, .section-label, .workspace-tab, .project-tree button, .settings-link,
+.local-badge, .view-heading p, .revision-state, .empty-state p, .setup-link,
+.canvas-footer, .panel-tabs button, .panel-content, .inspector-copy, .tool-meta strong,
+.tool-meta small, .tool-pill, .checked-at, .toolchain-message, .selection-card-header,
+.selection-card > strong, .selection-card p, .inspector-note p, .api-build {
+  font-size: 11px;
+}
+.tool-meta small, .artifact-heading span, .artifact-list small, .manifest-digest, .api-build { font-size: 10px; }
+.panel-count { font-size: 10px; }
+.empty-kicker, .selection-card-header { font-size: 10px; }
+
+@media (max-width: 900px) {
+  body { min-width: 0; }
+  .workspace-area { grid-template-rows: 46px minmax(0, 1fr) minmax(96px, 18vh); }
+  .view-heading p { font-size: 11px; }
+  .workspace-tab { font-size: 11px; }
+  .canvas-footer { font-size: 10px; }
+  .panel-content { font-size: 11px; }
+  .design-project { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(120px, 1fr); overflow-y: auto; }
+  .design-source-card { min-height: 150px; }
+  .build-report { min-height: 210px; }
+}
+
+@media (max-width: 500px) {
+  .workspace-area { grid-template-rows: 44px minmax(0, 1fr) minmax(96px, 18vh); }
+  .empty-canvas { min-height: clamp(132px, 24vh, 180px); }
+  .view-content { padding: 12px 10px 7px; }
+  .view-heading { min-height: 66px; padding-bottom: 10px; }
+  .view-heading h1 { font-size: 18px; }
+  .view-heading p { font-size: 11px; }
+  .artifact-list li { grid-template-columns: minmax(0, 1fr) auto; }
+  .artifact-list small { display: none; }
+}

@@ -6,7 +6,6 @@ from jsonschema import Draft202012Validator, ValidationError
 
 from edastack.studio.api import create_app
 
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CONTRACT_ROOT = REPO_ROOT / "schemas" / "studio" / "v1"
 
@@ -30,8 +29,14 @@ def test_committed_openapi_matches_the_runtime_contract():
 
     assert committed == runtime
     assert committed["info"]["version"] == "1.0.0"
+    assert "/api/v1/projects" in committed["paths"]
+    assert "/api/v1/projects/{project_id}" in committed["paths"]
     assert "/api/v1/projects/{project_id}/compile" in committed["paths"]
     assert committed["components"]["securitySchemes"]["HTTPBearer"]["scheme"] == "bearer"
+    for path_item in runtime["paths"].values():
+        for operation in path_item.values():
+            if isinstance(operation, dict) and "422" in operation.get("responses", {}):
+                assert operation["responses"]["422"]["description"] == "Validation Error"
 
 
 def test_versioned_contract_fixtures_validate_against_openapi_schemas():
@@ -44,6 +49,8 @@ def test_versioned_contract_fixtures_validate_against_openapi_schemas():
         ("health.json", "HealthResponse"),
         ("session.json", "SessionResponse"),
         ("toolchain.json", "ToolchainResponse"),
+        ("projects.json", "ProjectListResponse"),
+        ("project.json", "ProjectDetailResponse"),
         ("error.json", "ErrorResponse"),
         ("compile.json", "CompileResponse"),
     ):

@@ -16,6 +16,9 @@ module.exports = defineConfig({
   webServer: {
     command: "npm run dev -- --host 127.0.0.1 --port 5173 --strictPort",
     cwd: path.resolve(__dirname, "../../apps/studio-web"),
+    env: {
+      EDA_STUDIO_DEV_API_TARGET: process.env.EDA_STUDIO_DEV_API_TARGET || "http://127.0.0.1:8766",
+    },
     url: "http://127.0.0.1:5173",
     reuseExistingServer: !process.env.CI,
     timeout: 30000,
