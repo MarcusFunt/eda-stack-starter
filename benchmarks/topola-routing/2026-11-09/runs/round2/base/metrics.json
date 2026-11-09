@@ -1,0 +1,129 @@
+{
+  "scenario": "base",
+  "description": "Unmodified fixture placement",
+  "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+  "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+  "topola_wall_runtime_ms_including_docker": 664.27,
+  "tscircuit_build_runtime_ms": 6062.695,
+  "unrouted_build_runtime_ms": 6164.376,
+  "topola": {
+    "board": "voltage-divider.kicad_pcb",
+    "kicad_version": "10.0.8",
+    "expected_nets": [
+      "GND",
+      "MID",
+      "VIN"
+    ],
+    "routed_nets": [
+      "GND",
+      "MID",
+      "VIN"
+    ],
+    "unrouted_nets": [],
+    "routed_net_fraction": 1.0,
+    "unconnected_groups": 0,
+    "drc_violation_count": 33,
+    "drc_violation_groups": [
+      {
+        "severity": "error",
+        "type": "track_width",
+        "count": 24
+      },
+      {
+        "severity": "warning",
+        "type": "lib_footprint_issues",
+        "count": 3
+      },
+      {
+        "severity": "warning",
+        "type": "text_height",
+        "count": 6
+      }
+    ],
+    "schematic_parity_issue_count": 11,
+    "ignored_checks": [
+      "missing_courtyard",
+      "track_not_centered_on_via",
+      "tuning_profile_track_geometries",
+      "footprint_filters_mismatch",
+      "footprint_type_mismatch"
+    ],
+    "track_segments": 432,
+    "vias": 0,
+    "track_length_mm": 57.09982,
+    "tracks_by_net": {
+      "GND": {
+        "segments": 5,
+        "length_mm": 9.577107
+      },
+      "MID": {
+        "segments": 313,
+        "length_mm": 22.804299
+      },
+      "VIN": {
+        "segments": 114,
+        "length_mm": 24.718414
+      }
+    }
+  },
+  "tscircuit": {
+    "board": "voltage-divider.kicad_pcb",
+    "kicad_version": "10.0.8",
+    "expected_nets": [
+      "GND",
+      "MID",
+      "VIN"
+    ],
+    "routed_nets": [
+      "GND",
+      "MID",
+      "VIN"
+    ],
+    "unrouted_nets": [],
+    "routed_net_fraction": 1.0,
+    "unconnected_groups": 0,
+    "drc_violation_count": 10,
+    "drc_violation_groups": [
+      {
+        "severity": "error",
+        "type": "hole_clearance",
+        "count": 1
+      },
+      {
+        "severity": "warning",
+        "type": "lib_footprint_issues",
+        "count": 3
+      },
+      {
+        "severity": "warning",
+        "type": "text_height",
+        "count": 6
+      }
+    ],
+    "schematic_parity_issue_count": 11,
+    "ignored_checks": [
+      "missing_courtyard",
+      "track_not_centered_on_via",
+      "tuning_profile_track_geometries",
+      "footprint_filters_mismatch",
+      "footprint_type_mismatch"
+    ],
+    "track_segments": 17,
+    "vias": 2,
+    "track_length_mm": 31.24789,
+    "tracks_by_net": {
+      "GND": {
+        "segments": 4,
+        "length_mm": 7.189156
+      },
+      "MID": {
+        "segments": 11,
+        "length_mm": 14.101093
+      },
+      "VIN": {
+        "segments": 2,
+        "length_mm": 9.957641
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+Found 17 violations
+Found 4 unconnected items
+Found 11 schematic parity issues
+Saved DRC Report to /workspace/benchmarks/topola-routing/2026-11-09/runs/round2/swapped/tscircuit/drc.json

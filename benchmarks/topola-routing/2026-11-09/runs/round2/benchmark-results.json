@@ -1,0 +1,670 @@
+{
+  "schema_version": 1,
+  "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+  "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+  "topola_binary": "Topola CLI built from the pinned source revision with Rust 1.90.0",
+  "kicad_image": "kicad/kicad@sha256:3f4a01786dfbe803a65f345c3342b765db9add913f5e9448f8356793714ddc34",
+  "rust_image": "rust@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f",
+  "scenarios": [
+    {
+      "scenario": "base",
+      "description": "Unmodified fixture placement",
+      "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+      "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+      "topola_wall_runtime_ms_including_docker": 664.27,
+      "tscircuit_build_runtime_ms": 6062.695,
+      "unrouted_build_runtime_ms": 6164.376,
+      "topola": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "unrouted_nets": [],
+        "routed_net_fraction": 1.0,
+        "unconnected_groups": 0,
+        "drc_violation_count": 33,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "track_width",
+            "count": 24
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 432,
+        "vias": 0,
+        "track_length_mm": 57.09982,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 5,
+            "length_mm": 9.577107
+          },
+          "MID": {
+            "segments": 313,
+            "length_mm": 22.804299
+          },
+          "VIN": {
+            "segments": 114,
+            "length_mm": 24.718414
+          }
+        }
+      },
+      "tscircuit": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "unrouted_nets": [],
+        "routed_net_fraction": 1.0,
+        "unconnected_groups": 0,
+        "drc_violation_count": 10,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "hole_clearance",
+            "count": 1
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 17,
+        "vias": 2,
+        "track_length_mm": 31.24789,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 4,
+            "length_mm": 7.189156
+          },
+          "MID": {
+            "segments": 11,
+            "length_mm": 14.101093
+          },
+          "VIN": {
+            "segments": 2,
+            "length_mm": 9.957641
+          }
+        }
+      }
+    },
+    {
+      "scenario": "translated",
+      "description": "Translate all components by (+2,+2) mm",
+      "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+      "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+      "topola_wall_runtime_ms_including_docker": 662.805,
+      "tscircuit_build_runtime_ms": 5976.913,
+      "unrouted_build_runtime_ms": 5852.988,
+      "topola": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "unrouted_nets": [],
+        "routed_net_fraction": 1.0,
+        "unconnected_groups": 0,
+        "drc_violation_count": 33,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "track_width",
+            "count": 24
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 432,
+        "vias": 0,
+        "track_length_mm": 57.09982,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 5,
+            "length_mm": 9.577107
+          },
+          "MID": {
+            "segments": 313,
+            "length_mm": 22.804299
+          },
+          "VIN": {
+            "segments": 114,
+            "length_mm": 24.718414
+          }
+        }
+      },
+      "tscircuit": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "unrouted_nets": [],
+        "routed_net_fraction": 1.0,
+        "unconnected_groups": 0,
+        "drc_violation_count": 10,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "hole_clearance",
+            "count": 1
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 18,
+        "vias": 2,
+        "track_length_mm": 31.234823,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 4,
+            "length_mm": 6.989693
+          },
+          "MID": {
+            "segments": 12,
+            "length_mm": 14.287489
+          },
+          "VIN": {
+            "segments": 2,
+            "length_mm": 9.957641
+          }
+        }
+      }
+    },
+    {
+      "scenario": "swapped",
+      "description": "Swap R1 and R2 placements",
+      "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+      "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+      "topola_wall_runtime_ms_including_docker": 571.509,
+      "tscircuit_build_runtime_ms": 5825.171,
+      "unrouted_build_runtime_ms": 5803.816,
+      "topola": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [],
+        "unrouted_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_net_fraction": 0.0,
+        "unconnected_groups": 4,
+        "drc_violation_count": 73,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "courtyards_overlap",
+            "count": 1
+          },
+          {
+            "severity": "error",
+            "type": "shorting_items",
+            "count": 6
+          },
+          {
+            "severity": "error",
+            "type": "solder_mask_bridge",
+            "count": 18
+          },
+          {
+            "severity": "error",
+            "type": "track_width",
+            "count": 24
+          },
+          {
+            "severity": "error",
+            "type": "tracks_crossing",
+            "count": 12
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "silk_overlap",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 24,
+        "vias": 0,
+        "track_length_mm": 26.0,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 4,
+            "length_mm": 3.5
+          },
+          "MID": {
+            "segments": 8,
+            "length_mm": 7.0
+          },
+          "VIN": {
+            "segments": 12,
+            "length_mm": 15.5
+          }
+        }
+      },
+      "tscircuit": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [],
+        "unrouted_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_net_fraction": 0.0,
+        "unconnected_groups": 4,
+        "drc_violation_count": 17,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "courtyards_overlap",
+            "count": 1
+          },
+          {
+            "severity": "error",
+            "type": "shorting_items",
+            "count": 2
+          },
+          {
+            "severity": "error",
+            "type": "solder_mask_bridge",
+            "count": 2
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "silk_overlap",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 0,
+        "vias": 0,
+        "track_length_mm": 0.0,
+        "tracks_by_net": {}
+      }
+    },
+    {
+      "scenario": "crowded",
+      "description": "Bring R1/R2 into a tight 2.2 mm horizontal pair",
+      "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+      "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+      "topola_wall_runtime_ms_including_docker": 783.768,
+      "tscircuit_build_runtime_ms": 5924.906,
+      "unrouted_build_runtime_ms": 5762.162,
+      "topola": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID"
+        ],
+        "unrouted_nets": [
+          "VIN"
+        ],
+        "routed_net_fraction": 0.666667,
+        "unconnected_groups": 1,
+        "drc_violation_count": 34,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "courtyards_overlap",
+            "count": 1
+          },
+          {
+            "severity": "error",
+            "type": "track_width",
+            "count": 24
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 532,
+        "vias": 0,
+        "track_length_mm": 40.336735,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 207,
+            "length_mm": 10.146712
+          },
+          "MID": {
+            "segments": 313,
+            "length_mm": 14.690022
+          },
+          "VIN": {
+            "segments": 12,
+            "length_mm": 15.5
+          }
+        }
+      },
+      "tscircuit": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [],
+        "unrouted_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_net_fraction": 0.0,
+        "unconnected_groups": 3,
+        "drc_violation_count": 10,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "courtyards_overlap",
+            "count": 1
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 0,
+        "vias": 0,
+        "track_length_mm": 0.0,
+        "tracks_by_net": {}
+      }
+    },
+    {
+      "scenario": "fixed_j1",
+      "description": "Keep J1 fixed; use the recorded R1/R2 placements",
+      "input_source_sha": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+      "topola_source_sha": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+      "topola_wall_runtime_ms_including_docker": 701.669,
+      "tscircuit_build_runtime_ms": 6185.391,
+      "unrouted_build_runtime_ms": 5772.573,
+      "topola": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "unrouted_nets": [],
+        "routed_net_fraction": 1.0,
+        "unconnected_groups": 0,
+        "drc_violation_count": 33,
+        "drc_violation_groups": [
+          {
+            "severity": "error",
+            "type": "track_width",
+            "count": 24
+          },
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 634,
+        "vias": 0,
+        "track_length_mm": 58.463149,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 106,
+            "length_mm": 10.603092
+          },
+          "MID": {
+            "segments": 414,
+            "length_mm": 21.905874
+          },
+          "VIN": {
+            "segments": 114,
+            "length_mm": 25.954183
+          }
+        }
+      },
+      "tscircuit": {
+        "board": "voltage-divider.kicad_pcb",
+        "kicad_version": "10.0.8",
+        "expected_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "routed_nets": [
+          "GND",
+          "MID",
+          "VIN"
+        ],
+        "unrouted_nets": [],
+        "routed_net_fraction": 1.0,
+        "unconnected_groups": 0,
+        "drc_violation_count": 9,
+        "drc_violation_groups": [
+          {
+            "severity": "warning",
+            "type": "lib_footprint_issues",
+            "count": 3
+          },
+          {
+            "severity": "warning",
+            "type": "text_height",
+            "count": 6
+          }
+        ],
+        "schematic_parity_issue_count": 11,
+        "ignored_checks": [
+          "missing_courtyard",
+          "track_not_centered_on_via",
+          "tuning_profile_track_geometries",
+          "footprint_filters_mismatch",
+          "footprint_type_mismatch"
+        ],
+        "track_segments": 12,
+        "vias": 1,
+        "track_length_mm": 33.380909,
+        "tracks_by_net": {
+          "GND": {
+            "segments": 3,
+            "length_mm": 8.541362
+          },
+          "MID": {
+            "segments": 7,
+            "length_mm": 13.79612
+          },
+          "VIN": {
+            "segments": 2,
+            "length_mm": 11.043427
+          }
+        }
+      }
+    }
+  ]
+}

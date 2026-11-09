@@ -1,0 +1,96 @@
+
+(session ID
+  (routes
+    (resolution um 1)
+    (library_out
+      (padstack __Via
+        (shape
+          (circle F.Cu 500)
+        )
+        (shape
+          (circle B.Cu 500)
+        )
+      )
+    )
+    (network_out
+      (net GND
+        (wire
+          (path F.Cu 1 101225 -97475 101225 -96525)
+        )
+        (wire
+          (path F.Cu 1 100425 -96525 100425 -97475)
+        )
+        (wire
+          (path F.Cu 1 100425 -97475 101225 -97475)
+        )
+        (wire
+          (path F.Cu 1 101225 -96525 100425 -96525)
+        )
+      )
+      (net MID
+        (wire
+          (path F.Cu 1 98775 -97475 99575 -97475)
+        )
+        (wire
+          (path F.Cu 1 99575 -97475 99575 -96525)
+        )
+        (wire
+          (path F.Cu 1 98775 -96525 98775 -97475)
+        )
+        (wire
+          (path F.Cu 1 99575 -96525 98775 -96525)
+        )
+        (wire
+          (path F.Cu 1 101225 -97475 101225 -96525)
+        )
+        (wire
+          (path F.Cu 1 100425 -96525 100425 -97475)
+        )
+        (wire
+          (path F.Cu 1 101225 -96525 100425 -96525)
+        )
+        (wire
+          (path F.Cu 1 100425 -97475 101225 -97475)
+        )
+      )
+      (net VIN
+        (wire
+          (path F.Cu 1 98775 -96525 98775 -97475)
+        )
+        (wire
+          (path F.Cu 1 98775 -97475 99575 -97475)
+        )
+        (wire
+          (path F.Cu 1 99575 -96525 98775 -96525)
+        )
+        (wire
+          (path F.Cu 1 99575 -97475 99575 -96525)
+        )
+        (wire
+          (path B.Cu 1 91210 -100750 91210 -99250)
+        )
+        (wire
+          (path F.Cu 1 91210 -100750 91210 -99250)
+        )
+        (wire
+          (path B.Cu 1 89710 -100750 91210 -100750)
+        )
+        (wire
+          (path B.Cu 1 89710 -99250 89710 -100750)
+        )
+        (wire
+          (path F.Cu 1 89710 -100750 91210 -100750)
+        )
+        (wire
+          (path F.Cu 1 89710 -99250 89710 -100750)
+        )
+        (wire
+          (path B.Cu 1 91210 -99250 89710 -99250)
+        )
+        (wire
+          (path F.Cu 1 91210 -99250 89710 -99250)
+        )
+      )
+    )
+  )
+)

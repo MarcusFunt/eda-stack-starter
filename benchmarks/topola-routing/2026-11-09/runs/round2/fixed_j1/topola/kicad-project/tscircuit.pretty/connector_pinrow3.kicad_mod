@@ -1,0 +1,139 @@
+(footprint
+  "connector_pinrow3"
+  (version 20240108)
+  (generator pcbnew)
+  (generator_version 8.0)
+  (layer F.Cu)
+  (at 0 0 0)
+  (descr "")
+  (tags "")
+  (attr through_hole)
+  (embedded_fonts no)
+  (property "Reference" "REF**"
+    (at 0 -1.25 0)
+    (layer F.SilkS)
+    (uuid 09b0f238-7561-6478-1eee-29484cc248f8)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "Val**"
+    (at 0 1.25 0)
+    (layer F.Fab)
+    (uuid 57289514-4067-6cec-2808-91146f8770ec)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6ece521c-031d-dfdc-6892-92642bbcfb5c)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6731ccea-25d4-ee8a-1b87-efd65ce4ce36)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    user
+    "pin1"
+    (at -2.539999999999999 -1.35 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    user
+    "pin2"
+    (at 0 -1.35 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    user
+    "pin3"
+    (at 2.54 -1.35 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    reference
+    "REF**"
+    (at 0 -2.54 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.7 0.7)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_rect
+    (start -4.3100000000000005 -1.77)
+    (end 4.3100000000000005 1.77)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" thru_hole rect
+    (at -2.539999999999999 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 640dd540-289b-3941-4abb-b83e41ed5643)
+  )
+  (pad "2" thru_hole circle
+    (at 0 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 600f6420-2c99-aa61-46bd-471e45ebc763)
+  )
+  (pad "3" thru_hole circle
+    (at 2.54 0 0)
+    (size 1.5 1.5)
+    (drill 1)
+    (layers *.Cu *.Mask)
+    (uuid 5c10f300-3098-1b81-42be-d5fe49ea3883)
+  )
+  (model "../../3dmodels/tscircuit_builtin.3dshapes/pinrow3.step"
+  )
+)

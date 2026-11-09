@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "requirements": [
+    {
+      "id": "divider-topology",
+      "description": "Provide a two-resistor divider between connector VIN and GND.",
+      "acceptance": ["J1.1 and R1.1 share VIN", "R1.2, R2.1, and J1.2 share MID", "R2.2 and J1.3 share GND"]
+    }
+  ]
+}

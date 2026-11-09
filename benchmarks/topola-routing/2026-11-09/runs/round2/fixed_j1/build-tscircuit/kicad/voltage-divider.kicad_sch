@@ -1,0 +1,679 @@
+(kicad_sch
+  (version 20250114)
+  (generator circuit-json-to-kicad)
+  (generator_version 0.0.1)
+  (uuid f1ff3898-5301-40ab-b388-5e4d47e0a0bc)
+  (paper
+    A4
+  )
+  (lib_symbols
+    (symbol "Device:J_connector_pinrow3"
+      (pin_numbers
+        (hide no)
+      )
+      (pin_names
+        (offset 1.27)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "J"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:connector_pinrow3"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Connector"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" "connector"
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "* connector_pinrow3"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "J_connector_pinrow3_0_1"
+        (polyline
+          (pts
+            (xy -3 -4.5)
+            (xy 3 -4.5)
+            (xy 3 4.5)
+            (xy -3 4.5)
+            (xy -3 -4.5)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "J_connector_pinrow3_1_1"
+        (pin power_out line
+          (at -8.89 1.27 0)
+          (length 6)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -8.89 -1.27 0)
+          (length 6)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin power_out line
+          (at 8.89 0 180)
+          (length 6)
+          (name "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+    (symbol "Device:boxresistor_down"
+      (pin_numbers
+        (hide yes)
+      )
+      (pin_names
+        (offset 0)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "R"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:resistor_res0603"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Resistor"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" "R res resistor"
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "R_* resistor_res0603"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "boxresistor_down_0_1"
+        (polyline
+          (pts
+            (xy 0 5.08)
+            (xy 0 2.9997)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 0 -2.9997)
+            (xy 0 -3.81)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.1997 2.9997)
+            (xy 1.1997 -2.9997)
+            (xy -1.1997 -2.9997)
+            (xy -1.1997 2.9997)
+            (xy 1.1997 2.9997)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol "boxresistor_down_1_1"
+        (pin passive line
+          (at 0 5.08 270)
+          (length 0.01)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 0 -3.81 90)
+          (length 0.01)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+  (embedded_fonts no)
+  (symbol
+    (lib_id "Device:J_connector_pinrow3")
+    (at 148.59 102.87 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 49005bff-ac1a-4232-bc60-dd95903a30e1)
+    (fields_autoplaced no)
+    (property "Reference" "J1"
+      (id 0)
+      (at 145.5 96.8 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Value" ""
+      (id 1)
+      (at 148.5 110.75 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" "tscircuit:connector_pinrow3"
+      (id 2)
+      (at 146.722 103.25 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 148.5 103.25 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Connector"
+      (id 4)
+      (at 148.5 103.25 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid 9b837ac7-5686-44be-a43a-39a8a1554d3a)
+    )
+    (pin "2"
+      (uuid e367f6fa-e0d6-46d8-b7c9-50f2b3b6b5bd)
+    )
+    (pin "3"
+      (uuid c2a15552-a66e-4d4a-93a5-b39e09164e80)
+    )
+    (instances
+      (project ""
+        (path "/f1ff3898-5301-40ab-b388-5e4d47e0a0bc"
+          (reference "J1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:boxresistor_down")
+    (at 134.62 105.41 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 9ce46aab-32d2-4ac7-9e14-63a3ede09850)
+    (fields_autoplaced no)
+    (property "Reference" "R1"
+      (id 0)
+      (at 136.8 102.6 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Value" "10kΩ"
+      (id 1)
+      (at 136.8 107.39999999999999 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Footprint" "tscircuit:resistor_res0603"
+      (id 2)
+      (at 132.622 105 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 134.4 105 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Resistor"
+      (id 4)
+      (at 134.4 105 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid 7def927f-674b-44da-8730-80306f3438f2)
+    )
+    (pin "2"
+      (uuid 3d8b47d9-cccf-431d-932b-11dc53ceeb00)
+    )
+    (instances
+      (project ""
+        (path "/f1ff3898-5301-40ab-b388-5e4d47e0a0bc"
+          (reference "R1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:boxresistor_down")
+    (at 162.56 105.41 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 3413f8b6-d196-42d2-b837-7c7447dab7b9)
+    (fields_autoplaced no)
+    (property "Reference" "R2"
+      (id 0)
+      (at 165 102.6 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Value" "10kΩ"
+      (id 1)
+      (at 165 107.39999999999999 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Footprint" "tscircuit:resistor_res0603"
+      (id 2)
+      (at 160.822 105 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 162.6 105 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Resistor"
+      (id 4)
+      (at 162.6 105 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid bc5ab3c0-6b4b-49b9-a7fa-256651e83912)
+    )
+    (pin "2"
+      (uuid ce1dc1eb-f693-42fc-8df4-32d558346703)
+    )
+    (instances
+      (project ""
+        (path "/f1ff3898-5301-40ab-b388-5e4d47e0a0bc"
+          (reference "R2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (label "MID"
+    (at 134.62 111.76 90)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right bottom)
+    )
+    (uuid 01420a12-b98e-4d74-8e6f-0671e8df73ed)
+  )
+  (label "MID"
+    (at 162.56 97.79 90)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left bottom)
+    )
+    (uuid b0ae9c5f-3e1a-4c03-9cc4-c4b981850ea6)
+  )
+  (label "VIN"
+    (at 139.7 101.6 180)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid 54fba872-bfec-4296-a04f-cad5d7a71ed0)
+    (fields_autoplaced no)
+  )
+  (label "VIN"
+    (at 134.62 100.33 90)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid 04e11f24-2ff0-4129-a307-4081626addac)
+    (fields_autoplaced no)
+  )
+  (label "MID"
+    (at 139.7 104.14 180)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid 34d5c9ff-1240-4c5c-b38b-7a0c177e36ba)
+    (fields_autoplaced no)
+  )
+  (label "GND"
+    (at 162.56 113.03 270)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid 138b0c75-51d1-4854-a79f-7248716f4e6d)
+    (fields_autoplaced no)
+  )
+  (wire
+    (pts
+      (xy 157.48 102.87)
+      (xy 157.48 113.03)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 4e1f9fc0-98e1-4d49-856f-0dfaa5e0e96b)
+  )
+  (wire
+    (pts
+      (xy 157.48 113.03)
+      (xy 162.56 113.03)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid fd414054-002b-436f-99da-fa6b5b4f48ef)
+  )
+  (wire
+    (pts
+      (xy 162.56 113.03)
+      (xy 162.56 109.22)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 591e481e-3a14-46b6-82fa-65f59a13643e)
+  )
+  (wire
+    (pts
+      (xy 134.62 109.22)
+      (xy 134.62 111.76)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 0941125f-c897-4b7b-9c6c-e70d6de20812)
+  )
+  (wire
+    (pts
+      (xy 162.56 100.33)
+      (xy 162.56 97.79)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 6b90a900-2cb1-43b1-b3c7-916ee9021ef0)
+  )
+)

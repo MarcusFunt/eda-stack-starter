@@ -32,6 +32,12 @@ The sandbox image is tied to the compiler package lock hash. Rebuild it after ch
 
 The Python service adapter is `edastack.adapters.tscircuit.build_tscircuit_project`; it invokes this CLI with an argument array and returns the artifact paths and graph counts. It does not provide a shell or dependency-install hook.
 
+## Typed circuit-constraint prototype
+
+`src/typed-constraints.ts` maps Circuit JSON and the corresponding TSX/constraint source files into a deterministic typed IR for components, pins, nets, electrical rules, board/component constraints, and explicit constraint rules. Pin records retain the Circuit JSON `source_port_id` and every associated PCB port ID, PCB component ID, layer, and coordinate. Missing or mismatched physical pads remain visible as structured diagnostics. Rule diagnostics cover duplicate IDs/rules, unsupported kinds/operators, missing component/net/pin references, and infeasible hard numeric constraints, with source file, line, and column.
+
+The input rule shape is described by `schemas/typed-circuit-constraints.schema.json`. Regenerate and check the LED/transistor golden fixture with `npm run fixtures:typed-constraints` and `npm test`. The current fixture intentionally reports three missing physical PCB ports for Q1; the prototype does not treat that as a passing physical design and is not yet wired into the release gate.
+
 ### Project build trust boundary
 
 The host validates and hashes the project snapshot before execution. It rejects symbolic and hard links, special files, path traversal, oversized projects, extra runtime dependencies, and unsupported metadata. Container execution has no network, a read-only root and source mount, no added capabilities, `no-new-privileges`, one CPU, 1 GiB memory, 64 processes, and bounded execution, logs, and output scratch. The Docker daemon and host kernel remain trusted; this is container isolation, not a hardened virtual machine. Builds fail with explicit diagnostics when TSX, project features, or Circuit JSON record types are unsupported.

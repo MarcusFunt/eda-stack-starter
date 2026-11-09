@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "status": "unverified",
+  "parts": [
+    { "reference": "J1", "manufacturer_part_number": null, "footprint": "pinrow3", "pin_map_status": "unverified" },
+    { "reference": "R1", "manufacturer_part_number": null, "footprint": "0603", "pin_map_status": "unverified" },
+    { "reference": "R2", "manufacturer_part_number": null, "footprint": "0603", "pin_map_status": "unverified" }
+  ]
+}

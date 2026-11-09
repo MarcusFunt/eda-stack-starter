@@ -1,0 +1,672 @@
+{
+  "ir": {
+    "schemaVersion": 1,
+    "components": [
+      {
+        "id": "source_component_2",
+        "reference": "D1",
+        "componentType": "simple_led",
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 5,
+          "column": 7,
+          "recordId": "source_component_2"
+        }
+      },
+      {
+        "id": "source_component_0",
+        "reference": "J1",
+        "componentType": "simple_connector",
+        "source": {
+          "path": "src/board.tsx",
+          "line": 8,
+          "column": 5,
+          "recordId": "source_component_0"
+        }
+      },
+      {
+        "id": "source_component_1",
+        "reference": "Q1",
+        "componentType": "simple_transistor",
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 4,
+          "column": 7,
+          "recordId": "source_component_1"
+        }
+      },
+      {
+        "id": "source_component_3",
+        "reference": "R1",
+        "componentType": "simple_resistor",
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 6,
+          "column": 7,
+          "recordId": "source_component_3"
+        }
+      },
+      {
+        "id": "source_component_4",
+        "reference": "R2",
+        "componentType": "simple_resistor",
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 7,
+          "column": 7,
+          "recordId": "source_component_4"
+        }
+      }
+    ],
+    "pins": [
+      {
+        "id": "source_port_6",
+        "sourcePortId": "source_port_6",
+        "componentId": "source_component_2",
+        "reference": "D1",
+        "number": 1,
+        "name": "pin1",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_3",
+            "pcbComponentId": "pcb_component_2",
+            "sourceComponentId": "source_component_2",
+            "x": -0.825,
+            "y": 4,
+            "layers": [
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 5,
+          "column": 7,
+          "recordId": "source_port_6"
+        }
+      },
+      {
+        "id": "source_port_7",
+        "sourcePortId": "source_port_7",
+        "componentId": "source_component_2",
+        "reference": "D1",
+        "number": 2,
+        "name": "pin2",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_4",
+            "pcbComponentId": "pcb_component_2",
+            "sourceComponentId": "source_component_2",
+            "x": 0.825,
+            "y": 4,
+            "layers": [
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 5,
+          "column": 7,
+          "recordId": "source_port_7"
+        }
+      },
+      {
+        "id": "source_port_0",
+        "sourcePortId": "source_port_0",
+        "componentId": "source_component_0",
+        "reference": "J1",
+        "number": 1,
+        "name": "pin1",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_0",
+            "pcbComponentId": "pcb_component_0",
+            "sourceComponentId": "source_component_0",
+            "x": -12.54,
+            "y": 0,
+            "layers": [
+              "bottom",
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [
+          "provides_power"
+        ],
+        "source": {
+          "path": "src/board.tsx",
+          "line": 8,
+          "column": 5,
+          "recordId": "source_port_0"
+        }
+      },
+      {
+        "id": "source_port_1",
+        "sourcePortId": "source_port_1",
+        "componentId": "source_component_0",
+        "reference": "J1",
+        "number": 2,
+        "name": "pin2",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_1",
+            "pcbComponentId": "pcb_component_0",
+            "sourceComponentId": "source_component_0",
+            "x": -10,
+            "y": 0,
+            "layers": [
+              "bottom",
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [
+          "provides_ground"
+        ],
+        "source": {
+          "path": "src/board.tsx",
+          "line": 8,
+          "column": 5,
+          "recordId": "source_port_1"
+        }
+      },
+      {
+        "id": "source_port_2",
+        "sourcePortId": "source_port_2",
+        "componentId": "source_component_0",
+        "reference": "J1",
+        "number": 3,
+        "name": "pin3",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_2",
+            "pcbComponentId": "pcb_component_0",
+            "sourceComponentId": "source_component_0",
+            "x": -7.46,
+            "y": 0,
+            "layers": [
+              "bottom",
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/board.tsx",
+          "line": 8,
+          "column": 5,
+          "recordId": "source_port_2"
+        }
+      },
+      {
+        "id": "source_port_3",
+        "sourcePortId": "source_port_3",
+        "componentId": "source_component_1",
+        "reference": "Q1",
+        "number": 1,
+        "name": "pin1",
+        "physicalPads": [],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 4,
+          "column": 7,
+          "recordId": "source_port_3"
+        }
+      },
+      {
+        "id": "source_port_5",
+        "sourcePortId": "source_port_5",
+        "componentId": "source_component_1",
+        "reference": "Q1",
+        "number": 2,
+        "name": "pin2",
+        "physicalPads": [],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 4,
+          "column": 7,
+          "recordId": "source_port_5"
+        }
+      },
+      {
+        "id": "source_port_4",
+        "sourcePortId": "source_port_4",
+        "componentId": "source_component_1",
+        "reference": "Q1",
+        "number": 3,
+        "name": "pin3",
+        "physicalPads": [],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 4,
+          "column": 7,
+          "recordId": "source_port_4"
+        }
+      },
+      {
+        "id": "source_port_8",
+        "sourcePortId": "source_port_8",
+        "componentId": "source_component_3",
+        "reference": "R1",
+        "number": 1,
+        "name": "pin1",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_5",
+            "pcbComponentId": "pcb_component_3",
+            "sourceComponentId": "source_component_3",
+            "x": -4.825,
+            "y": 4,
+            "layers": [
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 6,
+          "column": 7,
+          "recordId": "source_port_8"
+        }
+      },
+      {
+        "id": "source_port_9",
+        "sourcePortId": "source_port_9",
+        "componentId": "source_component_3",
+        "reference": "R1",
+        "number": 2,
+        "name": "pin2",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_6",
+            "pcbComponentId": "pcb_component_3",
+            "sourceComponentId": "source_component_3",
+            "x": -3.175,
+            "y": 4,
+            "layers": [
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 6,
+          "column": 7,
+          "recordId": "source_port_9"
+        }
+      },
+      {
+        "id": "source_port_10",
+        "sourcePortId": "source_port_10",
+        "componentId": "source_component_4",
+        "reference": "R2",
+        "number": 1,
+        "name": "pin1",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_7",
+            "pcbComponentId": "pcb_component_4",
+            "sourceComponentId": "source_component_4",
+            "x": -0.825,
+            "y": -4,
+            "layers": [
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 7,
+          "column": 7,
+          "recordId": "source_port_10"
+        }
+      },
+      {
+        "id": "source_port_11",
+        "sourcePortId": "source_port_11",
+        "componentId": "source_component_4",
+        "reference": "R2",
+        "number": 2,
+        "name": "pin2",
+        "physicalPads": [
+          {
+            "pcbPortId": "pcb_port_8",
+            "pcbComponentId": "pcb_component_4",
+            "sourceComponentId": "source_component_4",
+            "x": 0.825,
+            "y": -4,
+            "layers": [
+              "top"
+            ]
+          }
+        ],
+        "electricalAttributes": [],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 7,
+          "column": 7,
+          "recordId": "source_port_11"
+        }
+      }
+    ],
+    "nets": [
+      {
+        "id": "derived:source_port_5+source_port_11",
+        "name": "",
+        "kind": "unnamed",
+        "sourceNetIds": [],
+        "pinIds": [
+          "source_port_5",
+          "source_port_11"
+        ],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 4,
+          "column": 7,
+          "recordId": "source_port_5"
+        }
+      },
+      {
+        "id": "derived:source_port_6+source_port_9",
+        "name": "",
+        "kind": "unnamed",
+        "sourceNetIds": [],
+        "pinIds": [
+          "source_port_6",
+          "source_port_9"
+        ],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 5,
+          "column": 7,
+          "recordId": "source_port_6"
+        }
+      },
+      {
+        "id": "derived:source_port_7+source_port_3",
+        "name": "",
+        "kind": "unnamed",
+        "sourceNetIds": [],
+        "pinIds": [
+          "source_port_7",
+          "source_port_3"
+        ],
+        "source": {
+          "path": "src/modules/low-side-led.tsx",
+          "line": 5,
+          "column": 7,
+          "recordId": "source_port_7"
+        }
+      },
+      {
+        "id": "source_net_0",
+        "name": "VCC",
+        "kind": "power",
+        "sourceNetIds": [
+          "source_net_0"
+        ],
+        "pinIds": [
+          "source_port_0",
+          "source_port_8"
+        ],
+        "source": {
+          "path": "src/board.tsx",
+          "line": 5,
+          "column": 5
+        }
+      },
+      {
+        "id": "source_net_1",
+        "name": "GND",
+        "kind": "ground",
+        "sourceNetIds": [
+          "source_net_1"
+        ],
+        "pinIds": [
+          "source_port_1",
+          "source_port_4"
+        ],
+        "source": {
+          "path": "src/board.tsx",
+          "line": 6,
+          "column": 5
+        }
+      },
+      {
+        "id": "source_net_2",
+        "name": "CTRL",
+        "kind": "signal",
+        "sourceNetIds": [
+          "source_net_2"
+        ],
+        "pinIds": [
+          "source_port_2",
+          "source_port_10"
+        ],
+        "source": {
+          "path": "src/board.tsx",
+          "line": 7,
+          "column": 5
+        }
+      }
+    ],
+    "electricalRules": [
+      {
+        "id": "electrical:net:source_net_0:is_positive_voltage_source",
+        "kind": "electrical",
+        "target": {
+          "type": "net",
+          "id": "source_net_0",
+          "name": "VCC"
+        },
+        "property": "is_positive_voltage_source",
+        "operator": "==",
+        "value": true,
+        "hard": true,
+        "source": {
+          "path": "src/board.tsx",
+          "line": 5,
+          "column": 5
+        }
+      },
+      {
+        "id": "electrical:net:source_net_0:is_power",
+        "kind": "electrical",
+        "target": {
+          "type": "net",
+          "id": "source_net_0",
+          "name": "VCC"
+        },
+        "property": "is_power",
+        "operator": "==",
+        "value": true,
+        "hard": true,
+        "source": {
+          "path": "src/board.tsx",
+          "line": 5,
+          "column": 5
+        }
+      },
+      {
+        "id": "electrical:net:source_net_1:is_ground",
+        "kind": "electrical",
+        "target": {
+          "type": "net",
+          "id": "source_net_1",
+          "name": "GND"
+        },
+        "property": "is_ground",
+        "operator": "==",
+        "value": true,
+        "hard": true,
+        "source": {
+          "path": "src/board.tsx",
+          "line": 6,
+          "column": 5
+        }
+      },
+      {
+        "id": "electrical:pin:source_port_0:provides_power",
+        "kind": "electrical",
+        "target": {
+          "type": "pin",
+          "reference": "J1",
+          "pin_number": 1,
+          "source_port_id": "source_port_0"
+        },
+        "property": "provides_power",
+        "operator": "==",
+        "value": true,
+        "hard": true,
+        "source": {
+          "path": "src/board.tsx",
+          "line": 8,
+          "column": 5,
+          "recordId": "source_port_0"
+        }
+      },
+      {
+        "id": "electrical:pin:source_port_1:provides_ground",
+        "kind": "electrical",
+        "target": {
+          "type": "pin",
+          "reference": "J1",
+          "pin_number": 2,
+          "source_port_id": "source_port_1"
+        },
+        "property": "provides_ground",
+        "operator": "==",
+        "value": true,
+        "hard": true,
+        "source": {
+          "path": "src/board.tsx",
+          "line": 8,
+          "column": 5,
+          "recordId": "source_port_1"
+        }
+      }
+    ],
+    "physicalConstraints": [
+      {
+        "id": "physical:board:height_mm",
+        "kind": "physical",
+        "target": {
+          "type": "board"
+        },
+        "property": "height_mm",
+        "operator": "==",
+        "value": 18,
+        "hard": true,
+        "source": {
+          "path": "pcb.constraints.json",
+          "line": 3,
+          "column": 30,
+          "recordId": "physical:board:height_mm",
+          "jsonPointer": "/board/height_mm"
+        }
+      },
+      {
+        "id": "physical:board:layers",
+        "kind": "physical",
+        "target": {
+          "type": "board"
+        },
+        "property": "layers",
+        "operator": "==",
+        "value": 2,
+        "hard": true,
+        "source": {
+          "path": "pcb.constraints.json",
+          "line": 3,
+          "column": 47,
+          "recordId": "physical:board:layers",
+          "jsonPointer": "/board/layers"
+        }
+      },
+      {
+        "id": "physical:board:width_mm",
+        "kind": "physical",
+        "target": {
+          "type": "board"
+        },
+        "property": "width_mm",
+        "operator": "==",
+        "value": 30,
+        "hard": true,
+        "source": {
+          "path": "pcb.constraints.json",
+          "line": 3,
+          "column": 14,
+          "recordId": "physical:board:width_mm",
+          "jsonPointer": "/board/width_mm"
+        }
+      }
+    ],
+    "componentConstraints": [
+      {
+        "id": "component:fixed:J1",
+        "kind": "component",
+        "target": {
+          "type": "component",
+          "reference": "J1"
+        },
+        "property": "fixed",
+        "operator": "==",
+        "value": true,
+        "hard": true,
+        "source": {
+          "path": "pcb.constraints.json",
+          "line": 4,
+          "column": 24,
+          "recordId": "component:fixed:J1",
+          "jsonPointer": "/fixed_components/0"
+        }
+      }
+    ],
+    "rules": []
+  },
+  "diagnostics": [
+    {
+      "id": "physical-pad:source_port_3",
+      "code": "PIN_PHYSICAL_PAD_MISSING",
+      "message": "Source pin Q1:1 has no matching physical PCB port.",
+      "source": {
+        "path": "src/modules/low-side-led.tsx",
+        "line": 4,
+        "column": 7,
+        "recordId": "source_port_3"
+      }
+    },
+    {
+      "id": "physical-pad:source_port_4",
+      "code": "PIN_PHYSICAL_PAD_MISSING",
+      "message": "Source pin Q1:3 has no matching physical PCB port.",
+      "source": {
+        "path": "src/modules/low-side-led.tsx",
+        "line": 4,
+        "column": 7,
+        "recordId": "source_port_4"
+      }
+    },
+    {
+      "id": "physical-pad:source_port_5",
+      "code": "PIN_PHYSICAL_PAD_MISSING",
+      "message": "Source pin Q1:2 has no matching physical PCB port.",
+      "source": {
+        "path": "src/modules/low-side-led.tsx",
+        "line": 4,
+        "column": 7,
+        "recordId": "source_port_5"
+      }
+    }
+  ]
+}

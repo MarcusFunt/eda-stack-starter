@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "project_name": "voltage-divider",
+  "entrypoint": "src/board.tsx",
+  "source_files": [
+    {
+      "path": "eda.project.json",
+      "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+      "bytes": 369
+    },
+    {
+      "path": "package.json",
+      "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+      "bytes": 179
+    },
+    {
+      "path": "parts.lock.json",
+      "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+      "bytes": 423
+    },
+    {
+      "path": "pcb.constraints.json",
+      "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+      "bytes": 141
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+      "bytes": 300
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "dd5100b55852fd14cbce788cf03a841e9a9e872887ef67f6245f1cabd1ec2738",
+      "bytes": 868
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    }
+  ],
+  "canonical_source_graph": {
+    "schema_version": 1,
+    "components": [
+      {
+        "reference": "J1",
+        "component_type": "simple_connector",
+        "properties": {
+          "pin_count": 3
+        }
+      },
+      {
+        "reference": "R1",
+        "component_type": "simple_resistor",
+        "properties": {
+          "are_pins_interchangeable": true,
+          "display_resistance": "10kΩ",
+          "resistance": 10000
+        }
+      },
+      {
+        "reference": "R2",
+        "component_type": "simple_resistor",
+        "properties": {
+          "are_pins_interchangeable": true,
+          "display_resistance": "10kΩ",
+          "resistance": 10000
+        }
+      }
+    ],
+    "ports": [
+      {
+        "component": "J1",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N001"
+      },
+      {
+        "component": "J1",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N002"
+      },
+      {
+        "component": "J1",
+        "pin": "3",
+        "name": "pin3",
+        "net_id": "N003"
+      },
+      {
+        "component": "R1",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N001"
+      },
+      {
+        "component": "R1",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N002"
+      },
+      {
+        "component": "R2",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N002"
+      },
+      {
+        "component": "R2",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N003"
+      }
+    ],
+    "nets": [
+      {
+        "id": "N001",
+        "names": [
+          "VIN"
+        ],
+        "pins": [
+          "J1:1",
+          "R1:1"
+        ]
+      },
+      {
+        "id": "N002",
+        "names": [
+          "MID"
+        ],
+        "pins": [
+          "J1:2",
+          "R1:2",
+          "R2:1"
+        ]
+      },
+      {
+        "id": "N003",
+        "names": [
+          "GND"
+        ],
+        "pins": [
+          "J1:3",
+          "R2:2"
+        ]
+      }
+    ]
+  },
+  "circuit_json_sha256": "27ad35277c96fb8bb69a57014f14da0d4975f90e0589512967a94740bafc8b54",
+  "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f"
+}
