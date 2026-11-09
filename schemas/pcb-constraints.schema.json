@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.dev/schemas/pcb-constraints.schema.json",
+  "title": "EDA Stack PCB constraints",
+  "type": "object",
+  "required": ["schema_version", "board"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "board": {
+      "type": "object",
+      "properties": {
+        "width_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "height_mm": { "type": "number", "exclusiveMinimum": 0 },
+        "layers": { "type": "integer", "minimum": 2, "maximum": 32 }
+      },
+      "additionalProperties": false
+    },
+    "fixed_components": { "type": "array", "items": { "type": "string" } },
+    "keepouts": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "requirements": [
+    { "id": "design-intent", "description": "Natural-language brief: Design a safe 5 V control input with an RC-delay gate driving a 2N7002 open-drain signal output. Add a 10k pull-up to 5 V, 1k gate resistor, 100k gate pull-down and 10nF gate capacitor. Include 3-pin input and 2-pin output connectors. Generate a 36x24 mm two-layer PCB.", "acceptance": ["Low CTRL should leave OUT high", "High CTRL should pull OUT low after the gate delay", "Component ratings and 2N7002 vendor model must be independently checked", "Do not release a board without zero KiCad ERC/DRC and reviewed sourced footprints"] },
+    { "id": "port-connections", "description": "J1 has 5V, CTRL and GND pins. J2 has OUT and GND. Q1 has Drain to OUT, Gate to the filtered control node, Source to GND.", "acceptance": ["Exact physical pin-net membership is preserved across TSX and KiCad exports"] }
+  ]
+}

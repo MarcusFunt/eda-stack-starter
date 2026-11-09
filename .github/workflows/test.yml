@@ -38,10 +38,14 @@ jobs:
           cache-dependency-path: |
             integrations/tscircuit-rc/package-lock.json
             packages/tscircuit-worker/package-lock.json
+            packages/tscircuit-compiler/package-lock.json
       - run: npm install --global npm@11.12.1
       - run: npm ci
         working-directory: integrations/tscircuit-rc
       - run: npm ci
+        working-directory: packages/tscircuit-worker
+      - name: Build digest-pinned TSX sandbox image
+        run: npm run sandbox:image
         working-directory: packages/tscircuit-worker
       - name: Export with KiCad and compare native pin-net membership
         run: npm run verify:native
@@ -123,6 +127,13 @@ jobs:
       - name: Validate KiCad interchange and manufacturing exports
         working-directory: integrations/tscircuit-rc
         run: npm run kicad:validate
+      - name: Enforce zero ERC/DRC for reviewed RC reference only
+        # General converted designs are compatibility fixtures, not release candidates.
+        # General candidate release uses packages/tscircuit-worker release:check --kind general.
+        working-directory: packages/tscircuit-worker
+        run: |
+          npm ci
+          npm run release:check -- --kind reviewed-rc --summary ../../build/tscircuit-rc/kicad-validation/summary.json
       - name: Verify tscircuit source against real ngspice
         working-directory: integrations/tscircuit-rc
         run: npm run verify

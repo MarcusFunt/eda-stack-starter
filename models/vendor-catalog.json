@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "id": "diodes-2n7002-2017",
+      "manufacturer": "Diodes Incorporated",
+      "manufacturer_part_family": "2N7002",
+      "model_source_url": "https://www.diodes.com/spice/download/1941/2N7002.spice.txt",
+      "product_url": "https://www.diodes.com/part/view/2N7002",
+      "sha256": "ca0fa03b0ff97da1ba91235cf8882ff82a1fe936dfa91d384ae168ec2a35f241",
+      "simulation_kind": "subckt",
+      "subcircuit": "N7002",
+      "terminal_order": ["D", "G", "S"],
+      "sot23_physical_pin_map": { "D": "3", "G": "1", "S": "2" },
+      "date_of_vendor_model": "2017-02-09",
+      "redistribution": "Do not commit vendor model bytes; fetch from manufacturer on demand.",
+      "verification_scope": "Download checksum and SPICE switching smoke only; model is not physical-hardware validation."
+    }
+  ]
+}

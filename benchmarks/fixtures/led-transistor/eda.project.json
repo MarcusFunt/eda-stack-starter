@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "project_id": "led-transistor",
+  "authoring_backend": "tscircuit",
+  "entrypoint": "src/board.tsx",
+  "requirements_file": "requirements.json",
+  "parts_lock": "parts.lock.json",
+  "pcb_constraints_file": "pcb.constraints.json",
+  "toolchain_profile": "kicad10-ngspice47-tscircuit-pinned",
+  "approval_policy": "human-release"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.dev/schemas/tscircuit-project.schema.json",
+  "title": "EDA Stack tscircuit project manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "authoring_backend",
+    "entrypoint",
+    "requirements_file",
+    "parts_lock",
+    "pcb_constraints_file",
+    "toolchain_profile",
+    "approval_policy"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "project_id": { "type": "string", "pattern": "^[a-z][a-z0-9-]{0,62}$" },
+    "authoring_backend": { "const": "tscircuit" },
+    "entrypoint": { "type": "string", "pattern": "^src/(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]+\\.tsx?$" },
+    "requirements_file": { "const": "requirements.json" },
+    "parts_lock": { "const": "parts.lock.json" },
+    "pcb_constraints_file": { "const": "pcb.constraints.json" },
+    "toolchain_profile": { "const": "kicad10-ngspice47-tscircuit-pinned" },
+    "approval_policy": { "const": "human-release" }
+  },
+  "additionalProperties": false
+}

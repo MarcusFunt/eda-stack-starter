@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "unverified",
+  "parts": [
+    { "reference": "J1", "manufacturer_part_number": null, "footprint": "pinrow3", "pin_map_status": "unverified" },
+    { "reference": "J2", "manufacturer_part_number": null, "footprint": "pinrow2", "pin_map_status": "unverified" },
+    { "reference": "Q1", "manufacturer_part_number": "2N7002-7-F", "footprint": "sot23", "pin_map_status": "datasheet_reviewed", "simulation_model_id": "diodes-2n7002-2017" },
+    { "reference": "R1", "manufacturer_part_number": "RC0603FR-0710KL", "footprint": "0603", "pin_map_status": "unverified" },
+    { "reference": "R2", "manufacturer_part_number": "RC0603FR-071KL", "footprint": "0603", "pin_map_status": "unverified" },
+    { "reference": "R3", "manufacturer_part_number": null, "footprint": "0603", "pin_map_status": "unverified" },
+    { "reference": "C1", "manufacturer_part_number": null, "footprint": "0603", "pin_map_status": "unverified" }
+  ]
+}
