@@ -146,14 +146,23 @@ const expandedSource = originalBoardSource.replace(
   [
     "    <net name=\"AUX_OUT\" />",
     "    <connector name=\"J2\" pinCount={2} footprint=\"pinrow2\" pcbX={10} pcbY={0} />",
-    "    <resistor name=\"RTEST\" resistance=\"10k\" footprint=\"0603\" pcbX={5} pcbY={6} />",
-    "    <trace from=\".J2 > .pin1\" to=\".RTEST > .pin1\" />",
+    "    <resistor name=\"R3\" resistance=\"10k\" footprint=\"0603\" pcbX={5} pcbY={6} />",
+    "    <trace from=\".J2 > .pin1\" to=\".R3 > .pin1\" />",
     "    <trace from=\".J2 > .pin2\" to=\"net.GND\" />",
-    "    <trace from=\".RTEST > .pin2\" to=\"net.AUX_OUT\" />",
+    "    <trace from=\".R3 > .pin2\" to=\"net.AUX_OUT\" />",
     insertionPoint,
   ].join("\n"),
 );
 await writeFile(mutationEntry, expandedSource);
+// The source mutation adds two real physical components. Keep its experimental
+// parts lock synchronized, without asserting that the new parts are sourced.
+const mutationLockPath = path.join(mutationSourceRoot, "parts.lock.json");
+const mutationPartsLock = JSON.parse(await readFile(mutationLockPath, "utf8"));
+mutationPartsLock.parts.push(
+  { reference: "J2", manufacturer_part_number: null, footprint: "pinrow2", pin_map_status: "unverified" },
+  { reference: "R3", manufacturer_part_number: null, footprint: "0603", pin_map_status: "unverified" },
+);
+await writeFile(mutationLockPath, JSON.stringify(mutationPartsLock, null, 2) + "\n");
 const workerImplementationHashBeforeMutation = await implementationHash();
 const expandedFixture = await buildProjectFixture("led-transistor-expanded", mutationSourceRoot);
 const expandedBuildManifest = JSON.parse(await readFile(path.join(expandedFixture.buildDirectory!, "build-manifest.json"), "utf8"));
