@@ -273,6 +273,8 @@ for (const fixture of fixtureCircuits) {
     pin_net_membership: "exact",
     erc_findings: ercViolations,
     erc_finding_count: ercViolations.length,
+    erc_ignored_checks: erc.ignored_checks ?? null,
+    pcb_drc_ignored_checks: drc.ignored_checks ?? null,
     pcb_drc_findings: drc.violations ?? [],
     pcb_drc_violations: drc.violations?.length ?? null,
     rendered_schematic_svgs: schematicSvgs.filter((filename) => filename.toLowerCase().endsWith(".svg")),

@@ -19,6 +19,7 @@ import * as circuitJsonSchemas from "circuit-json";
 import { exportCircuitJsonToKicad } from "./export-kicad.js";
 import { sourcePinNetGroups } from "./connectivity.js";
 import { CIRCUIT_JSON_COMPAT_NORMALIZATION } from "./circuit-json-compat.js";
+import { resolvePartsForBuild } from "./parts-validation.js";
 
 export const PROJECT_SANDBOX_IMAGE = "edastack/tscircuit-project-sandbox:0.1.0";
 const PROJECT_SANDBOX_LABEL = "org.edastack.project-sandbox";
@@ -671,6 +672,9 @@ export async function buildProject(options: ProjectBuildOptions): Promise<Projec
     validateCompilerManifest(compilerManifestRaw, snapshot, circuitBytes);
     validateCircuitJsonSchema(circuitJson);
     const graph = canonicalSourceGraph(circuitJson);
+    const partsLockBytes = snapshot.files.find((file) => file.path === "parts.lock.json")!.bytes;
+    const partsResult = await resolvePartsForBuild(circuitJson as unknown[], partsLockBytes, path.join(projectSchemaRoot, "..", "models", "vendor-catalog.json"));
+    const partsResultBytes = Buffer.from(JSON.stringify(partsResult, null, 2) + "\n");
     const graphBytes = Buffer.from(JSON.stringify(graph, null, 2) + "\n");
     const sourceManifest = {
       schema_version: 1,
@@ -684,6 +688,7 @@ export async function buildProject(options: ProjectBuildOptions): Promise<Projec
     await writeFile(path.join(resultPath, "circuit.json"), circuitBytes, { flag: "wx" });
     await writeFile(path.join(resultPath, "compiler-manifest.json"), compilerManifestBytes, { flag: "wx" });
     await writeFile(path.join(resultPath, "source-graph.json"), graphBytes, { flag: "wx" });
+    await writeFile(path.join(resultPath, "parts-validation.json"), partsResultBytes, { flag: "wx" });
     const sourceManifestBytes = Buffer.from(JSON.stringify(sourceManifest, null, 2) + "\n");
     await writeFile(path.join(resultPath, "source-manifest.json"), sourceManifestBytes, { flag: "wx" });
 
@@ -719,6 +724,7 @@ export async function buildProject(options: ProjectBuildOptions): Promise<Projec
       },
       circuit_json_sha256: sha256(circuitBytes),
       source_graph_sha256: sha256(graphBytes),
+      parts_verification: { status: partsResult.status, unresolved: partsResult.unresolved.length, sha256: sha256(partsResultBytes) },
       kicad_export_files: exportResult.files.map((filename) => "kicad/" + filename),
       artifacts: artifactHashes,
     };

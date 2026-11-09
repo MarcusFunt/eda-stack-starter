@@ -11,7 +11,10 @@
     "build:project": "tsx src/build-cli.ts",
     "sandbox:image": "tsx scripts/build-sandbox-image.ts",
     "fixtures:generate": "node scripts/generate-fixtures.mjs",
-    "verify:native": "tsx scripts/verify-native.ts"
+    "verify:native": "tsx scripts/verify-native.ts",
+    "verify:project": "tsx scripts/verify-project.ts",
+    "repair:route": "tsx scripts/repair-route.ts",
+    "release:check": "tsx scripts/check-release.ts"
   },
   "dependencies": {
     "@tscircuit/circuit-json-util": "0.0.131",

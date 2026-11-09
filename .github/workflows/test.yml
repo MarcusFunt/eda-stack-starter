@@ -127,6 +127,13 @@ jobs:
       - name: Validate KiCad interchange and manufacturing exports
         working-directory: integrations/tscircuit-rc
         run: npm run kicad:validate
+      - name: Enforce zero ERC/DRC for reviewed RC reference only
+        # General converted designs are compatibility fixtures, not release candidates.
+        # General candidate release uses packages/tscircuit-worker release:check --kind general.
+        working-directory: packages/tscircuit-worker
+        run: |
+          npm ci
+          npm run release:check -- --kind reviewed-rc --summary ../../build/tscircuit-rc/kicad-validation/summary.json
       - name: Verify tscircuit source against real ngspice
         working-directory: integrations/tscircuit-rc
         run: npm run verify

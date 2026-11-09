@@ -1,0 +1,7 @@
+{
+  "name": "logic-open-drain",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": { "react": "19.3.1", "tscircuit": "0.0.3114" }
+}
