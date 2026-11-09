@@ -18,6 +18,25 @@ def _studio_api():
     return importlib.import_module("edastack.studio.api")
 
 
+def _make_studio_project(workspace: Path, project_id: str) -> Path:
+    project_root = workspace / project_id
+    source_path = project_root / "src" / "board.tsx"
+    source_path.parent.mkdir(parents=True)
+    source_path.write_bytes(b"export default function Board() { return null; }\n")
+    (project_root / "eda.project.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "project_id": project_id,
+                "authoring_backend": "tscircuit",
+                "entrypoint": "src/board.tsx",
+            }
+        ),
+        encoding="utf-8",
+    )
+    return project_root
+
+
 def test_health_exposes_a_versioned_service_contract():
     api = _studio_api()
     response = TestClient(api.create_app()).get(
@@ -106,8 +125,125 @@ def test_openapi_lists_health_toolchain_and_typed_errors():
     assert "ErrorResponse" in schema["components"]["schemas"]
 
 
-def test_toolchain_keeps_missing_simulator_explicitly_unavailable():
+def test_projects_list_and_detail_are_scoped_to_the_configured_workspace(tmp_path: Path):
     api = _studio_api()
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    _make_studio_project(workspace, "voltage-divider")
+    outside = tmp_path / "outside"
+    _make_studio_project(tmp_path, "outside")
+
+    client = TestClient(api.create_app(settings=api.StudioSettings(workspace_root=workspace)))
+    headers = {"host": "127.0.0.1"}
+    listing = client.get("/api/v1/projects", headers=headers)
+    detail = client.get("/api/v1/projects/voltage-divider", headers=headers)
+
+    assert listing.status_code == 200, listing.text
+    assert listing.json()["workspace_status"] == "available"
+    assert listing.json()["workspace_name"] == "workspace"
+    assert [project["project_id"] for project in listing.json()["projects"]] == ["voltage-divider"]
+    assert str(workspace) not in listing.text
+    assert str(outside) not in listing.text
+    assert detail.status_code == 200, detail.text
+    assert detail.json()["entrypoint"] == "src/board.tsx"
+    assert detail.json()["source_files"] == [
+        {"path": "src/board.tsx", "bytes": len(b"export default function Board() { return null; }\n")}
+    ]
+
+
+def test_project_detail_indexes_typescript_and_tsx_modules(tmp_path: Path):
+    api = _studio_api()
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    project_root = _make_studio_project(workspace, "voltage-divider")
+    helper = project_root / "src" / "components.ts"
+    helper.write_text("export const resistance = 1000;\n", encoding="utf-8")
+
+    response = TestClient(api.create_app(settings=api.StudioSettings(workspace_root=workspace))).get(
+        "/api/v1/projects/voltage-divider", headers={"host": "127.0.0.1"}
+    )
+
+    assert response.status_code == 200, response.text
+    assert response.json()["source_file_count"] == 2
+    assert [item["path"] for item in response.json()["source_files"]] == [
+        "src/board.tsx",
+        "src/components.ts",
+    ]
+
+
+def test_projects_report_unconfigured_and_unavailable_workspace_roots(tmp_path: Path):
+    api = _studio_api()
+    no_workspace = TestClient(api.create_app()).get("/api/v1/projects", headers={"host": "localhost"})
+    invalid_root = TestClient(
+        api.create_app(settings=api.StudioSettings(workspace_root=tmp_path / "missing"))
+    ).get("/api/v1/projects", headers={"host": "localhost"})
+
+    assert no_workspace.status_code == 200
+    assert no_workspace.json()["workspace_status"] == "not_configured"
+    assert no_workspace.json()["projects"] == []
+    assert invalid_root.status_code == 200
+    assert invalid_root.json()["workspace_status"] == "unavailable"
+    assert invalid_root.json()["projects"] == []
+
+
+def test_project_list_does_not_follow_symlinked_projects(tmp_path: Path):
+    api = _studio_api()
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    outside_root = tmp_path / "outside"
+    _make_studio_project(tmp_path, "outside")
+    link = workspace / "outside"
+    try:
+        link.symlink_to(outside_root, target_is_directory=True)
+    except (OSError, NotImplementedError) as exc:
+        pytest.skip(f"directory symlinks are not available: {exc}")
+
+    response = TestClient(api.create_app(settings=api.StudioSettings(workspace_root=workspace))).get(
+        "/api/v1/projects", headers={"host": "127.0.0.1"}
+    )
+
+    assert response.status_code == 200
+    assert response.json()["projects"] == []
+
+
+@pytest.mark.parametrize("manifest", [b"[" * 1_500, b"{" + b" " * (64 * 1024) + b"}"])
+def test_malformed_or_oversized_project_manifests_do_not_break_discovery(tmp_path: Path, manifest: bytes):
+    api = _studio_api()
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    _make_studio_project(workspace, "valid-project")
+    invalid_root = workspace / "invalid-project"
+    invalid_root.mkdir()
+    (invalid_root / "eda.project.json").write_bytes(manifest)
+
+    response = TestClient(api.create_app(settings=api.StudioSettings(workspace_root=workspace))).get(
+        "/api/v1/projects", headers={"host": "127.0.0.1"}
+    )
+
+    assert response.status_code == 200, response.text
+    assert [project["project_id"] for project in response.json()["projects"]] == ["valid-project"]
+
+
+def test_project_routes_reject_unknown_and_path_traversal_ids(tmp_path: Path):
+    api = _studio_api()
+    workspace = tmp_path / "workspace"
+    workspace.mkdir()
+    client = TestClient(api.create_app(settings=api.StudioSettings(workspace_root=workspace)))
+    headers = {"host": "127.0.0.1"}
+
+    missing = client.get("/api/v1/projects/missing", headers=headers)
+    traversal = client.get("/api/v1/projects/%2E%2E", headers=headers)
+
+    assert missing.status_code == 404
+    assert missing.json()["error"]["code"] == "PROJECT_NOT_FOUND"
+    assert traversal.status_code == 422
+    assert traversal.json()["error"]["code"] == "INVALID_REQUEST"
+
+
+def test_toolchain_keeps_missing_simulator_explicitly_unavailable(monkeypatch):
+    api = _studio_api()
+    monkeypatch.delenv("EDA_STUDIO_NGSPICE", raising=False)
+    monkeypatch.delenv("EDA_STUDIO_DOCKER", raising=False)
     toolchain = api.detect_toolchain(
         executable_lookup=lambda _name: None,
         command_runner=None,
@@ -115,8 +251,113 @@ def test_toolchain_keeps_missing_simulator_explicitly_unavailable():
 
     assert toolchain.tools["ngspice"].status == "unavailable"
     assert toolchain.tools["ngspice"].version is None
-    assert toolchain.tools["kicad_cli"].status == "unavailable"
     assert toolchain.tools["docker"].status == "unavailable"
+
+
+def test_toolchain_extracts_ngspice_version_from_its_banner(monkeypatch):
+    api = _studio_api()
+    monkeypatch.delenv("EDA_STUDIO_NGSPICE", raising=False)
+
+    def command_runner(command, **_kwargs):
+        if command[0] == "fake-ngspice":
+            return SimpleNamespace(
+                returncode=0,
+                stdout="******\n** ngspice-47 : Circuit level simulation program\n",
+                stderr="",
+            )
+        return SimpleNamespace(returncode=1, stdout="", stderr="")
+
+    toolchain = api.detect_toolchain(
+        executable_lookup=lambda name: f"fake-{name}",
+        command_runner=command_runner,
+    )
+
+    assert toolchain.tools["ngspice"].status == "available"
+    assert toolchain.tools["ngspice"].version == "ngspice-47"
+
+
+def test_toolchain_finds_kicad_cli_using_its_conventional_name(monkeypatch):
+    api = _studio_api()
+    monkeypatch.delenv("EDA_STUDIO_KICAD_CLI", raising=False)
+    requested = []
+
+    def executable_lookup(name):
+        requested.append(name)
+        return "D:/Programs/KiCad/10.0.8/bin/kicad-cli.exe" if name == "kicad-cli" else None
+
+    def command_runner(command, **_kwargs):
+        if command[0].endswith("kicad-cli.exe"):
+            return SimpleNamespace(returncode=0, stdout="10.0.8\n", stderr="")
+        return SimpleNamespace(returncode=1, stdout="", stderr="")
+
+    toolchain = api.detect_toolchain(
+        executable_lookup=executable_lookup,
+        command_runner=command_runner,
+    )
+
+    assert toolchain.tools["kicad_cli"].status == "available"
+    assert toolchain.tools["kicad_cli"].version == "10.0.8"
+    assert toolchain.tools["kicad_cli"].executable == "D:/Programs/KiCad/10.0.8/bin/kicad-cli.exe"
+    assert "kicad-cli" in requested
+
+
+def test_toolchain_explicit_executable_override_is_reported_and_not_silently_replaced(monkeypatch):
+    api = _studio_api()
+    override = "D:/Programs/Custom KiCad/bin/kicad-cli.exe"
+    monkeypatch.setenv("EDA_STUDIO_KICAD_CLI", override)
+    requested = []
+
+    def executable_lookup(name):
+        requested.append(name)
+        return override if name == override else None
+
+    def command_runner(command, **_kwargs):
+        if command[0] == override:
+            return SimpleNamespace(returncode=0, stdout="10.0.8\n", stderr="")
+        return SimpleNamespace(returncode=1, stdout="", stderr="")
+
+    toolchain = api.detect_toolchain(
+        executable_lookup=executable_lookup,
+        command_runner=command_runner,
+    )
+
+    assert toolchain.tools["kicad_cli"].status == "available"
+    assert toolchain.tools["kicad_cli"].executable == override
+    assert override in requested
+    assert "kicad-cli" not in requested
+
+
+@pytest.mark.parametrize(
+    ("system", "name", "expected"),
+    [
+        ("Linux", "ngspice", "/usr/bin/ngspice"),
+        ("Linux", "kicad_cli", "/usr/bin/kicad-cli"),
+        ("Darwin", "ngspice", "/opt/homebrew/bin/ngspice"),
+        ("Darwin", "kicad_cli", "/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli"),
+    ],
+)
+def test_toolchain_includes_platform_installation_paths(system, name, expected, monkeypatch):
+    toolchain = importlib.import_module("edastack.studio.toolchain")
+    monkeypatch.setattr(toolchain.platform, "system", lambda: system)
+
+    candidates = toolchain._platform_tool_paths(name)
+
+    assert candidates[0].as_posix() == expected
+
+
+def test_windows_kicad_installation_versions_are_sorted_numerically(tmp_path: Path, monkeypatch):
+    toolchain = importlib.import_module("edastack.studio.toolchain")
+    program_files = tmp_path / "Program Files"
+    install_root = program_files / "KiCad"
+    (install_root / "9.0" / "bin").mkdir(parents=True)
+    (install_root / "10.0" / "bin").mkdir(parents=True)
+    monkeypatch.setattr(toolchain.platform, "system", lambda: "Windows")
+    monkeypatch.setenv("ProgramFiles", str(program_files))
+    monkeypatch.setenv("ProgramFiles(x86)", str(tmp_path / "Program Files (x86)"))
+
+    candidates = toolchain._platform_tool_paths("kicad_cli")
+
+    assert candidates[0] == install_root / "10.0" / "bin" / "kicad-cli.exe"
 
 
 @pytest.mark.parametrize("image_lock_matches", [True, False])
@@ -153,7 +394,10 @@ def test_compile_returns_hash_indexed_manifest_without_host_paths(tmp_path: Path
     api = _studio_api()
     workspace = tmp_path / "workspace"
     project_root = workspace / "voltage-divider"
-    project_root.mkdir(parents=True)
+    source_path = project_root / "src" / "board.tsx"
+    source_path.parent.mkdir(parents=True)
+    source_bytes = b"export default function Board() { return null; }\n"
+    source_path.write_bytes(source_bytes)
     (project_root / "eda.project.json").write_text("{}", encoding="utf-8")
     build_calls = []
 
@@ -162,6 +406,8 @@ def test_compile_returns_hash_indexed_manifest_without_host_paths(tmp_path: Path
         output_dir.mkdir(parents=True)
         (output_dir / "circuit.json").write_bytes(b"[]\n")
         (output_dir / "source-graph.json").write_bytes(b"{}\n")
+        (output_dir / "kicad").mkdir()
+        (output_dir / "kicad" / "voltage-divider.kicad_sch").write_bytes(b"(kicad_sch)\n")
         manifest = {
             "schema_version": 1,
             "status": "compiled",
@@ -169,7 +415,11 @@ def test_compile_returns_hash_indexed_manifest_without_host_paths(tmp_path: Path
             "entrypoint": "src/board.tsx",
             "created_at_utc": "2026-11-09T12:00:00Z",
             "source_files": [
-                {"path": "src/board.tsx", "sha256": "a" * 64, "bytes": 123}
+                {
+                    "path": "src/board.tsx",
+                    "sha256": hashlib.sha256(source_bytes).hexdigest(),
+                    "bytes": len(source_bytes),
+                }
             ],
             "source_graph_counts": {"components": 3, "ports": 6, "nets": 3},
             "toolchain": {
@@ -198,6 +448,10 @@ def test_compile_returns_hash_indexed_manifest_without_host_paths(tmp_path: Path
                 "source-graph.json": {
                     "sha256": hashlib.sha256(b"{}\n").hexdigest(),
                     "bytes": 3,
+                },
+                "kicad/voltage-divider.kicad_sch": {
+                    "sha256": hashlib.sha256(b"(kicad_sch)\n").hexdigest(),
+                    "bytes": len(b"(kicad_sch)\n"),
                 },
             },
         }
@@ -230,6 +484,102 @@ def test_compile_returns_hash_indexed_manifest_without_host_paths(tmp_path: Path
     assert build_calls[0][0] == project_root.resolve()
     assert build_calls[0][1].is_relative_to(workspace.resolve())
     assert build_calls[0][1] != project_root
+
+
+@pytest.mark.parametrize(
+    "mismatch",
+    [
+        "circuit_digest",
+        "source_graph_digest",
+        "unindexed_kicad_reference",
+        "entrypoint_not_in_source_index",
+        "source_file_digest",
+        "duplicate_source_path",
+    ],
+)
+def test_compile_rejects_inconsistent_build_manifest(tmp_path: Path, mismatch: str):
+    api = _studio_api()
+    workspace = tmp_path / "workspace"
+    project_root = workspace / "voltage-divider"
+    source_bytes = b"export default function Board() { return null; }\n"
+    source_path = project_root / "src" / "board.tsx"
+    source_path.parent.mkdir(parents=True)
+    source_path.write_bytes(source_bytes)
+    (project_root / "eda.project.json").write_text("{}", encoding="utf-8")
+
+    artifact_bytes = {
+        "circuit.json": b"[]\n",
+        "source-graph.json": b"{}\n",
+        "kicad/voltage-divider.kicad_sch": b"(kicad_sch)\n",
+    }
+    source_entry = {
+        "path": "src/board.tsx",
+        "sha256": hashlib.sha256(source_bytes).hexdigest(),
+        "bytes": len(source_bytes),
+    }
+    manifest = {
+        "schema_version": 1,
+        "status": "compiled",
+        "project_name": "voltage-divider",
+        "entrypoint": "src/board.tsx",
+        "created_at_utc": "2026-11-09T12:00:00Z",
+        "source_files": [source_entry],
+        "source_graph_counts": {"components": 3, "ports": 6, "nets": 3},
+        "toolchain": {
+            "node": "v24.15.0",
+            "tscircuit": "0.0.3114",
+            "react": "19.3.1",
+            "compiler_runtime": "0.1.0",
+            "compiler_lock_sha256": "b" * 64,
+            "sandbox_image": "sha256:" + "c" * 64,
+            "circuit_json_to_kicad": "0.0.270",
+            "worker": "0.1.0",
+        },
+        "circuit_json_sha256": hashlib.sha256(artifact_bytes["circuit.json"]).hexdigest(),
+        "source_graph_sha256": hashlib.sha256(artifact_bytes["source-graph.json"]).hexdigest(),
+        "parts_verification": {"status": "unverified", "unresolved": 3, "sha256": "d" * 64},
+        "kicad_export_files": ["kicad/voltage-divider.kicad_sch"],
+        "artifacts": {
+            path: {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
+            for path, data in artifact_bytes.items()
+        },
+    }
+    if mismatch == "circuit_digest":
+        manifest["circuit_json_sha256"] = "e" * 64
+    elif mismatch == "source_graph_digest":
+        manifest["source_graph_sha256"] = "e" * 64
+    elif mismatch == "unindexed_kicad_reference":
+        manifest["kicad_export_files"] = ["kicad/missing.kicad_sch"]
+    elif mismatch == "entrypoint_not_in_source_index":
+        manifest["entrypoint"] = "src/missing.tsx"
+    elif mismatch == "source_file_digest":
+        manifest["source_files"][0]["sha256"] = "e" * 64
+    elif mismatch == "duplicate_source_path":
+        manifest["source_files"].append(source_entry.copy())
+
+    def fake_build(_project_root, output_dir_arg, **_kwargs):
+        output_dir = Path(output_dir_arg)
+        for relative, data in artifact_bytes.items():
+            artifact_path = output_dir / relative
+            artifact_path.parent.mkdir(parents=True, exist_ok=True)
+            artifact_path.write_bytes(data)
+        manifest_path = output_dir / "build-manifest.json"
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+        return SimpleNamespace(manifest_path=manifest_path)
+
+    app = api.create_app(
+        settings=api.StudioSettings(workspace_root=workspace),
+        compiler=fake_build,
+    )
+    client = TestClient(app)
+    token = client.get("/api/v1/session", headers={"host": "127.0.0.1"}).json()["session_token"]
+    response = client.post(
+        "/api/v1/projects/voltage-divider/compile",
+        headers={"host": "127.0.0.1", "authorization": f"Bearer {token}"},
+    )
+
+    assert response.status_code == 502
+    assert response.json()["error"]["code"] == "BUILD_MANIFEST_INVALID"
 
 
 def test_compile_requires_session_token_before_touching_project(tmp_path: Path):

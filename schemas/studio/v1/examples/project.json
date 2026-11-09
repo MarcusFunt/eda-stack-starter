@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "project_id": "voltage-divider",
+  "name": "Voltage Divider",
+  "entrypoint": "src/board.tsx",
+  "source_file_count": 1,
+  "source_files": [
+    {
+      "path": "src/board.tsx",
+      "bytes": 256
+    }
+  ]
+}
