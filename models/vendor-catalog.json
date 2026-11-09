@@ -5,6 +5,7 @@
       "id": "diodes-2n7002-2017",
       "manufacturer": "Diodes Incorporated",
       "manufacturer_part_family": "2N7002",
+      "manufacturer_part_numbers": ["2N7002-7-F"],
       "model_source_url": "https://www.diodes.com/spice/download/1941/2N7002.spice.txt",
       "product_url": "https://www.diodes.com/part/view/2N7002",
       "sha256": "ca0fa03b0ff97da1ba91235cf8882ff82a1fe936dfa91d384ae168ec2a35f241",

@@ -80,6 +80,12 @@ export function resolveParts(
     if (modelId) {
       const model = models.get(modelId);
       if (!model) throw new Error("PARTS_MODEL_UNKNOWN: " + reference + " references nonexistent vendor model " + modelId);
+      const manufacturerPartNumber = typeof part.manufacturer_part_number === "string" ? part.manufacturer_part_number : "";
+      const supportedPartNumbers = model.manufacturer_part_numbers;
+      if (!Array.isArray(supportedPartNumbers) || !supportedPartNumbers.some((item) =>
+        typeof item === "string" && normalize(item) === normalize(manufacturerPartNumber))) {
+        throw new Error("PARTS_MODEL_PART_MISMATCH: " + reference + " manufacturer part " + (manufacturerPartNumber || "<missing>") + " is not bound to model " + modelId);
+      }
       const terminalOrder = model.terminal_order;
       const pinMap = model.sot23_physical_pin_map;
       if (!Array.isArray(terminalOrder) || !isObject(pinMap)) throw new Error("PARTS_MODEL_INVALID: model has no terminal pin order");

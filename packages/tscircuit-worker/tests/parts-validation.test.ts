@@ -18,6 +18,10 @@ test("part lock fails closed on swapped gate and drain pins",()=>{
   const wrong=graph.map(x=>x.type==="source_port"&&x.name==="drain"?{...x,pin_number:1}:x.type==="source_port"&&x.name==="gate"?{...x,pin_number:3}:x);
   assert.throws(()=>resolveParts(wrong,lock,catalog),/PARTS_PIN_MISMATCH/);
 });
+test("part lock cannot bind a different transistor to the 2N7002 model",()=>{
+  const wrongPart={...lock,parts:[{...lock.parts[0],manufacturer_part_number:"BSS84"}]};
+  assert.throws(()=>resolveParts(graph,wrongPart,catalog),/PARTS_MODEL_PART_MISMATCH/);
+});
 test("unknown vendor model and missing source reference are rejected",()=>{
   assert.throws(()=>resolveParts(graph,{...lock,parts:[{...lock.parts[0],simulation_model_id:"bad-model"}]},catalog),/PARTS_MODEL_UNKNOWN/);
   assert.throws(()=>resolveParts(graph,{...lock,parts:[]},catalog),/PARTS_INVALID/);

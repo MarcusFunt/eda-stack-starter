@@ -16,6 +16,10 @@ from edastack.core import run_project
 _ALLOWED_REFERENCE = re.compile(r"^(R[0-9]+|C[0-9]+|Q[0-9]+|J[0-9]+)$")
 
 
+def _normalize_part_number(value: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", value.casefold())
+
+
 class ModelBackedError(RuntimeError):
     pass
 
@@ -124,6 +128,13 @@ def build_open_drain_spice(
     locked = {p["reference"]: p for p in parts.get("entries", [])}
     if set(locked) != expected or locked["Q1"].get("model_id") != device["id"] or not locked["Q1"].get("model_verified"):
         raise ModelBackedError("Model-bound Q1 and complete part lock required")
+    supported_part_numbers = device.get("manufacturer_part_numbers")
+    locked_part_number = locked["Q1"].get("manufacturer_part_number")
+    if not isinstance(supported_part_numbers, list) or not isinstance(locked_part_number, str) or not any(
+        isinstance(part_number, str) and _normalize_part_number(part_number) == _normalize_part_number(locked_part_number)
+        for part_number in supported_part_numbers
+    ):
+        raise ModelBackedError("Vendor model does not match locked Q1 manufacturer part")
     if device.get("terminal_order") != ["D", "G", "S"] or device.get("sot23_physical_pin_map") != {"D": "3", "G": "1", "S": "2"}:
         raise ModelBackedError("Vendor model pin order differs from locked physical package")
 

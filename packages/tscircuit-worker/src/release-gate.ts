@@ -56,6 +56,12 @@ export function checkGeneralNativeRelease(
       if (!exactZero(fixture.pcb_drc_violations) || !Array.isArray(fixture.pcb_drc_findings) || fixture.pcb_drc_findings.length !== 0) {
         blockers.push(name + ": KiCad PCB DRC has unresolved findings");
       }
+      if (!Array.isArray(fixture.pcb_unconnected_items) || fixture.pcb_unconnected_items.length !== 0) {
+        blockers.push(name + ": KiCad PCB has unconnected items or their report is missing");
+      }
+      if (!Array.isArray(fixture.pcb_schematic_parity_issues) || fixture.pcb_schematic_parity_issues.length !== 0) {
+        blockers.push(name + ": KiCad PCB schematic parity has issues or its report is missing");
+      }
       if (nonemptyArray(fixture.pcb_drc_ignored_checks) || !Array.isArray(fixture.pcb_drc_ignored_checks)) {
         blockers.push(name + ": PCB DRC ignored-check list is nonempty or unrecorded");
       }

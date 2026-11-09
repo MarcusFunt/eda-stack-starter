@@ -10,6 +10,7 @@ import {
   parseKicadNetlistPinNetGroups,
   sourcePinNetGroups,
 } from "../src/export-kicad.js";
+import { createPcbDrcArgs, readPcbDrcEvidence } from "../src/native-drc.js";
 import { buildProject } from "../src/build.js";
 
 type NativeFixture = {
@@ -250,7 +251,7 @@ for (const fixture of fixtureCircuits) {
   kicadCli(["sch", "export", "svg", "--output", svgDirectory, schematicPath], containerNative);
   kicadCli(["sch", "export", "netlist", "--output", nativeNetlistPath, schematicPath], containerNative);
   kicadCli(["sch", "erc", "--format", "json", "--output", ercPath, schematicPath], containerNative);
-  kicadCli(["pcb", "drc", "--format", "json", "--output", drcPath, pcbPath], containerNative);
+  kicadCli(createPcbDrcArgs(drcPath, pcbPath), containerNative);
 
   const nativeNetlist = parseKicadNetlistPinNetGroups(await readFile(path.join(nativeOutputDirectory, "native-schematic.net"), "utf8"));
   const expectedNetlist = sourcePinNetGroups(fixture.circuitJson);
@@ -261,7 +262,8 @@ for (const fixture of fixtureCircuits) {
   hasErcFindings ||= ercViolations.length > 0;
 
   const drc = JSON.parse(await readFile(path.join(nativeOutputDirectory, "pcb-drc.json"), "utf8"));
-  hasPcbDrcFindings ||= (drc.violations?.length ?? 0) > 0;
+  const drcEvidence = readPcbDrcEvidence(drc, fixture.name + ": KiCad PCB DRC report");
+  hasPcbDrcFindings ||= drcEvidence.findings.length > 0;
   const schematicSvgs = await readdir(path.join(nativeOutputDirectory, "rendered-svg"));
   assert.ok(schematicSvgs.length > 0, fixture.name + " schematic must render to SVG in native KiCad");
   const svgText = await Promise.all(
@@ -284,8 +286,10 @@ for (const fixture of fixtureCircuits) {
     erc_finding_count: ercViolations.length,
     erc_ignored_checks: erc.ignored_checks ?? null,
     pcb_drc_ignored_checks: drc.ignored_checks ?? null,
-    pcb_drc_findings: drc.violations ?? [],
-    pcb_drc_violations: drc.violations?.length ?? null,
+    pcb_drc_findings: drcEvidence.findings,
+    pcb_drc_violations: drcEvidence.findings.length,
+    pcb_unconnected_items: drcEvidence.unconnectedItems,
+    pcb_schematic_parity_issues: drcEvidence.schematicParityIssues,
     rendered_schematic_svgs: schematicSvgs.filter((filename) => filename.toLowerCase().endsWith(".svg")),
     native_output: relativeNative,
     project_build: fixture.buildDirectory ? path.relative(repositoryRoot, fixture.buildDirectory).replaceAll("\\", "/") : null,

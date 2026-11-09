@@ -23,6 +23,11 @@ test("unsupported electrical or DRC errors require separate human/agent repair",
  const p=planRoutingRepair([board,source,physical,{type:"pcb_short_error"}],constraints);
  assert.equal(p.status,"blocked");
 });
+test("source connectivity with no generated PCB copper is not a routing candidate",()=>{
+ const p=planRoutingRepair([board,{type:"source_trace"}],constraints);
+ assert.equal(p.status,"blocked");
+ assert.match(p.blockers.join(" "),/no PCB copper traces/i);
+});
 test("JSX repair refuses ambiguous or implicit placement",()=>{
  assert.throws(()=>applyPlacementMove('<resistor name="R2" />',{reference:"R2",dx_mm:1,dy_mm:0,reason:""}),/finite numeric/);
 });

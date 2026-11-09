@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { sourcePinNetGroups, parseKicadNetlistPinNetGroups, assertPinNetMembership } from "../src/connectivity.js";
 import { checkGeneralNativeRelease } from "../src/release-gate.js";
+import { createPcbDrcArgs, readPcbDrcEvidence } from "../src/native-drc.js";
 
 const { values } = parseArgs({
   options: {
@@ -46,7 +47,7 @@ function runKicad(args: string[]): void {
 }
 runKicad(["sch", "export", "netlist", "--output", resultRoot + "/native.net", fileRoot + ".kicad_sch"]);
 runKicad(["sch", "erc", "--format", "json", "--output", resultRoot + "/erc.json", fileRoot + ".kicad_sch"]);
-runKicad(["pcb", "drc", "--format", "json", "--output", resultRoot + "/drc.json", fileRoot + ".kicad_pcb"]);
+runKicad(createPcbDrcArgs(resultRoot + "/drc.json", fileRoot + ".kicad_pcb"));
 
 const circuit = JSON.parse(await readFile(path.join(build, "circuit.json"), "utf8")) as unknown[];
 const source = sourcePinNetGroups(circuit);
@@ -58,12 +59,11 @@ catch (err) { connectivity = "mismatch"; connectivityError = (err as Error).mess
 const erc = JSON.parse(await readFile(path.join(native, "erc.json"), "utf8"));
 const drc = JSON.parse(await readFile(path.join(native, "drc.json"), "utf8"));
 const ercFindings = (erc.sheets ?? []).flatMap((s: { violations?: unknown[] }) => s.violations ?? []);
-const drcFindings = drc.violations ?? [];
-const pcbUnconnected = drc.unconnected_items ?? [];
+const drcEvidence = readPcbDrcEvidence(drc);
 const parts = JSON.parse(await readFile(path.join(build, "parts-validation.json"), "utf8"));
 const summary = {
   schema_version: 1,
-  status: connectivity === "exact" && !ercFindings.length && !drcFindings.length && !pcbUnconnected.length
+  status: connectivity === "exact" && !ercFindings.length && drcEvidence.findings.length === 0
     ? "all_native_checks_passed" : "connectivity_or_native_findings_present",
   native_pin_net_membership: connectivity === "exact" ? "passed" : "failed",
   parts_verification_status: parts.status,
@@ -73,10 +73,11 @@ const summary = {
     source_pin_net_groups: source, native_pin_net_groups: netlist,
     erc_finding_count: ercFindings.length, erc_findings: ercFindings,
     erc_ignored_checks: erc.ignored_checks ?? null,
-    pcb_drc_violations: drcFindings.length + pcbUnconnected.length,
-    pcb_drc_findings: [...drcFindings, ...pcbUnconnected],
+    pcb_drc_violations: drcEvidence.findings.length,
+    pcb_drc_findings: drcEvidence.findings,
     pcb_drc_ignored_checks: drc.ignored_checks ?? null,
-    pcb_unconnected_items: pcbUnconnected,
+    pcb_unconnected_items: drcEvidence.unconnectedItems,
+    pcb_schematic_parity_issues: drcEvidence.schematicParityIssues,
   }],
 };
 const release = checkGeneralNativeRelease(summary, [name], "pcb");
@@ -84,8 +85,9 @@ await writeFile(path.join(native, "verification-summary.json"), JSON.stringify({
 process.stdout.write(JSON.stringify({
   project: name, connectivity,
   erc: ercFindings.length,
-  drc: drcFindings.length,
-  unconnected: pcbUnconnected.length,
+  drc: drcEvidence.violations.length,
+  unconnected: drcEvidence.unconnectedItems.length,
+  schematic_parity_issues: drcEvidence.schematicParityIssues.length,
   parts_status: parts.status,
   strict_release_ready: release.ready,
   blockers: release.blockers,
