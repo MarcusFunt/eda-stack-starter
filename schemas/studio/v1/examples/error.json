@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "The requested API route was not found.",
+    "request_id": "0123456789abcdef0123456789abcdef"
+  }
+}

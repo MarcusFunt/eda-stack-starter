@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://edastack.dev/schemas/studio/v1/statuses.json",
+  "title": "EDA Studio status taxonomies",
+  "$defs": {
+    "CheckDisposition": {
+      "type": "string",
+      "enum": [
+        "passed",
+        "failed",
+        "error",
+        "not_run",
+        "measured_only",
+        "unsupported",
+        "stale",
+        "review_required",
+        "approved"
+      ]
+    },
+    "JobState": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "preparing",
+        "running",
+        "collecting",
+        "completed_pass",
+        "completed_findings",
+        "failed_infrastructure",
+        "cancelled",
+        "timed_out",
+        "interrupted"
+      ]
+    },
+    "RevisionState": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "frozen_candidate",
+        "verifying",
+        "verified_with_findings",
+        "verified_clean",
+        "invalid",
+        "reviewed",
+        "approved_for_schematic",
+        "approved_for_pcb",
+        "approved_for_manufacturing"
+      ]
+    }
+  }
+}

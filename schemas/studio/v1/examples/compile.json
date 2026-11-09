@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "compiled",
+  "project_name": "voltage-divider",
+  "entrypoint": "src/board.tsx",
+  "created_at_utc": "2026-11-09T12:00:00Z",
+  "source_files": [
+    {
+      "path": "src/board.tsx",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bytes": 123
+    }
+  ],
+  "source_graph_counts": {
+    "components": 3,
+    "ports": 6,
+    "nets": 3
+  },
+  "toolchain": {
+    "node": "v24.15.0",
+    "tscircuit": "0.0.3114",
+    "react": "19.3.1",
+    "compiler_runtime": "0.1.0",
+    "compiler_lock_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "sandbox_image": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "circuit_json_to_kicad": "0.0.270",
+    "worker": "0.1.0"
+  },
+  "circuit_json_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+  "source_graph_sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "parts_verification": {
+    "status": "unverified",
+    "unresolved": 3,
+    "sha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "kicad_export_files": [
+    "kicad/voltage-divider.kicad_sch"
+  ],
+  "artifacts": {
+    "circuit.json": {
+      "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "bytes": 4096
+    },
+    "source-graph.json": {
+      "sha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "bytes": 2048
+    }
+  },
+  "project_id": "voltage-divider",
+  "build_id": "0123456789abcdef0123456789abcdef",
+  "manifest_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+}

@@ -10,11 +10,15 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "EDA Stack Starter contributors"}]
-dependencies = []
+dependencies = [
+    "fastapi==0.162.2",
+    "uvicorn==0.54.0",
+]
 
 [project.scripts]
 edastack = "edastack.cli:main"
 edastack-mcp = "edastack.mcp:main"
+edastack-studio = "edastack.studio.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

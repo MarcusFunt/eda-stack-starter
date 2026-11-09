@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-11-09T12:00:00Z",
+  "tools": {
+    "python": {
+      "status": "available",
+      "version": "3.11.4"
+    },
+    "ngspice": {
+      "status": "unavailable",
+      "version": null,
+      "reason": "Executable was not found."
+    },
+    "tscircuit_sandbox": {
+      "status": "available",
+      "version": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  }
+}

@@ -1,0 +1,690 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "EDA Studio API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1/health": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Health",
+        "operationId": "health_api_v1_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/toolchain": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Toolchain",
+        "operationId": "toolchain_api_v1_toolchain_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ToolchainResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/session": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Session",
+        "operationId": "session_api_v1_session_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects/{project_id}/compile": {
+      "post": {
+        "tags": [
+          "compile spike"
+        ],
+        "summary": "Compile Project Route",
+        "operationId": "compile_project",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "project_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]{0,62}$",
+              "title": "Project Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompileResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "502": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Bad Gateway"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ArtifactDigest": {
+        "properties": {
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Bytes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "sha256",
+          "bytes"
+        ],
+        "title": "ArtifactDigest"
+      },
+      "BuildToolchain": {
+        "properties": {
+          "node": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Node"
+          },
+          "tscircuit": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Tscircuit"
+          },
+          "react": {
+            "type": "string",
+            "minLength": 1,
+            "title": "React"
+          },
+          "compiler_runtime": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Compiler Runtime"
+          },
+          "compiler_lock_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Compiler Lock Sha256"
+          },
+          "sandbox_image": {
+            "type": "string",
+            "pattern": "^sha256:[a-f0-9]{64}$",
+            "title": "Sandbox Image"
+          },
+          "circuit_json_to_kicad": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Circuit Json To Kicad"
+          },
+          "worker": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Worker"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "node",
+          "tscircuit",
+          "react",
+          "compiler_runtime",
+          "compiler_lock_sha256",
+          "sandbox_image",
+          "circuit_json_to_kicad",
+          "worker"
+        ],
+        "title": "BuildToolchain"
+      },
+      "CompileResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version"
+          },
+          "status": {
+            "type": "string",
+            "const": "compiled",
+            "title": "Status"
+          },
+          "project_name": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Project Name"
+          },
+          "entrypoint": {
+            "type": "string",
+            "title": "Entrypoint"
+          },
+          "created_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At Utc"
+          },
+          "source_files": {
+            "items": {
+              "$ref": "#/components/schemas/SourceFileDigest"
+            },
+            "type": "array",
+            "title": "Source Files"
+          },
+          "source_graph_counts": {
+            "$ref": "#/components/schemas/SourceGraphCounts"
+          },
+          "toolchain": {
+            "$ref": "#/components/schemas/BuildToolchain"
+          },
+          "circuit_json_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Circuit Json Sha256"
+          },
+          "source_graph_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Source Graph Sha256"
+          },
+          "parts_verification": {
+            "$ref": "#/components/schemas/PartsVerification"
+          },
+          "kicad_export_files": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Kicad Export Files"
+          },
+          "artifacts": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ArtifactDigest"
+            },
+            "type": "object",
+            "title": "Artifacts"
+          },
+          "project_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,62}$",
+            "title": "Project Id"
+          },
+          "build_id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{32}$",
+            "title": "Build Id"
+          },
+          "manifest_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Manifest Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schema_version",
+          "status",
+          "project_name",
+          "entrypoint",
+          "created_at_utc",
+          "source_files",
+          "source_graph_counts",
+          "toolchain",
+          "circuit_json_sha256",
+          "source_graph_sha256",
+          "parts_verification",
+          "kicad_export_files",
+          "artifacts",
+          "project_id",
+          "build_id",
+          "manifest_sha256"
+        ],
+        "title": "CompileResponse"
+      },
+      "ErrorDetail": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "HOST_NOT_ALLOWED",
+              "ORIGIN_NOT_ALLOWED",
+              "AUTH_REQUIRED",
+              "WORKSPACE_NOT_CONFIGURED",
+              "PROJECT_PATH_UNSAFE",
+              "PROJECT_NOT_FOUND",
+              "BUILD_FAILED",
+              "BUILD_UNAVAILABLE",
+              "BUILD_MANIFEST_INVALID",
+              "NOT_FOUND",
+              "METHOD_NOT_ALLOWED",
+              "HTTP_ERROR",
+              "INVALID_REQUEST",
+              "INTERNAL_ERROR"
+            ],
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 240,
+            "minLength": 1,
+            "title": "Message"
+          },
+          "request_id": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{32}$",
+            "title": "Request Id"
+          },
+          "details": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Details"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message",
+          "request_id"
+        ],
+        "title": "ErrorDetail"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "title": "ErrorResponse"
+      },
+      "HealthResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "service": {
+            "type": "string",
+            "const": "eda-studio-api",
+            "title": "Service",
+            "default": "eda-studio-api"
+          },
+          "status": {
+            "type": "string",
+            "const": "ok",
+            "title": "Status",
+            "default": "ok"
+          },
+          "api_version": {
+            "type": "string",
+            "const": "v1",
+            "title": "Api Version",
+            "default": "v1"
+          },
+          "build_version": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Build Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "build_version"
+        ],
+        "title": "HealthResponse"
+      },
+      "PartsVerification": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Status"
+          },
+          "unresolved": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Unresolved"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "unresolved",
+          "sha256"
+        ],
+        "title": "PartsVerification"
+      },
+      "SessionResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "session_token": {
+            "type": "string",
+            "minLength": 32,
+            "title": "Session Token"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "session_token"
+        ],
+        "title": "SessionResponse"
+      },
+      "SourceFileDigest": {
+        "properties": {
+          "path": {
+            "type": "string",
+            "title": "Path"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Sha256"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Bytes"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "path",
+          "sha256",
+          "bytes"
+        ],
+        "title": "SourceFileDigest"
+      },
+      "SourceGraphCounts": {
+        "properties": {
+          "components": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Components"
+          },
+          "ports": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Ports"
+          },
+          "nets": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Nets"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "components",
+          "ports",
+          "nets"
+        ],
+        "title": "SourceGraphCounts"
+      },
+      "ToolchainEntry": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "available",
+              "unavailable",
+              "error"
+            ],
+            "title": "Status"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          },
+          "reason": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reason"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "ToolchainEntry"
+      },
+      "ToolchainResponse": {
+        "properties": {
+          "schema_version": {
+            "type": "integer",
+            "const": 1,
+            "title": "Schema Version",
+            "default": 1
+          },
+          "checked_at_utc": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Checked At Utc"
+          },
+          "tools": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ToolchainEntry"
+            },
+            "type": "object",
+            "title": "Tools"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "checked_at_utc",
+          "tools"
+        ],
+        "title": "ToolchainResponse"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "description": "Per-process local token returned by GET /api/v1/session.",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

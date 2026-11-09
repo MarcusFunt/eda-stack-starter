@@ -23,6 +23,7 @@ import { resolvePartsForBuild } from "./parts-validation.js";
 
 export const PROJECT_SANDBOX_IMAGE = "edastack/tscircuit-project-sandbox:0.1.0";
 const PROJECT_SANDBOX_LABEL = "org.edastack.project-sandbox";
+const PROJECT_SANDBOX_LABEL_VALUE = "tscircuit-v1";
 const PROJECT_LOCK_LABEL = "org.edastack.compiler-lock-sha256";
 const SANDBOX_RUNTIME_VERSION = "0.1.0";
 const PROJECT_RUNTIME = { tscircuit: "0.0.3114", react: "19.3.1" } as const;
@@ -495,7 +496,7 @@ async function inspectSandboxImage(dockerExecutable: string): Promise<{ imageId:
   } catch (error) {
     throw new Error("SANDBOX_IMAGE_INVALID: could not read sandbox image labels", { cause: error });
   }
-  if (labels?.[PROJECT_SANDBOX_LABEL] !== "tscircuit-v1" || labels?.[PROJECT_LOCK_LABEL] !== lock.sha256) {
+  if (labels?.[PROJECT_SANDBOX_LABEL] !== PROJECT_SANDBOX_LABEL_VALUE || labels?.[PROJECT_LOCK_LABEL] !== lock.sha256) {
     throw new Error("SANDBOX_IMAGE_STALE: sandbox image labels do not match the pinned compiler lockfile; rebuild the image");
   }
   const imageResult = dockerCommand(dockerExecutable, ["image", "inspect", "--format", "{{.Id}}", PROJECT_SANDBOX_IMAGE], 10_000);

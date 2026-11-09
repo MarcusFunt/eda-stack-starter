@@ -4,6 +4,7 @@ __pycache__/
 .venv/
 node_modules/
 **/node_modules/
+apps/studio-web/dist/
 *.kicad_prl
 build/
 .edastack_wave_*.dat
