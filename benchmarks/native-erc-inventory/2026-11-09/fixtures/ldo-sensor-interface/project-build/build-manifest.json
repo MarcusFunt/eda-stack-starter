@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "status": "compiled",
+  "project_name": "ldo-sensor-interface",
+  "entrypoint": "src/board.tsx",
+  "created_at_utc": "2026-11-09T21:24:59.586Z",
+  "source_files": [
+    {
+      "path": "eda.project.json",
+      "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+      "bytes": 374
+    },
+    {
+      "path": "package.json",
+      "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+      "bytes": 184
+    },
+    {
+      "path": "parts.lock.json",
+      "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+      "bytes": 777
+    },
+    {
+      "path": "pcb.constraints.json",
+      "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+      "bytes": 147
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+      "bytes": 402
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+      "bytes": 858
+    },
+    {
+      "path": "src/modules/ldo.tsx",
+      "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+      "bytes": 1135
+    },
+    {
+      "path": "src/modules/sensor.tsx",
+      "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+      "bytes": 1008
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    }
+  ],
+  "source_graph_counts": {
+    "components": 6,
+    "ports": 19,
+    "nets": 6
+  },
+  "toolchain": {
+    "node": "v24.15.0",
+    "tscircuit": "0.0.3114",
+    "react": "19.3.1",
+    "compiler_runtime": "0.1.0",
+    "compiler_lock_sha256": "4350208c2be4efad6147d11aa4f777d39ccade5edf7959fb744a3159151dcb69",
+    "sandbox_image": "sha256:49319c94db90011ec83fad1cb00d1b789da9518eaa51178d4a195e0a22deec45",
+    "circuit_json_to_kicad": "0.0.270",
+    "worker": "0.1.0"
+  },
+  "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+  "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+  "parts_verification": {
+    "status": "unverified",
+    "unresolved": 6,
+    "sha256": "3da2a9e77d02e2a0d952081495984eebb9f8912dff81b91288afd07e6097d507"
+  },
+  "kicad_export_files": [
+    "kicad/Custom.kicad_sym",
+    "kicad/Device.kicad_sym",
+    "kicad/export-manifest.json",
+    "kicad/fp-lib-table",
+    "kicad/ldo-sensor-interface.kicad_pcb",
+    "kicad/ldo-sensor-interface.kicad_pro",
+    "kicad/ldo-sensor-interface.kicad_sch",
+    "kicad/power.kicad_sch",
+    "kicad/sensor.kicad_sch",
+    "kicad/sym-lib-table",
+    "kicad/tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod",
+    "kicad/tscircuit.pretty/chip_SOIC-8.kicad_mod",
+    "kicad/tscircuit.pretty/chip_SOT-23-5.kicad_mod",
+    "kicad/tscircuit.pretty/connector_pinrow2.kicad_mod",
+    "kicad/tscircuit.pretty/connector_pinrow4.kicad_mod"
+  ],
+  "artifacts": {
+    "circuit.json": {
+      "sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+      "bytes": 92689
+    },
+    "compiler-manifest.json": {
+      "sha256": "fb045678c969fc189b8684682006aebb496e75f03d947f4149350692c8d302d2",
+      "bytes": 1839
+    },
+    "kicad/Custom.kicad_sym": {
+      "sha256": "41711b4a62aa47b49f778fd1fbdf9129f1367513b11026403b825b06eaf72ec2",
+      "bytes": 4875
+    },
+    "kicad/Device.kicad_sym": {
+      "sha256": "d03e552663093589632f9df8c888ec30456b837ac76ba0fac3f3fd8fb6fbff98",
+      "bytes": 16478
+    },
+    "kicad/export-manifest.json": {
+      "sha256": "4eb2ca77ffadd9f101af28defd816f22ff97a6db865a1cf8ac610c3307642210",
+      "bytes": 3226
+    },
+    "kicad/fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "kicad/ldo-sensor-interface.kicad_pcb": {
+      "sha256": "fe1fa94a0646e019a310cce6f832bbe7c228f79fa1935fdb4cb16353a4e72c50",
+      "bytes": 19575
+    },
+    "kicad/ldo-sensor-interface.kicad_pro": {
+      "sha256": "15d5580b06700a10fcf791e5e29bae4db36fc5cd69a11bf92aff4f952bc49100",
+      "bytes": 1916
+    },
+    "kicad/ldo-sensor-interface.kicad_sch": {
+      "sha256": "2819424144b987887f1b7f405ac8e9c05932f3ad4e32185f348ef454b98b88a0",
+      "bytes": 1872
+    },
+    "kicad/power.kicad_sch": {
+      "sha256": "4264672f94a618fb74ded6a0c49063d417f4ce138790da714e3af6b11b5b1db3",
+      "bytes": 32882
+    },
+    "kicad/sensor.kicad_sch": {
+      "sha256": "bedafe816014bb62d7a2b6147e24ad2cd47244857e502a3ea8af7aba70f29266",
+      "bytes": 20932
+    },
+    "kicad/sym-lib-table": {
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    "kicad/tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod": {
+      "sha256": "22e458adc46971793002da070832ba78cd7e189c00cd2f3256a3a33e21878d9b",
+      "bytes": 2603
+    },
+    "kicad/tscircuit.pretty/chip_SOIC-8.kicad_mod": {
+      "sha256": "a7e0c4e998146132aea70d6ae7ca28fe250cc285cab0a9e4f122e3a7c9b21cc7",
+      "bytes": 1089
+    },
+    "kicad/tscircuit.pretty/chip_SOT-23-5.kicad_mod": {
+      "sha256": "c7fe9cc467b1e6c9f8cb2d84c6d2d4ef097dc829095829df56fb788c713a089e",
+      "bytes": 4309
+    },
+    "kicad/tscircuit.pretty/connector_pinrow2.kicad_mod": {
+      "sha256": "2755e1bb244f56c9d9cfe4260438189f02d0c8e2ec97640b57cbe17c611ef055",
+      "bytes": 2162
+    },
+    "kicad/tscircuit.pretty/connector_pinrow4.kicad_mod": {
+      "sha256": "e5b700166819bd2e6bff947996606534c19a58e6638ff4934e6284a0e1184bd1",
+      "bytes": 3025
+    },
+    "parts-validation.json": {
+      "sha256": "3da2a9e77d02e2a0d952081495984eebb9f8912dff81b91288afd07e6097d507",
+      "bytes": 3496
+    },
+    "source-graph.json": {
+      "sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+      "bytes": 3808
+    },
+    "source-manifest.json": {
+      "sha256": "1aea13b0024e68a4db4e1de59813a9310be9e0fbeb64b895b537e51168e00a9b",
+      "bytes": 5973
+    }
+  }
+}

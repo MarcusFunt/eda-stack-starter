@@ -1,0 +1,133 @@
+(footprint
+  "capacitor_cap0603_nonpolarized"
+  (version 20240108)
+  (generator pcbnew)
+  (generator_version 8.0)
+  (layer F.Cu)
+  (at 0 0 0)
+  (descr "")
+  (tags "")
+  (attr smd)
+  (embedded_fonts no)
+  (property "Reference" "REF**"
+    (at 0 -0.975 0)
+    (layer F.SilkS)
+    (uuid 656d3c40-1ee8-9921-279c-09fe6e20ad1d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "Val**"
+    (at 0 0.975 0)
+    (layer F.Fab)
+    (uuid 2c669580-79a6-055f-1fb2-a03e3a40c4e3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 4d47eb00-06c3-47e1-3fc1-5b3e79ba01a3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 32ea9060-7b02-3521-3ce6-261e0b317ea3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    reference
+    "REF**"
+    (at 0 -1.375 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.4 0.4)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start 0.8250000000000002 -0.875)
+    (end -1.4249999999999998 -0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.4249999999999998 -0.875)
+    (end -1.4249999999999998 0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.4249999999999998 0.875)
+    (end 0.8250000000000002 0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_rect
+    (start -1.48 -0.73)
+    (end 1.48 0.73)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -0.8250000000000002 0 0)
+    (size 0.8 0.95)
+    (layers F.Cu F.Mask)
+    (uuid 4c347568-481b-1858-2395-59e870ba33d8)
+  )
+  (pad "2" smd rect
+    (at 0.8250000000000002 0 0)
+    (size 0.8 0.95)
+    (layers F.Cu F.Mask)
+    (uuid 388ca1e6-5bc2-ebda-0fed-86667b9df8a6)
+  )
+  (pad "" smd rect
+    (at -0.8250000000000002 0 0)
+    (size 0.5599999999999999 0.6649999999999999)
+    (layers F.Paste)
+    (uuid 6950ff60-13ff-9c61-4151-c69e695cd663)
+  )
+  (pad "" smd rect
+    (at 0.8250000000000002 0 0)
+    (size 0.5599999999999999 0.6649999999999999)
+    (layers F.Paste)
+    (uuid 2f865d80-25cb-057f-7b1c-687e2f923483)
+  )
+  (model "../../3dmodels/tscircuit_builtin.3dshapes/cap0603_nonpolarized.step"
+  )
+)

@@ -1,0 +1,96 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T21:25:48",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/adf5cacf-1e79-4ff7-adf2-f206853cfa2f",
+            "violations": [
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol D1 [led_right]",
+                            "pos": {
+                                "x": 120.65,
+                                "y": 104.14
+                            },
+                            "uuid": "9e3b9ec1-f123-4378-9ad1-91d93c891edb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol R1 [boxresistor_down]",
+                            "pos": {
+                                "x": 143.51,
+                                "y": 85.09
+                            },
+                            "uuid": "1f78b075-4a5d-417a-bec2-d56e9c57a6d8"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol Q1 [npn_bipolar_transistor_right]",
+                            "pos": {
+                                "x": 147.32,
+                                "y": 107.95
+                            },
+                            "uuid": "45398cf6-5ebe-41cb-8283-d66e5b340e49"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol R2 [boxresistor_left]",
+                            "pos": {
+                                "x": 171.45,
+                                "y": 127.0
+                            },
+                            "uuid": "2f5945d8-27f9-4092-9e83-770b1e8709a7"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol J1 [J_connector_pinrow3]",
+                            "pos": {
+                                "x": 175.26,
+                                "y": 102.87
+                            },
+                            "uuid": "64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                }
+            ]
+        }
+    ],
+    "source": "led-transistor.kicad_sch"
+}

@@ -1,0 +1,646 @@
+{
+  "schema_version": 1,
+  "evidence_root": "benchmarks/native-erc-inventory/2026-11-09",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "f8cd5d80a2aec9dcd7f57ef3cdfe59aa81e8f6df1fbceea6c505b39d33cf4d17",
+      "bytes": 181
+    },
+    {
+      "path": "erc-fault-inventory.json",
+      "sha256": "ef91bee0fd1b7a07187e6b8be6f6523af2dccd73d6d27ccb10d6e37658116cef",
+      "bytes": 58958
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/erc-fault-inventory.json",
+      "sha256": "e1f2a4f3f32fb646af716da5bca77a12173bbbded4fb58efd702e4c5bc855343",
+      "bytes": 23362
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/erc.json",
+      "sha256": "85edd7cbe4520661295cbce9b2950cd2fd2fb158f6112ce0588e9e2d87b0d971",
+      "bytes": 4829
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/native-schematic.net",
+      "sha256": "358449d31c6419e50739e8bc367c5c01e4630fbabba301c07205774a705c5bfb",
+      "bytes": 14016
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/pcb-drc.json",
+      "sha256": "3e16a048dd5302d122b7ca1673b7519b1537dadf8e0518bfe663c8b0d49aa6b0",
+      "bytes": 28201
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/rendered-svg/ldo-sensor-interface-Power.svg",
+      "sha256": "ec1f3950d10a571f1eca4d360b4670e320500c815c01747c881a6eb6e07f5959",
+      "bytes": 116370
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/rendered-svg/ldo-sensor-interface-Sensor Interface.svg",
+      "sha256": "2b6163c758679a54ad96ada324e48918ae1ff55f42d70b9ad27e591306a6f875",
+      "bytes": 111979
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/native-results/rendered-svg/ldo-sensor-interface.svg",
+      "sha256": "509504a0a0404ec9c18fb2f68dc000a84399e01069d162583f0698f5f3db959a",
+      "bytes": 89927
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/build-manifest.json",
+      "sha256": "fe5083a21d625a52743d05587b9bedb5f6ea1f25531d5596bf07531bbc4d8dbd",
+      "bytes": 6076
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/circuit.json",
+      "sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+      "bytes": 92689
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/compiler-manifest.json",
+      "sha256": "fb045678c969fc189b8684682006aebb496e75f03d947f4149350692c8d302d2",
+      "bytes": 1839
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/Custom.kicad_sym",
+      "sha256": "41711b4a62aa47b49f778fd1fbdf9129f1367513b11026403b825b06eaf72ec2",
+      "bytes": 4875
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/Device.kicad_sym",
+      "sha256": "d03e552663093589632f9df8c888ec30456b837ac76ba0fac3f3fd8fb6fbff98",
+      "bytes": 16478
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/export-manifest.json",
+      "sha256": "4eb2ca77ffadd9f101af28defd816f22ff97a6db865a1cf8ac610c3307642210",
+      "bytes": 3226
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/fp-lib-table",
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/ldo-sensor-interface.kicad_pcb",
+      "sha256": "fe1fa94a0646e019a310cce6f832bbe7c228f79fa1935fdb4cb16353a4e72c50",
+      "bytes": 19575
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/ldo-sensor-interface.kicad_pro",
+      "sha256": "15d5580b06700a10fcf791e5e29bae4db36fc5cd69a11bf92aff4f952bc49100",
+      "bytes": 1916
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/ldo-sensor-interface.kicad_sch",
+      "sha256": "2819424144b987887f1b7f405ac8e9c05932f3ad4e32185f348ef454b98b88a0",
+      "bytes": 1872
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/power.kicad_sch",
+      "sha256": "4264672f94a618fb74ded6a0c49063d417f4ce138790da714e3af6b11b5b1db3",
+      "bytes": 32882
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/sensor.kicad_sch",
+      "sha256": "bedafe816014bb62d7a2b6147e24ad2cd47244857e502a3ea8af7aba70f29266",
+      "bytes": 20932
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/sym-lib-table",
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod",
+      "sha256": "22e458adc46971793002da070832ba78cd7e189c00cd2f3256a3a33e21878d9b",
+      "bytes": 2603
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/tscircuit.pretty/chip_SOIC-8.kicad_mod",
+      "sha256": "a7e0c4e998146132aea70d6ae7ca28fe250cc285cab0a9e4f122e3a7c9b21cc7",
+      "bytes": 1089
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/tscircuit.pretty/chip_SOT-23-5.kicad_mod",
+      "sha256": "c7fe9cc467b1e6c9f8cb2d84c6d2d4ef097dc829095829df56fb788c713a089e",
+      "bytes": 4309
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/tscircuit.pretty/connector_pinrow2.kicad_mod",
+      "sha256": "2755e1bb244f56c9d9cfe4260438189f02d0c8e2ec97640b57cbe17c611ef055",
+      "bytes": 2162
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/kicad/tscircuit.pretty/connector_pinrow4.kicad_mod",
+      "sha256": "e5b700166819bd2e6bff947996606534c19a58e6638ff4934e6284a0e1184bd1",
+      "bytes": 3025
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/parts-validation.json",
+      "sha256": "3da2a9e77d02e2a0d952081495984eebb9f8912dff81b91288afd07e6097d507",
+      "bytes": 3496
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/source-graph.json",
+      "sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+      "bytes": 3808
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/project-build/source-manifest.json",
+      "sha256": "1aea13b0024e68a4db4e1de59813a9310be9e0fbeb64b895b537e51168e00a9b",
+      "bytes": 5973
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/eda.project.json",
+      "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+      "bytes": 374
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/package.json",
+      "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+      "bytes": 184
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/parts.lock.json",
+      "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+      "bytes": 777
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/pcb.constraints.json",
+      "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+      "bytes": 147
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/requirements.json",
+      "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+      "bytes": 402
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/src/board.tsx",
+      "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+      "bytes": 858
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/src/modules/ldo.tsx",
+      "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+      "bytes": 1135
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/src/modules/sensor.tsx",
+      "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+      "bytes": 1008
+    },
+    {
+      "path": "fixtures/ldo-sensor-interface/source/tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    },
+    {
+      "path": "fixtures/led-transistor/native-results/erc-fault-inventory.json",
+      "sha256": "f89da8a5c4cae201873ae04cbef844892ba2c08cdf8074b64961ab91b69139af",
+      "bytes": 18086
+    },
+    {
+      "path": "fixtures/led-transistor/native-results/erc.json",
+      "sha256": "0c0ffb5a90919ef90aadeb2aaf31b82772ff06badb3ea3683877ce9c069fbd44",
+      "bytes": 3796
+    },
+    {
+      "path": "fixtures/led-transistor/native-results/native-schematic.net",
+      "sha256": "6be060b53c6991b6a94cf832019b6257f08a7cb99b8214a7ff7ca353b3a298f1",
+      "bytes": 10011
+    },
+    {
+      "path": "fixtures/led-transistor/native-results/pcb-drc.json",
+      "sha256": "f7102a33173155feb31d8573af6153fdc08a48fb709f12d23efc711223be721a",
+      "bytes": 19747
+    },
+    {
+      "path": "fixtures/led-transistor/native-results/rendered-svg/led-transistor.svg",
+      "sha256": "5b2917d5da09a70583a079c427429ad12c45838b50ce79d3cb1983c3470e6191",
+      "bytes": 95740
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/build-manifest.json",
+      "sha256": "e7d38df3976ed7cf2327004831e3800d9b6fbd3f9bc4fea3c8b291c8a907a61f",
+      "bytes": 5140
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/circuit.json",
+      "sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+      "bytes": 55853
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/compiler-manifest.json",
+      "sha256": "e0250b2798979bfb5567abd118618f82898ebc07216e68f15b37b215d59709c5",
+      "bytes": 1684
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/Device.kicad_sym",
+      "sha256": "f9511c86a323d4c70c2aac8f3c3b1d396123b89ca69c064c8eb2dddffa5e77d0",
+      "bytes": 18923
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/export-manifest.json",
+      "sha256": "7c5a1db6c939da70f8463d106305da36dc63702eecefc29605bbf0f3b9708e06",
+      "bytes": 2473
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/fp-lib-table",
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/led-transistor.kicad_pcb",
+      "sha256": "683ac5821b3720f6e74e4d9817d8aaef9b7ecf9dbf657ccc978c37db700cd11a",
+      "bytes": 15582
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/led-transistor.kicad_pro",
+      "sha256": "7b529974c9104ada5a8c41ab28123c83f36460a0b61bc1795e8348a0f1491ee4",
+      "bytes": 1741
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/led-transistor.kicad_sch",
+      "sha256": "ad25a1ebe6a2f4dfb3dee01399e2e0600ec253df74961bb3f328d6a051139be1",
+      "bytes": 30147
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/sym-lib-table",
+      "sha256": "e6c068047fc46751e260693e3dc0fec8b5a1d68031212bb6d8ed99b105282f93",
+      "bytes": 155
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/tscircuit.pretty/connector_pinrow3.kicad_mod",
+      "sha256": "eff79e258e4c2fb7bb865289f28dc658be8e855022175fa7b33e475a4b8b4908",
+      "bytes": 2446
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/tscircuit.pretty/led_diode0603_color_red.kicad_mod",
+      "sha256": "5b8440720e96a5cdb65acc0faf2e7509e367dc5fbceccc1b8dbd4fc3703b48f2",
+      "bytes": 3459
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/tscircuit.pretty/resistor_res0603.kicad_mod",
+      "sha256": "3a60474130b8d604254b52eb2fbe0f5f880d2a664ed7eca95ba5242c51e1bdf6",
+      "bytes": 2417
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/kicad/tscircuit.pretty/transistor_TO-92.kicad_mod",
+      "sha256": "44c01d26500a0c4e7fb55ebf306b4d35279a6b0d0a695fd2225cfd9fe5d29de0",
+      "bytes": 1093
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/parts-validation.json",
+      "sha256": "53b98a2bcd30d2be9d37ef880989770995d081f9eacfa1a8180c5dae4dd07134",
+      "bytes": 2873
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/source-graph.json",
+      "sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09",
+      "bytes": 2929
+    },
+    {
+      "path": "fixtures/led-transistor/project-build/source-manifest.json",
+      "sha256": "5b29fe2c9927bec7be63d496c730520e13b751fc9c395279487ebc229020eed3",
+      "bytes": 4829
+    },
+    {
+      "path": "fixtures/led-transistor/source/eda.project.json",
+      "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+      "bytes": 368
+    },
+    {
+      "path": "fixtures/led-transistor/source/package.json",
+      "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+      "bytes": 178
+    },
+    {
+      "path": "fixtures/led-transistor/source/parts.lock.json",
+      "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+      "bytes": 654
+    },
+    {
+      "path": "fixtures/led-transistor/source/pcb.constraints.json",
+      "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+      "bytes": 141
+    },
+    {
+      "path": "fixtures/led-transistor/source/requirements.json",
+      "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+      "bytes": 351
+    },
+    {
+      "path": "fixtures/led-transistor/source/src/board.tsx",
+      "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+      "bytes": 457
+    },
+    {
+      "path": "fixtures/led-transistor/source/src/modules/low-side-led.tsx",
+      "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+      "bytes": 864
+    },
+    {
+      "path": "fixtures/led-transistor/source/tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    },
+    {
+      "path": "fixtures/voltage-divider/native-results/erc-fault-inventory.json",
+      "sha256": "91b8dedaed50281f08244f318e855769357389ea4900884846d8587209a22017",
+      "bytes": 10299
+    },
+    {
+      "path": "fixtures/voltage-divider/native-results/erc.json",
+      "sha256": "e3c6428b1e8fea688d5b560a0a3ce1d180dc2c14912c7d63f955ad62abf89bcd",
+      "bytes": 2474
+    },
+    {
+      "path": "fixtures/voltage-divider/native-results/native-schematic.net",
+      "sha256": "a871f13d9e5dc260a83b126944852073ab5f361dc7022e09153f1312d65daf9e",
+      "bytes": 5853
+    },
+    {
+      "path": "fixtures/voltage-divider/native-results/pcb-drc.json",
+      "sha256": "6f9ee8d6166483be0b27967ec211b35a575070fadb2f0e29201f37c2e8fa0044",
+      "bytes": 14647
+    },
+    {
+      "path": "fixtures/voltage-divider/native-results/rendered-svg/voltage-divider.svg",
+      "sha256": "9e507310dcde5975d9259400b792554ec64775361754dd3164e5aa19c520469b",
+      "bytes": 96878
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/build-manifest.json",
+      "sha256": "9bf2912626bde1d13905e6a1a60ca8546d7b209846b53b42a4d7a27e30b1e866",
+      "bytes": 4514
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/circuit.json",
+      "sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+      "bytes": 34197
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/compiler-manifest.json",
+      "sha256": "c9a42318a3a831c1087006b37bbd4417c1498232d5dcd8dbbd8e5dd8c5208f6a",
+      "bytes": 1523
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/Device.kicad_sym",
+      "sha256": "6e13ee50b52c895c5bce6c79b33643ceaec2905c8672186d6e79818326b5e9a3",
+      "bytes": 6223
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/export-manifest.json",
+      "sha256": "06848d1e529a6be37b39a3ab4f05be7f1271275dccb380b21817f3df15b67935",
+      "bytes": 1885
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/fp-lib-table",
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/sym-lib-table",
+      "sha256": "e6c068047fc46751e260693e3dc0fec8b5a1d68031212bb6d8ed99b105282f93",
+      "bytes": 155
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/tscircuit.pretty/connector_pinrow3.kicad_mod",
+      "sha256": "eff79e258e4c2fb7bb865289f28dc658be8e855022175fa7b33e475a4b8b4908",
+      "bytes": 2446
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/tscircuit.pretty/resistor_res0603.kicad_mod",
+      "sha256": "4b80b3610a2db41df162c903360a1feff315dab20f2c282ac1b2dfea9c977b86",
+      "bytes": 2323
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/voltage-divider.kicad_pcb",
+      "sha256": "c7867af05ff64a2567a08304ff9233bbdc6968e8e7d0704c34bdcbdf42e7041f",
+      "bytes": 9508
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/voltage-divider.kicad_pro",
+      "sha256": "39cf7241675e2774663f1887c14641788fcf196d21d14b7dd1ba7eccdbb6cf68",
+      "bytes": 1744
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/kicad/voltage-divider.kicad_sch",
+      "sha256": "b2fc7e90ef934475f67636804cda019bd2154b2dc77c17257a9f26a684931a8c",
+      "bytes": 12857
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/parts-validation.json",
+      "sha256": "dacce1e3043ac0cd99ce33908b2c12076162969c67cd51de0043b1f8d2956fc4",
+      "bytes": 1759
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/source-graph.json",
+      "sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "bytes": 1763
+    },
+    {
+      "path": "fixtures/voltage-divider/project-build/source-manifest.json",
+      "sha256": "9a93f437baa0b35d9ceb0768e143a6d1b59387a08f39c11120f1184484d189bd",
+      "bytes": 3364
+    },
+    {
+      "path": "fixtures/voltage-divider/source/eda.project.json",
+      "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+      "bytes": 369
+    },
+    {
+      "path": "fixtures/voltage-divider/source/package.json",
+      "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+      "bytes": 179
+    },
+    {
+      "path": "fixtures/voltage-divider/source/parts.lock.json",
+      "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+      "bytes": 423
+    },
+    {
+      "path": "fixtures/voltage-divider/source/pcb.constraints.json",
+      "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+      "bytes": 141
+    },
+    {
+      "path": "fixtures/voltage-divider/source/requirements.json",
+      "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+      "bytes": 300
+    },
+    {
+      "path": "fixtures/voltage-divider/source/src/board.tsx",
+      "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+      "bytes": 866
+    },
+    {
+      "path": "fixtures/voltage-divider/source/tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    },
+    {
+      "path": "README.md",
+      "sha256": "9903d5211025b52c28fea09b2bc340786a1c4737cde46b165a597c4665453cbd",
+      "bytes": 3882
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/Custom.kicad_sym",
+      "sha256": "6d69a32196d6914f8d81e3dfc60c70ddd5417e6bd446effda86917d955a785eb",
+      "bytes": 4873
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/Device.kicad_sym",
+      "sha256": "c7e27530feef3be0e125d654e86f430391816819353ab56f9fff777056405d17",
+      "bytes": 3386
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/export-manifest.json",
+      "sha256": "69d6e5127d20dab771bb5a524a0cd74f867c33dbadda0df89e551a4f95c8213c",
+      "bytes": 1724
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/fp-lib-table",
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/power-rail.kicad_pcb",
+      "sha256": "8c1ed78de2c3f3d5ba0c83a65ce207e7b982c5ec39153a83daeb08516a8946b7",
+      "bytes": 7018
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/power-rail.kicad_pro",
+      "sha256": "130512629493eda3d30cb7b5ab444999f8a5f590b6cde91c422e2f8e45d80311",
+      "bytes": 1729
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/power-rail.kicad_sch",
+      "sha256": "25bd387eb0de759da33b97f2808c9c00a83994467de9a3db7cc9e9fe218cb1ff",
+      "bytes": 18159
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/sym-lib-table",
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    {
+      "path": "reduced-repros/power-rail/kicad-export/tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod",
+      "sha256": "d207064de061d4ffd053972297cf9cb424e288488567e195ecafc960ecb096e9",
+      "bytes": 2473
+    },
+    {
+      "path": "reduced-repros/power-rail/native-results/erc.json",
+      "sha256": "ac655e538d1712a6165a61675b00fcdc982715c1e7062acf8ebd33cfffbb1503",
+      "bytes": 3133
+    },
+    {
+      "path": "reduced-repros/power-rail/native-results/native-schematic.net",
+      "sha256": "0f6a13a6bab60237471c578e04302efb1145d1e48b78741c6fbe2b78c1ebda93",
+      "bytes": 3996
+    },
+    {
+      "path": "reduced-repros/power-rail/native-results/pcb-drc.json",
+      "sha256": "e637ba856fd222b757d53b8537d40b0496f944fe9f55296cb3fad6b407041e8b",
+      "bytes": 5820
+    },
+    {
+      "path": "reduced-repros/power-rail/native-results/rendered-svg/power-rail.svg",
+      "sha256": "beb90eee1515c86e672dfe882203c7aeae14427549be04bcf8ecc7a97d1b699d",
+      "bytes": 80216
+    },
+    {
+      "path": "reduced-repros/power-rail/source.circuit.json",
+      "sha256": "f23eeca32514db8a5356f1d010464805fedf7085132ff7fa97429fb14138ad11",
+      "bytes": 22449
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/Custom.kicad_sym",
+      "sha256": "19b30702fcd9f33efcc973d87431c37160a333ab28b102d58f694e7b3928e5cc",
+      "bytes": 4875
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/Device.kicad_sym",
+      "sha256": "a6e891642cc8edda08cd6ce982fc15376e0ac9bf40ad85157cb2f102999d0507",
+      "bytes": 3223
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/export-manifest.json",
+      "sha256": "cd879b2860708be4588b3c9131d4ced38921f4a29e94d56c457bc3b5a2c6c6ae",
+      "bytes": 1828
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/fp-lib-table",
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/sym-lib-table",
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/tscircuit.pretty/resistor_res0402.kicad_mod",
+      "sha256": "d46164ff93bea094c497b13e249d77064407eb32a124a944364eb9d4e790b023",
+      "bytes": 2314
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/two-resistor-labels.kicad_pcb",
+      "sha256": "e014fe40859ae32546bc69dfc011de3864838e39141db62ea9a5b560f1b7d1e6",
+      "bytes": 6631
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/two-resistor-labels.kicad_pro",
+      "sha256": "3272068f637198ae8264e34d87c7a433a22c09ddbe3a6b47a533f1b4c7b3fcc4",
+      "bytes": 1756
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/kicad-export/two-resistor-labels.kicad_sch",
+      "sha256": "9a45af88cc6cfc8ca44054c35490c93ce6413e2ed030cdcc2c68dd9beb7f3775",
+      "bytes": 14881
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/native-results/erc.json",
+      "sha256": "7d947e9202ed6d5c4787ce816f041131af9b748626119a8278623393394aed70",
+      "bytes": 3147
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/native-results/native-schematic.net",
+      "sha256": "ce5c0f7eaf4ef78c9987b2da9de081d737bf186117c825526830f228f948d278",
+      "bytes": 4007
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/native-results/pcb-drc.json",
+      "sha256": "3c4631998f0d9846d25dab62dbdc19022c7668455250d13cc13493a17334f769",
+      "bytes": 6084
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/native-results/rendered-svg/two-resistor-labels.svg",
+      "sha256": "351edca387183bd535771916e021e14a36057ac000d60cae0648b4e477438ef2",
+      "bytes": 78291
+    },
+    {
+      "path": "reduced-repros/two-resistor-labels/source.circuit.json",
+      "sha256": "8cf8af4e11dd58886c6e54927822398562e534a73a5d071852087a1745b2d0ec",
+      "bytes": 22018
+    },
+    {
+      "path": "release-check-schematic.json",
+      "sha256": "37900bf04c5d31c42bcedd75f3b7202ac1046ff4f543da67a57a68e3c4957632",
+      "bytes": 295
+    },
+    {
+      "path": "toolchain-metadata.json",
+      "sha256": "9bd2df1d7d6e0619f8a0e2cbcf033a5118ddb057388a27b1fd9c22e5c306c903",
+      "bytes": 657
+    },
+    {
+      "path": "verification-summary.json",
+      "sha256": "03e3ae39ba19052127f1e20051e0c846dbb4be289b81dcb3a9453d863443a7b3",
+      "bytes": 184253
+    }
+  ]
+}

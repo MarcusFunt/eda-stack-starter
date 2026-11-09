@@ -1,0 +1,187 @@
+(footprint
+  "led_diode0603_color_red"
+  (version 20240108)
+  (generator pcbnew)
+  (generator_version 8.0)
+  (layer F.Cu)
+  (at 0 0 0)
+  (descr "")
+  (tags "")
+  (attr smd)
+  (embedded_fonts no)
+  (property "Reference" "REF**"
+    (at 0 -0.975 0)
+    (layer F.SilkS)
+    (uuid 3dc980ec-513e-6074-1fb9-be2c6f4e2334)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "Val**"
+    (at 0 0.975 0)
+    (layer F.Fab)
+    (uuid 1cbae520-5e17-c380-608b-5e201f2e7fc0)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 5a372418-34d0-bd48-3c27-615852e08008)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 73204f0a-7974-be36-6609-cb76529ed8b6)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    reference
+    "REF**"
+    (at 0 -1.375 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.4 0.4)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start 0.825 -0.875)
+    (end -1.425 -0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.425 -0.875)
+    (end -1.425 0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.425 0.875)
+    (end 0.825 0.875)
+    (stroke
+      (width 0.1)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -0.24500000000000002 0)
+    (end -0.15680000000000002 0)
+    (stroke
+      (width 0.03325)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -0.15680000000000002 -0.266)
+    (end 0.15680000000000002 0)
+    (stroke
+      (width 0.03325)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 0.15680000000000002 0)
+    (end -0.15680000000000002 0.266)
+    (stroke
+      (width 0.03325)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start -0.15680000000000002 0.266)
+    (end -0.15680000000000002 -0.266)
+    (stroke
+      (width 0.03325)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 0.15680000000000002 -0.266)
+    (end 0.15680000000000002 0.266)
+    (stroke
+      (width 0.03325)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_line
+    (start 0.15680000000000002 0)
+    (end 0.24500000000000002 0)
+    (stroke
+      (width 0.03325)
+      (type default)
+    )
+    (layer F.Fab)
+  )
+  (fp_rect
+    (start -1.48 -0.73)
+    (end 1.48 0.73)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -0.825 0 0)
+    (size 0.8 0.95)
+    (layers F.Cu F.Mask)
+    (uuid 33c1d000-19bd-69df-673c-a3be4b442263)
+  )
+  (pad "2" smd rect
+    (at 0.825 0 0)
+    (size 0.8 0.95)
+    (layers F.Cu F.Mask)
+    (uuid 33152460-1a6a-157f-67e9-4f5e4a9776c3)
+  )
+  (pad "" smd rect
+    (at -0.825 0 0)
+    (size 0.5599999999999999 0.6649999999999999)
+    (layers F.Paste)
+    (uuid 3d8540ee-2019-8192-7db8-441224a8f96e)
+  )
+  (pad "" smd rect
+    (at 0.825 0 0)
+    (size 0.5599999999999999 0.6649999999999999)
+    (layers F.Paste)
+    (uuid 35da9410-6c86-a970-0ee7-e6f04eb6db90)
+  )
+  (model "../../3dmodels/tscircuit_builtin.3dshapes/diode0603_color(red).step"
+  )
+)

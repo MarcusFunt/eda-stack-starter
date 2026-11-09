@@ -1,0 +1,182 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T21:25:34",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad net (SIGNAL) doesn't match net given by schematic (/SIGNAL)",
+            "items": [
+                {
+                    "description": "Pad 2 [SIGNAL] of R1 on F.Cu",
+                    "pos": {
+                        "x": 100.51,
+                        "y": 100.0
+                    },
+                    "uuid": "6f709752-43bc-da6e-0915-b3d255e84212"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad net (SIGNAL) doesn't match net given by schematic (/SIGNAL)",
+            "items": [
+                {
+                    "description": "Pad 1 [SIGNAL] of R2 on F.Cu",
+                    "pos": {
+                        "x": 104.49,
+                        "y": 100.0
+                    },
+                    "uuid": "17dd82c0-3a16-c7ff-73f4-ed422200a283"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        }
+    ],
+    "source": "two-resistor-labels.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [SIGNAL] of R1 on F.Cu",
+                    "pos": {
+                        "x": 100.51,
+                        "y": 100.0
+                    },
+                    "uuid": "6f709752-43bc-da6e-0915-b3d255e84212"
+                },
+                {
+                    "description": "Pad 1 [SIGNAL] of R2 on F.Cu",
+                    "pos": {
+                        "x": 104.49,
+                        "y": 100.0
+                    },
+                    "uuid": "17dd82c0-3a16-c7ff-73f4-ed422200a283"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of R1",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 98.78
+                    },
+                    "uuid": "7d497029-68bd-4967-b73b-0182bfb39cdc"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of R2",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 98.78
+                    },
+                    "uuid": "ceeda134-4c0d-4cd6-8004-abab1dbf6183"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        }
+    ]
+}

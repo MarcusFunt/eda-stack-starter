@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-09T21:24:59.564Z",
+  "project_name": "ldo-sensor-interface",
+  "converter": {
+    "package": "circuit-json-to-kicad",
+    "version": "0.0.270"
+  },
+  "input": {
+    "circuit_json_sha256": "b7d1eaed4f550810a24c48951b4eff014f6eea861cf9ab70c9f67b8ce729a8a2"
+  },
+  "source_pin_net_groups": [
+    {
+      "netNames": [
+        "GND"
+      ],
+      "pins": [
+        "C1:2",
+        "C2:2",
+        "J1:2",
+        "J2:2",
+        "U1:2",
+        "U2:2"
+      ]
+    },
+    {
+      "netNames": [
+        "SCL"
+      ],
+      "pins": [
+        "J2:3",
+        "U2:3"
+      ]
+    },
+    {
+      "netNames": [
+        "SDA"
+      ],
+      "pins": [
+        "J2:4",
+        "U2:4"
+      ]
+    },
+    {
+      "netNames": [],
+      "pins": [
+        "U1:4"
+      ]
+    },
+    {
+      "netNames": [
+        "V3V3"
+      ],
+      "pins": [
+        "C2:1",
+        "J2:1",
+        "U1:5",
+        "U2:1"
+      ]
+    },
+    {
+      "netNames": [
+        "VIN"
+      ],
+      "pins": [
+        "C1:1",
+        "J1:1",
+        "U1:1",
+        "U1:3"
+      ]
+    }
+  ],
+  "artifacts": {
+    "Custom.kicad_sym": {
+      "sha256": "41711b4a62aa47b49f778fd1fbdf9129f1367513b11026403b825b06eaf72ec2",
+      "bytes": 4875
+    },
+    "Device.kicad_sym": {
+      "sha256": "d03e552663093589632f9df8c888ec30456b837ac76ba0fac3f3fd8fb6fbff98",
+      "bytes": 16478
+    },
+    "fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "ldo-sensor-interface.kicad_pcb": {
+      "sha256": "fe1fa94a0646e019a310cce6f832bbe7c228f79fa1935fdb4cb16353a4e72c50",
+      "bytes": 19575
+    },
+    "ldo-sensor-interface.kicad_pro": {
+      "sha256": "15d5580b06700a10fcf791e5e29bae4db36fc5cd69a11bf92aff4f952bc49100",
+      "bytes": 1916
+    },
+    "ldo-sensor-interface.kicad_sch": {
+      "sha256": "2819424144b987887f1b7f405ac8e9c05932f3ad4e32185f348ef454b98b88a0",
+      "bytes": 1872
+    },
+    "power.kicad_sch": {
+      "sha256": "4264672f94a618fb74ded6a0c49063d417f4ce138790da714e3af6b11b5b1db3",
+      "bytes": 32882
+    },
+    "sensor.kicad_sch": {
+      "sha256": "bedafe816014bb62d7a2b6147e24ad2cd47244857e502a3ea8af7aba70f29266",
+      "bytes": 20932
+    },
+    "sym-lib-table": {
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    "tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod": {
+      "sha256": "22e458adc46971793002da070832ba78cd7e189c00cd2f3256a3a33e21878d9b",
+      "bytes": 2603
+    },
+    "tscircuit.pretty/chip_SOIC-8.kicad_mod": {
+      "sha256": "a7e0c4e998146132aea70d6ae7ca28fe250cc285cab0a9e4f122e3a7c9b21cc7",
+      "bytes": 1089
+    },
+    "tscircuit.pretty/chip_SOT-23-5.kicad_mod": {
+      "sha256": "c7fe9cc467b1e6c9f8cb2d84c6d2d4ef097dc829095829df56fb788c713a089e",
+      "bytes": 4309
+    },
+    "tscircuit.pretty/connector_pinrow2.kicad_mod": {
+      "sha256": "2755e1bb244f56c9d9cfe4260438189f02d0c8e2ec97640b57cbe17c611ef055",
+      "bytes": 2162
+    },
+    "tscircuit.pretty/connector_pinrow4.kicad_mod": {
+      "sha256": "e5b700166819bd2e6bff947996606534c19a58e6638ff4934e6284a0e1184bd1",
+      "bytes": 3025
+    }
+  }
+}

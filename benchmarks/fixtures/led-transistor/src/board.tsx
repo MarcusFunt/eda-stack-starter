@@ -5,7 +5,14 @@ export default () => (
     <net name="VCC" />
     <net name="GND" />
     <net name="CTRL" />
-    <connector name="J1" pinCount={3} footprint="pinrow3" pcbX={-10} pcbY={0} />
+    <connector
+      name="J1"
+      pinCount={3}
+      footprint="pinrow3"
+      pinAttributes={{ pin1: { providesPower: true }, pin2: { providesGround: true } }}
+      pcbX={-10}
+      pcbY={0}
+    />
     <LowSideLed />
   </board>
 );

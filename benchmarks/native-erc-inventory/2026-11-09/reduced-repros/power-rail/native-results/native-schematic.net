@@ -1,0 +1,246 @@
+(export
+	(version "E")
+	(design
+		(source "/workspace/build/tscircuit-worker-native-ZMkvgj/kicad-exports/power-rail/power-rail.kicad_sch")
+		(date "2026-11-09T21:25:36")
+		(tool "Eeschema 10.0.8")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "power-rail.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "C1")
+			(value "220uF")
+			(footprint "tscircuit:capacitor_cap0603_nonpolarized")
+			(description "Capacitor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:capacitor_cap0603_nonpolarized")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "capacitor_right")
+				(description "Capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "power-rail")
+			)
+			(property
+				(name "Sheetfile")
+				(value "power-rail.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "C cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_* capacitor_cap0603_nonpolarized")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "4f583df7-9a07-4b12-a5b9-0328293bc43c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "100nF")
+			(footprint "tscircuit:capacitor_cap0603_nonpolarized")
+			(description "Capacitor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:capacitor_cap0603_nonpolarized")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "capacitor_right")
+				(description "Capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "power-rail")
+			)
+			(property
+				(name "Sheetfile")
+				(value "power-rail.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "C cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_* capacitor_cap0603_nonpolarized")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0577b048-38e8-4e69-b66f-6dc8267458de")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Device")
+			(part "capacitor_right")
+			(description "Capacitor")
+			(footprints
+				(fp "C_*")
+				(fp "capacitor_cap0603_nonpolarized")
+			)
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "C")
+				(field
+					(name "Footprint") "tscircuit:capacitor_cap0603_nonpolarized")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Capacitor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Device")
+			(uri "${KIPRJMOD}/Device.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "GND")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "V24")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+	)
+)

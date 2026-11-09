@@ -1,0 +1,860 @@
+(export
+	(version "E")
+	(design
+		(source "/workspace/build/tscircuit-worker-native-ZMkvgj/project-builds/ldo-sensor-interface/kicad/ldo-sensor-interface.kicad_sch")
+		(date "2026-11-09T21:25:52")
+		(tool "Eeschema 10.0.8")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "ldo-sensor-interface.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "2")
+			(name "/Power/")
+			(tstamps "/d0e578b6-3200-43a9-ba6a-89dc7766329c/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "power.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+		(sheet
+			(number "3")
+			(name "/Sensor Interface/")
+			(tstamps "/e271cf56-68c5-484e-bfd7-80faa1ab0fa6/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "sensor.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "C1")
+			(value "1uF")
+			(footprint "tscircuit:capacitor_cap0603_nonpolarized")
+			(description "Capacitor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:capacitor_cap0603_nonpolarized")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "capacitor_down")
+				(description "Capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Power")
+			)
+			(property
+				(name "Sheetfile")
+				(value "power.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "C cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_* capacitor_cap0603_nonpolarized")
+			)
+			(sheetpath
+				(names "/Power/")
+				(tstamps "/d0e578b6-3200-43a9-ba6a-89dc7766329c/")
+			)
+			(tstamps "71ab3e89-1248-4422-ba29-db69b3de7acf")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "1uF")
+			(footprint "tscircuit:capacitor_cap0603_nonpolarized")
+			(description "Capacitor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:capacitor_cap0603_nonpolarized")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "capacitor_down")
+				(description "Capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "Power")
+			)
+			(property
+				(name "Sheetfile")
+				(value "power.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "C cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_* capacitor_cap0603_nonpolarized")
+			)
+			(sheetpath
+				(names "/Power/")
+				(tstamps "/d0e578b6-3200-43a9-ba6a-89dc7766329c/")
+			)
+			(tstamps "af01bd9d-733f-48ea-9b4b-8dc7ecd6e22e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "~")
+			(footprint "tscircuit:connector_pinrow2")
+			(description "Connector")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow2")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(libsource
+				(lib "Device")
+				(part "J_connector_pinrow2")
+				(description "Connector")
+			)
+			(property
+				(name "Sheetname")
+				(value "Power")
+			)
+			(property
+				(name "Sheetfile")
+				(value "power.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* connector_pinrow2")
+			)
+			(sheetpath
+				(names "/Power/")
+				(tstamps "/d0e578b6-3200-43a9-ba6a-89dc7766329c/")
+			)
+			(tstamps "51150854-ff98-4b3e-9ee7-740408bb59bb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "~")
+			(footprint "tscircuit:chip_SOT-23-5")
+			(description "Integrated Circuit")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:chip_SOT-23-5")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Integrated Circuit")
+			)
+			(libsource
+				(lib "Device")
+				(part "U_chip_SOT-23-5")
+				(description "Integrated Circuit")
+			)
+			(property
+				(name "Sheetname")
+				(value "Power")
+			)
+			(property
+				(name "Sheetfile")
+				(value "power.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "U IC chip")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* chip_SOT-23-5")
+			)
+			(sheetpath
+				(names "/Power/")
+				(tstamps "/d0e578b6-3200-43a9-ba6a-89dc7766329c/")
+			)
+			(tstamps "1fa445d8-a03f-4268-959e-eff58781c4b0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J2")
+			(value "~")
+			(footprint "tscircuit:connector_pinrow4")
+			(description "Connector")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(libsource
+				(lib "Device")
+				(part "J_connector_pinrow4")
+				(description "Connector")
+			)
+			(property
+				(name "Sheetname")
+				(value "Sensor Interface")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sensor.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* connector_pinrow4")
+			)
+			(sheetpath
+				(names "/Sensor Interface/")
+				(tstamps "/e271cf56-68c5-484e-bfd7-80faa1ab0fa6/")
+			)
+			(tstamps "2e3de6fc-df58-4d63-bc19-e0ed27e45f86")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "~")
+			(footprint "tscircuit:chip_SOIC-8")
+			(description "Integrated Circuit")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:chip_SOIC-8")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Integrated Circuit")
+			)
+			(libsource
+				(lib "Device")
+				(part "U_chip_SOIC-8")
+				(description "Integrated Circuit")
+			)
+			(property
+				(name "Sheetname")
+				(value "Sensor Interface")
+			)
+			(property
+				(name "Sheetfile")
+				(value "sensor.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "U IC chip")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* chip_SOIC-8")
+			)
+			(sheetpath
+				(names "/Sensor Interface/")
+				(tstamps "/e271cf56-68c5-484e-bfd7-80faa1ab0fa6/")
+			)
+			(tstamps "91670afd-a3e4-4763-8ed8-2432834fb417")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Device")
+			(part "J_connector_pinrow2")
+			(description "Connector")
+			(footprints
+				(fp "*")
+				(fp "connector_pinrow2")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "J")
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow2")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "power_out")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "power_out")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "J_connector_pinrow4")
+			(description "Connector")
+			(footprints
+				(fp "*")
+				(fp "connector_pinrow4")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "J")
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow4")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "4")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "U_chip_SOIC-8")
+			(description "Integrated Circuit")
+			(footprints
+				(fp "*")
+				(fp "chip_SOIC-8")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "U")
+				(field
+					(name "Footprint") "tscircuit:chip_SOIC-8")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Integrated Circuit")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VDD")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "SCL")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "SDA")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "U_chip_SOT-23-5")
+			(description "Integrated Circuit")
+			(footprints
+				(fp "*")
+				(fp "chip_SOT-23-5")
+			)
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "U")
+				(field
+					(name "Footprint") "tscircuit:chip_SOT-23-5")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Integrated Circuit")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "IN")
+					(type "power_in")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "3")
+					(name "EN")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "NC")
+					(type "passive")
+				)
+				(pin
+					(num "5")
+					(name "OUT")
+					(type "power_out")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "capacitor_down")
+			(description "Capacitor")
+			(footprints
+				(fp "C_*")
+				(fp "capacitor_cap0603_nonpolarized")
+			)
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "C")
+				(field
+					(name "Footprint") "tscircuit:capacitor_cap0603_nonpolarized")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Capacitor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Device")
+			(uri "${KIPRJMOD}/Device.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "/Sensor Interface/SCL")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "SCL_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "/Sensor Interface/SDA")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "4")
+				(pinfunction "4_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "U2")
+				(pin "4")
+				(pinfunction "SDA_4")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "3")
+			(name "GND")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "power_out")
+			)
+			(node
+				(ref "J2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "4")
+			(name "V3V3")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "OUT_5")
+				(pintype "power_out")
+			)
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "VDD_1")
+				(pintype "power_in")
+			)
+		)
+		(net
+			(code "5")
+			(name "VIN")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "power_out")
+			)
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "IN_1")
+				(pintype "power_in")
+			)
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "EN_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "6")
+			(name "unconnected-(U1-NC-Pad4)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "NC_4")
+				(pintype "passive+no_connect")
+			)
+		)
+	)
+)

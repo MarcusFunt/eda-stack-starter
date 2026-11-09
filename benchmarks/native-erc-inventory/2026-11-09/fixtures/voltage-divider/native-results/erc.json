@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T21:25:43",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/3aaa3e38-cabd-4469-b339-e73d65c24b0d",
+            "violations": [
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol R1 [boxresistor_down]",
+                            "pos": {
+                                "x": 134.62,
+                                "y": 105.41
+                            },
+                            "uuid": "f3d7e532-c334-4784-b360-8ba6919c9ac1"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol J1 [J_connector_pinrow3]",
+                            "pos": {
+                                "x": 148.59,
+                                "y": 102.87
+                            },
+                            "uuid": "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol R2 [boxresistor_down]",
+                            "pos": {
+                                "x": 162.56,
+                                "y": 105.41
+                            },
+                            "uuid": "f0eedc2f-fcec-4057-b20b-298d90654db2"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                }
+            ]
+        }
+    ],
+    "source": "voltage-divider.kicad_sch"
+}

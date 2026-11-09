@@ -1,0 +1,175 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T21:25:39",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+            "items": [
+                {
+                    "description": "Footprint C1",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+            "items": [
+                {
+                    "description": "Footprint C2",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        }
+    ],
+    "source": "power-rail.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [V24] of C1 on F.Cu",
+                    "pos": {
+                        "x": 99.175,
+                        "y": 100.0
+                    },
+                    "uuid": "100fad40-7277-af60-2b20-4e803747b3a0"
+                },
+                {
+                    "description": "Pad 1 [V24] of C2 on F.Cu",
+                    "pos": {
+                        "x": 104.175,
+                        "y": 100.0
+                    },
+                    "uuid": "4b378d20-62d4-2821-10df-dd6241146d5d"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [GND] of C1 on F.Cu",
+                    "pos": {
+                        "x": 100.825,
+                        "y": 100.0
+                    },
+                    "uuid": "216b0040-2c14-399f-7993-737e38ed52a3"
+                },
+                {
+                    "description": "Pad 2 [GND] of C2 on F.Cu",
+                    "pos": {
+                        "x": 105.825,
+                        "y": 100.0
+                    },
+                    "uuid": "516c85c6-1f8b-98da-6f7c-4886017bd61a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint C1",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 100.0
+                    },
+                    "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint C2",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of C1",
+                    "pos": {
+                        "x": 100.0,
+                        "y": 98.625
+                    },
+                    "uuid": "9857c2e2-b0e1-4a95-acd1-49740528ad15"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of C2",
+                    "pos": {
+                        "x": 105.0,
+                        "y": 98.625
+                    },
+                    "uuid": "35fd8b02-069f-4e1c-8401-162b751f77fb"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        }
+    ]
+}

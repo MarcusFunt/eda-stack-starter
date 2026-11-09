@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "head": {
+    "generator": "circuit-json-to-kicad",
+    "generator_version": "0.0.1",
+    "project_name": "led-transistor",
+    "created": "2026-11-09T21:24:54.584Z",
+    "modified": "2026-11-09T21:24:54.584Z"
+  },
+  "meta": {
+    "version": 1
+  },
+  "text_variables": {},
+  "libraries": {
+    "pinned_symbol_libs": [],
+    "pinned_footprint_libs": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "meta": {
+      "version": 0
+    }
+  },
+  "erc": {
+    "meta": {
+      "version": 0
+    },
+    "erc_exclusions": [],
+    "rule_severities": {
+      "footprint_filter": "warning",
+      "four_way_junction": "warning",
+      "simulation_model_issue": "warning",
+      "single_global_label": "warning"
+    }
+  },
+  "net_settings": {
+    "meta": {
+      "version": 3
+    },
+    "last_net_id": 0,
+    "classes": [
+      {
+        "name": "Default",
+        "track_width": 0.1,
+        "via_diameter": 0.3,
+        "via_drill": 0.2,
+        "clearance": 0.1
+      }
+    ],
+    "netclass_patterns": []
+  },
+  "pcbnew": {
+    "page_layout_descr_file": "",
+    "last_paths": {}
+  },
+  "schematic": {
+    "meta": {
+      "version": 1
+    },
+    "page_layout_descr_file": "",
+    "last_opened_files": [
+      "led-transistor.kicad_sch"
+    ]
+  },
+  "board": {
+    "meta": {
+      "version": 1
+    },
+    "design_settings": {
+      "rules": {
+        "min_via_annular_width": 0.04999999999999999,
+        "min_hole_clearance": 0.2,
+        "min_via_diameter": 0.3,
+        "min_track_width": 0.1,
+        "min_through_hole_diameter": 0.2,
+        "min_copper_edge_clearance": 0.2
+      }
+    },
+    "last_opened_board": "led-transistor.kicad_pcb"
+  },
+  "sheets": [
+    [
+      "d9d31cc1-6e84-443b-b598-32b207b6bc25",
+      "Root"
+    ]
+  ]
+}

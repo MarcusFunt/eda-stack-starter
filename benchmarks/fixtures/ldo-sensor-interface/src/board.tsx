@@ -10,7 +10,15 @@ export default () => (
     <net name="SDA" />
     <schematicsheet name="Power" displayName="Power" sheetIndex={0} />
     <schematicsheet name="Sensor" displayName="Sensor Interface" sheetIndex={1} />
-    <connector name="J1" pinCount={2} footprint="pinrow2" pcbX={-10} pcbY={3} schSheetName="Power" />
+    <connector
+      name="J1"
+      pinCount={2}
+      footprint="pinrow2"
+      pinAttributes={{ pin1: { providesPower: true }, pin2: { providesGround: true } }}
+      pcbX={-10}
+      pcbY={3}
+      schSheetName="Power"
+    />
     <group schSheetName="Power">
       <LdoPower />
     </group>

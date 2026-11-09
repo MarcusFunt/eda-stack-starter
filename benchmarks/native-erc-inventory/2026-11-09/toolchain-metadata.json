@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "captured_at_utc": "2026-11-09T21:26:01.708Z",
+  "source_commit": "af170a4933918fe376f998b44280cd07234f79bf",
+  "working_tree_clean": false,
+  "host": {
+    "platform": "win32",
+    "architecture": "x64",
+    "os_release": "10.0.26200"
+  },
+  "node": "v24.15.0",
+  "npm": "11.12.1",
+  "docker": "29.9.2 / 29.9.2",
+  "kicad_cli_container": {
+    "image": "kicad/kicad@sha256:3f4a01786dfbe803a65f345c3342b765db9add913f5e9448f8356793714ddc34",
+    "version": "10.0.8"
+  },
+  "tscircuit": "0.0.3114",
+  "circuit_json_to_kicad": "0.0.270",
+  "sandbox_image": "sha256:49319c94db90011ec83fad1cb00d1b789da9518eaa51178d4a195e0a22deec45"
+}

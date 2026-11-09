@@ -1,0 +1,5 @@
+* text eol=lf
+fixtures/**/source/** -text -diff !eol
+reduced-repros/*/source.circuit.json -text -diff !eol
+release-check-schematic.json -text -diff !eol
+**/rendered-svg/*.svg -diff

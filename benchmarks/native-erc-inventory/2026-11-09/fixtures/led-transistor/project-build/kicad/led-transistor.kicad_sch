@@ -1,0 +1,1581 @@
+(kicad_sch
+  (version 20250114)
+  (generator circuit-json-to-kicad)
+  (generator_version 0.0.1)
+  (uuid adf5cacf-1e79-4ff7-adf2-f206853cfa2f)
+  (paper
+    A4
+  )
+  (lib_symbols
+    (symbol "Device:J_connector_pinrow3"
+      (pin_numbers
+        (hide no)
+      )
+      (pin_names
+        (offset 1.27)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "J"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "J"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:connector_pinrow3"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Connector"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" "connector"
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "* connector_pinrow3"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "J_connector_pinrow3_0_1"
+        (polyline
+          (pts
+            (xy -3 -4.5)
+            (xy 3 -4.5)
+            (xy 3 4.5)
+            (xy -3 4.5)
+            (xy -3 -4.5)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+      )
+      (symbol "J_connector_pinrow3_1_1"
+        (pin power_out line
+          (at -8.89 1.27 0)
+          (length 6)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin power_out line
+          (at -8.89 -1.27 0)
+          (length 6)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 8.89 0 180)
+          (length 6)
+          (name "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+    (symbol "Device:npn_bipolar_transistor_right"
+      (pin_numbers
+        (hide yes)
+      )
+      (pin_names
+        (offset 0)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "Q"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "Q"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:transistor_TO-92"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Component"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" ""
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "* transistor_TO-92"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "npn_bipolar_transistor_right_0_1"
+        (polyline
+          (pts
+            (xy 0 -6.35)
+            (xy 0.15 0.9)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -4.05 1.05)
+            (xy 4.2 1.05)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -3.6 4.2)
+            (xy -1.65 1.2)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 3.6 4.35)
+            (xy 1.65 1.35)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -3.75 4.35)
+            (xy -7.62 3.81)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 8.89 3.81)
+            (xy 3.75 4.35)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.5 2.85)
+            (xy 3 1.8)
+            (xy 3 3.3)
+            (xy 1.5 2.85)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+        (circle
+          (center 0 2.1)
+          (radius 4.35)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol "npn_bipolar_transistor_right_1_1"
+        (pin passive line
+          (at -7.62 3.81 0)
+          (length 0.01)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 8.89 3.81 180)
+          (length 0.01)
+          (name "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 0 -6.35 90)
+          (length 0.01)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+    (symbol "Device:led_right"
+      (pin_numbers
+        (hide yes)
+      )
+      (pin_names
+        (offset 0)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "D"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "D"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:led_diode0603_color_red"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Component"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" ""
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "* led_diode0603_color_red"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "led_right_0_1"
+        (polyline
+          (pts
+            (xy 2.1 0)
+            (xy -1.95 -2.1)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.95 0)
+            (xy 8.89 0)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -1.95 1.95)
+            (xy 2.1 0)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -1.95 -2.1)
+            (xy -1.95 1.95)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 2.1 1.95)
+            (xy 2.1 -2.1)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -1.95 0)
+            (xy -7.62 0)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 2.4 4.35)
+            (xy 3.75 4.5)
+            (xy 3.3 3.15)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.2 2.55)
+            (xy 1.35 2.55)
+            (xy 3.15 4.05)
+            (xy 3.15 4.05)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -0.3 4.65)
+            (xy 1.2 4.8)
+            (xy 0.6 3.45)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type background)
+          )
+        )
+        (polyline
+          (pts
+            (xy -1.5 2.85)
+            (xy -1.35 3)
+            (xy 0.6 4.35)
+            (xy 0.6 4.35)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol "led_right_1_1"
+        (pin passive line
+          (at -7.62 0 0)
+          (length 0.01)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 8.89 0 180)
+          (length 0.01)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+    (symbol "Device:boxresistor_down"
+      (pin_numbers
+        (hide yes)
+      )
+      (pin_names
+        (offset 0)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "R"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:resistor_res0603"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Resistor"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" "R res resistor"
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "R_* resistor_res0603"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "boxresistor_down_0_1"
+        (polyline
+          (pts
+            (xy 0 3.81)
+            (xy 0 2.9997)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 0 -2.9997)
+            (xy 0 -5.08)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.1997 2.9997)
+            (xy 1.1997 -2.9997)
+            (xy -1.1997 -2.9997)
+            (xy -1.1997 2.9997)
+            (xy 1.1997 2.9997)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol "boxresistor_down_1_1"
+        (pin passive line
+          (at 0 3.81 270)
+          (length 0.01)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at 0 -5.08 90)
+          (length 0.01)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+    (symbol "Device:boxresistor_left"
+      (pin_numbers
+        (hide yes)
+      )
+      (pin_names
+        (offset 0)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property "Reference" "R"
+        (id 0)
+        (at 2.032 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Value" "R"
+        (id 1)
+        (at 0 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property "Footprint" "tscircuit:resistor_res0603"
+        (id 2)
+        (at -1.778 0 90)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Datasheet" "~"
+        (id 3)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "Description" "Resistor"
+        (id 4)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_keywords" "R res resistor"
+        (id 5)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property "ki_fp_filters" "R_* resistor_res0603"
+        (id 6)
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol "boxresistor_left_0_1"
+        (polyline
+          (pts
+            (xy 3.81 0)
+            (xy 2.9997 0)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -2.9997 0)
+            (xy -5.08 0)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 2.9997 -1.1997)
+            (xy -2.9997 -1.1997)
+            (xy -2.9997 1.1997)
+            (xy 2.9997 1.1997)
+            (xy 2.9997 -1.1997)
+          )
+          (stroke
+            (width 0.18)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol "boxresistor_left_1_1"
+        (pin passive line
+          (at 3.81 0 180)
+          (length 0.01)
+          (name "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin passive line
+          (at -5.08 0 0)
+          (length 0.01)
+          (name "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+      (embedded_fonts no)
+    )
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+  (embedded_fonts no)
+  (symbol
+    (lib_id "Device:J_connector_pinrow3")
+    (at 175.26 102.87 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb)
+    (fields_autoplaced no)
+    (property "Reference" "J1"
+      (id 0)
+      (at 172.5375 96.28125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Value" ""
+      (id 1)
+      (at 175.5375 110.23125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property "Footprint" "tscircuit:connector_pinrow3"
+      (id 2)
+      (at 173.7595 102.73125 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 175.5375 102.73125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Connector"
+      (id 4)
+      (at 175.5375 102.73125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid 72baecaa-5d96-4104-bb57-fd4dbb38bf1a)
+    )
+    (pin "2"
+      (uuid 399070ba-76a9-4db3-9afe-2aa2bd416504)
+    )
+    (pin "3"
+      (uuid 38d92eab-7682-478b-96b2-1483605d782c)
+    )
+    (instances
+      (project ""
+        (path "/adf5cacf-1e79-4ff7-adf2-f206853cfa2f"
+          (reference "J1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:npn_bipolar_transistor_right")
+    (at 147.32 107.95 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 45398cf6-5ebe-41cb-8283-d66e5b340e49)
+    (fields_autoplaced no)
+    (property "Reference" "Q1"
+      (id 0)
+      (at 153.92933025 100.33125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify bottom)
+      )
+    )
+    (property "Value" "Q1"
+      (id 1)
+      (at 153.92933025 113.08125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify top)
+      )
+    )
+    (property "Footprint" "tscircuit:transistor_TO-92"
+      (id 2)
+      (at 146.0095 108.58125 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 147.7875 108.58125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Component"
+      (id 4)
+      (at 147.7875 108.58125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid 691fdb76-0516-44aa-91b4-6547f9b04653)
+    )
+    (pin "2"
+      (uuid 6dd46f1d-5b6a-4ac0-ba4b-b5ffa5093365)
+    )
+    (pin "3"
+      (uuid c0824985-a32c-47bf-9867-1f7aadd24756)
+    )
+    (instances
+      (project ""
+        (path "/adf5cacf-1e79-4ff7-adf2-f206853cfa2f"
+          (reference "Q1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:led_right")
+    (at 120.65 104.14 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 9e3b9ec1-f123-4378-9ad1-91d93c891edb)
+    (fields_autoplaced no)
+    (property "Reference" "D1"
+      (id 0)
+      (at 120.93749999999999 98.08125000000001 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify bottom)
+      )
+    )
+    (property "Value" ""
+      (id 1)
+      (at 120.93749999999999 107.38125000000001 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify top)
+      )
+    )
+    (property "Footprint" "tscircuit:led_diode0603_color_red"
+      (id 2)
+      (at 119.15949999999998 104.23125 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 120.93749999999999 104.23125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "LED"
+      (id 4)
+      (at 120.93749999999999 104.23125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid 9e993297-36bb-427f-a214-a149ed6ecbc4)
+    )
+    (pin "2"
+      (uuid 7a1f1fd5-46b2-4f72-963b-91b992c7a857)
+    )
+    (instances
+      (project ""
+        (path "/adf5cacf-1e79-4ff7-adf2-f206853cfa2f"
+          (reference "D1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:boxresistor_down")
+    (at 143.51 85.09 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 1f78b075-4a5d-417a-bec2-d56e9c57a6d8)
+    (fields_autoplaced no)
+    (property "Reference" "R1"
+      (id 0)
+      (at 146.28749999999997 82.89375 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Value" "1kΩ"
+      (id 1)
+      (at 146.28749999999997 87.69375 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property "Footprint" "tscircuit:resistor_res0603"
+      (id 2)
+      (at 142.1095 85.29374999999999 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 143.8875 85.29374999999999 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Resistor"
+      (id 4)
+      (at 143.8875 85.29374999999999 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid 3005f7da-0546-4a5d-af08-9d9827a29aa8)
+    )
+    (pin "2"
+      (uuid 9840915b-970f-4be2-b6bf-6412564719c5)
+    )
+    (instances
+      (project ""
+        (path "/adf5cacf-1e79-4ff7-adf2-f206853cfa2f"
+          (reference "R1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "Device:boxresistor_left")
+    (at 171.45 127 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid 2f5945d8-27f9-4092-9e83-770b1e8709a7)
+    (fields_autoplaced no)
+    (property "Reference" "R2"
+      (id 0)
+      (at 171.0375 124.93125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify bottom)
+      )
+    )
+    (property "Value" "10kΩ"
+      (id 1)
+      (at 171.0375 129.73125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify top)
+      )
+    )
+    (property "Footprint" "tscircuit:resistor_res0603"
+      (id 2)
+      (at 169.2595 127.33125 90)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Datasheet" "~"
+      (id 3)
+      (at 171.0375 127.33125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property "Description" "Resistor"
+      (id 4)
+      (at 171.0375 127.33125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin "1"
+      (uuid a6c97658-938b-4e20-8f9d-f4f584f8ebc7)
+    )
+    (pin "2"
+      (uuid 56311eb4-5ae4-4f60-b21e-437058a44012)
+    )
+    (instances
+      (project ""
+        (path "/adf5cacf-1e79-4ff7-adf2-f206853cfa2f"
+          (reference "R2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (label "CTRL"
+    (at 187.96 115.57 90)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify bottom)
+    )
+    (uuid 799f206f-6268-40d5-80b8-89db9fa120af)
+  )
+  (label "VCC"
+    (at 143.51 77.47 90)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid 590cbdfd-f598-42bc-8559-37fa6617c68b)
+    (fields_autoplaced no)
+  )
+  (label "GND"
+    (at 161.29 104.14 270)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid 0ded7509-2476-4790-ad88-2eafa5b2d2f5)
+    (fields_autoplaced no)
+  )
+  (wire
+    (pts
+      (xy 143.51 81.28)
+      (xy 143.51 77.47)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 7f296eae-36bb-421f-8895-dfcd3dc28002)
+  )
+  (wire
+    (pts
+      (xy 143.51 77.47)
+      (xy 158.75 77.47)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid f17e1950-be2e-4f2d-a4ef-72cd7afca59e)
+  )
+  (wire
+    (pts
+      (xy 158.75 77.47)
+      (xy 158.75 101.6)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 75ff29e1-1cc4-4011-9983-24afe4e4ae8b)
+  )
+  (wire
+    (pts
+      (xy 158.75 101.6)
+      (xy 166.37 101.6)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid ba38ba3e-b821-4b0f-966f-9b50456e791e)
+  )
+  (wire
+    (pts
+      (xy 143.51 90.17)
+      (xy 143.51 92.71)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 1fabda1f-37f0-4304-ab70-21c11a761207)
+  )
+  (wire
+    (pts
+      (xy 143.51 92.71)
+      (xy 109.22 92.71)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid d08d5ebd-092d-480b-b706-8b0cf7c9baf6)
+  )
+  (wire
+    (pts
+      (xy 109.22 92.71)
+      (xy 109.22 104.14)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 64f2a140-a733-49dc-ab0f-011737e3136f)
+  )
+  (wire
+    (pts
+      (xy 109.22 104.14)
+      (xy 113.03 104.14)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid fa73b222-d150-4cc2-8e4c-724d4e19c37f)
+  )
+  (wire
+    (pts
+      (xy 129.54 104.14)
+      (xy 139.7 104.14)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid d0c126a5-f11c-4150-8065-34fe13f8846c)
+  )
+  (wire
+    (pts
+      (xy 156.21 104.14)
+      (xy 166.37 104.14)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 645376f0-9ac2-4988-a057-a24ed959ba84)
+  )
+  (wire
+    (pts
+      (xy 175.26 127)
+      (xy 187.96 127)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 834513d1-f19f-4f9c-854f-eeabce526c1c)
+  )
+  (wire
+    (pts
+      (xy 187.96 127)
+      (xy 187.96 102.87)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 859ee1e3-d974-45ab-9054-293a41fd4662)
+  )
+  (wire
+    (pts
+      (xy 187.96 102.87)
+      (xy 184.15 102.87)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 9d649256-4587-4d85-a135-ba073853d552)
+  )
+  (wire
+    (pts
+      (xy 166.37 127)
+      (xy 147.32 127)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid aa90df31-59d7-4986-9c1c-140002e6a86d)
+  )
+  (wire
+    (pts
+      (xy 147.32 127)
+      (xy 147.32 115.57)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 50a41fcb-92cc-4d0e-a3f2-19e25b824c69)
+  )
+  (wire
+    (pts
+      (xy 147.32 115.57)
+      (xy 147.32 114.3)
+    )
+    (stroke
+      (width 0.254)
+      (type default)
+    )
+    (uuid 21374469-5ad6-49bc-b9fe-a85eba0a5fb8)
+  )
+)

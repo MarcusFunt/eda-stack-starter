@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "requirements": [
+    {
+      "id": "regulated-sensor-interface",
+      "description": "Connect a low-voltage input through an LDO to a generic I2C sensor interface.",
+      "acceptance": ["Input and output have separate decoupling capacitors", "Sensor SDA and SCL reach the external connector", "Power and sensor blocks use separate schematic sheets"]
+    }
+  ]
+}

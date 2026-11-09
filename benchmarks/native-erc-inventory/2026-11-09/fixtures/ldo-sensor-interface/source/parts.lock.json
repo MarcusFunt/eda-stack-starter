@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "status": "unverified",
+  "parts": [
+    { "reference": "J1", "manufacturer_part_number": null, "footprint": "pinrow2", "pin_map_status": "unverified" },
+    { "reference": "U1", "manufacturer_part_number": null, "footprint": "SOT-23-5", "pin_map_status": "unverified" },
+    { "reference": "C1", "manufacturer_part_number": null, "footprint": "0603", "pin_map_status": "unverified" },
+    { "reference": "C2", "manufacturer_part_number": null, "footprint": "0603", "pin_map_status": "unverified" },
+    { "reference": "U2", "manufacturer_part_number": null, "footprint": "SOIC-8", "pin_map_status": "unverified" },
+    { "reference": "J2", "manufacturer_part_number": null, "footprint": "pinrow4", "pin_map_status": "unverified" }
+  ]
+}

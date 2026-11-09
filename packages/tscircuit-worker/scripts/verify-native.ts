@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
+import os from "node:os";
 import { cp, lstat, mkdir, mkdtemp, readFile, readdir, writeFile } from "node:fs/promises";
 import { spawnSync } from "node:child_process";
 import path from "node:path";
@@ -12,6 +13,7 @@ import {
 } from "../src/export-kicad.js";
 import { createPcbDrcArgs, readPcbDrcEvidence } from "../src/native-drc.js";
 import { buildProject } from "../src/build.js";
+import { buildErcFaultInventory } from "../src/erc-inventory.js";
 
 type NativeFixture = {
   name: string;
@@ -100,6 +102,44 @@ async function buildProjectFixture(name: string, sourceRoot?: string): Promise<N
   };
 }
 
+function assertPowerSemantics(fixture: NativeFixture): void {
+  const expectedByFixture: Record<string, Array<{ reference: string; pin: number; attribute: string }>> = {
+    "voltage-divider": [
+      { reference: "J1", pin: 1, attribute: "provides_power" },
+      { reference: "J1", pin: 3, attribute: "provides_ground" },
+    ],
+    "led-transistor": [
+      { reference: "J1", pin: 1, attribute: "provides_power" },
+      { reference: "J1", pin: 2, attribute: "provides_ground" },
+    ],
+    "ldo-sensor-interface": [
+      { reference: "J1", pin: 1, attribute: "provides_power" },
+      { reference: "J1", pin: 2, attribute: "provides_ground" },
+      { reference: "U1", pin: 1, attribute: "requires_power" },
+      { reference: "U1", pin: 2, attribute: "requires_ground" },
+      { reference: "U1", pin: 4, attribute: "do_not_connect" },
+      { reference: "U1", pin: 5, attribute: "provides_power" },
+      { reference: "U2", pin: 1, attribute: "requires_power" },
+      { reference: "U2", pin: 2, attribute: "requires_ground" },
+    ],
+  };
+  const expected = expectedByFixture[fixture.name];
+  if (!expected) return;
+  const sources = new Map(
+    (fixture.circuitJson as Array<Record<string, unknown>>)
+      .filter((record) => record.type === "source_component" && typeof record.name === "string")
+      .map((record) => [record.name as string, record.source_component_id as string]),
+  );
+  const ports = (fixture.circuitJson as Array<Record<string, unknown>>).filter((record) => record.type === "source_port");
+  for (const requirement of expected) {
+    const componentId = sources.get(requirement.reference);
+    assert.ok(componentId, fixture.name + " missing source component " + requirement.reference);
+    const port = ports.find((record) => record.source_component_id === componentId && record.pin_number === requirement.pin);
+    assert.ok(port, fixture.name + " missing " + requirement.reference + ":" + requirement.pin);
+    assert.equal(port[requirement.attribute], true, fixture.name + " " + requirement.reference + ":" + requirement.pin + " must declare " + requirement.attribute);
+  }
+}
+
 const version = kicadCli(["version"]);
 assert.match(version, /10\.0\.8/, "native export verification requires KiCad 10.0.8");
 const workerImplementationHashBefore = await implementationHash();
@@ -132,6 +172,8 @@ const fixtureCircuits: NativeFixture[] = [
 for (const name of ["voltage-divider", "led-transistor", "ldo-sensor-interface"]) {
   fixtureCircuits.push(await buildProjectFixture(name));
 }
+
+for (const fixture of fixtureCircuits) assertPowerSemantics(fixture);
 
 const ledFixture = fixtureCircuits.find((fixture) => fixture.name === "led-transistor")!;
 const ledBuildManifest = JSON.parse(await readFile(path.join(ledFixture.buildDirectory!, "build-manifest.json"), "utf8"));
@@ -218,6 +260,7 @@ const sensorSheets = sensorFixture.circuitJson.filter((item: any) => item.type =
 assert.deepEqual(sensorSheets, ["Power", "Sensor"], "sensor fixture must compile two separately named schematic sheets");
 
 const results: Array<Record<string, unknown>> = [];
+const ercInventories: Array<Record<string, unknown>> = [];
 let hasErcFindings = false;
 let hasPcbDrcFindings = false;
 for (const fixture of fixtureCircuits) {
@@ -250,7 +293,7 @@ for (const fixture of fixtureCircuits) {
 
   kicadCli(["sch", "export", "svg", "--output", svgDirectory, schematicPath], containerNative);
   kicadCli(["sch", "export", "netlist", "--output", nativeNetlistPath, schematicPath], containerNative);
-  kicadCli(["sch", "erc", "--format", "json", "--output", ercPath, schematicPath], containerNative);
+  kicadCli(["sch", "erc", "--format", "json", "--severity-all", "--output", ercPath, schematicPath], containerNative);
   kicadCli(createPcbDrcArgs(drcPath, pcbPath), containerNative);
 
   const nativeNetlist = parseKicadNetlistPinNetGroups(await readFile(path.join(nativeOutputDirectory, "native-schematic.net"), "utf8"));
@@ -260,6 +303,39 @@ for (const fixture of fixtureCircuits) {
   const erc = JSON.parse(await readFile(path.join(nativeOutputDirectory, "erc.json"), "utf8"));
   const ercViolations = (erc.sheets ?? []).flatMap((sheet: { violations?: unknown[] }) => sheet.violations ?? []);
   hasErcFindings ||= ercViolations.length > 0;
+  if (fixture.name === "voltage-divider") {
+    assert.equal(
+      ercViolations.filter((finding: any) => finding.type === "unconnected_wire_endpoint").length,
+      0,
+      "voltage-divider label wires must not extend past their connected labels",
+    );
+  }
+
+  if (["voltage-divider", "led-transistor", "ldo-sensor-interface"].includes(fixture.name)) {
+    assert.ok(fixture.buildDirectory, fixture.name + " must retain its fresh TSX project build");
+    const buildManifest = JSON.parse(await readFile(path.join(fixture.buildDirectory, "build-manifest.json"), "utf8"));
+    const sourceGraph = JSON.parse(await readFile(path.join(fixture.buildDirectory, "source-graph.json"), "utf8"));
+    const inventory = buildErcFaultInventory({
+      fixture: fixture.name,
+      project_path: "benchmarks/fixtures/" + fixture.name,
+      build_manifest: buildManifest,
+      source_graph: sourceGraph,
+      circuit_json: fixture.circuitJson as Array<Record<string, unknown>>,
+      erc,
+    });
+    await writeFile(path.join(nativeOutputDirectory, "erc-fault-inventory.json"), `${JSON.stringify(inventory, null, 2)}\n`);
+    ercInventories.push({
+      ...inventory,
+      native_evidence: {
+        erc_json: path.relative(repositoryRoot, path.join(nativeOutputDirectory, "erc.json")).replaceAll("\\", "/"),
+        native_netlist: path.relative(repositoryRoot, path.join(nativeOutputDirectory, "native-schematic.net")).replaceAll("\\", "/"),
+        source_graph: path.relative(repositoryRoot, path.join(fixture.buildDirectory, "source-graph.json")).replaceAll("\\", "/"),
+        build_manifest: path.relative(repositoryRoot, path.join(fixture.buildDirectory, "build-manifest.json")).replaceAll("\\", "/"),
+        converter_manifest: path.relative(repositoryRoot, path.join(fixture.kicadDirectory!, "export-manifest.json")).replaceAll("\\", "/"),
+        native_schematic: path.relative(repositoryRoot, path.join(fixture.kicadDirectory!, fixture.kicadProjectName + ".kicad_sch")).replaceAll("\\", "/"),
+      },
+    });
+  }
 
   const drc = JSON.parse(await readFile(path.join(nativeOutputDirectory, "pcb-drc.json"), "utf8"));
   const drcEvidence = readPcbDrcEvidence(drc, fixture.name + ": KiCad PCB DRC report");
@@ -323,6 +399,48 @@ const summary = {
   fixtures: results,
 };
 await writeFile(path.join(runRoot, "verification-summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
+function commandVersion(command: string, args: string[]): string | null {
+  const result = spawnSync(command, args, { encoding: "utf8", timeout: 10_000, windowsHide: true });
+  if (result.error || result.status !== 0) return null;
+  return ((result.stdout ?? "") + (result.stderr ?? "")).trim().split(/\r?\n/).slice(0, 5).join("\n") || null;
+}
+
+function npmVersion(): string | null {
+  const userAgentVersion = /(?:^|\s)npm\/([^\s]+)/.exec(process.env.npm_config_user_agent ?? "")?.[1];
+  if (userAgentVersion) return userAgentVersion;
+  if (process.platform === "win32") {
+    const result = spawnSync("cmd.exe", ["/d", "/s", "/c", "npm --version"], {
+      encoding: "utf8",
+      timeout: 10_000,
+      windowsHide: true,
+    });
+    if (!result.error && result.status === 0) return (result.stdout ?? "").trim();
+    return null;
+  }
+  return commandVersion("npm", ["--version"]);
+}
+
+const gitCommit = commandVersion("git", ["rev-parse", "HEAD"]);
+const workingTree = commandVersion("git", ["status", "--porcelain"]);
+const toolchainMetadata = {
+  schema_version: 1,
+  captured_at_utc: new Date().toISOString(),
+  source_commit: gitCommit,
+  working_tree_clean: workingTree === "",
+  host: { platform: process.platform, architecture: process.arch, os_release: os.release() },
+  node: process.version,
+  npm: npmVersion(),
+  docker: commandVersion("docker", ["version", "--format", "{{.Client.Version}} / {{.Server.Version}}"]),
+  kicad_cli_container: { image, version: version.trim() },
+  tscircuit: "0.0.3114",
+  circuit_json_to_kicad: "0.0.270",
+  sandbox_image: "sha256:49319c94db90011ec83fad1cb00d1b789da9518eaa51178d4a195e0a22deec45",
+};
+await writeFile(path.join(runRoot, "toolchain-metadata.json"), `${JSON.stringify(toolchainMetadata, null, 2)}\n`);
+await writeFile(
+  path.join(runRoot, "erc-fault-inventory.json"),
+  `${JSON.stringify({ schema_version: 1, fixtures: ercInventories }, null, 2)}\n`,
+);
 const consoleResults = results.map((result) => {
   const findings = result.erc_findings as Array<{ type?: string }>;
   const findingCounts = Object.fromEntries(

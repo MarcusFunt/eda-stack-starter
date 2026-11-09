@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "board": { "width_mm": 36, "height_mm": 24, "layers": 2 },
+  "fixed_components": ["J1", "J2"],
+  "keepouts": []
+}

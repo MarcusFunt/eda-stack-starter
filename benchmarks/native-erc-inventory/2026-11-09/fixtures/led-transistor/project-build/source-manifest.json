@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "project_name": "led-transistor",
+  "entrypoint": "src/board.tsx",
+  "source_files": [
+    {
+      "path": "eda.project.json",
+      "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+      "bytes": 368
+    },
+    {
+      "path": "package.json",
+      "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+      "bytes": 178
+    },
+    {
+      "path": "parts.lock.json",
+      "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+      "bytes": 654
+    },
+    {
+      "path": "pcb.constraints.json",
+      "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+      "bytes": 141
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+      "bytes": 351
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+      "bytes": 457
+    },
+    {
+      "path": "src/modules/low-side-led.tsx",
+      "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+      "bytes": 864
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    }
+  ],
+  "canonical_source_graph": {
+    "schema_version": 1,
+    "components": [
+      {
+        "reference": "D1",
+        "component_type": "simple_led",
+        "properties": {
+          "are_pins_interchangeable": false,
+          "color": "red",
+          "symbol_display_value": "red"
+        }
+      },
+      {
+        "reference": "J1",
+        "component_type": "simple_connector",
+        "properties": {
+          "pin_count": 3
+        }
+      },
+      {
+        "reference": "Q1",
+        "component_type": "simple_transistor",
+        "properties": {
+          "transistor_type": "npn"
+        }
+      },
+      {
+        "reference": "R1",
+        "component_type": "simple_resistor",
+        "properties": {
+          "are_pins_interchangeable": true,
+          "display_resistance": "1kΩ",
+          "resistance": 1000
+        }
+      },
+      {
+        "reference": "R2",
+        "component_type": "simple_resistor",
+        "properties": {
+          "are_pins_interchangeable": true,
+          "display_resistance": "10kΩ",
+          "resistance": 10000
+        }
+      }
+    ],
+    "ports": [
+      {
+        "component": "D1",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N001"
+      },
+      {
+        "component": "D1",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N002"
+      },
+      {
+        "component": "J1",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N003"
+      },
+      {
+        "component": "J1",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N004"
+      },
+      {
+        "component": "J1",
+        "pin": "3",
+        "name": "pin3",
+        "net_id": "N005"
+      },
+      {
+        "component": "Q1",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N002"
+      },
+      {
+        "component": "Q1",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N006"
+      },
+      {
+        "component": "Q1",
+        "pin": "3",
+        "name": "pin3",
+        "net_id": "N004"
+      },
+      {
+        "component": "R1",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N003"
+      },
+      {
+        "component": "R1",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N001"
+      },
+      {
+        "component": "R2",
+        "pin": "1",
+        "name": "pin1",
+        "net_id": "N005"
+      },
+      {
+        "component": "R2",
+        "pin": "2",
+        "name": "pin2",
+        "net_id": "N006"
+      }
+    ],
+    "nets": [
+      {
+        "id": "N001",
+        "names": [],
+        "pins": [
+          "D1:1",
+          "R1:2"
+        ]
+      },
+      {
+        "id": "N002",
+        "names": [],
+        "pins": [
+          "D1:2",
+          "Q1:1"
+        ]
+      },
+      {
+        "id": "N003",
+        "names": [
+          "VCC"
+        ],
+        "pins": [
+          "J1:1",
+          "R1:1"
+        ]
+      },
+      {
+        "id": "N004",
+        "names": [
+          "GND"
+        ],
+        "pins": [
+          "J1:2",
+          "Q1:3"
+        ]
+      },
+      {
+        "id": "N005",
+        "names": [
+          "CTRL"
+        ],
+        "pins": [
+          "J1:3",
+          "R2:1"
+        ]
+      },
+      {
+        "id": "N006",
+        "names": [],
+        "pins": [
+          "Q1:2",
+          "R2:2"
+        ]
+      }
+    ]
+  },
+  "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+  "canonical_source_graph_sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09"
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "project_name": "led-transistor",
+  "entrypoint": "src/board.tsx",
+  "source_files": [
+    {
+      "path": "eda.project.json",
+      "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+      "bytes": 368
+    },
+    {
+      "path": "package.json",
+      "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+      "bytes": 178
+    },
+    {
+      "path": "parts.lock.json",
+      "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+      "bytes": 654
+    },
+    {
+      "path": "pcb.constraints.json",
+      "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+      "bytes": 141
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+      "bytes": 351
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+      "bytes": 457
+    },
+    {
+      "path": "src/modules/low-side-led.tsx",
+      "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+      "bytes": 864
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    }
+  ],
+  "toolchain": {
+    "node": "v24.15.0",
+    "tscircuit": "0.0.3114",
+    "react": "19.3.1",
+    "compiler_runtime": "0.1.0"
+  },
+  "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+  "circuit_json_bytes": 55853,
+  "circuit_json_compatibility_normalizations": [
+    "pcb-plated-hole-fill-shape-discriminators-v1"
+  ]
+}

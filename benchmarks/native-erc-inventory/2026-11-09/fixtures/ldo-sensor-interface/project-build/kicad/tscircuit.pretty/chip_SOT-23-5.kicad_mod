@@ -1,0 +1,204 @@
+(footprint
+  "chip_SOT-23-5"
+  (version 20240108)
+  (generator pcbnew)
+  (generator_version 8.0)
+  (layer F.Cu)
+  (at 0 0 0)
+  (descr "")
+  (tags "")
+  (attr smd)
+  (embedded_fonts no)
+  (property "Reference" "REF**"
+    (at 0 -1.7500000000000002 0)
+    (layer F.SilkS)
+    (uuid 0ede1a1e-774e-181e-2041-e9e2482e141e)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "Val**"
+    (at 0 1.75 0)
+    (layer F.Fab)
+    (uuid 47a78cea-6b85-e4d6-1eb3-56962e1f37aa)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 49a1c372-4dee-3e8e-1a81-bf727d0e428e)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 6bf8d280-5f90-50a0-5327-cec046bf4ce0)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    reference
+    "REF**"
+    (at 0 -3.04 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.5 0.5)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start -0.9499999999999998 -2.100769230769231)
+    (end 0.9499999999999998 -2.100769230769231)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -0.9499999999999998 2.100769230769231)
+    (end 0.9499999999999998 2.100769230769231)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -1.8874999999999997 -0.9500000000000002)
+    (end -2.1874999999999996 -1.15)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -2.1874999999999996 -1.15)
+    (end -2.1874999999999996 -0.75)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -2.1874999999999996 -0.75)
+    (end -1.8874999999999997 -0.9500000000000002)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_poly
+    (pts
+      (xy -2.05 -1.5)
+      (xy -1.05 -1.5)
+      (xy -1.05 -1.7000000000000002)
+      (xy 1.05 -1.7000000000000002)
+      (xy 1.05 -1.5)
+      (xy 2.05 -1.5)
+      (xy 2.05 -0.3900000000000001)
+      (xy 1.05 -0.3900000000000001)
+      (xy 1.05 0.3900000000000001)
+      (xy 2.05 0.3900000000000001)
+      (xy 2.05 1.5)
+      (xy 1.05 1.5)
+      (xy 1.05 1.7)
+      (xy -1.05 1.7)
+      (xy -1.05 1.5)
+      (xy -2.05 1.5)
+    )
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+    (uuid 49fa15e0-42ae-f8a1-30a7-f8de5c0115a3)
+  )
+  (pad "1" smd rect
+    (at -1.1375 -0.9500000000000002 0)
+    (size 1.325 0.6)
+    (layers F.Cu F.Mask)
+    (uuid 2ff223e0-6a12-f55f-0418-0e9e61e2d823)
+  )
+  (pad "2" smd rect
+    (at -1.1375 0 0)
+    (size 1.325 0.6)
+    (layers F.Cu F.Mask)
+    (uuid 48504d80-51b4-cbbf-1446-1b027a4101c3)
+  )
+  (pad "3" smd rect
+    (at -1.1375 0.95 0)
+    (size 1.325 0.6)
+    (layers F.Cu F.Mask)
+    (uuid 60ae7720-3956-a21f-2ca4-44a26d60d49d)
+  )
+  (pad "4" smd rect
+    (at 1.1375 0.95 0)
+    (size 1.325 0.6)
+    (layers F.Cu F.Mask)
+    (uuid 790ca0c0-20f8-787f-4502-6e425502aafd)
+  )
+  (pad "5" smd rect
+    (at 1.1375 -0.9500000000000002 0)
+    (size 1.325 0.6)
+    (layers F.Cu F.Mask)
+    (uuid 6e9535a0-089a-4edf-5d60-97e23ca4815d)
+  )
+  (pad "" smd rect
+    (at -1.1375 -0.9500000000000002 0)
+    (size 0.9274999999999999 0.42)
+    (layers F.Paste)
+    (uuid 17e8f0be-7a50-f2de-2347-0b023f20f71e)
+  )
+  (pad "" smd rect
+    (at -1.1375 0 0)
+    (size 0.9274999999999999 0.42)
+    (layers F.Paste)
+    (uuid 2cd1b900-70c6-44e0-0e5e-42c05409bf60)
+  )
+  (pad "" smd rect
+    (at -1.1375 0.95 0)
+    (size 0.9274999999999999 0.42)
+    (layers F.Paste)
+    (uuid 41ba8142-5bdd-7c9e-068a-858268f287a2)
+  )
+  (pad "" smd rect
+    (at 1.1375 0.95 0)
+    (size 0.9274999999999999 0.42)
+    (layers F.Paste)
+    (uuid 56a34984-46f4-b45c-1b73-4dc47ddb4fe4)
+  )
+  (pad "" smd rect
+    (at 1.1375 -0.9500000000000002 0)
+    (size 0.9274999999999999 0.42)
+    (layers F.Paste)
+    (uuid 6b8c11c6-320b-ec1a-305c-16066d3be7da)
+  )
+  (model "../../3dmodels/tscircuit_builtin.3dshapes/SOT-23-5.step"
+  )
+)
