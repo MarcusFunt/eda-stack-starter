@@ -31,8 +31,8 @@ function makeReport(runId, project, result, maxLimit, includeError = false) {
     schema_version: 1, project, run_id: runId, passed, run_completed_at_utc: "2026-11-09T10:00:00Z",
     simulator_version: "ngspice 47",
     scenarios: [{
-      scenario: "nominal", category: "nominal", status: includeError ? "error" : (passed ? "pass" : "fail"),
-      passed, parameters: { R: "1k" },
+      scenario: "nominal", category: "temperature-corner", status: includeError ? "error" : (passed ? "pass" : "fail"),
+      passed, parameters: { R: runId === "candidate" ? "3k" : "1k" },
       checks: [
         { id: "vout_peak", value: result, unit: "V", min: 0, max: maxLimit, passed },
         { id: "rms_current", value: 0.001, unit: "A", passed: true },
@@ -88,6 +88,15 @@ test("honest statuses, failure-first display, search and project filtering", asy
   await expect(page.locator("#matrix tr").first()).toContainText("candidate");
   await page.locator("#clear-filters").click();
   await expect(page.locator("#matrix tr")).toHaveCount(3);
+});
+
+test("scenario metadata search keeps its measurements visible", async ({ page }) => {
+  await page.locator("#search").fill("temperature-corner");
+  await expect(page.locator("#matrix tr")).toHaveCount(3);
+  await expect(page.locator("#checks tr")).toHaveCount(7);
+  await page.locator("#search").fill("3k");
+  await expect(page.locator("#matrix tr")).toHaveCount(1);
+  await expect(page.locator("#checks tr")).toHaveCount(2);
 });
 
 test("comparison reports numeric deltas and rejects cross-project comparisons", async ({ page }) => {

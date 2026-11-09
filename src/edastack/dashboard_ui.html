@@ -176,7 +176,7 @@ function filters() {
 }
 function matchChecks(list) {
  const q=state.search.trim().toLowerCase();
- return checksFor(list).filter(({row,check}) => (state.status==="all"||check.display_status===state.status) && (!q||[check.id,row.run.project,row.run.run_id,row.scenario.name].join(" ").toLowerCase().includes(q)));
+ return checksFor(list).filter(({row,check}) => (state.status==="all"||check.display_status===state.status) && (!q||[check.id,row.run.project,row.run.run_id,row.scenario.name,row.scenario.category,JSON.stringify(row.scenario.parameters||{})].join(" ").toLowerCase().includes(q)));
 }
 function renderSummary() {
  const checks=checksFor(ALL);
