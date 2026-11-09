@@ -600,6 +600,26 @@ def create_app(
             manifest_sha256=hashlib.sha256(manifest_bytes).hexdigest(),
         )
 
+    generate_openapi = application.openapi
+
+    def stable_openapi() -> dict[str, object]:
+        if application.openapi_schema:
+            return application.openapi_schema
+        schema = generate_openapi()
+        for path_item in schema.get("paths", {}).values():
+            for operation in path_item.values():
+                if not isinstance(operation, dict):
+                    continue
+                responses = operation.get("responses")
+                if not isinstance(responses, dict):
+                    continue
+                validation_response = responses.get("422")
+                if isinstance(validation_response, dict):
+                    validation_response["description"] = "Validation Error"
+        application.openapi_schema = schema
+        return schema
+
+    application.openapi = stable_openapi
     return application
 
 

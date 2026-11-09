@@ -167,7 +167,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Validation Error"
           },
           "503": {
             "content": {
@@ -265,7 +265,7 @@
                 }
               }
             },
-            "description": "Unprocessable Entity"
+            "description": "Validation Error"
           },
           "502": {
             "content": {

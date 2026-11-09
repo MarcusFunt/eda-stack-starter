@@ -33,6 +33,10 @@ def test_committed_openapi_matches_the_runtime_contract():
     assert "/api/v1/projects/{project_id}" in committed["paths"]
     assert "/api/v1/projects/{project_id}/compile" in committed["paths"]
     assert committed["components"]["securitySchemes"]["HTTPBearer"]["scheme"] == "bearer"
+    for path_item in runtime["paths"].values():
+        for operation in path_item.values():
+            if isinstance(operation, dict) and "422" in operation.get("responses", {}):
+                assert operation["responses"]["422"]["description"] == "Validation Error"
 
 
 def test_versioned_contract_fixtures_validate_against_openapi_schemas():
