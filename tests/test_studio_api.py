@@ -206,7 +206,11 @@ def test_project_list_does_not_follow_symlinked_projects(tmp_path: Path):
     assert response.json()["projects"] == []
 
 
-@pytest.mark.parametrize("manifest", [b"[" * 1_500, b"{" + b" " * (64 * 1024) + b"}"])
+@pytest.mark.parametrize(
+    "manifest",
+    [b"[" * 1_500, b"{" + b" " * (64 * 1024) + b"}"],
+    ids=["deeply-nested-json", "oversized-manifest"],
+)
 def test_malformed_or_oversized_project_manifests_do_not_break_discovery(tmp_path: Path, manifest: bytes):
     api = _studio_api()
     workspace = tmp_path / "workspace"

@@ -162,8 +162,12 @@ test("selecting and compiling a project shows the real build identity and unreso
   });
   await page.goto("http://127.0.0.1:5173");
 
+  await expect(page.getByRole("button", { name: "Compile", exact: true })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "Verify", exact: true })).toBeDisabled();
+  await expect(page.getByRole("button", { name: "Export", exact: true })).toBeDisabled();
   await page.getByRole("button", { name: /Open Voltage Divider project/i }).click();
   await expect(page.getByRole("button", { name: "Compile", exact: true })).toBeEnabled();
+  await expect(page.getByRole("button", { name: "Export", exact: true })).toBeDisabled();
   await page.getByRole("button", { name: "Compile", exact: true }).click();
 
   await expect(page.locator(".build-report-heading h2")).toHaveText("Build 1234567890abcdef1234567890abcdef");
@@ -172,6 +176,7 @@ test("selecting and compiling a project shows the real build identity and unreso
   await expect(page.getByText(`Sandbox ${sandboxDigest}`)).toBeVisible();
   await expect(page.getByText(`Compiler lock SHA-256 ${"b".repeat(64)}`)).toBeVisible();
   await expect(page.getByText("circuit.json")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Export", exact: true })).toBeDisabled();
   expect(compileAuthorization).toBe("Bearer local-session-token-with-more-than-32-characters");
 });
 

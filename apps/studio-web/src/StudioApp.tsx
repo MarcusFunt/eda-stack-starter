@@ -252,7 +252,7 @@ function StudioShell() {
             onClick={compileSelectedProject}
           >{compileState === "running" ? "Compiling…" : "Compile"}</button>
           <button className="action-button quiet-action" disabled title="Verification will be enabled after an analysis plan is configured">Verify</button>
-          <button className="action-button export-action" disabled={!build} title={build ? "Evidence export is not part of this slice" : "Compile a project before exporting evidence"}>Export</button>
+          <button className="action-button export-action" disabled title="Evidence export is not available in this release slice">Export</button>
           <button
             ref={inspectorTrigger}
             className="mobile-control inspector-control"
