@@ -19,6 +19,16 @@ test("strict release rejects electrical findings even when compatibility checks 
   assert.equal(result.ready, false);
   assert.match(result.blockers.join(";"), /unresolved findings/);
 });
+test("strict schematic release rejects broken connections, unpowered rails, and missing required pins", () => {
+  for (const type of ["unconnected_wire_endpoint", "power_pin_not_driven", "pin_not_connected"]) {
+    const report = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [
+      { ...cleanFixture(), erc_finding_count: 1, erc_findings: [{ type }] },
+    ] };
+    const result = checkGeneralNativeRelease(report, ["board-a"], "schematic");
+    assert.equal(result.ready, false, `${type} must block schematic release`);
+    assert.match(result.blockers.join(";"), /unresolved findings/);
+  }
+});
 test("strict release rejects unrecorded or ignored ERC rules", () => {
   const base = { schema_version: 1, native_pin_net_membership: "passed", fixtures: [cleanFixture()] };
   assert.equal(checkGeneralNativeRelease({ ...base, fixtures: [{ ...cleanFixture(), erc_ignored_checks: ["endpoint_off_grid"] }] }, ["board-a"]).ready, false);

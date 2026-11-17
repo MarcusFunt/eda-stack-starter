@@ -11,6 +11,7 @@
     "build:project": "tsx src/build-cli.ts",
     "sandbox:image": "tsx scripts/build-sandbox-image.ts",
     "fixtures:generate": "node scripts/generate-fixtures.mjs",
+    "fixtures:typed-constraints": "tsx scripts/generate-typed-constraints-golden.ts",
     "verify:native": "tsx scripts/verify-native.ts",
     "verify:project": "tsx scripts/verify-project.ts",
     "repair:route": "tsx scripts/repair-route.ts",

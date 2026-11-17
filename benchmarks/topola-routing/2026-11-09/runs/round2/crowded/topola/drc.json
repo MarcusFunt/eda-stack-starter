@@ -1,0 +1,746 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T22:52:12",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "schematic_parity": [
+        {
+            "description": "Value (J1) doesn't match symbol value (J1)",
+            "items": [
+                {
+                    "description": "Footprint J1",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_mismatch"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+            "items": [
+                {
+                    "description": "Footprint J1",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad net (VIN) doesn't match net given by schematic (/VIN)",
+            "items": [
+                {
+                    "description": "PTH pad 1 [VIN] of J1",
+                    "pos": {
+                        "x": 90.46,
+                        "y": 100.0
+                    },
+                    "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+            "items": [
+                {
+                    "description": "PTH pad 2 [MID] of J1",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 100.0
+                    },
+                    "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+            "items": [
+                {
+                    "description": "PTH pad 3 [GND] of J1",
+                    "pos": {
+                        "x": 95.54,
+                        "y": 100.0
+                    },
+                    "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 99.0,
+                        "y": 99.6
+                    },
+                    "uuid": "17c94840-7239-8621-3356-3bfe271a01e3"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad net (VIN) doesn't match net given by schematic (/VIN)",
+            "items": [
+                {
+                    "description": "Pad 1 [VIN] of R1 on F.Cu",
+                    "pos": {
+                        "x": 98.175,
+                        "y": 99.6
+                    },
+                    "uuid": "1f2687be-7e71-7622-1c09-7402465e8e1e"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+            "items": [
+                {
+                    "description": "Pad 2 [MID] of R1 on F.Cu",
+                    "pos": {
+                        "x": 99.825,
+                        "y": 99.6
+                    },
+                    "uuid": "35685ca0-1816-dd3f-6596-171e4ceaaf03"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 101.2,
+                        "y": 99.6
+                    },
+                    "uuid": "17fafbe6-53b5-765a-409a-17662b165ada"
+                }
+            ],
+            "severity": "warning",
+            "type": "footprint_symbol_field_mismatch"
+        },
+        {
+            "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+            "items": [
+                {
+                    "description": "Pad 1 [MID] of R2 on F.Cu",
+                    "pos": {
+                        "x": 100.375,
+                        "y": 99.6
+                    },
+                    "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        },
+        {
+            "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+            "items": [
+                {
+                    "description": "Pad 2 [GND] of R2 on F.Cu",
+                    "pos": {
+                        "x": 102.025,
+                        "y": 99.6
+                    },
+                    "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+                }
+            ],
+            "severity": "warning",
+            "type": "net_conflict"
+        }
+    ],
+    "source": "voltage-divider.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Track [VIN] on B.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 91.21,
+                        "y": 100.75
+                    },
+                    "uuid": "1da873b7-51f6-4542-8f97-2e3ad58909d0"
+                },
+                {
+                    "description": "Track [VIN] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 97.775,
+                        "y": 99.125
+                    },
+                    "uuid": "cc2ae421-e1de-4c9f-ad5c-e4ef8a47bbf3"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Courtyards overlap",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 99.0,
+                        "y": 99.6
+                    },
+                    "uuid": "17c94840-7239-8621-3356-3bfe271a01e3"
+                },
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 101.2,
+                        "y": 99.6
+                    },
+                    "uuid": "17fafbe6-53b5-765a-409a-17662b165ada"
+                }
+            ],
+            "severity": "error",
+            "type": "courtyards_overlap"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 89.71,
+                        "y": 99.25
+                    },
+                    "uuid": "05248a78-3101-4ed7-bb71-5d6c4d8e5010"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 91.21,
+                        "y": 99.25
+                    },
+                    "uuid": "0a1dbaac-4efb-48ae-993d-99cb2d2e8b6e"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 97.775,
+                        "y": 100.075
+                    },
+                    "uuid": "8e5a1cb5-6016-4015-90ad-8d285c58af14"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 98.575,
+                        "y": 100.075
+                    },
+                    "uuid": "a0a11d03-1ed2-4bd5-97a9-527b09a44bda"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 91.21,
+                        "y": 100.75
+                    },
+                    "uuid": "b561bed8-6452-4fe8-978e-07134ae8b4f1"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 97.775,
+                        "y": 99.125
+                    },
+                    "uuid": "cc2ae421-e1de-4c9f-ad5c-e4ef8a47bbf3"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 98.575,
+                        "y": 99.125
+                    },
+                    "uuid": "f422017e-117d-4ae9-94a3-0de528155f4c"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on F.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 89.71,
+                        "y": 100.75
+                    },
+                    "uuid": "f7c4e723-d229-4bf1-8e08-a1840cbec4a0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on B.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 91.21,
+                        "y": 99.25
+                    },
+                    "uuid": "02512ef7-295b-4cba-a028-d74026d0aa75"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on B.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 89.71,
+                        "y": 100.75
+                    },
+                    "uuid": "136084fc-16e7-4360-b515-917b36df1a54"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on B.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 91.21,
+                        "y": 100.75
+                    },
+                    "uuid": "1da873b7-51f6-4542-8f97-2e3ad58909d0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [VIN] on B.Cu, length 1.5000 mm",
+                    "pos": {
+                        "x": 89.71,
+                        "y": 99.25
+                    },
+                    "uuid": "b1c504dd-2a77-41b0-9bd0-4c0bbb5f2bea"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 99.425,
+                        "y": 99.125
+                    },
+                    "uuid": "190273e5-a371-4f54-adb5-42f005da33e2"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 100.775,
+                        "y": 100.075
+                    },
+                    "uuid": "3ad72ca3-3a5f-4ff1-bb75-4899ad021298"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 99.975,
+                        "y": 99.125
+                    },
+                    "uuid": "883bd01a-6f75-4c35-838e-03ca83be15bb"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 100.775,
+                        "y": 99.125
+                    },
+                    "uuid": "8af1aef9-ab14-4a99-a55a-733e6576820f"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 99.425,
+                        "y": 100.075
+                    },
+                    "uuid": "a7e6c5b3-bee5-43cc-ab18-bb471033c823"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 100.225,
+                        "y": 100.075
+                    },
+                    "uuid": "b9da3357-af0c-4316-ab76-287dda4c8a55"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 100.225,
+                        "y": 99.125
+                    },
+                    "uuid": "c354ed76-79cb-4d17-9bac-ea91f60fee86"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [MID] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 99.975,
+                        "y": 100.075
+                    },
+                    "uuid": "fe7f451a-02d8-4f87-a5f8-9caf5b90eb5a"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 102.425,
+                        "y": 100.075
+                    },
+                    "uuid": "0aae8a72-9caf-4da1-b617-95f6516aa507"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 101.625,
+                        "y": 99.125
+                    },
+                    "uuid": "1902ea49-983e-4545-8e11-0ffe3e55e570"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 102.425,
+                        "y": 99.125
+                    },
+                    "uuid": "36294610-93c4-4a96-b1a1-fe03b1a6255c"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "Track width (board setup constraints min width 0.1000 mm; actual 0.0010 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 101.625,
+                        "y": 100.075
+                    },
+                    "uuid": "928c698f-3393-4664-9aa0-24d1b941a7c0"
+                }
+            ],
+            "severity": "error",
+            "type": "track_width"
+        },
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint R1",
+                    "pos": {
+                        "x": 99.0,
+                        "y": 99.6
+                    },
+                    "uuid": "17c94840-7239-8621-3356-3bfe271a01e3"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint R2",
+                    "pos": {
+                        "x": 101.2,
+                        "y": 99.6
+                    },
+                    "uuid": "17fafbe6-53b5-765a-409a-17662b165ada"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+            "items": [
+                {
+                    "description": "Footprint J1",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 100.0
+                    },
+                    "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+                }
+            ],
+            "severity": "warning",
+            "type": "lib_footprint_issues"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of R1",
+                    "pos": {
+                        "x": 99.0,
+                        "y": 98.225
+                    },
+                    "uuid": "66ba443b-c572-4c1b-ae62-f833d59c0556"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of R2",
+                    "pos": {
+                        "x": 101.2,
+                        "y": 98.225
+                    },
+                    "uuid": "955321b9-4bfd-4e06-9687-000edcbb58cb"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+            "items": [
+                {
+                    "description": "Reference field of J1",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 97.46
+                    },
+                    "uuid": "1557dd01-d17a-4b59-9858-7d7bb16a354a"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (pin1)",
+                    "pos": {
+                        "x": 90.46,
+                        "y": 98.65
+                    },
+                    "uuid": "9e372c7c-daf0-43ba-9968-4580a7aa529e"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (pin2)",
+                    "pos": {
+                        "x": 93.0,
+                        "y": 98.65
+                    },
+                    "uuid": "991036df-a47d-4a8b-9c3d-14c64c40acb8"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        },
+        {
+            "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+            "items": [
+                {
+                    "description": "Footprint text of J1 (pin3)",
+                    "pos": {
+                        "x": 95.54,
+                        "y": 98.65
+                    },
+                    "uuid": "c683543e-a70d-4f8d-a8d4-4602277080d6"
+                }
+            ],
+            "severity": "warning",
+            "type": "text_height"
+        }
+    ]
+}

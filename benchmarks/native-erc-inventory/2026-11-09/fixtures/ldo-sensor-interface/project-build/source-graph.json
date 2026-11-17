@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "components": [
+    {
+      "reference": "C1",
+      "component_type": "simple_capacitor",
+      "properties": {
+        "are_pins_interchangeable": true,
+        "capacitance": 0.000001,
+        "display_capacitance": "1uF",
+        "max_decoupling_trace_length": 1
+      }
+    },
+    {
+      "reference": "C2",
+      "component_type": "simple_capacitor",
+      "properties": {
+        "are_pins_interchangeable": true,
+        "capacitance": 0.000001,
+        "display_capacitance": "1uF"
+      }
+    },
+    {
+      "reference": "J1",
+      "component_type": "simple_connector",
+      "properties": {
+        "pin_count": 2
+      }
+    },
+    {
+      "reference": "J2",
+      "component_type": "simple_connector",
+      "properties": {
+        "pin_count": 4
+      }
+    },
+    {
+      "reference": "U1",
+      "component_type": "simple_chip",
+      "properties": {}
+    },
+    {
+      "reference": "U2",
+      "component_type": "simple_chip",
+      "properties": {}
+    }
+  ],
+  "ports": [
+    {
+      "component": "C1",
+      "pin": "1",
+      "name": "pin1",
+      "net_id": "N001"
+    },
+    {
+      "component": "C1",
+      "pin": "2",
+      "name": "pin2",
+      "net_id": "N002"
+    },
+    {
+      "component": "C2",
+      "pin": "1",
+      "name": "pin1",
+      "net_id": "N003"
+    },
+    {
+      "component": "C2",
+      "pin": "2",
+      "name": "pin2",
+      "net_id": "N002"
+    },
+    {
+      "component": "J1",
+      "pin": "1",
+      "name": "pin1",
+      "net_id": "N001"
+    },
+    {
+      "component": "J1",
+      "pin": "2",
+      "name": "pin2",
+      "net_id": "N002"
+    },
+    {
+      "component": "J2",
+      "pin": "1",
+      "name": "pin1",
+      "net_id": "N003"
+    },
+    {
+      "component": "J2",
+      "pin": "2",
+      "name": "pin2",
+      "net_id": "N002"
+    },
+    {
+      "component": "J2",
+      "pin": "3",
+      "name": "pin3",
+      "net_id": "N004"
+    },
+    {
+      "component": "J2",
+      "pin": "4",
+      "name": "pin4",
+      "net_id": "N005"
+    },
+    {
+      "component": "U1",
+      "pin": "1",
+      "name": "IN",
+      "net_id": "N001"
+    },
+    {
+      "component": "U1",
+      "pin": "2",
+      "name": "GND",
+      "net_id": "N002"
+    },
+    {
+      "component": "U1",
+      "pin": "3",
+      "name": "EN",
+      "net_id": "N001"
+    },
+    {
+      "component": "U1",
+      "pin": "4",
+      "name": "NC",
+      "net_id": "N006"
+    },
+    {
+      "component": "U1",
+      "pin": "5",
+      "name": "OUT",
+      "net_id": "N003"
+    },
+    {
+      "component": "U2",
+      "pin": "1",
+      "name": "VDD",
+      "net_id": "N003"
+    },
+    {
+      "component": "U2",
+      "pin": "2",
+      "name": "GND",
+      "net_id": "N002"
+    },
+    {
+      "component": "U2",
+      "pin": "3",
+      "name": "SCL",
+      "net_id": "N004"
+    },
+    {
+      "component": "U2",
+      "pin": "4",
+      "name": "SDA",
+      "net_id": "N005"
+    }
+  ],
+  "nets": [
+    {
+      "id": "N001",
+      "names": [
+        "VIN"
+      ],
+      "pins": [
+        "C1:1",
+        "J1:1",
+        "U1:1",
+        "U1:3"
+      ]
+    },
+    {
+      "id": "N002",
+      "names": [
+        "GND"
+      ],
+      "pins": [
+        "C1:2",
+        "C2:2",
+        "J1:2",
+        "J2:2",
+        "U1:2",
+        "U2:2"
+      ]
+    },
+    {
+      "id": "N003",
+      "names": [
+        "V3V3"
+      ],
+      "pins": [
+        "C2:1",
+        "J2:1",
+        "U1:5",
+        "U2:1"
+      ]
+    },
+    {
+      "id": "N004",
+      "names": [
+        "SCL"
+      ],
+      "pins": [
+        "J2:3",
+        "U2:3"
+      ]
+    },
+    {
+      "id": "N005",
+      "names": [
+        "SDA"
+      ],
+      "pins": [
+        "J2:4",
+        "U2:4"
+      ]
+    },
+    {
+      "id": "N006",
+      "names": [],
+      "pins": [
+        "U1:4"
+      ]
+    }
+  ]
+}

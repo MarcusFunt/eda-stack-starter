@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "project_name": "ldo-sensor-interface",
+  "entrypoint": "src/board.tsx",
+  "source_files": [
+    {
+      "path": "eda.project.json",
+      "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+      "bytes": 374
+    },
+    {
+      "path": "package.json",
+      "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+      "bytes": 184
+    },
+    {
+      "path": "parts.lock.json",
+      "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+      "bytes": 777
+    },
+    {
+      "path": "pcb.constraints.json",
+      "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+      "bytes": 147
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+      "bytes": 402
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+      "bytes": 858
+    },
+    {
+      "path": "src/modules/ldo.tsx",
+      "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+      "bytes": 1135
+    },
+    {
+      "path": "src/modules/sensor.tsx",
+      "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+      "bytes": 1008
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    }
+  ],
+  "toolchain": {
+    "node": "v24.15.0",
+    "tscircuit": "0.0.3114",
+    "react": "19.3.1",
+    "compiler_runtime": "0.1.0"
+  },
+  "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+  "circuit_json_bytes": 92689,
+  "circuit_json_compatibility_normalizations": [
+    "pcb-plated-hole-fill-shape-discriminators-v1"
+  ]
+}

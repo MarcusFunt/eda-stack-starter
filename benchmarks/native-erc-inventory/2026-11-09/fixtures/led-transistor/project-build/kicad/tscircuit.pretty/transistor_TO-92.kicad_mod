@@ -1,0 +1,59 @@
+(footprint
+  "transistor_TO-92"
+  (version 20240108)
+  (generator pcbnew)
+  (generator_version 8.0)
+  (layer F.Cu)
+  (at 0 0 0)
+  (descr "")
+  (tags "")
+  (embedded_fonts no)
+  (property "Reference" "REF**"
+    (at 0 -0.5 0)
+    (layer F.SilkS)
+    (uuid 30cf85a0-4e88-c021-321e-fa1e4d394ba3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "Val**"
+    (at 0 0.5 0)
+    (layer F.Fab)
+    (uuid 393daea0-4ea5-6ca1-640d-2aa27974e8a3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 784e0aa0-0859-af9f-76fe-962209a9241d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 23e9a000-2e47-75a1-38a5-4b42430320e3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (model "../../3dmodels/tscircuit_builtin.3dshapes/TO-92.step"
+  )
+)

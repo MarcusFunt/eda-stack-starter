@@ -1,0 +1,1256 @@
+{
+  "schema_version": 1,
+  "fixtures": [
+    {
+      "schema_version": 1,
+      "fixture": "voltage-divider",
+      "source_project": "benchmarks/fixtures/voltage-divider",
+      "finding_count": 3,
+      "category_counts": {
+        "exporter_defect": 3
+      },
+      "erc_ignored_checks": [],
+      "findings": [
+        {
+          "id": "voltage-divider:0:0:f3d7e532-c334-4784-b360-8ba6919c9ac1",
+          "fixture": "voltage-divider",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/voltage-divider",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/voltage-divider/eda.project.json",
+                "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+                "bytes": 369
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/package.json",
+                "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+                "bytes": 179
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/parts.lock.json",
+                "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+                "bytes": 423
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/pcb.constraints.json",
+                "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/requirements.json",
+                "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+                "bytes": 300
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/src/board.tsx",
+                "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+                "bytes": 866
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+            "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+            "native_items": [
+              {
+                "uuid": "f3d7e532-c334-4784-b360-8ba6919c9ac1",
+                "description": "Symbol R1 [boxresistor_down]",
+                "position_mm": {
+                  "x": 134.62,
+                  "y": 105.41
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol R1 [boxresistor_down]",
+                "pos": {
+                  "x": 134.62,
+                  "y": 105.41
+                },
+                "uuid": "f3d7e532-c334-4784-b360-8ba6919c9ac1"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "voltage-divider:0:1:c89f2d3e-5b8c-48f0-aff1-2d2cb445668c",
+          "fixture": "voltage-divider",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/voltage-divider",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/voltage-divider/eda.project.json",
+                "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+                "bytes": 369
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/package.json",
+                "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+                "bytes": 179
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/parts.lock.json",
+                "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+                "bytes": 423
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/pcb.constraints.json",
+                "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/requirements.json",
+                "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+                "bytes": 300
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/src/board.tsx",
+                "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+                "bytes": 866
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+            "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+            "native_items": [
+              {
+                "uuid": "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c",
+                "description": "Symbol J1 [J_connector_pinrow3]",
+                "position_mm": {
+                  "x": 148.59,
+                  "y": 102.87
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol J1 [J_connector_pinrow3]",
+                "pos": {
+                  "x": 148.59,
+                  "y": 102.87
+                },
+                "uuid": "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "voltage-divider:0:2:f0eedc2f-fcec-4057-b20b-298d90654db2",
+          "fixture": "voltage-divider",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/voltage-divider",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/voltage-divider/eda.project.json",
+                "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+                "bytes": 369
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/package.json",
+                "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+                "bytes": 179
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/parts.lock.json",
+                "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+                "bytes": 423
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/pcb.constraints.json",
+                "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/requirements.json",
+                "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+                "bytes": 300
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/src/board.tsx",
+                "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+                "bytes": 866
+              },
+              {
+                "path": "benchmarks/fixtures/voltage-divider/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+            "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+            "native_items": [
+              {
+                "uuid": "f0eedc2f-fcec-4057-b20b-298d90654db2",
+                "description": "Symbol R2 [boxresistor_down]",
+                "position_mm": {
+                  "x": 162.56,
+                  "y": 105.41
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol R2 [boxresistor_down]",
+                "pos": {
+                  "x": 162.56,
+                  "y": 105.41
+                },
+                "uuid": "f0eedc2f-fcec-4057-b20b-298d90654db2"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        }
+      ],
+      "native_evidence": {
+        "erc_json": "build/tscircuit-worker-native-ZMkvgj/native-results/voltage-divider/erc.json",
+        "native_netlist": "build/tscircuit-worker-native-ZMkvgj/native-results/voltage-divider/native-schematic.net",
+        "source_graph": "build/tscircuit-worker-native-ZMkvgj/project-builds/voltage-divider/source-graph.json",
+        "build_manifest": "build/tscircuit-worker-native-ZMkvgj/project-builds/voltage-divider/build-manifest.json",
+        "converter_manifest": "build/tscircuit-worker-native-ZMkvgj/project-builds/voltage-divider/kicad/export-manifest.json",
+        "native_schematic": "build/tscircuit-worker-native-ZMkvgj/project-builds/voltage-divider/kicad/voltage-divider.kicad_sch"
+      }
+    },
+    {
+      "schema_version": 1,
+      "fixture": "led-transistor",
+      "source_project": "benchmarks/fixtures/led-transistor",
+      "finding_count": 5,
+      "category_counts": {
+        "exporter_defect": 5
+      },
+      "erc_ignored_checks": [],
+      "findings": [
+        {
+          "id": "led-transistor:0:0:9e3b9ec1-f123-4378-9ad1-91d93c891edb",
+          "fixture": "led-transistor",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/led-transistor",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/led-transistor/eda.project.json",
+                "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+                "bytes": 368
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/package.json",
+                "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+                "bytes": 178
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/parts.lock.json",
+                "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+                "bytes": 654
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/pcb.constraints.json",
+                "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/requirements.json",
+                "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+                "bytes": 351
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/board.tsx",
+                "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+                "bytes": 457
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/modules/low-side-led.tsx",
+                "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+                "bytes": 864
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+            "source_graph_sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09",
+            "native_items": [
+              {
+                "uuid": "9e3b9ec1-f123-4378-9ad1-91d93c891edb",
+                "description": "Symbol D1 [led_right]",
+                "position_mm": {
+                  "x": 120.65,
+                  "y": 104.14
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol D1 [led_right]",
+                "pos": {
+                  "x": 120.65,
+                  "y": 104.14
+                },
+                "uuid": "9e3b9ec1-f123-4378-9ad1-91d93c891edb"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "led-transistor:0:1:1f78b075-4a5d-417a-bec2-d56e9c57a6d8",
+          "fixture": "led-transistor",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/led-transistor",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/led-transistor/eda.project.json",
+                "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+                "bytes": 368
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/package.json",
+                "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+                "bytes": 178
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/parts.lock.json",
+                "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+                "bytes": 654
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/pcb.constraints.json",
+                "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/requirements.json",
+                "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+                "bytes": 351
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/board.tsx",
+                "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+                "bytes": 457
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/modules/low-side-led.tsx",
+                "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+                "bytes": 864
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+            "source_graph_sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09",
+            "native_items": [
+              {
+                "uuid": "1f78b075-4a5d-417a-bec2-d56e9c57a6d8",
+                "description": "Symbol R1 [boxresistor_down]",
+                "position_mm": {
+                  "x": 143.51,
+                  "y": 85.09
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol R1 [boxresistor_down]",
+                "pos": {
+                  "x": 143.51,
+                  "y": 85.09
+                },
+                "uuid": "1f78b075-4a5d-417a-bec2-d56e9c57a6d8"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "led-transistor:0:2:45398cf6-5ebe-41cb-8283-d66e5b340e49",
+          "fixture": "led-transistor",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/led-transistor",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/led-transistor/eda.project.json",
+                "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+                "bytes": 368
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/package.json",
+                "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+                "bytes": 178
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/parts.lock.json",
+                "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+                "bytes": 654
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/pcb.constraints.json",
+                "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/requirements.json",
+                "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+                "bytes": 351
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/board.tsx",
+                "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+                "bytes": 457
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/modules/low-side-led.tsx",
+                "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+                "bytes": 864
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+            "source_graph_sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09",
+            "native_items": [
+              {
+                "uuid": "45398cf6-5ebe-41cb-8283-d66e5b340e49",
+                "description": "Symbol Q1 [npn_bipolar_transistor_right]",
+                "position_mm": {
+                  "x": 147.32,
+                  "y": 107.95
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol Q1 [npn_bipolar_transistor_right]",
+                "pos": {
+                  "x": 147.32,
+                  "y": 107.95
+                },
+                "uuid": "45398cf6-5ebe-41cb-8283-d66e5b340e49"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "led-transistor:0:3:2f5945d8-27f9-4092-9e83-770b1e8709a7",
+          "fixture": "led-transistor",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/led-transistor",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/led-transistor/eda.project.json",
+                "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+                "bytes": 368
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/package.json",
+                "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+                "bytes": 178
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/parts.lock.json",
+                "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+                "bytes": 654
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/pcb.constraints.json",
+                "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/requirements.json",
+                "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+                "bytes": 351
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/board.tsx",
+                "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+                "bytes": 457
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/modules/low-side-led.tsx",
+                "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+                "bytes": 864
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+            "source_graph_sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09",
+            "native_items": [
+              {
+                "uuid": "2f5945d8-27f9-4092-9e83-770b1e8709a7",
+                "description": "Symbol R2 [boxresistor_left]",
+                "position_mm": {
+                  "x": 171.45,
+                  "y": 127
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol R2 [boxresistor_left]",
+                "pos": {
+                  "x": 171.45,
+                  "y": 127
+                },
+                "uuid": "2f5945d8-27f9-4092-9e83-770b1e8709a7"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "led-transistor:0:4:64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb",
+          "fixture": "led-transistor",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/led-transistor",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/led-transistor/eda.project.json",
+                "sha256": "a74ba2e5192ea0eac3cb4c1956b6106d3f9a8c7a97799c54b3b8237f2499a312",
+                "bytes": 368
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/package.json",
+                "sha256": "94da0ad7910aecb0a6891c35ae5d7005e755197d450523730b71ef4793d672c1",
+                "bytes": 178
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/parts.lock.json",
+                "sha256": "f0270921719914ec7a6791d9ace4cfdbd79ab6e96b93463a2efcfbcdd8f76652",
+                "bytes": 654
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/pcb.constraints.json",
+                "sha256": "027981a87f671c19da5f58aabd80f06941c0244ad56b4d495ca8419f5039fa66",
+                "bytes": 141
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/requirements.json",
+                "sha256": "cc826ea024bfa89dc4f4ab0c462ffd3c19879c77e94d830cfcf91897c45f4e72",
+                "bytes": 351
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/board.tsx",
+                "sha256": "c598d064f6d57bb0b87b87b225ecf2a84aa6e29a58e0478d885071b297aa5104",
+                "bytes": 457
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/src/modules/low-side-led.tsx",
+                "sha256": "cb024fc1be543fc65840d194615794b71a2c446d3edb4f95773f936b4b54e24a",
+                "bytes": 864
+              },
+              {
+                "path": "benchmarks/fixtures/led-transistor/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "65dcab022b55871abc0104a6bbf4330c844cd271e684f058771cf91e7eeb1a21",
+            "source_graph_sha256": "222fb3dd42fd05b7259229576d142395a7f7f3a59f6a05d6c5b689de15a69a09",
+            "native_items": [
+              {
+                "uuid": "64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb",
+                "description": "Symbol J1 [J_connector_pinrow3]",
+                "position_mm": {
+                  "x": 175.26,
+                  "y": 102.87
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol J1 [J_connector_pinrow3]",
+                "pos": {
+                  "x": 175.26,
+                  "y": 102.87
+                },
+                "uuid": "64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        }
+      ],
+      "native_evidence": {
+        "erc_json": "build/tscircuit-worker-native-ZMkvgj/native-results/led-transistor/erc.json",
+        "native_netlist": "build/tscircuit-worker-native-ZMkvgj/native-results/led-transistor/native-schematic.net",
+        "source_graph": "build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor/source-graph.json",
+        "build_manifest": "build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor/build-manifest.json",
+        "converter_manifest": "build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor/kicad/export-manifest.json",
+        "native_schematic": "build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor/kicad/led-transistor.kicad_sch"
+      }
+    },
+    {
+      "schema_version": 1,
+      "fixture": "ldo-sensor-interface",
+      "source_project": "benchmarks/fixtures/ldo-sensor-interface",
+      "finding_count": 6,
+      "category_counts": {
+        "exporter_defect": 6
+      },
+      "erc_ignored_checks": [],
+      "findings": [
+        {
+          "id": "ldo-sensor-interface:0:0:71ab3e89-1248-4422-ba29-db69b3de7acf",
+          "fixture": "ldo-sensor-interface",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/ldo-sensor-interface",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/eda.project.json",
+                "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+                "bytes": 374
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/package.json",
+                "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+                "bytes": 184
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/parts.lock.json",
+                "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+                "bytes": 777
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/pcb.constraints.json",
+                "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+                "bytes": 147
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/requirements.json",
+                "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+                "bytes": 402
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/board.tsx",
+                "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+                "bytes": 858
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/ldo.tsx",
+                "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+                "bytes": 1135
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/sensor.tsx",
+                "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+                "bytes": 1008
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+            "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+            "native_items": [
+              {
+                "uuid": "71ab3e89-1248-4422-ba29-db69b3de7acf",
+                "description": "Symbol C1 [capacitor_down]",
+                "position_mm": {
+                  "x": 115.57,
+                  "y": 91.44
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol C1 [capacitor_down]",
+                "pos": {
+                  "x": 115.57,
+                  "y": 91.44
+                },
+                "uuid": "71ab3e89-1248-4422-ba29-db69b3de7acf"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "ldo-sensor-interface:0:1:1fa445d8-a03f-4268-959e-eff58781c4b0",
+          "fixture": "ldo-sensor-interface",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/ldo-sensor-interface",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/eda.project.json",
+                "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+                "bytes": 374
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/package.json",
+                "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+                "bytes": 184
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/parts.lock.json",
+                "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+                "bytes": 777
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/pcb.constraints.json",
+                "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+                "bytes": 147
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/requirements.json",
+                "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+                "bytes": 402
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/board.tsx",
+                "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+                "bytes": 858
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/ldo.tsx",
+                "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+                "bytes": 1135
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/sensor.tsx",
+                "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+                "bytes": 1008
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+            "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+            "native_items": [
+              {
+                "uuid": "1fa445d8-a03f-4268-959e-eff58781c4b0",
+                "description": "Symbol U1 [U_chip_SOT-23-5]",
+                "position_mm": {
+                  "x": 148.59,
+                  "y": 87.63
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol U1 [U_chip_SOT-23-5]",
+                "pos": {
+                  "x": 148.59,
+                  "y": 87.63
+                },
+                "uuid": "1fa445d8-a03f-4268-959e-eff58781c4b0"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "ldo-sensor-interface:0:2:51150854-ff98-4b3e-9ee7-740408bb59bb",
+          "fixture": "ldo-sensor-interface",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/ldo-sensor-interface",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/eda.project.json",
+                "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+                "bytes": 374
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/package.json",
+                "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+                "bytes": 184
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/parts.lock.json",
+                "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+                "bytes": 777
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/pcb.constraints.json",
+                "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+                "bytes": 147
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/requirements.json",
+                "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+                "bytes": 402
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/board.tsx",
+                "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+                "bytes": 858
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/ldo.tsx",
+                "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+                "bytes": 1135
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/sensor.tsx",
+                "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+                "bytes": 1008
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+            "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+            "native_items": [
+              {
+                "uuid": "51150854-ff98-4b3e-9ee7-740408bb59bb",
+                "description": "Symbol J1 [J_connector_pinrow2]",
+                "position_mm": {
+                  "x": 156.21,
+                  "y": 125.73
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol J1 [J_connector_pinrow2]",
+                "pos": {
+                  "x": 156.21,
+                  "y": 125.73
+                },
+                "uuid": "51150854-ff98-4b3e-9ee7-740408bb59bb"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "ldo-sensor-interface:0:3:af01bd9d-733f-48ea-9b4b-8dc7ecd6e22e",
+          "fixture": "ldo-sensor-interface",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/ldo-sensor-interface",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/eda.project.json",
+                "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+                "bytes": 374
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/package.json",
+                "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+                "bytes": 184
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/parts.lock.json",
+                "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+                "bytes": 777
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/pcb.constraints.json",
+                "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+                "bytes": 147
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/requirements.json",
+                "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+                "bytes": 402
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/board.tsx",
+                "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+                "bytes": 858
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/ldo.tsx",
+                "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+                "bytes": 1135
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/sensor.tsx",
+                "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+                "bytes": 1008
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+            "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+            "native_items": [
+              {
+                "uuid": "af01bd9d-733f-48ea-9b4b-8dc7ecd6e22e",
+                "description": "Symbol C2 [capacitor_down]",
+                "position_mm": {
+                  "x": 181.61,
+                  "y": 92.71
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol C2 [capacitor_down]",
+                "pos": {
+                  "x": 181.61,
+                  "y": 92.71
+                },
+                "uuid": "af01bd9d-733f-48ea-9b4b-8dc7ecd6e22e"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "ldo-sensor-interface:0:4:2e3de6fc-df58-4d63-bc19-e0ed27e45f86",
+          "fixture": "ldo-sensor-interface",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/ldo-sensor-interface",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/eda.project.json",
+                "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+                "bytes": 374
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/package.json",
+                "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+                "bytes": 184
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/parts.lock.json",
+                "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+                "bytes": 777
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/pcb.constraints.json",
+                "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+                "bytes": 147
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/requirements.json",
+                "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+                "bytes": 402
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/board.tsx",
+                "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+                "bytes": 858
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/ldo.tsx",
+                "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+                "bytes": 1135
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/sensor.tsx",
+                "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+                "bytes": 1008
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+            "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+            "native_items": [
+              {
+                "uuid": "2e3de6fc-df58-4d63-bc19-e0ed27e45f86",
+                "description": "Symbol J2 [J_connector_pinrow4]",
+                "position_mm": {
+                  "x": 140.97,
+                  "y": 90.17
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol J2 [J_connector_pinrow4]",
+                "pos": {
+                  "x": 140.97,
+                  "y": 90.17
+                },
+                "uuid": "2e3de6fc-df58-4d63-bc19-e0ed27e45f86"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        },
+        {
+          "id": "ldo-sensor-interface:0:5:91670afd-a3e4-4763-8ed8-2432834fb417",
+          "fixture": "ldo-sensor-interface",
+          "type": "footprint_link_issues",
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "sheet": null,
+          "category": "exporter_defect",
+          "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+          "root_cause_confidence": "established",
+          "reproducible_fixture": "benchmarks/fixtures/ldo-sensor-interface",
+          "source_reference": {
+            "source_files": [
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/eda.project.json",
+                "sha256": "5688624e888effbe31410c3e0837d8102831a128ce3654f2f74c1c2c848aa561",
+                "bytes": 374
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/package.json",
+                "sha256": "3edbad621a06ce6c63f6b9fca56ea76cb04e342a0a8124831cb6dbec9e9013cc",
+                "bytes": 184
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/parts.lock.json",
+                "sha256": "7ee3a0a7a9df56d05d41889283a0e0fd2799393b59c9cb5b2407c01262a6b3cd",
+                "bytes": 777
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/pcb.constraints.json",
+                "sha256": "cb2a76b45ca4b8d9158f81b9ddf4ed3f8cacdbc5cbfc8ec1cc13bdc6a4b9998a",
+                "bytes": 147
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/requirements.json",
+                "sha256": "28c268743bc80212444bc4b48acc591cdeeda267ea226b03b59e2f10828301a2",
+                "bytes": 402
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/board.tsx",
+                "sha256": "2d65237aea25cf4f9fd8bd9cd1e7a04ddf8633e9774f144d4e9bb3c98d1adc92",
+                "bytes": 858
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/ldo.tsx",
+                "sha256": "7eb1c9c5cfc2ae8596643dbbc60d441768cada2dd12b1cc0177dbcb8d6883fe5",
+                "bytes": 1135
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/src/modules/sensor.tsx",
+                "sha256": "10116987cd1e9a2ccbfee5478db563d4715c05191fe765b7b7dec6b1430118b4",
+                "bytes": 1008
+              },
+              {
+                "path": "benchmarks/fixtures/ldo-sensor-interface/tsconfig.json",
+                "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+                "bytes": 166
+              }
+            ],
+            "circuit_json_sha256": "f9cd050d1c0998e7fd4d1040fdc6f7675ee5ee97f51e1e8f5363a4fa35435d15",
+            "source_graph_sha256": "56ee7c86a5d5731631ea7c1d0fa12a5ee03ea1fcff8bc9114fd75b966d8afc89",
+            "native_items": [
+              {
+                "uuid": "91670afd-a3e4-4763-8ed8-2432834fb417",
+                "description": "Symbol U2 [U_chip_SOIC-8]",
+                "position_mm": {
+                  "x": 148.59,
+                  "y": 119.38
+                }
+              }
+            ],
+            "source_pins": [],
+            "source_nets": []
+          },
+          "raw_finding": {
+            "description": "The current configuration does not include the footprint library 'tscircuit'",
+            "items": [
+              {
+                "description": "Symbol U2 [U_chip_SOIC-8]",
+                "pos": {
+                  "x": 148.59,
+                  "y": 119.38
+                },
+                "uuid": "91670afd-a3e4-4763-8ed8-2432834fb417"
+              }
+            ],
+            "severity": "warning",
+            "type": "footprint_link_issues"
+          }
+        }
+      ],
+      "native_evidence": {
+        "erc_json": "build/tscircuit-worker-native-ZMkvgj/native-results/ldo-sensor-interface/erc.json",
+        "native_netlist": "build/tscircuit-worker-native-ZMkvgj/native-results/ldo-sensor-interface/native-schematic.net",
+        "source_graph": "build/tscircuit-worker-native-ZMkvgj/project-builds/ldo-sensor-interface/source-graph.json",
+        "build_manifest": "build/tscircuit-worker-native-ZMkvgj/project-builds/ldo-sensor-interface/build-manifest.json",
+        "converter_manifest": "build/tscircuit-worker-native-ZMkvgj/project-builds/ldo-sensor-interface/kicad/export-manifest.json",
+        "native_schematic": "build/tscircuit-worker-native-ZMkvgj/project-builds/ldo-sensor-interface/kicad/ldo-sensor-interface.kicad_sch"
+      }
+    }
+  ]
+}

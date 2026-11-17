@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "unverified",
+  "entries": [
+    {
+      "reference": "D1",
+      "manufacturer_part_number": null,
+      "footprint": "0603",
+      "physical_pins": [
+        "1",
+        "2"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "J1",
+      "manufacturer_part_number": null,
+      "footprint": "pinrow3",
+      "physical_pins": [
+        "1",
+        "2",
+        "3"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "Q1",
+      "manufacturer_part_number": null,
+      "footprint": "TO-92",
+      "physical_pins": [
+        "1",
+        "2",
+        "3"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "R1",
+      "manufacturer_part_number": null,
+      "footprint": "0603",
+      "physical_pins": [
+        "1",
+        "2"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "R2",
+      "manufacturer_part_number": null,
+      "footprint": "0603",
+      "physical_pins": [
+        "1",
+        "2"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    }
+  ],
+  "unresolved": [
+    "D1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "J1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "Q1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "R1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "R2: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number"
+  ]
+}

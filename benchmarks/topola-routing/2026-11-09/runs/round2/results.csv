@@ -1,0 +1,6 @@
+"scenario","topola_routed_net_fraction","topola_unconnected_groups","topola_drc_violations","topola_track_width_errors","topola_track_length_mm","topola_vias","topola_wall_runtime_ms","tscircuit_routed_net_fraction","tscircuit_unconnected_groups","tscircuit_drc_violations","tscircuit_track_length_mm","tscircuit_vias","tscircuit_build_runtime_ms"
+"base","1","0","33","24","57.09982","0","664.27","1","0","10","31.24789","2","6062.695"
+"translated","1","0","33","24","57.09982","0","662.805","1","0","10","31.234823","2","5976.913"
+"swapped","0","4","73","24","26","0","571.509","0","4","17","0","0","5825.171"
+"crowded","0.666667","1","34","24","40.336735","0","783.768","0","3","10","0","0","5924.906"
+"fixed_j1","1","0","33","24","58.463149","0","701.669","1","0","9","33.380909","1","6185.391"

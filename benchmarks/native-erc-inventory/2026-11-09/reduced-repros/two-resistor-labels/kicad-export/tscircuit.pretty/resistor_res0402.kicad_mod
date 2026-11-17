@@ -1,0 +1,124 @@
+(footprint
+  "resistor_res0402"
+  (version 20240108)
+  (generator pcbnew)
+  (generator_version 8.0)
+  (layer F.Cu)
+  (at 0 0 0)
+  (descr "")
+  (tags "")
+  (attr smd)
+  (embedded_fonts no)
+  (property "Reference" "REF**"
+    (at 0 -0.8200000000000001 0)
+    (layer F.SilkS)
+    (uuid 73ecc780-0cba-f2bf-729d-53020e0a673d)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Value" "Val**"
+    (at 0 0.8200000000000001 0)
+    (layer F.Fab)
+    (uuid 39274dc0-23bf-8fbf-0e57-d1be070fec43)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Datasheet" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 1d0a57c0-639d-627f-1bba-e34264ecd6fd)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (property "Description" ""
+    (at 0 0 0)
+    (layer F.Fab)
+    (hide yes)
+    (uuid 01a9b9e0-0c07-8f81-1665-652220c33ac3)
+    (effects
+      (font
+        (size 1.27 1.27)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_text
+    reference
+    "REF**"
+    (at 0 -1.22 0)
+    (layer F.SilkS)
+    (effects
+      (font
+        (size 0.4 0.4)
+        (thickness 0.15)
+      )
+    )
+  )
+  (fp_line
+    (start -0.153641 -0.38)
+    (end 0.153641 -0.38)
+    (stroke
+      (width 0.12)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_line
+    (start -0.153641 0.38)
+    (end 0.153641 0.38)
+    (stroke
+      (width 0.12)
+      (type default)
+    )
+    (layer F.SilkS)
+  )
+  (fp_rect
+    (start -0.93 -0.47)
+    (end 0.93 0.47)
+    (layer F.CrtYd)
+    (stroke
+      (width 0.05)
+      (type default)
+    )
+    (fill no)
+  )
+  (pad "1" smd rect
+    (at -0.51 0 0)
+    (size 0.54 0.64)
+    (layers F.Cu F.Mask)
+    (uuid 2f06b3bc-59a3-e9a4-1db1-78fc6af92464)
+  )
+  (pad "2" smd rect
+    (at 0.51 0 0)
+    (size 0.54 0.64)
+    (layers F.Cu F.Mask)
+    (uuid 79384cfe-0f72-5062-67e3-123e20c78b22)
+  )
+  (pad "" smd rect
+    (at -0.51 0 0)
+    (size 0.378 0.44799999999999995)
+    (layers F.Paste)
+    (uuid 27f168e0-7d9e-593f-232e-1b5e37422283)
+  )
+  (pad "" smd rect
+    (at 0.51 0 0)
+    (size 0.378 0.44799999999999995)
+    (layers F.Paste)
+    (uuid 152e5b40-4541-e2a1-604d-df7e05dda19d)
+  )
+  (model "../../3dmodels/tscircuit_builtin.3dshapes/res0402.step"
+  )
+)

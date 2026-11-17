@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "compiled",
+  "project_name": "voltage-divider",
+  "entrypoint": "src/board.tsx",
+  "created_at_utc": "2026-11-09T22:50:59.107Z",
+  "source_files": [
+    {
+      "path": "eda.project.json",
+      "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+      "bytes": 369
+    },
+    {
+      "path": "package.json",
+      "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+      "bytes": 179
+    },
+    {
+      "path": "parts.lock.json",
+      "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+      "bytes": 423
+    },
+    {
+      "path": "pcb.constraints.json",
+      "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+      "bytes": 141
+    },
+    {
+      "path": "requirements.json",
+      "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+      "bytes": 300
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "2b6648c8a4c7d9fa3e04f272f3935fb5da6b8b52d146e04e59a8e739b04221d8",
+      "bytes": 868
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+      "bytes": 166
+    }
+  ],
+  "source_graph_counts": {
+    "components": 3,
+    "ports": 7,
+    "nets": 3
+  },
+  "toolchain": {
+    "node": "v24.15.0",
+    "tscircuit": "0.0.3114",
+    "react": "19.3.1",
+    "compiler_runtime": "0.1.0",
+    "compiler_lock_sha256": "4350208c2be4efad6147d11aa4f777d39ccade5edf7959fb744a3159151dcb69",
+    "sandbox_image": "sha256:49319c94db90011ec83fad1cb00d1b789da9518eaa51178d4a195e0a22deec45",
+    "circuit_json_to_kicad": "0.0.270",
+    "worker": "0.1.0"
+  },
+  "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+  "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+  "parts_verification": {
+    "status": "unverified",
+    "unresolved": 3,
+    "sha256": "dacce1e3043ac0cd99ce33908b2c12076162969c67cd51de0043b1f8d2956fc4"
+  },
+  "kicad_export_files": [
+    "kicad/Device.kicad_sym",
+    "kicad/export-manifest.json",
+    "kicad/fp-lib-table",
+    "kicad/sym-lib-table",
+    "kicad/tscircuit.pretty/connector_pinrow3.kicad_mod",
+    "kicad/tscircuit.pretty/resistor_res0603.kicad_mod",
+    "kicad/voltage-divider.kicad_pcb",
+    "kicad/voltage-divider.kicad_pro",
+    "kicad/voltage-divider.kicad_sch"
+  ],
+  "artifacts": {
+    "circuit.json": {
+      "sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+      "bytes": 34197
+    },
+    "compiler-manifest.json": {
+      "sha256": "0e4a720cd069db3879746ff451f9ffa4e03c82a321889ee3b85df809c7d45158",
+      "bytes": 1523
+    },
+    "kicad/Device.kicad_sym": {
+      "sha256": "6e13ee50b52c895c5bce6c79b33643ceaec2905c8672186d6e79818326b5e9a3",
+      "bytes": 6223
+    },
+    "kicad/export-manifest.json": {
+      "sha256": "46cf9de6356112ca1aec9bd06003df005c20297c8b6540657a4dcc43a62e7c67",
+      "bytes": 1885
+    },
+    "kicad/fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "kicad/sym-lib-table": {
+      "sha256": "e6c068047fc46751e260693e3dc0fec8b5a1d68031212bb6d8ed99b105282f93",
+      "bytes": 155
+    },
+    "kicad/tscircuit.pretty/connector_pinrow3.kicad_mod": {
+      "sha256": "eff79e258e4c2fb7bb865289f28dc658be8e855022175fa7b33e475a4b8b4908",
+      "bytes": 2446
+    },
+    "kicad/tscircuit.pretty/resistor_res0603.kicad_mod": {
+      "sha256": "4b80b3610a2db41df162c903360a1feff315dab20f2c282ac1b2dfea9c977b86",
+      "bytes": 2323
+    },
+    "kicad/voltage-divider.kicad_pcb": {
+      "sha256": "c7867af05ff64a2567a08304ff9233bbdc6968e8e7d0704c34bdcbdf42e7041f",
+      "bytes": 9508
+    },
+    "kicad/voltage-divider.kicad_pro": {
+      "sha256": "42d8404726d12ca211f44b6478bad7fcc444ec815a0d983ff21b97b2ea3c0da5",
+      "bytes": 1744
+    },
+    "kicad/voltage-divider.kicad_sch": {
+      "sha256": "0b180e27299e1320d073e98220675b63d3a46b54e2a22ac9e8f901cbfd226661",
+      "bytes": 12857
+    },
+    "parts-validation.json": {
+      "sha256": "dacce1e3043ac0cd99ce33908b2c12076162969c67cd51de0043b1f8d2956fc4",
+      "bytes": 1759
+    },
+    "source-graph.json": {
+      "sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "bytes": 1763
+    },
+    "source-manifest.json": {
+      "sha256": "9053499f33eda56cd5bfec485981d1737dbd467059281a02321008c25e1b7a9d",
+      "bytes": 3364
+    }
+  }
+}

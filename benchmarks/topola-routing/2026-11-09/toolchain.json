@@ -1,0 +1,61 @@
+{
+  "benchmark_date": "2026-11-09",
+  "repository_commit": "deaa85cdafc7b3e95a64bf78414aeb23ca2e012d",
+  "repository_worktree_note": "Milestone 6.1 changes were also present in the worktree; the voltage-divider fixture was unchanged. Per-scenario source and compiled artifact hashes are retained in each build manifest.",
+  "fixture": {
+    "path": "benchmarks/fixtures/voltage-divider",
+    "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+    "pcb_constraints_sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+    "board_size_mm": [24, 14],
+    "copper_layers": 2,
+    "components": 3,
+    "physical_ports": 7,
+    "nets": ["VIN", "MID", "GND"],
+    "fixed_components": ["J1"]
+  },
+  "kicad": {
+    "version": "10.0.8",
+    "container_image": "kicad/kicad@sha256:3f4a01786dfbe803a65f345c3342b765db9add913f5e9448f8356793714ddc34",
+    "drc_command": "kicad-cli pcb drc --schematic-parity --format json --severity-all"
+  },
+  "topola": {
+    "repository": "https://github.com/mikwielgus/topola.git",
+    "source_commit": "666e06cfd7ba1f1e5daf700288acb9e0a4f84ceb",
+    "version": "topola-cli 0.1.0",
+    "binary_sha256": "7337f7d22e26c1e30737cce1faf47e6e5a05a7833422e15de6948cad4d3d3215",
+    "rust_image": "rust@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f",
+    "rustc": "1.90.0 (1159e78c4 2025-09-14)",
+    "cargo": "1.90.0 (840b83a10 2025-07-30)",
+    "cargo_lock_file": "topola-Cargo.lock",
+    "cargo_lock_sha256": "2a63b6c4a5eb7a8905de219b2ef59e4fb04e7b69a7fe8bf5b32ada42d0a49167",
+    "build_command": "cargo build --locked --release -p topola-cli",
+    "docker_build_command": "docker run --rm --mount type=bind,source=<repo>,target=/workspace --workdir /workspace/build/topola-source --env CARGO_HOME=/workspace/build/topola-cargo --env CARGO_TARGET_DIR=/workspace/build/topola-target --entrypoint /bin/sh rust@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f -c 'cargo build --locked --release -p topola-cli'",
+    "seed": "The CLI exposes no seed option. Repeating the base DSN produced a byte-identical SES."
+  },
+  "tscircuit": {
+    "node": "v24.15.0",
+    "tscircuit": "0.0.3114",
+    "react": "19.3.1",
+    "compiler_runtime": "0.1.0",
+    "sandbox_image_sha256": "49319c94db90011ec83fad1cb00d1b789da9518eaa51178d4a195e0a22deec45",
+    "compiler_lock_sha256": "4350208c2be4efad6147d11aa4f777d39ccade5edf7959fb744a3159151dcb69"
+  },
+  "interchange": {
+    "dsn_export": "pcbnew.ExportSpecctraDSN",
+    "ses_import": "pcbnew.ImportSpecctraSES",
+    "repeated_base_ses_sha256": "022a56a36149dc888fbb3ba7875abbcd1fc08be7507bd4436f30660013d9659c"
+  },
+  "measurement_notes": {
+    "topola_runtime": "Host wall time around the router Docker invocation; includes container startup and excludes DSN export, SES import, and DRC.",
+    "tscircuit_runtime": "Host wall time for the full pinned project build, including sandbox startup and PCB export; not an isolated autorouter time.",
+    "track_length": "Sum of copper track-segment lengths read back from pcbnew; vias are counted separately.",
+    "routed_net_fraction": "Expected named nets minus any net with at least one KiCad unconnected DRC group, divided by three.",
+    "drc_ignored_checks": [
+      "missing_courtyard",
+      "track_not_centered_on_via",
+      "tuning_profile_track_geometries",
+      "footprint_filters_mismatch",
+      "footprint_type_mismatch"
+    ]
+  }
+}

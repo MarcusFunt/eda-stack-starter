@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "head": {
+    "generator": "circuit-json-to-kicad",
+    "generator_version": "0.0.1",
+    "project_name": "voltage-divider",
+    "created": "2026-11-09T22:51:05.155Z",
+    "modified": "2026-11-09T22:51:05.155Z"
+  },
+  "meta": {
+    "version": 1
+  },
+  "text_variables": {},
+  "libraries": {
+    "pinned_symbol_libs": [],
+    "pinned_footprint_libs": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "meta": {
+      "version": 0
+    }
+  },
+  "erc": {
+    "meta": {
+      "version": 0
+    },
+    "erc_exclusions": [],
+    "rule_severities": {
+      "footprint_filter": "warning",
+      "four_way_junction": "warning",
+      "simulation_model_issue": "warning",
+      "single_global_label": "warning"
+    }
+  },
+  "net_settings": {
+    "meta": {
+      "version": 3
+    },
+    "last_net_id": 0,
+    "classes": [
+      {
+        "name": "Default",
+        "track_width": 0.1,
+        "via_diameter": 0.3,
+        "via_drill": 0.2,
+        "clearance": 0.1
+      }
+    ],
+    "netclass_patterns": []
+  },
+  "pcbnew": {
+    "page_layout_descr_file": "",
+    "last_paths": {}
+  },
+  "schematic": {
+    "meta": {
+      "version": 1
+    },
+    "page_layout_descr_file": "",
+    "last_opened_files": [
+      "voltage-divider.kicad_sch"
+    ]
+  },
+  "board": {
+    "meta": {
+      "version": 1
+    },
+    "design_settings": {
+      "rules": {
+        "min_via_annular_width": 0.04999999999999999,
+        "min_hole_clearance": 0.2,
+        "min_via_diameter": 0.3,
+        "min_track_width": 0.1,
+        "min_through_hole_diameter": 0.2,
+        "min_copper_edge_clearance": 0.2
+      }
+    },
+    "last_opened_board": "voltage-divider.kicad_pcb"
+  },
+  "sheets": [
+    [
+      "6a22fbf7-0748-4bd3-9e8a-c3bfa98bb9f4",
+      "Root"
+    ]
+  ]
+}

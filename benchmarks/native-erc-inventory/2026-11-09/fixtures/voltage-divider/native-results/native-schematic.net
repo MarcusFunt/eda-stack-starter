@@ -1,0 +1,365 @@
+(export
+	(version "E")
+	(design
+		(source "/workspace/build/tscircuit-worker-native-ZMkvgj/project-builds/voltage-divider/kicad/voltage-divider.kicad_sch")
+		(date "2026-11-09T21:25:41")
+		(tool "Eeschema 10.0.8")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "voltage-divider.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "J1")
+			(value "~")
+			(footprint "tscircuit:connector_pinrow3")
+			(description "Connector")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(libsource
+				(lib "Device")
+				(part "J_connector_pinrow3")
+				(description "Connector")
+			)
+			(property
+				(name "Sheetname")
+				(value "voltage-divider")
+			)
+			(property
+				(name "Sheetfile")
+				(value "voltage-divider.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* connector_pinrow3")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R1")
+			(value "10kΩ")
+			(footprint "tscircuit:resistor_res0603")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "boxresistor_down")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "voltage-divider")
+			)
+			(property
+				(name "Sheetfile")
+				(value "voltage-divider.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_* resistor_res0603")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f3d7e532-c334-4784-b360-8ba6919c9ac1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R2")
+			(value "10kΩ")
+			(footprint "tscircuit:resistor_res0603")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "boxresistor_down")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "voltage-divider")
+			)
+			(property
+				(name "Sheetfile")
+				(value "voltage-divider.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_* resistor_res0603")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f0eedc2f-fcec-4057-b20b-298d90654db2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Device")
+			(part "J_connector_pinrow3")
+			(description "Connector")
+			(footprints
+				(fp "*")
+				(fp "connector_pinrow3")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "J")
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "power_out")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "power_out")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "boxresistor_down")
+			(description "Resistor")
+			(footprints
+				(fp "R_*")
+				(fp "resistor_res0603")
+			)
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "R")
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Device")
+			(uri "${KIPRJMOD}/Device.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "/GND")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "power_out")
+			)
+			(node
+				(ref "R2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "/MID")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "3")
+			(name "/VIN")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "power_out")
+			)
+			(node
+				(ref "R1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+	)
+)

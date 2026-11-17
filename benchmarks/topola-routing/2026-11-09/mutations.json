@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "fixture": "benchmarks/fixtures/voltage-divider",
+  "board_rules_unchanged": true,
+  "fixed_components": ["J1"],
+  "expected_nets": ["VIN", "MID", "GND"],
+  "scenarios": [
+    {
+      "id": "base",
+      "J1": { "x_mm": -7, "y_mm": 0 },
+      "R1": { "x_mm": 0, "y_mm": 3 },
+      "R2": { "x_mm": 0, "y_mm": -3 }
+    },
+    {
+      "id": "translated",
+      "mutation": "translate all components by (+2,+2) mm",
+      "J1": { "x_mm": -5, "y_mm": 2 },
+      "R1": { "x_mm": 2, "y_mm": 5 },
+      "R2": { "x_mm": 2, "y_mm": -1 }
+    },
+    {
+      "id": "swapped",
+      "mutation": "swap R1 and R2 placements",
+      "J1": { "x_mm": -7, "y_mm": 0 },
+      "R1": { "x_mm": 0, "y_mm": -3 },
+      "R2": { "x_mm": 0, "y_mm": 3 }
+    },
+    {
+      "id": "crowded",
+      "mutation": "place R1 and R2 2.2 mm apart horizontally",
+      "J1": { "x_mm": -7, "y_mm": 0 },
+      "R1": { "x_mm": -1, "y_mm": 0.4 },
+      "R2": { "x_mm": 1.2, "y_mm": 0.4 }
+    },
+    {
+      "id": "fixed_j1",
+      "mutation": "hold J1 at its original placement; set R1=(1.5,2) and R2=(1.5,-2) mm",
+      "J1": { "x_mm": -7, "y_mm": 0 },
+      "R1": { "x_mm": 1.5, "y_mm": 2 },
+      "R2": { "x_mm": 1.5, "y_mm": -2 }
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "files": {
+    "benchmarks/topola-routing/2026-11-09/report.md": "bd9752b05794c1719ca30129a5fa27f922e4758133dcbecf631dc40c95464cff",
+    "benchmarks/topola-routing/2026-11-09/mutations.json": "dcf5677e9de42a8d2546d4ab61cef97c8311e7f6a4f30b3057f2b6cc2b4a139b",
+    "benchmarks/topola-routing/2026-11-09/toolchain.json": "e6bed57052d81154b36d1c3e70e6fcd70c1d3cde9d27fee429ec4899babd9d68",
+    "benchmarks/topola-routing/2026-11-09/run.ps1": "b9c1f3f4f40ec77250255992e448f6625ef21072e88b69278dccdf05e83ec2da",
+    "benchmarks/topola-routing/2026-11-09/kicad_helper.py": "47dbd817d484b85e690649854e577c43eea0a669299834269ea791c082f84416",
+    "benchmarks/topola-routing/2026-11-09/topola-Cargo.lock": "2a63b6c4a5eb7a8905de219b2ef59e4fb04e7b69a7fe8bf5b32ada42d0a49167",
+    "benchmarks/topola-routing/2026-11-09/runs/round2/benchmark-results.json": "8fc3cb6aea3ea0698e21da2f90573966c5ee326762fee4cb044f382cb3967e2f",
+    "benchmarks/topola-routing/2026-11-09/runs/round2/results.csv": "a7db53931defe6eb02fd581a2bdc34b987fcfca995fc98699eb89030548a2127",
+    "benchmarks/topola-routing/2026-11-09/runs/round2/repeat/repeat-check.json": "0269edc6e60a3d6231b466072baea8975412683d13f228a2bc3e8e967f7ac159",
+    "benchmarks/topola-routing/2026-11-09/runs/round2/repeat/voltage-divider-repeat.ses": "022a56a36149dc888fbb3ba7875abbcd1fc08be7507bd4436f30660013d9659c"
+  },
+  "scenarios": [
+    {
+      "scenario": "base",
+      "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "unrouted_circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+      "unrouted_board_sha256": "c7867af05ff64a2567a08304ff9233bbdc6968e8e7d0704c34bdcbdf42e7041f",
+      "tscircuit_source_board_sha256": "62f6d0ac12e4d89044be6bcc43ac9591c948605c23bb67e54d3e8a038ee7c3ca",
+      "tscircuit_drc_json_sha256": "4b161cc9267ff2de22c1676473e3337f095d4b151c7b6e20729c4a75f541fc30",
+      "topola_dsn_sha256": "bcc95116ba94d043b69cb3ecd041bfa96d07f960e0e326e5bb74a2af1dc14a51",
+      "topola_ses_sha256": "022a56a36149dc888fbb3ba7875abbcd1fc08be7507bd4436f30660013d9659c",
+      "topola_imported_board_sha256": "e3d7ad1edeee5475691628a6675fd02b20f16f2d65403f32fa0d549a0ee33c48",
+      "topola_drc_json_sha256": "7237ebb99d08cdbbcc58de8163bf9ece391203a1433c9c9bed112f3901aef4e2"
+    },
+    {
+      "scenario": "translated",
+      "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "unrouted_circuit_json_sha256": "27ad35277c96fb8bb69a57014f14da0d4975f90e0589512967a94740bafc8b54",
+      "unrouted_board_sha256": "eb42761e1dbcb6b384fe0a369ab87c187140978553c1d9950d0d5aa4f90d0ae1",
+      "tscircuit_source_board_sha256": "dbd5f924c3d47678abc3bbb2a11ca17c809735e343c23eec79eba630472cbbb4",
+      "tscircuit_drc_json_sha256": "2fc75c083bb5961f133aa4a82de807de81593926160e255b5b9f0fd5f2a2eb46",
+      "topola_dsn_sha256": "98638ebd5936ca28b79fe48728171e6418446d20b12bf3573c90bbb9e810340b",
+      "topola_ses_sha256": "1927f9f353ade04276df2de0239ecc5e0a6ed037ebe1ae208e668df23f29ba3d",
+      "topola_imported_board_sha256": "c66323b7563542c3760412275d4c30725f0d50133c1b797fe8f0986fe60e86f6",
+      "topola_drc_json_sha256": "b4ad599a11b71d773db5cb78f2808f7b708bbbe5a3e96e4f6b539a1bca901312"
+    },
+    {
+      "scenario": "swapped",
+      "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "unrouted_circuit_json_sha256": "5bddd4326b33fb95755fee93c9de44946648aa7b09f938a2dbd16715f5d0162a",
+      "unrouted_board_sha256": "af62be2d6334ccf889aa28a402cc05994d77a5b6a79aae6b56d77fca50aa945f",
+      "tscircuit_source_board_sha256": "af62be2d6334ccf889aa28a402cc05994d77a5b6a79aae6b56d77fca50aa945f",
+      "tscircuit_drc_json_sha256": "dfd1922df3b846b24c48b290c4bafcb0d24b68b4baffd7590d8a00eec52b1f36",
+      "topola_dsn_sha256": "a00eafdfca415f424be76d6932a748b7901d128dad350596c37d097c9d0e191b",
+      "topola_ses_sha256": "58e1a2979148b84df721a7881ca032bc8b21ef32d4c29c7f5b56189b58d5b082",
+      "topola_imported_board_sha256": "7c3dd476f56d78d30143eafaaf5dd72f16f53db885d772aa439e67522e8c9cf3",
+      "topola_drc_json_sha256": "4e1d33c2ffb4c220a3672ee09f29a54d758010df1313028048609b4312a793da"
+    },
+    {
+      "scenario": "crowded",
+      "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "unrouted_circuit_json_sha256": "648c9f4bc4e3a0486c1f751ae641e0e3462b3aadd94c8b5a3cd6e690702459a8",
+      "unrouted_board_sha256": "39b9085c63f8d9078a14e6e5fd6179729c76c811a683d70a1047e7028861266a",
+      "tscircuit_source_board_sha256": "39b9085c63f8d9078a14e6e5fd6179729c76c811a683d70a1047e7028861266a",
+      "tscircuit_drc_json_sha256": "d49bf82d0168284a869601b9a321899822b67ce9299cc00c8e79a9dfe3a8d425",
+      "topola_dsn_sha256": "e9be961b782e2cd4afbe76c82c2a27999d421d0038d20d3026847a32d2b380f9",
+      "topola_ses_sha256": "02a96ce9d05ccbb0fa8773594ef61e6b7468b7aed87335aa53d9183f93d1aff8",
+      "topola_imported_board_sha256": "a35dde6b945abd78b9957916701d28cb1481d47f0820472ec24f22b1f5d0e4f3",
+      "topola_drc_json_sha256": "13e712d487a209754320b4a8177e437435e049985d71d32502786df613a5157e"
+    },
+    {
+      "scenario": "fixed_j1",
+      "canonical_source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+      "unrouted_circuit_json_sha256": "2f77d62cb3c88271f339e94654394658f3f8c71fa6b7d6117f4c63aefd257d52",
+      "unrouted_board_sha256": "2f03b5659c82ea789469c7f13fa67bcb7ea7da0691df8566acd71b07d223ede6",
+      "tscircuit_source_board_sha256": "662603d7b89dcd830952d1d35e94cc7d0788992b6a796761cf89eb39afe35ea4",
+      "tscircuit_drc_json_sha256": "68dee0b74b5b675263ee4452aab5bc23296e19a654638d88d905528f4b13c2ce",
+      "topola_dsn_sha256": "adfd4b840e6f891871c07edc8a7dfa2b79cf94e91a23128465cce84e45248f3c",
+      "topola_ses_sha256": "ca15dce7806711ebf4212a1686c1f491092f6d04264e43a1525df41982c0ca7a",
+      "topola_imported_board_sha256": "51f81fed994efedd85eb3646f993065ad56d994fc8c5afecc4528e9c3e5ca297",
+      "topola_drc_json_sha256": "1854ce52fa55edb74e6351486b69576369a5b9ca0500b6441acf0bf29e16ce45"
+    }
+  ]
+}

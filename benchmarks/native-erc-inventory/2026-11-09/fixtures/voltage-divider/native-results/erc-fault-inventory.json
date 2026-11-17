@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "fixture": "voltage-divider",
+  "source_project": "benchmarks/fixtures/voltage-divider",
+  "finding_count": 3,
+  "category_counts": {
+    "exporter_defect": 3
+  },
+  "erc_ignored_checks": [],
+  "findings": [
+    {
+      "id": "voltage-divider:0:0:f3d7e532-c334-4784-b360-8ba6919c9ac1",
+      "fixture": "voltage-divider",
+      "type": "footprint_link_issues",
+      "description": "The current configuration does not include the footprint library 'tscircuit'",
+      "sheet": null,
+      "category": "exporter_defect",
+      "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+      "root_cause_confidence": "established",
+      "reproducible_fixture": "benchmarks/fixtures/voltage-divider",
+      "source_reference": {
+        "source_files": [
+          {
+            "path": "benchmarks/fixtures/voltage-divider/eda.project.json",
+            "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+            "bytes": 369
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/package.json",
+            "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+            "bytes": 179
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/parts.lock.json",
+            "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+            "bytes": 423
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/pcb.constraints.json",
+            "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+            "bytes": 141
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/requirements.json",
+            "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+            "bytes": 300
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/src/board.tsx",
+            "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+            "bytes": 866
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/tsconfig.json",
+            "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+            "bytes": 166
+          }
+        ],
+        "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+        "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+        "native_items": [
+          {
+            "uuid": "f3d7e532-c334-4784-b360-8ba6919c9ac1",
+            "description": "Symbol R1 [boxresistor_down]",
+            "position_mm": {
+              "x": 134.62,
+              "y": 105.41
+            }
+          }
+        ],
+        "source_pins": [],
+        "source_nets": []
+      },
+      "raw_finding": {
+        "description": "The current configuration does not include the footprint library 'tscircuit'",
+        "items": [
+          {
+            "description": "Symbol R1 [boxresistor_down]",
+            "pos": {
+              "x": 134.62,
+              "y": 105.41
+            },
+            "uuid": "f3d7e532-c334-4784-b360-8ba6919c9ac1"
+          }
+        ],
+        "severity": "warning",
+        "type": "footprint_link_issues"
+      }
+    },
+    {
+      "id": "voltage-divider:0:1:c89f2d3e-5b8c-48f0-aff1-2d2cb445668c",
+      "fixture": "voltage-divider",
+      "type": "footprint_link_issues",
+      "description": "The current configuration does not include the footprint library 'tscircuit'",
+      "sheet": null,
+      "category": "exporter_defect",
+      "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+      "root_cause_confidence": "established",
+      "reproducible_fixture": "benchmarks/fixtures/voltage-divider",
+      "source_reference": {
+        "source_files": [
+          {
+            "path": "benchmarks/fixtures/voltage-divider/eda.project.json",
+            "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+            "bytes": 369
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/package.json",
+            "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+            "bytes": 179
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/parts.lock.json",
+            "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+            "bytes": 423
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/pcb.constraints.json",
+            "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+            "bytes": 141
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/requirements.json",
+            "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+            "bytes": 300
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/src/board.tsx",
+            "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+            "bytes": 866
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/tsconfig.json",
+            "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+            "bytes": 166
+          }
+        ],
+        "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+        "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+        "native_items": [
+          {
+            "uuid": "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c",
+            "description": "Symbol J1 [J_connector_pinrow3]",
+            "position_mm": {
+              "x": 148.59,
+              "y": 102.87
+            }
+          }
+        ],
+        "source_pins": [],
+        "source_nets": []
+      },
+      "raw_finding": {
+        "description": "The current configuration does not include the footprint library 'tscircuit'",
+        "items": [
+          {
+            "description": "Symbol J1 [J_connector_pinrow3]",
+            "pos": {
+              "x": 148.59,
+              "y": 102.87
+            },
+            "uuid": "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c"
+          }
+        ],
+        "severity": "warning",
+        "type": "footprint_link_issues"
+      }
+    },
+    {
+      "id": "voltage-divider:0:2:f0eedc2f-fcec-4057-b20b-298d90654db2",
+      "fixture": "voltage-divider",
+      "type": "footprint_link_issues",
+      "description": "The current configuration does not include the footprint library 'tscircuit'",
+      "sheet": null,
+      "category": "exporter_defect",
+      "likely_root_cause": "KiCad 10.0.8 CLI does not resolve this generated nonstandard footprint library during schematic ERC, despite the footprint file and project-local fp-lib-table being present. The behavior was reproduced with a project-local table and an attempted temporary global table; GUI resolution was not verified in this run.",
+      "root_cause_confidence": "established",
+      "reproducible_fixture": "benchmarks/fixtures/voltage-divider",
+      "source_reference": {
+        "source_files": [
+          {
+            "path": "benchmarks/fixtures/voltage-divider/eda.project.json",
+            "sha256": "c441f435b916695f4248b55209557aa88c3ce7008d56ed8b81a27ec0311364cc",
+            "bytes": 369
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/package.json",
+            "sha256": "f9c7e20f753b98abeb05e351e015b7529ca1f1f59cc3ceb56020ea3829cdfded",
+            "bytes": 179
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/parts.lock.json",
+            "sha256": "b343ca4a5244d93858d390ced42ccfbeae5a5510d00943a68ca49551df0f1346",
+            "bytes": 423
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/pcb.constraints.json",
+            "sha256": "4fff2dcc1df2300362c76b1598d4838ccc754972b00cb96840823404986b7939",
+            "bytes": 141
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/requirements.json",
+            "sha256": "b38efd5dcf32c8f2d755de2da3df64e8ea058766cbc9c5494bae44c6e063c98a",
+            "bytes": 300
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/src/board.tsx",
+            "sha256": "d43ad3a7aa4936bf8733392960f7a84c5ce42081428e72da03e39d4617fc1bd4",
+            "bytes": 866
+          },
+          {
+            "path": "benchmarks/fixtures/voltage-divider/tsconfig.json",
+            "sha256": "c08a0cf0e1e1814e2ee5a4caadb23eed2b3ccf5a31eb741b8a2e8ef28a789676",
+            "bytes": 166
+          }
+        ],
+        "circuit_json_sha256": "c16ed38d7a2093c24b3447173ea26dbd6db56697a93591b4553945afd3c9f6f4",
+        "source_graph_sha256": "150287fc9cf64fcb53eb7f7a60ca3ab660608a7e098ea2a48156b6ee04480a2f",
+        "native_items": [
+          {
+            "uuid": "f0eedc2f-fcec-4057-b20b-298d90654db2",
+            "description": "Symbol R2 [boxresistor_down]",
+            "position_mm": {
+              "x": 162.56,
+              "y": 105.41
+            }
+          }
+        ],
+        "source_pins": [],
+        "source_nets": []
+      },
+      "raw_finding": {
+        "description": "The current configuration does not include the footprint library 'tscircuit'",
+        "items": [
+          {
+            "description": "Symbol R2 [boxresistor_down]",
+            "pos": {
+              "x": 162.56,
+              "y": 105.41
+            },
+            "uuid": "f0eedc2f-fcec-4057-b20b-298d90654db2"
+          }
+        ],
+        "severity": "warning",
+        "type": "footprint_link_issues"
+      }
+    }
+  ]
+}

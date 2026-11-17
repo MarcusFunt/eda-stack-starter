@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-09T21:25:30.029Z",
+  "project_name": "two-resistor-labels",
+  "converter": {
+    "package": "circuit-json-to-kicad",
+    "version": "0.0.270"
+  },
+  "input": {
+    "circuit_json_sha256": "282a02413a4f693f386b12f411c9501b7095cbeccebb921257f36c83b20aa5ff"
+  },
+  "source_pin_net_groups": [
+    {
+      "netNames": [
+        "GND"
+      ],
+      "pins": [
+        "R2:2"
+      ]
+    },
+    {
+      "netNames": [
+        "SIGNAL"
+      ],
+      "pins": [
+        "R1:2",
+        "R2:1"
+      ]
+    },
+    {
+      "netNames": [
+        "VIN"
+      ],
+      "pins": [
+        "R1:1"
+      ]
+    }
+  ],
+  "artifacts": {
+    "Custom.kicad_sym": {
+      "sha256": "19b30702fcd9f33efcc973d87431c37160a333ab28b102d58f694e7b3928e5cc",
+      "bytes": 4875
+    },
+    "Device.kicad_sym": {
+      "sha256": "a6e891642cc8edda08cd6ce982fc15376e0ac9bf40ad85157cb2f102999d0507",
+      "bytes": 3223
+    },
+    "fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "sym-lib-table": {
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    "tscircuit.pretty/resistor_res0402.kicad_mod": {
+      "sha256": "d46164ff93bea094c497b13e249d77064407eb32a124a944364eb9d4e790b023",
+      "bytes": 2314
+    },
+    "two-resistor-labels.kicad_pcb": {
+      "sha256": "e014fe40859ae32546bc69dfc011de3864838e39141db62ea9a5b560f1b7d1e6",
+      "bytes": 6631
+    },
+    "two-resistor-labels.kicad_pro": {
+      "sha256": "3272068f637198ae8264e34d87c7a433a22c09ddbe3a6b47a533f1b4c7b3fcc4",
+      "bytes": 1756
+    },
+    "two-resistor-labels.kicad_sch": {
+      "sha256": "9a45af88cc6cfc8ca44054c35490c93ce6413e2ed030cdcc2c68dd9beb7f3775",
+      "bytes": 14881
+    }
+  }
+}

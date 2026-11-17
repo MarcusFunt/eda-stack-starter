@@ -1,0 +1,620 @@
+(export
+	(version "E")
+	(design
+		(source "/workspace/build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor/kicad/led-transistor.kicad_sch")
+		(date "2026-11-09T21:25:47")
+		(tool "Eeschema 10.0.8")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "led-transistor.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "D1")
+			(value "~")
+			(footprint "tscircuit:led_diode0603_color_red")
+			(description "LED")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:led_diode0603_color_red")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "LED")
+			)
+			(libsource
+				(lib "Device")
+				(part "led_right")
+				(description "Component")
+			)
+			(property
+				(name "Sheetname")
+				(value "led-transistor")
+			)
+			(property
+				(name "Sheetfile")
+				(value "led-transistor.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* led_diode0603_color_red")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "9e3b9ec1-f123-4378-9ad1-91d93c891edb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "~")
+			(footprint "tscircuit:connector_pinrow3")
+			(description "Connector")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(libsource
+				(lib "Device")
+				(part "J_connector_pinrow3")
+				(description "Connector")
+			)
+			(property
+				(name "Sheetname")
+				(value "led-transistor")
+			)
+			(property
+				(name "Sheetfile")
+				(value "led-transistor.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* connector_pinrow3")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "Q1")
+			(value "Q1")
+			(footprint "tscircuit:transistor_TO-92")
+			(description "Component")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:transistor_TO-92")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Component")
+			)
+			(libsource
+				(lib "Device")
+				(part "npn_bipolar_transistor_right")
+				(description "Component")
+			)
+			(property
+				(name "Sheetname")
+				(value "led-transistor")
+			)
+			(property
+				(name "Sheetfile")
+				(value "led-transistor.kicad_sch")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "* transistor_TO-92")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "45398cf6-5ebe-41cb-8283-d66e5b340e49")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R1")
+			(value "1kΩ")
+			(footprint "tscircuit:resistor_res0603")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "boxresistor_down")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "led-transistor")
+			)
+			(property
+				(name "Sheetfile")
+				(value "led-transistor.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_* resistor_res0603")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "1f78b075-4a5d-417a-bec2-d56e9c57a6d8")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R2")
+			(value "10kΩ")
+			(footprint "tscircuit:resistor_res0603")
+			(description "Resistor")
+			(fields
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "boxresistor_left")
+				(description "Resistor")
+			)
+			(property
+				(name "Sheetname")
+				(value "led-transistor")
+			)
+			(property
+				(name "Sheetfile")
+				(value "led-transistor.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_* resistor_res0603")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2f5945d8-27f9-4092-9e83-770b1e8709a7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Device")
+			(part "J_connector_pinrow3")
+			(description "Connector")
+			(footprints
+				(fp "*")
+				(fp "connector_pinrow3")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "J")
+				(field
+					(name "Footprint") "tscircuit:connector_pinrow3")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Connector")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "power_out")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "power_out")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "boxresistor_down")
+			(description "Resistor")
+			(footprints
+				(fp "R_*")
+				(fp "resistor_res0603")
+			)
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "R")
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "boxresistor_left")
+			(description "Resistor")
+			(footprints
+				(fp "R_*")
+				(fp "resistor_res0603")
+			)
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "R")
+				(field
+					(name "Footprint") "tscircuit:resistor_res0603")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "led_right")
+			(description "Component")
+			(footprints
+				(fp "*")
+				(fp "led_diode0603_color_red")
+			)
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "D")
+				(field
+					(name "Footprint") "tscircuit:led_diode0603_color_red")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Component")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "npn_bipolar_transistor_right")
+			(description "Component")
+			(footprints
+				(fp "*")
+				(fp "transistor_TO-92")
+			)
+			(fields
+				(field
+					(name "Reference") "Q")
+				(field
+					(name "Value") "Q")
+				(field
+					(name "Footprint") "tscircuit:transistor_TO-92")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Component")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "3")
+					(type "passive")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Device")
+			(uri "${KIPRJMOD}/Device.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "/CTRL")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "/GND")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "power_out")
+			)
+			(node
+				(ref "Q1")
+				(pin "3")
+				(pinfunction "3_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "3")
+			(name "/VCC")
+			(class "Default")
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "power_out")
+			)
+			(node
+				(ref "R1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "4")
+			(name "Net-(D1-Pad1)")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "R1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "5")
+			(name "Net-(D1-Pad2)")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "Q1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "6")
+			(name "Net-(Q1-Pad2)")
+			(class "Default")
+			(node
+				(ref "Q1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "R2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "passive")
+			)
+		)
+	)
+)

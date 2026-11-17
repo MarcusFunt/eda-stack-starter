@@ -1,0 +1,6314 @@
+{
+  "schema_version": 1,
+  "status": "connectivity_pass_native_findings_present",
+  "native_pin_net_membership": "passed",
+  "erc_status": "review_required",
+  "pcb_drc_status": "review_required",
+  "kicad_version": "10.0.8",
+  "converter_version": "0.0.270",
+  "tscircuit_version": "0.0.3114",
+  "native_netlist_connectivity": "exact physical-pin membership",
+  "project_families": [
+    "voltage-divider",
+    "led-transistor",
+    "ldo-sensor-interface"
+  ],
+  "source_mutation_proof": {
+    "changed_files": [
+      "src/board.tsx"
+    ],
+    "worker_implementation_sha256": "9fa849cdc141610489f22d22383ea0fdf6e89bdd50fdf0c7c37067b8f83ec29f",
+    "worker_unchanged": true,
+    "base_components": 5,
+    "expanded_components": 7,
+    "base_nets": 6,
+    "expanded_nets": 8
+  },
+  "negative_builds": [
+    {
+      "fixture": "malformed-tsx",
+      "expected_failure_code": "MALFORMED_TSX",
+      "actual_failure": "MALFORMED_TSX: Transform failed with 1 error:\n/opt/eda/compiler/projects/input/src/board.tsx:2:0: ERROR: Unexpected end of file before a closing \"board\" tag",
+      "output_created": false
+    },
+    {
+      "fixture": "sandbox-timeout",
+      "expected_failure_code": "BUILD_TIMEOUT",
+      "actual_failure": "BUILD_TIMEOUT: project TSX exceeded the 15000 ms execution limit",
+      "output_created": false
+    }
+  ],
+  "fixtures": [
+    {
+      "fixture": "rc",
+      "source_components": 3,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "C1:2",
+            "V1:2"
+          ]
+        },
+        {
+          "netNames": [
+            "in"
+          ],
+          "pins": [
+            "R1:1",
+            "V1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "out"
+          ],
+          "pins": [
+            "C1:1",
+            "R1:2"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "/in"
+          ],
+          "pins": [
+            "R1:1",
+            "V1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "/out"
+          ],
+          "pins": [
+            "C1:1",
+            "R1:2"
+          ]
+        },
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "C1:2",
+            "V1:2"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "Input Power pin not driven by any Output Power pins",
+          "items": [
+            {
+              "description": "Symbol #PWRschematic_net_label_0 Pin 1 [1, Power input, Line]",
+              "pos": {
+                "x": 128.27,
+                "y": 130.81
+              },
+              "uuid": "9e9855c9-0191-4b2b-9a77-61d75765aa0b"
+            }
+          ],
+          "severity": "error",
+          "type": "power_pin_not_driven"
+        },
+        {
+          "description": "Unconnected wire endpoint",
+          "items": [
+            {
+              "description": "Vertical Wire, length 8.89 mm",
+              "pos": {
+                "x": 128.27,
+                "y": 87.63
+              },
+              "uuid": "609ca9a0-249d-4ee6-98bf-8f9bb89c3c25"
+            }
+          ],
+          "severity": "warning",
+          "type": "unconnected_wire_endpoint"
+        },
+        {
+          "description": "Assigned footprint () doesn't match footprint filters (C_*)",
+          "items": [
+            {
+              "description": "Symbol C1 [capacitor_down]",
+              "pos": {
+                "x": 128.27,
+                "y": 121.92
+              },
+              "uuid": "9b32c90a-7436-4a47-9cd1-fdbf3cc4addf"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_filter"
+        },
+        {
+          "description": "Assigned footprint () doesn't match footprint filters (R_*)",
+          "items": [
+            {
+              "description": "Symbol R1 [boxresistor_right]",
+              "pos": {
+                "x": 162.56,
+                "y": 102.87
+              },
+              "uuid": "6e1c9b32-373c-45f5-8259-6529b8744bca"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_filter"
+        }
+      ],
+      "erc_finding_count": 4,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "Board has malformed outline (no edges found on Edge.Cuts layer)",
+          "items": [
+            {
+              "description": "PCB",
+              "pos": {
+                "x": 0,
+                "y": 0
+              },
+              "uuid": "1b97e110-0e5f-4fa6-9fe1-dd0c7fa1fd2d"
+            }
+          ],
+          "severity": "error",
+          "type": "invalid_outline"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "tscircuit:capacitor doesn't match footprint given by symbol ()",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 1 (/out) in schematic",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "tscircuit:resistor doesn't match footprint given by symbol ()",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 1 (/in) in schematic",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (/out) in schematic",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Missing footprint V1 (5V 500Hz)",
+          "items": [],
+          "severity": "warning",
+          "type": "missing_footprint"
+        }
+      ],
+      "pcb_drc_violations": 12,
+      "pcb_unconnected_items": [],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "tscircuit:capacitor doesn't match footprint given by symbol ()",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 1 (/out) in schematic",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "tscircuit:resistor doesn't match footprint given by symbol ()",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 1 (/in) in schematic",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (/out) in schematic",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Missing footprint V1 (5V 500Hz)",
+          "items": [],
+          "severity": "warning",
+          "type": "missing_footprint"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "rc.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/rc",
+      "project_build": null,
+      "kicad_export_files": [
+        "Custom.kicad_sym",
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "rc.kicad_pcb",
+        "rc.kicad_pro",
+        "rc.kicad_sch",
+        "sym-lib-table",
+        "tscircuit.pretty/capacitor.kicad_mod",
+        "tscircuit.pretty/resistor.kicad_mod"
+      ]
+    },
+    {
+      "fixture": "two-resistor-labels",
+      "source_components": 2,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "R2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "SIGNAL"
+          ],
+          "pins": [
+            "R1:2",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "VIN"
+          ],
+          "pins": [
+            "R1:1"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "/SIGNAL"
+          ],
+          "pins": [
+            "R1:2",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "R2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "VIN"
+          ],
+          "pins": [
+            "R1:1"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "Input Power pin not driven by any Output Power pins",
+          "items": [
+            {
+              "description": "Symbol #PWRschematic_net_label_0 Pin 1 [1, Power input, Line]",
+              "pos": {
+                "x": 102.87,
+                "y": 100.33
+              },
+              "uuid": "7ef40f29-9e21-4279-a710-ed84885cb3ec"
+            }
+          ],
+          "severity": "error",
+          "type": "power_pin_not_driven"
+        },
+        {
+          "description": "Input Power pin not driven by any Output Power pins",
+          "items": [
+            {
+              "description": "Symbol #PWRschematic_net_label_1 Pin 1 [1, Power input, Line]",
+              "pos": {
+                "x": 194.31,
+                "y": 110.49
+              },
+              "uuid": "bad82694-60d8-4510-b1da-3a0a3a46308a"
+            }
+          ],
+          "severity": "error",
+          "type": "power_pin_not_driven"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R1 [boxresistor_right]",
+              "pos": {
+                "x": 110.49,
+                "y": 105.41
+              },
+              "uuid": "2629cc4b-71d7-434d-9699-24b577d51966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R2 [boxresistor_right]",
+              "pos": {
+                "x": 185.42,
+                "y": 105.41
+              },
+              "uuid": "6b456df4-c0bb-44e8-ac36-d3fff3211ed9"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        }
+      ],
+      "erc_finding_count": 4,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R1",
+              "pos": {
+                "x": 100,
+                "y": 98.78
+              },
+              "uuid": "7d497029-68bd-4967-b73b-0182bfb39cdc"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R2",
+              "pos": {
+                "x": 105,
+                "y": 98.78
+              },
+              "uuid": "ceeda134-4c0d-4cd6-8004-abab1dbf6183"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [SIGNAL] of R1 on F.Cu",
+              "pos": {
+                "x": 100.51,
+                "y": 100
+              },
+              "uuid": "6f709752-43bc-da6e-0915-b3d255e84212"
+            },
+            {
+              "description": "Pad 1 [SIGNAL] of R2 on F.Cu",
+              "pos": {
+                "x": 104.49,
+                "y": 100
+              },
+              "uuid": "17dd82c0-3a16-c7ff-73f4-ed422200a283"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (SIGNAL) doesn't match net given by schematic (/SIGNAL)",
+          "items": [
+            {
+              "description": "Pad 2 [SIGNAL] of R1 on F.Cu",
+              "pos": {
+                "x": 100.51,
+                "y": 100
+              },
+              "uuid": "6f709752-43bc-da6e-0915-b3d255e84212"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (SIGNAL) doesn't match net given by schematic (/SIGNAL)",
+          "items": [
+            {
+              "description": "Pad 1 [SIGNAL] of R2 on F.Cu",
+              "pos": {
+                "x": 104.49,
+                "y": 100
+              },
+              "uuid": "17dd82c0-3a16-c7ff-73f4-ed422200a283"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "pcb_drc_violations": 9,
+      "pcb_unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [SIGNAL] of R1 on F.Cu",
+              "pos": {
+                "x": 100.51,
+                "y": 100
+              },
+              "uuid": "6f709752-43bc-da6e-0915-b3d255e84212"
+            },
+            {
+              "description": "Pad 1 [SIGNAL] of R2 on F.Cu",
+              "pos": {
+                "x": 104.49,
+                "y": 100
+              },
+              "uuid": "17dd82c0-3a16-c7ff-73f4-ed422200a283"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (SIGNAL) doesn't match net given by schematic (/SIGNAL)",
+          "items": [
+            {
+              "description": "Pad 2 [SIGNAL] of R1 on F.Cu",
+              "pos": {
+                "x": 100.51,
+                "y": 100
+              },
+              "uuid": "6f709752-43bc-da6e-0915-b3d255e84212"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (SIGNAL) doesn't match net given by schematic (/SIGNAL)",
+          "items": [
+            {
+              "description": "Pad 1 [SIGNAL] of R2 on F.Cu",
+              "pos": {
+                "x": 104.49,
+                "y": 100
+              },
+              "uuid": "17dd82c0-3a16-c7ff-73f4-ed422200a283"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "two-resistor-labels.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/two-resistor-labels",
+      "project_build": null,
+      "kicad_export_files": [
+        "Custom.kicad_sym",
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "sym-lib-table",
+        "tscircuit.pretty/resistor_res0402.kicad_mod",
+        "two-resistor-labels.kicad_pcb",
+        "two-resistor-labels.kicad_pro",
+        "two-resistor-labels.kicad_sch"
+      ]
+    },
+    {
+      "fixture": "power-rail",
+      "source_components": 2,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "C1:2",
+            "C2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "V24"
+          ],
+          "pins": [
+            "C1:1",
+            "C2:1"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "C1:2",
+            "C2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "V24"
+          ],
+          "pins": [
+            "C1:1",
+            "C2:1"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "Input Power pin not driven by any Output Power pins",
+          "items": [
+            {
+              "description": "Symbol #PWRschematic_net_label_0 Pin 1 [1, Power input, Line]",
+              "pos": {
+                "x": 102.87,
+                "y": 97.79
+              },
+              "uuid": "5b6e005d-5500-498c-bb9c-16da94702bb8"
+            }
+          ],
+          "severity": "error",
+          "type": "power_pin_not_driven"
+        },
+        {
+          "description": "Input Power pin not driven by any Output Power pins",
+          "items": [
+            {
+              "description": "Symbol #PWRschematic_net_label_2 Pin 1 [1, Power input, Line]",
+              "pos": {
+                "x": 119.38,
+                "y": 111.76
+              },
+              "uuid": "eb9b2f11-05bc-4ca5-a693-b9321ce0cbf9"
+            }
+          ],
+          "severity": "error",
+          "type": "power_pin_not_driven"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol C1 [capacitor_right]",
+              "pos": {
+                "x": 110.49,
+                "y": 105.41
+              },
+              "uuid": "4f583df7-9a07-4b12-a5b9-0328293bc43c"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol C2 [capacitor_right]",
+              "pos": {
+                "x": 185.42,
+                "y": 105.41
+              },
+              "uuid": "0577b048-38e8-4e69-b66f-6dc8267458de"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        }
+      ],
+      "erc_finding_count": 4,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of C1",
+              "pos": {
+                "x": 100,
+                "y": 98.625
+              },
+              "uuid": "9857c2e2-b0e1-4a95-acd1-49740528ad15"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of C2",
+              "pos": {
+                "x": 105,
+                "y": 98.625
+              },
+              "uuid": "35fd8b02-069f-4e1c-8401-162b751f77fb"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [V24] of C1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 100
+              },
+              "uuid": "100fad40-7277-af60-2b20-4e803747b3a0"
+            },
+            {
+              "description": "Pad 1 [V24] of C2 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 100
+              },
+              "uuid": "4b378d20-62d4-2821-10df-dd6241146d5d"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of C1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 100
+              },
+              "uuid": "216b0040-2c14-399f-7993-737e38ed52a3"
+            },
+            {
+              "description": "Pad 2 [GND] of C2 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 100
+              },
+              "uuid": "516c85c6-1f8b-98da-6f7c-4886017bd61a"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        }
+      ],
+      "pcb_drc_violations": 8,
+      "pcb_unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [V24] of C1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 100
+              },
+              "uuid": "100fad40-7277-af60-2b20-4e803747b3a0"
+            },
+            {
+              "description": "Pad 1 [V24] of C2 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 100
+              },
+              "uuid": "4b378d20-62d4-2821-10df-dd6241146d5d"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of C1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 100
+              },
+              "uuid": "216b0040-2c14-399f-7993-737e38ed52a3"
+            },
+            {
+              "description": "Pad 2 [GND] of C2 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 100
+              },
+              "uuid": "516c85c6-1f8b-98da-6f7c-4886017bd61a"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "0ef793e0-4b78-aa01-5a17-181e005925c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "power-rail.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/power-rail",
+      "project_build": null,
+      "kicad_export_files": [
+        "Custom.kicad_sym",
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "power-rail.kicad_pcb",
+        "power-rail.kicad_pro",
+        "power-rail.kicad_sch",
+        "sym-lib-table",
+        "tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod"
+      ]
+    },
+    {
+      "fixture": "voltage-divider",
+      "source_components": 3,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "J1:3",
+            "R2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "MID"
+          ],
+          "pins": [
+            "J1:2",
+            "R1:2",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "VIN"
+          ],
+          "pins": [
+            "J1:1",
+            "R1:1"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "/GND"
+          ],
+          "pins": [
+            "J1:3",
+            "R2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "/MID"
+          ],
+          "pins": [
+            "J1:2",
+            "R1:2",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "/VIN"
+          ],
+          "pins": [
+            "J1:1",
+            "R1:1"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R1 [boxresistor_down]",
+              "pos": {
+                "x": 134.62,
+                "y": 105.41
+              },
+              "uuid": "f3d7e532-c334-4784-b360-8ba6919c9ac1"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol J1 [J_connector_pinrow3]",
+              "pos": {
+                "x": 148.59,
+                "y": 102.87
+              },
+              "uuid": "c89f2d3e-5b8c-48f0-aff1-2d2cb445668c"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R2 [boxresistor_down]",
+              "pos": {
+                "x": 162.56,
+                "y": 105.41
+              },
+              "uuid": "f0eedc2f-fcec-4057-b20b-298d90654db2"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        }
+      ],
+      "erc_finding_count": 3,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 97
+              },
+              "uuid": "39c8fede-5dc7-0322-0aa8-fade7318f8de"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 103
+              },
+              "uuid": "0255d780-5cc6-1561-48c9-acbe11a69123"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "Reference field of J1",
+              "pos": {
+                "x": 93,
+                "y": 97.46
+              },
+              "uuid": "42556788-2e13-4b15-97a3-420e90bcfb9d"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin1)",
+              "pos": {
+                "x": 90.46,
+                "y": 98.65
+              },
+              "uuid": "920d4b9f-f058-4328-af8f-799d006df5b4"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin2)",
+              "pos": {
+                "x": 93,
+                "y": 98.65
+              },
+              "uuid": "f301a14c-06e5-4783-a3cf-2ba91a82b770"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin3)",
+              "pos": {
+                "x": 95.54,
+                "y": 98.65
+              },
+              "uuid": "8b1d3ee7-7d32-45ed-b1a0-320bf8b1667c"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R1",
+              "pos": {
+                "x": 100,
+                "y": 95.625
+              },
+              "uuid": "3bb1f816-22d1-4777-8778-5e7be08e9243"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R2",
+              "pos": {
+                "x": 100,
+                "y": 101.625
+              },
+              "uuid": "22aaddfc-86d6-40ed-b1f1-80cfd0b3f533"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VIN] of J1",
+              "pos": {
+                "x": 90.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            },
+            {
+              "description": "Pad 1 [VIN] of R1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 97
+              },
+              "uuid": "1f2687be-7e71-7622-1c09-7402465e8e1e"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 2 [MID] of J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            },
+            {
+              "description": "Pad 1 [MID] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 103
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [MID] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 103
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            },
+            {
+              "description": "Pad 2 [MID] of R1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 97
+              },
+              "uuid": "35685ca0-1816-dd3f-6596-171e4ceaaf03"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 3 [GND] of J1",
+              "pos": {
+                "x": 95.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            },
+            {
+              "description": "Pad 2 [GND] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 103
+              },
+              "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VIN) doesn't match net given by schematic (/VIN)",
+          "items": [
+            {
+              "description": "PTH pad 1 [VIN] of J1",
+              "pos": {
+                "x": 90.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+          "items": [
+            {
+              "description": "PTH pad 2 [MID] of J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 3 [GND] of J1",
+              "pos": {
+                "x": 95.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 97
+              },
+              "uuid": "39c8fede-5dc7-0322-0aa8-fade7318f8de"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VIN) doesn't match net given by schematic (/VIN)",
+          "items": [
+            {
+              "description": "Pad 1 [VIN] of R1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 97
+              },
+              "uuid": "1f2687be-7e71-7622-1c09-7402465e8e1e"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+          "items": [
+            {
+              "description": "Pad 2 [MID] of R1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 97
+              },
+              "uuid": "35685ca0-1816-dd3f-6596-171e4ceaaf03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 103
+              },
+              "uuid": "0255d780-5cc6-1561-48c9-acbe11a69123"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+          "items": [
+            {
+              "description": "Pad 1 [MID] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 103
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 103
+              },
+              "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "pcb_drc_violations": 24,
+      "pcb_unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VIN] of J1",
+              "pos": {
+                "x": 90.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            },
+            {
+              "description": "Pad 1 [VIN] of R1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 97
+              },
+              "uuid": "1f2687be-7e71-7622-1c09-7402465e8e1e"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 2 [MID] of J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            },
+            {
+              "description": "Pad 1 [MID] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 103
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [MID] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 103
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            },
+            {
+              "description": "Pad 2 [MID] of R1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 97
+              },
+              "uuid": "35685ca0-1816-dd3f-6596-171e4ceaaf03"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 3 [GND] of J1",
+              "pos": {
+                "x": 95.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            },
+            {
+              "description": "Pad 2 [GND] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 103
+              },
+              "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "6860606c-2f2f-a194-3940-5c6c5e4fa594"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VIN) doesn't match net given by schematic (/VIN)",
+          "items": [
+            {
+              "description": "PTH pad 1 [VIN] of J1",
+              "pos": {
+                "x": 90.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+          "items": [
+            {
+              "description": "PTH pad 2 [MID] of J1",
+              "pos": {
+                "x": 93,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 3 [GND] of J1",
+              "pos": {
+                "x": 95.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 100,
+                "y": 97
+              },
+              "uuid": "39c8fede-5dc7-0322-0aa8-fade7318f8de"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VIN) doesn't match net given by schematic (/VIN)",
+          "items": [
+            {
+              "description": "Pad 1 [VIN] of R1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 97
+              },
+              "uuid": "1f2687be-7e71-7622-1c09-7402465e8e1e"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+          "items": [
+            {
+              "description": "Pad 2 [MID] of R1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 97
+              },
+              "uuid": "35685ca0-1816-dd3f-6596-171e4ceaaf03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 103
+              },
+              "uuid": "0255d780-5cc6-1561-48c9-acbe11a69123"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (MID) doesn't match net given by schematic (/MID)",
+          "items": [
+            {
+              "description": "Pad 1 [MID] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 103
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 103
+              },
+              "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "voltage-divider.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/voltage-divider",
+      "project_build": "build/tscircuit-worker-native-ZMkvgj/project-builds/voltage-divider",
+      "kicad_export_files": [
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "sym-lib-table",
+        "tscircuit.pretty",
+        "voltage-divider.kicad_pcb",
+        "voltage-divider.kicad_pro",
+        "voltage-divider.kicad_sch"
+      ]
+    },
+    {
+      "fixture": "led-transistor",
+      "source_components": 5,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "CTRL"
+          ],
+          "pins": [
+            "J1:3",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "D1:1",
+            "R1:2"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "D1:2",
+            "Q1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "J1:2",
+            "Q1:3"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "Q1:2",
+            "R2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "VCC"
+          ],
+          "pins": [
+            "J1:1",
+            "R1:1"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "/CTRL"
+          ],
+          "pins": [
+            "J1:3",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "/GND"
+          ],
+          "pins": [
+            "J1:2",
+            "Q1:3"
+          ]
+        },
+        {
+          "netNames": [
+            "/VCC"
+          ],
+          "pins": [
+            "J1:1",
+            "R1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(D1-Pad1)"
+          ],
+          "pins": [
+            "D1:1",
+            "R1:2"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(D1-Pad2)"
+          ],
+          "pins": [
+            "D1:2",
+            "Q1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(Q1-Pad2)"
+          ],
+          "pins": [
+            "Q1:2",
+            "R2:2"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol D1 [led_right]",
+              "pos": {
+                "x": 120.65,
+                "y": 104.14
+              },
+              "uuid": "9e3b9ec1-f123-4378-9ad1-91d93c891edb"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R1 [boxresistor_down]",
+              "pos": {
+                "x": 143.51,
+                "y": 85.09
+              },
+              "uuid": "1f78b075-4a5d-417a-bec2-d56e9c57a6d8"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol Q1 [npn_bipolar_transistor_right]",
+              "pos": {
+                "x": 147.32,
+                "y": 107.95
+              },
+              "uuid": "45398cf6-5ebe-41cb-8283-d66e5b340e49"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R2 [boxresistor_left]",
+              "pos": {
+                "x": 171.45,
+                "y": 127
+              },
+              "uuid": "2f5945d8-27f9-4092-9e83-770b1e8709a7"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol J1 [J_connector_pinrow3]",
+              "pos": {
+                "x": 175.26,
+                "y": 102.87
+              },
+              "uuid": "64cefb20-8a8d-4d9b-a72c-e1fd8fbecebb"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        }
+      ],
+      "erc_finding_count": 5,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "7af0609a-1c9f-a166-4bd0-5c9a4bbfa566"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 96,
+                "y": 96
+              },
+              "uuid": "31829d00-1c1a-deff-06b3-20fe0eb49d03"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 104
+              },
+              "uuid": "721d34e0-17ac-f6ff-42c3-46e262cc7b3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "Reference field of J1",
+              "pos": {
+                "x": 90,
+                "y": 97.46
+              },
+              "uuid": "332a81db-13aa-42b6-86e1-42485dac257a"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin1)",
+              "pos": {
+                "x": 87.46,
+                "y": 98.65
+              },
+              "uuid": "c1855186-57f4-4fb7-942b-4e9bf509d18d"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin2)",
+              "pos": {
+                "x": 90,
+                "y": 98.65
+              },
+              "uuid": "6e0be75c-d8c5-43a3-8bc2-c8c6806b4cef"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin3)",
+              "pos": {
+                "x": 92.54,
+                "y": 98.65
+              },
+              "uuid": "7cc7dbbc-c61e-407e-b106-933ad36972c7"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of D1",
+              "pos": {
+                "x": 100,
+                "y": 94.625
+              },
+              "uuid": "d515f207-f7c2-4008-a143-0492c32ac041"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R1",
+              "pos": {
+                "x": 96,
+                "y": 94.625
+              },
+              "uuid": "6c477414-757d-452b-a79b-78bc1b9a33f3"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R2",
+              "pos": {
+                "x": 100,
+                "y": 102.625
+              },
+              "uuid": "645a01d9-6458-4841-9d63-fa00d588bbb0"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            },
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            },
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            },
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Value (D1) doesn't match symbol value (LED)",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "7af0609a-1c9f-a166-4bd0-5c9a4bbfa566"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'LED')",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "7af0609a-1c9f-a166-4bd0-5c9a4bbfa566"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.D1 > .cathode to .Q1 > .collector) doesn't match net given by schematic (Net-(D1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.D1 > .cathode to .Q1 > .collector] of D1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 96
+              },
+              "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Component')",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 3 (/GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 1 (Net-(D1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (Net-(Q1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 96,
+                "y": 96
+              },
+              "uuid": "31829d00-1c1a-deff-06b3-20fe0eb49d03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 104
+              },
+              "uuid": "721d34e0-17ac-f6ff-42c3-46e262cc7b3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R2 > .pin2 to .Q1 > .base) doesn't match net given by schematic (Net-(Q1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.R2 > .pin2 to .Q1 > .base] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 104
+              },
+              "uuid": "716071c0-23e1-37e1-299e-01fe771d3bdd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "pcb_drc_violations": 34,
+      "pcb_unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            },
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            },
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            },
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "Value (D1) doesn't match symbol value (LED)",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "7af0609a-1c9f-a166-4bd0-5c9a4bbfa566"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'LED')",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "7af0609a-1c9f-a166-4bd0-5c9a4bbfa566"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "2e3d623c-6f5a-9ba4-0cf2-99845575689c"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.D1 > .cathode to .Q1 > .collector) doesn't match net given by schematic (Net-(D1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.D1 > .cathode to .Q1 > .collector] of D1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 96
+              },
+              "uuid": "4965b900-0419-80df-5198-babe60e80b63"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Component')",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 3 (/GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 1 (Net-(D1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (Net-(Q1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "6e7b4360-3714-7ebf-235b-bf227dcbfd03"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 96,
+                "y": 96
+              },
+              "uuid": "31829d00-1c1a-deff-06b3-20fe0eb49d03"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 104
+              },
+              "uuid": "721d34e0-17ac-f6ff-42c3-46e262cc7b3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R2 > .pin2 to .Q1 > .base) doesn't match net given by schematic (Net-(Q1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.R2 > .pin2 to .Q1 > .base] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 104
+              },
+              "uuid": "716071c0-23e1-37e1-299e-01fe771d3bdd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "led-transistor.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/led-transistor",
+      "project_build": "build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor",
+      "kicad_export_files": [
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "led-transistor.kicad_pcb",
+        "led-transistor.kicad_pro",
+        "led-transistor.kicad_sch",
+        "sym-lib-table",
+        "tscircuit.pretty"
+      ]
+    },
+    {
+      "fixture": "ldo-sensor-interface",
+      "source_components": 6,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "C1:2",
+            "C2:2",
+            "J1:2",
+            "J2:2",
+            "U1:2",
+            "U2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "SCL"
+          ],
+          "pins": [
+            "J2:3",
+            "U2:3"
+          ]
+        },
+        {
+          "netNames": [
+            "SDA"
+          ],
+          "pins": [
+            "J2:4",
+            "U2:4"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "U1:4"
+          ]
+        },
+        {
+          "netNames": [
+            "V3V3"
+          ],
+          "pins": [
+            "C2:1",
+            "J2:1",
+            "U1:5",
+            "U2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "VIN"
+          ],
+          "pins": [
+            "C1:1",
+            "J1:1",
+            "U1:1",
+            "U1:3"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "/Sensor Interface/SCL"
+          ],
+          "pins": [
+            "J2:3",
+            "U2:3"
+          ]
+        },
+        {
+          "netNames": [
+            "/Sensor Interface/SDA"
+          ],
+          "pins": [
+            "J2:4",
+            "U2:4"
+          ]
+        },
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "C1:2",
+            "C2:2",
+            "J1:2",
+            "J2:2",
+            "U1:2",
+            "U2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "unconnected-(U1-NC-Pad4)"
+          ],
+          "pins": [
+            "U1:4"
+          ]
+        },
+        {
+          "netNames": [
+            "V3V3"
+          ],
+          "pins": [
+            "C2:1",
+            "J2:1",
+            "U1:5",
+            "U2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "VIN"
+          ],
+          "pins": [
+            "C1:1",
+            "J1:1",
+            "U1:1",
+            "U1:3"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol C1 [capacitor_down]",
+              "pos": {
+                "x": 115.57,
+                "y": 91.44
+              },
+              "uuid": "71ab3e89-1248-4422-ba29-db69b3de7acf"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol U1 [U_chip_SOT-23-5]",
+              "pos": {
+                "x": 148.59,
+                "y": 87.63
+              },
+              "uuid": "1fa445d8-a03f-4268-959e-eff58781c4b0"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol J1 [J_connector_pinrow2]",
+              "pos": {
+                "x": 156.21,
+                "y": 125.73
+              },
+              "uuid": "51150854-ff98-4b3e-9ee7-740408bb59bb"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol C2 [capacitor_down]",
+              "pos": {
+                "x": 181.61,
+                "y": 92.71
+              },
+              "uuid": "af01bd9d-733f-48ea-9b4b-8dc7ecd6e22e"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol J2 [J_connector_pinrow4]",
+              "pos": {
+                "x": 140.97,
+                "y": 90.17
+              },
+              "uuid": "2e3de6fc-df58-4d63-bc19-e0ed27e45f86"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol U2 [U_chip_SOIC-8]",
+              "pos": {
+                "x": 148.59,
+                "y": 119.38
+              },
+              "uuid": "91670afd-a3e4-4763-8ed8-2432834fb417"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        }
+      ],
+      "erc_finding_count": 6,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "Courtyards overlap",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 107.975,
+                "y": 98.73
+              },
+              "uuid": "22cfec40-3890-febf-4e52-113e641323bd"
+            },
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "error",
+          "type": "courtyards_overlap"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 97
+              },
+              "uuid": "720ee380-7889-5e7f-6321-a07e4db9e27d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 95,
+                "y": 100
+              },
+              "uuid": "0dca71ec-763a-6fec-2155-9214471a6bec"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 107.975,
+                "y": 98.73
+              },
+              "uuid": "22cfec40-3890-febf-4e52-113e641323bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "Reference field of J1",
+              "pos": {
+                "x": 90,
+                "y": 94.46
+              },
+              "uuid": "2f5b9262-2c3a-4308-845f-5bf83ac0fdbe"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin1)",
+              "pos": {
+                "x": 88.73,
+                "y": 95.65
+              },
+              "uuid": "6d4d880b-5e88-4c4a-9251-ab34362b320f"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin2)",
+              "pos": {
+                "x": 91.27,
+                "y": 95.65
+              },
+              "uuid": "36da6f98-cee2-4267-ac69-eba5f45e6673"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Reference field of U1",
+              "pos": {
+                "x": 100,
+                "y": 96.96
+              },
+              "uuid": "b7ab5ea0-3b70-4b98-8e0e-e26f47374421"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of C1",
+              "pos": {
+                "x": 95,
+                "y": 98.625
+              },
+              "uuid": "e1d3cd89-19c6-46a7-8cdc-ec4ab2615e82"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of C2",
+              "pos": {
+                "x": 105,
+                "y": 98.625
+              },
+              "uuid": "6aa66acb-d704-4961-b13e-51ff0ca7fb12"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "Reference field of J2",
+              "pos": {
+                "x": 105.435,
+                "y": 98.73
+              },
+              "uuid": "c4d65108-9c95-49d6-a399-7a4e5d497393"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J2 (pin1)",
+              "pos": {
+                "x": 106.625,
+                "y": 102.54
+              },
+              "uuid": "363fa160-d9c0-4235-ba5a-0c88fbd927d0"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J2 (pin2)",
+              "pos": {
+                "x": 106.625,
+                "y": 100
+              },
+              "uuid": "00ad626f-d8fe-40a8-9ae6-3e1ffffea829"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J2 (pin3)",
+              "pos": {
+                "x": 106.625,
+                "y": 97.46
+              },
+              "uuid": "69e4b3b9-a47e-48f0-b0e4-fba3c8d010af"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J2 (pin4)",
+              "pos": {
+                "x": 106.625,
+                "y": 94.92
+              },
+              "uuid": "76f7a092-ec64-421e-9cf7-4dd86cc93f12"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Silkscreen clearance",
+          "items": [
+            {
+              "description": "Reference field of C2",
+              "pos": {
+                "x": 105,
+                "y": 98.625
+              },
+              "uuid": "6aa66acb-d704-4961-b13e-51ff0ca7fb12"
+            },
+            {
+              "description": "Reference field of J2",
+              "pos": {
+                "x": 105.435,
+                "y": 98.73
+              },
+              "uuid": "c4d65108-9c95-49d6-a399-7a4e5d497393"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_overlap"
+        },
+        {
+          "description": "Silkscreen clearance",
+          "items": [
+            {
+              "description": "Segment of C2 on F.Silkscreen",
+              "pos": {
+                "x": 105.825,
+                "y": 99.125
+              },
+              "uuid": "219e0e07-6e8d-4d76-ac74-7d04cace389e"
+            },
+            {
+              "description": "Reference field of J2",
+              "pos": {
+                "x": 105.435,
+                "y": 98.73
+              },
+              "uuid": "c4d65108-9c95-49d6-a399-7a4e5d497393"
+            }
+          ],
+          "severity": "warning",
+          "type": "silk_overlap"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VIN] of J1",
+              "pos": {
+                "x": 88.73,
+                "y": 97
+              },
+              "uuid": "5bfa9332-071f-9632-4dbb-66ce5d699c32"
+            },
+            {
+              "description": "Pad 1 [VIN] of C1 on F.Cu",
+              "pos": {
+                "x": 94.175,
+                "y": 100
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [VIN] of C1 on F.Cu",
+              "pos": {
+                "x": 94.175,
+                "y": 100
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            },
+            {
+              "description": "Pad 3 [VIN] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100.95
+              },
+              "uuid": "74a0aaca-7ef6-d356-728e-51766625cf96"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 3 [VIN] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100.95
+              },
+              "uuid": "74a0aaca-7ef6-d356-728e-51766625cf96"
+            },
+            {
+              "description": "Pad 1 [VIN] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 99.05
+              },
+              "uuid": "2a646f80-70e9-129f-4892-4a42020da723"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [V3V3] of C2 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 100
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            },
+            {
+              "description": "Pad 5 [V3V3] of U1 on F.Cu",
+              "pos": {
+                "x": 101.1375,
+                "y": 99.05
+              },
+              "uuid": "42e5d702-683f-2bfe-1364-2efe4176ce02"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [V3V3] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 102.54
+              },
+              "uuid": "16ce0ca0-572a-dfbf-3adc-33e2331cb87d"
+            },
+            {
+              "description": "Pad 1 [V3V3] of C2 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 100
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 91.27,
+                "y": 97
+              },
+              "uuid": "5a28a4e0-5085-f821-04cb-6ade5a1ccddd"
+            },
+            {
+              "description": "Pad 2 [GND] of C1 on F.Cu",
+              "pos": {
+                "x": 95.825,
+                "y": 100
+              },
+              "uuid": "4862633c-46a5-7e24-2a52-a07c64b540e4"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of C1 on F.Cu",
+              "pos": {
+                "x": 95.825,
+                "y": 100
+              },
+              "uuid": "4862633c-46a5-7e24-2a52-a07c64b540e4"
+            },
+            {
+              "description": "Pad 2 [GND] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100
+              },
+              "uuid": "414b6380-2be3-a57f-167b-e77e0114297d"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100
+              },
+              "uuid": "414b6380-2be3-a57f-167b-e77e0114297d"
+            },
+            {
+              "description": "Pad 2 [GND] of C2 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 100
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of C2 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 100
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            },
+            {
+              "description": "PTH pad 2 [GND] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 100
+              },
+              "uuid": "33ed0720-5e1a-0c81-0fde-dfde7dd7cc3d"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 95,
+                "y": 100
+              },
+              "uuid": "0dca71ec-763a-6fec-2155-9214471a6bec"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 97
+              },
+              "uuid": "720ee380-7889-5e7f-6321-a07e4db9e27d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 97
+              },
+              "uuid": "720ee380-7889-5e7f-6321-a07e4db9e27d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Value (U1) doesn't match symbol value ()",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Integrated Circuit')",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad missing net given by schematic (unconnected-(U1-NC-Pad4))",
+          "items": [
+            {
+              "description": "Pad 4 [<no net>] of U1 on F.Cu",
+              "pos": {
+                "x": 101.1375,
+                "y": 100.95
+              },
+              "uuid": "78e0a7e0-2caf-1a3f-2dc1-23a277ce9e7d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J2) doesn't match symbol value (J2)",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 107.975,
+                "y": 98.73
+              },
+              "uuid": "22cfec40-3890-febf-4e52-113e641323bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 107.975,
+                "y": 98.73
+              },
+              "uuid": "22cfec40-3890-febf-4e52-113e641323bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (SCL) doesn't match net given by schematic (/Sensor Interface/SCL)",
+          "items": [
+            {
+              "description": "PTH pad 3 [SCL] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 97.46
+              },
+              "uuid": "2e82eec0-7249-eaff-49ef-18c206281c83"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (SDA) doesn't match net given by schematic (/Sensor Interface/SDA)",
+          "items": [
+            {
+              "description": "PTH pad 4 [SDA] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 94.92
+              },
+              "uuid": "7fbe5c40-1248-b761-5bb0-34fe3656dea3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (U2) doesn't match symbol value ()",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Integrated Circuit')",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 3 (/Sensor Interface/SCL) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 4 (/Sensor Interface/SDA) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 1 (V3V3) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "pcb_drc_violations": 46,
+      "pcb_unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VIN] of J1",
+              "pos": {
+                "x": 88.73,
+                "y": 97
+              },
+              "uuid": "5bfa9332-071f-9632-4dbb-66ce5d699c32"
+            },
+            {
+              "description": "Pad 1 [VIN] of C1 on F.Cu",
+              "pos": {
+                "x": 94.175,
+                "y": 100
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [VIN] of C1 on F.Cu",
+              "pos": {
+                "x": 94.175,
+                "y": 100
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            },
+            {
+              "description": "Pad 3 [VIN] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100.95
+              },
+              "uuid": "74a0aaca-7ef6-d356-728e-51766625cf96"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 3 [VIN] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100.95
+              },
+              "uuid": "74a0aaca-7ef6-d356-728e-51766625cf96"
+            },
+            {
+              "description": "Pad 1 [VIN] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 99.05
+              },
+              "uuid": "2a646f80-70e9-129f-4892-4a42020da723"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [V3V3] of C2 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 100
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            },
+            {
+              "description": "Pad 5 [V3V3] of U1 on F.Cu",
+              "pos": {
+                "x": 101.1375,
+                "y": 99.05
+              },
+              "uuid": "42e5d702-683f-2bfe-1364-2efe4176ce02"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [V3V3] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 102.54
+              },
+              "uuid": "16ce0ca0-572a-dfbf-3adc-33e2331cb87d"
+            },
+            {
+              "description": "Pad 1 [V3V3] of C2 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 100
+              },
+              "uuid": "738be020-2197-9561-305c-b55e7daeffe3"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 91.27,
+                "y": 97
+              },
+              "uuid": "5a28a4e0-5085-f821-04cb-6ade5a1ccddd"
+            },
+            {
+              "description": "Pad 2 [GND] of C1 on F.Cu",
+              "pos": {
+                "x": 95.825,
+                "y": 100
+              },
+              "uuid": "4862633c-46a5-7e24-2a52-a07c64b540e4"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of C1 on F.Cu",
+              "pos": {
+                "x": 95.825,
+                "y": 100
+              },
+              "uuid": "4862633c-46a5-7e24-2a52-a07c64b540e4"
+            },
+            {
+              "description": "Pad 2 [GND] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100
+              },
+              "uuid": "414b6380-2be3-a57f-167b-e77e0114297d"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of U1 on F.Cu",
+              "pos": {
+                "x": 98.8625,
+                "y": 100
+              },
+              "uuid": "414b6380-2be3-a57f-167b-e77e0114297d"
+            },
+            {
+              "description": "Pad 2 [GND] of C2 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 100
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [GND] of C2 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 100
+              },
+              "uuid": "1dceb3c2-5329-6ade-3bde-76823519a81e"
+            },
+            {
+              "description": "PTH pad 2 [GND] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 100
+              },
+              "uuid": "33ed0720-5e1a-0c81-0fde-dfde7dd7cc3d"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C1",
+              "pos": {
+                "x": 95,
+                "y": 100
+              },
+              "uuid": "0dca71ec-763a-6fec-2155-9214471a6bec"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Capacitor')",
+          "items": [
+            {
+              "description": "Footprint C2",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 97
+              },
+              "uuid": "720ee380-7889-5e7f-6321-a07e4db9e27d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 97
+              },
+              "uuid": "720ee380-7889-5e7f-6321-a07e4db9e27d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Value (U1) doesn't match symbol value ()",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Integrated Circuit')",
+          "items": [
+            {
+              "description": "Footprint U1",
+              "pos": {
+                "x": 100,
+                "y": 100
+              },
+              "uuid": "555ec800-5030-fa1f-0a3f-43c264af81a3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad missing net given by schematic (unconnected-(U1-NC-Pad4))",
+          "items": [
+            {
+              "description": "Pad 4 [<no net>] of U1 on F.Cu",
+              "pos": {
+                "x": 101.1375,
+                "y": 100.95
+              },
+              "uuid": "78e0a7e0-2caf-1a3f-2dc1-23a277ce9e7d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J2) doesn't match symbol value (J2)",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 107.975,
+                "y": 98.73
+              },
+              "uuid": "22cfec40-3890-febf-4e52-113e641323bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 107.975,
+                "y": 98.73
+              },
+              "uuid": "22cfec40-3890-febf-4e52-113e641323bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (SCL) doesn't match net given by schematic (/Sensor Interface/SCL)",
+          "items": [
+            {
+              "description": "PTH pad 3 [SCL] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 97.46
+              },
+              "uuid": "2e82eec0-7249-eaff-49ef-18c206281c83"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (SDA) doesn't match net given by schematic (/Sensor Interface/SDA)",
+          "items": [
+            {
+              "description": "PTH pad 4 [SDA] of J2",
+              "pos": {
+                "x": 107.975,
+                "y": 94.92
+              },
+              "uuid": "7fbe5c40-1248-b761-5bb0-34fe3656dea3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (U2) doesn't match symbol value ()",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Integrated Circuit')",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 3 (/Sensor Interface/SCL) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 4 (/Sensor Interface/SDA) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 1 (V3V3) in schematic",
+          "items": [
+            {
+              "description": "Footprint U2",
+              "pos": {
+                "x": 106.975,
+                "y": 86.73
+              },
+              "uuid": "65339ca0-4f72-8a21-39b1-77a223f06523"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "ldo-sensor-interface-Power.svg",
+        "ldo-sensor-interface-Sensor Interface.svg",
+        "ldo-sensor-interface.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/ldo-sensor-interface",
+      "project_build": "build/tscircuit-worker-native-ZMkvgj/project-builds/ldo-sensor-interface",
+      "kicad_export_files": [
+        "Custom.kicad_sym",
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "ldo-sensor-interface.kicad_pcb",
+        "ldo-sensor-interface.kicad_pro",
+        "ldo-sensor-interface.kicad_sch",
+        "power.kicad_sch",
+        "sensor.kicad_sch",
+        "sym-lib-table",
+        "tscircuit.pretty"
+      ]
+    },
+    {
+      "fixture": "led-transistor-expanded",
+      "source_components": 7,
+      "source_pin_net_groups": [
+        {
+          "netNames": [
+            "AUX_OUT"
+          ],
+          "pins": [
+            "R3:2"
+          ]
+        },
+        {
+          "netNames": [
+            "CTRL"
+          ],
+          "pins": [
+            "J1:3",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "D1:1",
+            "R1:2"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "D1:2",
+            "Q1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "GND"
+          ],
+          "pins": [
+            "J1:2",
+            "J2:2",
+            "Q1:3"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "J2:1",
+            "R3:1"
+          ]
+        },
+        {
+          "netNames": [],
+          "pins": [
+            "Q1:2",
+            "R2:2"
+          ]
+        },
+        {
+          "netNames": [
+            "VCC"
+          ],
+          "pins": [
+            "J1:1",
+            "R1:1"
+          ]
+        }
+      ],
+      "native_pin_net_groups": [
+        {
+          "netNames": [
+            "/AUX_OUT"
+          ],
+          "pins": [
+            "R3:2"
+          ]
+        },
+        {
+          "netNames": [
+            "/CTRL"
+          ],
+          "pins": [
+            "J1:3",
+            "R2:1"
+          ]
+        },
+        {
+          "netNames": [
+            "/GND"
+          ],
+          "pins": [
+            "J1:2",
+            "J2:2",
+            "Q1:3"
+          ]
+        },
+        {
+          "netNames": [
+            "/VCC"
+          ],
+          "pins": [
+            "J1:1",
+            "R1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(D1-Pad1)"
+          ],
+          "pins": [
+            "D1:1",
+            "R1:2"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(D1-Pad2)"
+          ],
+          "pins": [
+            "D1:2",
+            "Q1:1"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(J2-Pad1)"
+          ],
+          "pins": [
+            "J2:1",
+            "R3:1"
+          ]
+        },
+        {
+          "netNames": [
+            "Net-(Q1-Pad2)"
+          ],
+          "pins": [
+            "Q1:2",
+            "R2:2"
+          ]
+        }
+      ],
+      "pin_net_membership": "exact",
+      "erc_findings": [
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol D1 [led_right]",
+              "pos": {
+                "x": 107.95,
+                "y": 121.92
+              },
+              "uuid": "84552162-a475-4993-b0e5-14a0135110f7"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R1 [boxresistor_down]",
+              "pos": {
+                "x": 130.81,
+                "y": 102.87
+              },
+              "uuid": "baeb6bcd-002b-4df5-8d57-407017b8033b"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol Q1 [npn_bipolar_transistor_right]",
+              "pos": {
+                "x": 134.62,
+                "y": 125.73
+              },
+              "uuid": "eda1210d-98d7-4c96-9f09-5cae0f0c2a8d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R2 [boxresistor_left]",
+              "pos": {
+                "x": 158.75,
+                "y": 144.78
+              },
+              "uuid": "b4624b95-bc40-44c1-b588-3517b7241775"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol J1 [J_connector_pinrow3]",
+              "pos": {
+                "x": 162.56,
+                "y": 120.65
+              },
+              "uuid": "0f5d1b3e-2caf-4ee5-a2fb-e3000e255d5f"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "Label connected to only one pin",
+          "items": [
+            {
+              "description": "Label 'AUX_OUT'",
+              "pos": {
+                "x": 195.58,
+                "y": 71.12
+              },
+              "uuid": "e24a66e3-de00-4f43-943a-9dcc8e03e417"
+            }
+          ],
+          "severity": "warning",
+          "type": "isolated_pin_label"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol R3 [boxresistor_up]",
+              "pos": {
+                "x": 195.58,
+                "y": 77.47
+              },
+              "uuid": "302c2449-c572-4b09-a5cb-1c2c3e086d7e"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        },
+        {
+          "description": "The current configuration does not include the footprint library 'tscircuit'",
+          "items": [
+            {
+              "description": "Symbol J2 [J_connector_pinrow2]",
+              "pos": {
+                "x": 195.58,
+                "y": 100.33
+              },
+              "uuid": "e3ab2cba-18ed-4c9d-b79d-2d3eb03a4de1"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_link_issues"
+        }
+      ],
+      "erc_finding_count": 8,
+      "erc_ignored_checks": [],
+      "pcb_drc_ignored_checks": [
+        {
+          "description": "Footprint has no courtyard defined",
+          "key": "missing_courtyard"
+        },
+        {
+          "description": "Track endpoint not centered on via",
+          "key": "track_not_centered_on_via"
+        },
+        {
+          "description": "Tuning profile track geometries",
+          "key": "tuning_profile_track_geometries"
+        },
+        {
+          "description": "Footprint doesn't match symbol's footprint filters",
+          "key": "footprint_filters_mismatch"
+        },
+        {
+          "description": "Footprint component type doesn't match footprint pads",
+          "key": "footprint_type_mismatch"
+        }
+      ],
+      "pcb_drc_findings": [
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 110,
+                "y": 100
+              },
+              "uuid": "755707e0-1ae6-c9ff-3f89-73e266064e3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R3",
+              "pos": {
+                "x": 105,
+                "y": 94
+              },
+              "uuid": "3b80b7b4-2cef-464c-6aa0-bbb40230bdb4"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "071163ea-615e-9a16-3631-67ea323e9616"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 96,
+                "y": 96
+              },
+              "uuid": "5df44cc0-488c-8ebf-3324-d0be1dbd12bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "The footprint library 'tscircuit' is not enabled in the current configuration",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 104
+              },
+              "uuid": "568f82e0-4f00-3f3f-0b6f-fea265e03c83"
+            }
+          ],
+          "severity": "warning",
+          "type": "lib_footprint_issues"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "Reference field of J1",
+              "pos": {
+                "x": 90,
+                "y": 97.46
+              },
+              "uuid": "d3c8dddf-c079-4f01-854a-56b1505ace39"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin1)",
+              "pos": {
+                "x": 87.46,
+                "y": 98.65
+              },
+              "uuid": "a301b12b-64d0-401e-a3e4-01d5c522f4f1"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin2)",
+              "pos": {
+                "x": 90,
+                "y": 98.65
+              },
+              "uuid": "d48a7cdc-3b25-47cf-b125-fb4a037ae8fb"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J1 (pin3)",
+              "pos": {
+                "x": 92.54,
+                "y": 98.65
+              },
+              "uuid": "0cdd93e9-e307-46dd-a862-1621834eacfb"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.7000 mm)",
+          "items": [
+            {
+              "description": "Reference field of J2",
+              "pos": {
+                "x": 110,
+                "y": 97.46
+              },
+              "uuid": "21c6ac79-915c-4663-bf13-148c70d0d5e2"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J2 (pin1)",
+              "pos": {
+                "x": 108.73,
+                "y": 98.65
+              },
+              "uuid": "994b74dc-b5ea-40ba-9e00-0607685ce1da"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.5000 mm)",
+          "items": [
+            {
+              "description": "Footprint text of J2 (pin2)",
+              "pos": {
+                "x": 111.27,
+                "y": 98.65
+              },
+              "uuid": "ec082c5b-703a-4299-ab8f-f51a2a5be4c0"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R3",
+              "pos": {
+                "x": 105,
+                "y": 92.625
+              },
+              "uuid": "e27e9bb3-6fec-473c-9914-b8cc3e6d3f8f"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of D1",
+              "pos": {
+                "x": 100,
+                "y": 94.625
+              },
+              "uuid": "63774b50-90e3-4243-abed-9ae01ea2de9c"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R1",
+              "pos": {
+                "x": 96,
+                "y": 94.625
+              },
+              "uuid": "23a3023e-12b4-4ad4-b163-543ba88b03c7"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Text height out of range (board setup constraints silk text height min height 0.8000 mm; actual 0.4000 mm)",
+          "items": [
+            {
+              "description": "Reference field of R2",
+              "pos": {
+                "x": 100,
+                "y": 102.625
+              },
+              "uuid": "f275e9d6-b703-41fb-91ec-ac73162f81bb"
+            }
+          ],
+          "severity": "warning",
+          "type": "text_height"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [.J2 > .pin1 to .R3 > .pin1] of R3 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 94
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            },
+            {
+              "description": "PTH pad 1 [.J2 > .pin1 to .R3 > .pin1] of J2",
+              "pos": {
+                "x": 108.73,
+                "y": 100
+              },
+              "uuid": "10be5f30-441c-9dd0-6708-6530122d6830"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            },
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "324f4d60-1fa4-fd5f-7199-481e3c726d23"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "15cf1e42-7938-c31e-0840-a47e68b77a22"
+            },
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            },
+            {
+              "description": "PTH pad 2 [GND] of J2",
+              "pos": {
+                "x": 111.27,
+                "y": 100
+              },
+              "uuid": "3955e700-7158-b601-1c07-5302394a0ffd"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            },
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "6a98cc34-32ff-31ac-2f68-d0746e2f2d6c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Value (D1) doesn't match symbol value (LED)",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "071163ea-615e-9a16-3631-67ea323e9616"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'LED')",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "071163ea-615e-9a16-3631-67ea323e9616"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.D1 > .cathode to .Q1 > .collector) doesn't match net given by schematic (Net-(D1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.D1 > .cathode to .Q1 > .collector] of D1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 96
+              },
+              "uuid": "716071c0-23e1-37e1-299e-01fe771d3bdd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J2) doesn't match symbol value (J2)",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 110,
+                "y": 100
+              },
+              "uuid": "755707e0-1ae6-c9ff-3f89-73e266064e3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 110,
+                "y": 100
+              },
+              "uuid": "755707e0-1ae6-c9ff-3f89-73e266064e3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.J2 > .pin1 to .R3 > .pin1) doesn't match net given by schematic (Net-(J2-Pad1))",
+          "items": [
+            {
+              "description": "PTH pad 1 [.J2 > .pin1 to .R3 > .pin1] of J2",
+              "pos": {
+                "x": 108.73,
+                "y": 100
+              },
+              "uuid": "10be5f30-441c-9dd0-6708-6530122d6830"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J2",
+              "pos": {
+                "x": 111.27,
+                "y": 100
+              },
+              "uuid": "3955e700-7158-b601-1c07-5302394a0ffd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Component')",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 3 (/GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 1 (Net-(D1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (Net-(Q1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 96,
+                "y": 96
+              },
+              "uuid": "5df44cc0-488c-8ebf-3324-d0be1dbd12bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "324f4d60-1fa4-fd5f-7199-481e3c726d23"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "15cf1e42-7938-c31e-0840-a47e68b77a22"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 104
+              },
+              "uuid": "568f82e0-4f00-3f3f-0b6f-fea265e03c83"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "6a98cc34-32ff-31ac-2f68-d0746e2f2d6c"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R2 > .pin2 to .Q1 > .base) doesn't match net given by schematic (Net-(Q1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.R2 > .pin2 to .Q1 > .base] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 104
+              },
+              "uuid": "66a4d580-4bdb-f0a1-01a3-493e4f22831d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R3",
+              "pos": {
+                "x": 105,
+                "y": 94
+              },
+              "uuid": "3b80b7b4-2cef-464c-6aa0-bbb40230bdb4"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.J2 > .pin1 to .R3 > .pin1) doesn't match net given by schematic (Net-(J2-Pad1))",
+          "items": [
+            {
+              "description": "Pad 1 [.J2 > .pin1 to .R3 > .pin1] of R3 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 94
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (AUX_OUT) doesn't match net given by schematic (/AUX_OUT)",
+          "items": [
+            {
+              "description": "Pad 2 [AUX_OUT] of R3 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 94
+              },
+              "uuid": "4862633c-46a5-7e24-2a52-a07c64b540e4"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "pcb_drc_violations": 49,
+      "pcb_unconnected_items": [
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 1 [.J2 > .pin1 to .R3 > .pin1] of R3 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 94
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            },
+            {
+              "description": "PTH pad 1 [.J2 > .pin1 to .R3 > .pin1] of J2",
+              "pos": {
+                "x": 108.73,
+                "y": 100
+              },
+              "uuid": "10be5f30-441c-9dd0-6708-6530122d6830"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            },
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "324f4d60-1fa4-fd5f-7199-481e3c726d23"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "15cf1e42-7938-c31e-0840-a47e68b77a22"
+            },
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            },
+            {
+              "description": "PTH pad 2 [GND] of J2",
+              "pos": {
+                "x": 111.27,
+                "y": 100
+              },
+              "uuid": "3955e700-7158-b601-1c07-5302394a0ffd"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        },
+        {
+          "description": "Missing connection between items",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            },
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "6a98cc34-32ff-31ac-2f68-d0746e2f2d6c"
+            }
+          ],
+          "severity": "error",
+          "type": "unconnected_items"
+        }
+      ],
+      "pcb_schematic_parity_issues": [
+        {
+          "description": "Value (D1) doesn't match symbol value (LED)",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "071163ea-615e-9a16-3631-67ea323e9616"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'LED')",
+          "items": [
+            {
+              "description": "Footprint D1",
+              "pos": {
+                "x": 100,
+                "y": 96
+              },
+              "uuid": "071163ea-615e-9a16-3631-67ea323e9616"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 1 [.R1 > .pin2 to .D1 > .anode] of D1 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 96
+              },
+              "uuid": "4c6b1738-512c-e6a8-113b-1b7873a31d98"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.D1 > .cathode to .Q1 > .collector) doesn't match net given by schematic (Net-(D1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.D1 > .cathode to .Q1 > .collector] of D1 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 96
+              },
+              "uuid": "716071c0-23e1-37e1-299e-01fe771d3bdd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J1) doesn't match symbol value (J1)",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "2d3e9f66-6a51-629a-01e1-649a668e9966"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "PTH pad 1 [VCC] of J1",
+              "pos": {
+                "x": 87.46,
+                "y": 100
+              },
+              "uuid": "72102040-389e-7cc1-1cb2-e63e7204493d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J1",
+              "pos": {
+                "x": 90,
+                "y": 100
+              },
+              "uuid": "3b5d8d66-270a-74ba-768d-892614258706"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "PTH pad 3 [CTRL] of J1",
+              "pos": {
+                "x": 92.54,
+                "y": 100
+              },
+              "uuid": "11ff8f60-6c6f-cd41-391f-f4de21504903"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Value (J2) doesn't match symbol value (J2)",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 110,
+                "y": 100
+              },
+              "uuid": "755707e0-1ae6-c9ff-3f89-73e266064e3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_mismatch"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Connector')",
+          "items": [
+            {
+              "description": "Footprint J2",
+              "pos": {
+                "x": 110,
+                "y": 100
+              },
+              "uuid": "755707e0-1ae6-c9ff-3f89-73e266064e3d"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.J2 > .pin1 to .R3 > .pin1) doesn't match net given by schematic (Net-(J2-Pad1))",
+          "items": [
+            {
+              "description": "PTH pad 1 [.J2 > .pin1 to .R3 > .pin1] of J2",
+              "pos": {
+                "x": 108.73,
+                "y": 100
+              },
+              "uuid": "10be5f30-441c-9dd0-6708-6530122d6830"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (GND) doesn't match net given by schematic (/GND)",
+          "items": [
+            {
+              "description": "PTH pad 2 [GND] of J2",
+              "pos": {
+                "x": 111.27,
+                "y": 100
+              },
+              "uuid": "3955e700-7158-b601-1c07-5302394a0ffd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Component')",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "No pad found for pin 3 (/GND) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 1 (Net-(D1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "No pad found for pin 2 (Net-(Q1-Pad2)) in schematic",
+          "items": [
+            {
+              "description": "Footprint Q1",
+              "pos": {
+                "x": 105,
+                "y": 100
+              },
+              "uuid": "3727fb20-6e67-c6ff-13f7-891e4678b4c3"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R1",
+              "pos": {
+                "x": 96,
+                "y": 96
+              },
+              "uuid": "5df44cc0-488c-8ebf-3324-d0be1dbd12bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (VCC) doesn't match net given by schematic (/VCC)",
+          "items": [
+            {
+              "description": "Pad 1 [VCC] of R1 on F.Cu",
+              "pos": {
+                "x": 95.175,
+                "y": 96
+              },
+              "uuid": "324f4d60-1fa4-fd5f-7199-481e3c726d23"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R1 > .pin2 to .D1 > .anode) doesn't match net given by schematic (Net-(D1-Pad1))",
+          "items": [
+            {
+              "description": "Pad 2 [.R1 > .pin2 to .D1 > .anode] of R1 on F.Cu",
+              "pos": {
+                "x": 96.825,
+                "y": 96
+              },
+              "uuid": "15cf1e42-7938-c31e-0840-a47e68b77a22"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R2",
+              "pos": {
+                "x": 100,
+                "y": 104
+              },
+              "uuid": "568f82e0-4f00-3f3f-0b6f-fea265e03c83"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (CTRL) doesn't match net given by schematic (/CTRL)",
+          "items": [
+            {
+              "description": "Pad 1 [CTRL] of R2 on F.Cu",
+              "pos": {
+                "x": 99.175,
+                "y": 104
+              },
+              "uuid": "6a98cc34-32ff-31ac-2f68-d0746e2f2d6c"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (.R2 > .pin2 to .Q1 > .base) doesn't match net given by schematic (Net-(Q1-Pad2))",
+          "items": [
+            {
+              "description": "Pad 2 [.R2 > .pin2 to .Q1 > .base] of R2 on F.Cu",
+              "pos": {
+                "x": 100.825,
+                "y": 104
+              },
+              "uuid": "66a4d580-4bdb-f0a1-01a3-493e4f22831d"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Field 'Description' differs (PCB: '', Schematic: 'Resistor')",
+          "items": [
+            {
+              "description": "Footprint R3",
+              "pos": {
+                "x": 105,
+                "y": 94
+              },
+              "uuid": "3b80b7b4-2cef-464c-6aa0-bbb40230bdb4"
+            }
+          ],
+          "severity": "warning",
+          "type": "footprint_symbol_field_mismatch"
+        },
+        {
+          "description": "Pad net (.J2 > .pin1 to .R3 > .pin1) doesn't match net given by schematic (Net-(J2-Pad1))",
+          "items": [
+            {
+              "description": "Pad 1 [.J2 > .pin1 to .R3 > .pin1] of R3 on F.Cu",
+              "pos": {
+                "x": 104.175,
+                "y": 94
+              },
+              "uuid": "6bd5d680-4235-dec1-0fbe-6bfe61b2b6bd"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        },
+        {
+          "description": "Pad net (AUX_OUT) doesn't match net given by schematic (/AUX_OUT)",
+          "items": [
+            {
+              "description": "Pad 2 [AUX_OUT] of R3 on F.Cu",
+              "pos": {
+                "x": 105.825,
+                "y": 94
+              },
+              "uuid": "4862633c-46a5-7e24-2a52-a07c64b540e4"
+            }
+          ],
+          "severity": "warning",
+          "type": "net_conflict"
+        }
+      ],
+      "rendered_schematic_svgs": [
+        "led-transistor.svg"
+      ],
+      "native_output": "build/tscircuit-worker-native-ZMkvgj/native-results/led-transistor-expanded",
+      "project_build": "build/tscircuit-worker-native-ZMkvgj/project-builds/led-transistor-expanded",
+      "kicad_export_files": [
+        "Device.kicad_sym",
+        "export-manifest.json",
+        "fp-lib-table",
+        "led-transistor.kicad_pcb",
+        "led-transistor.kicad_pro",
+        "led-transistor.kicad_sch",
+        "sym-lib-table",
+        "tscircuit.pretty"
+      ]
+    }
+  ]
+}

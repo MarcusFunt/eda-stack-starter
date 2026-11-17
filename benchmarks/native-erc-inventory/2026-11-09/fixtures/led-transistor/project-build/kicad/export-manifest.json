@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-09T21:24:54.593Z",
+  "project_name": "led-transistor",
+  "converter": {
+    "package": "circuit-json-to-kicad",
+    "version": "0.0.270"
+  },
+  "input": {
+    "circuit_json_sha256": "6991d1f42b0bcea68685afa180d22b352500791bc519a694e64e51afdf207045"
+  },
+  "source_pin_net_groups": [
+    {
+      "netNames": [
+        "CTRL"
+      ],
+      "pins": [
+        "J1:3",
+        "R2:1"
+      ]
+    },
+    {
+      "netNames": [],
+      "pins": [
+        "D1:1",
+        "R1:2"
+      ]
+    },
+    {
+      "netNames": [],
+      "pins": [
+        "D1:2",
+        "Q1:1"
+      ]
+    },
+    {
+      "netNames": [
+        "GND"
+      ],
+      "pins": [
+        "J1:2",
+        "Q1:3"
+      ]
+    },
+    {
+      "netNames": [],
+      "pins": [
+        "Q1:2",
+        "R2:2"
+      ]
+    },
+    {
+      "netNames": [
+        "VCC"
+      ],
+      "pins": [
+        "J1:1",
+        "R1:1"
+      ]
+    }
+  ],
+  "artifacts": {
+    "Device.kicad_sym": {
+      "sha256": "f9511c86a323d4c70c2aac8f3c3b1d396123b89ca69c064c8eb2dddffa5e77d0",
+      "bytes": 18923
+    },
+    "fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "led-transistor.kicad_pcb": {
+      "sha256": "683ac5821b3720f6e74e4d9817d8aaef9b7ecf9dbf657ccc978c37db700cd11a",
+      "bytes": 15582
+    },
+    "led-transistor.kicad_pro": {
+      "sha256": "7b529974c9104ada5a8c41ab28123c83f36460a0b61bc1795e8348a0f1491ee4",
+      "bytes": 1741
+    },
+    "led-transistor.kicad_sch": {
+      "sha256": "ad25a1ebe6a2f4dfb3dee01399e2e0600ec253df74961bb3f328d6a051139be1",
+      "bytes": 30147
+    },
+    "sym-lib-table": {
+      "sha256": "e6c068047fc46751e260693e3dc0fec8b5a1d68031212bb6d8ed99b105282f93",
+      "bytes": 155
+    },
+    "tscircuit.pretty/connector_pinrow3.kicad_mod": {
+      "sha256": "eff79e258e4c2fb7bb865289f28dc658be8e855022175fa7b33e475a4b8b4908",
+      "bytes": 2446
+    },
+    "tscircuit.pretty/led_diode0603_color_red.kicad_mod": {
+      "sha256": "5b8440720e96a5cdb65acc0faf2e7509e367dc5fbceccc1b8dbd4fc3703b48f2",
+      "bytes": 3459
+    },
+    "tscircuit.pretty/resistor_res0603.kicad_mod": {
+      "sha256": "3a60474130b8d604254b52eb2fbe0f5f880d2a664ed7eca95ba5242c51e1bdf6",
+      "bytes": 2417
+    },
+    "tscircuit.pretty/transistor_TO-92.kicad_mod": {
+      "sha256": "44c01d26500a0c4e7fb55ebf306b4d35279a6b0d0a695fd2225cfd9fe5d29de0",
+      "bytes": 1093
+    }
+  }
+}

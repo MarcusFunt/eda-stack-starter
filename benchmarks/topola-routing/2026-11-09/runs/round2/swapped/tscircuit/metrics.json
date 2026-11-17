@@ -1,0 +1,62 @@
+{
+  "board": "voltage-divider.kicad_pcb",
+  "kicad_version": "10.0.8",
+  "expected_nets": [
+    "GND",
+    "MID",
+    "VIN"
+  ],
+  "routed_nets": [],
+  "unrouted_nets": [
+    "GND",
+    "MID",
+    "VIN"
+  ],
+  "routed_net_fraction": 0.0,
+  "unconnected_groups": 4,
+  "drc_violation_count": 17,
+  "drc_violation_groups": [
+    {
+      "severity": "error",
+      "type": "courtyards_overlap",
+      "count": 1
+    },
+    {
+      "severity": "error",
+      "type": "shorting_items",
+      "count": 2
+    },
+    {
+      "severity": "error",
+      "type": "solder_mask_bridge",
+      "count": 2
+    },
+    {
+      "severity": "warning",
+      "type": "lib_footprint_issues",
+      "count": 3
+    },
+    {
+      "severity": "warning",
+      "type": "silk_overlap",
+      "count": 3
+    },
+    {
+      "severity": "warning",
+      "type": "text_height",
+      "count": 6
+    }
+  ],
+  "schematic_parity_issue_count": 11,
+  "ignored_checks": [
+    "missing_courtyard",
+    "track_not_centered_on_via",
+    "tuning_profile_track_geometries",
+    "footprint_filters_mismatch",
+    "footprint_type_mismatch"
+  ],
+  "track_segments": 0,
+  "vias": 0,
+  "track_length_mm": 0.0,
+  "tracks_by_net": {}
+}

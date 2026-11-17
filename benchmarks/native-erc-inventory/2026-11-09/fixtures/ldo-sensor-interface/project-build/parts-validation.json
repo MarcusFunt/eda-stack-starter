@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "status": "unverified",
+  "entries": [
+    {
+      "reference": "C1",
+      "manufacturer_part_number": null,
+      "footprint": "0603",
+      "physical_pins": [
+        "1",
+        "2"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "C2",
+      "manufacturer_part_number": null,
+      "footprint": "0603",
+      "physical_pins": [
+        "1",
+        "2"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "J1",
+      "manufacturer_part_number": null,
+      "footprint": "pinrow2",
+      "physical_pins": [
+        "1",
+        "2"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "J2",
+      "manufacturer_part_number": null,
+      "footprint": "pinrow4",
+      "physical_pins": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "U1",
+      "manufacturer_part_number": null,
+      "footprint": "SOT-23-5",
+      "physical_pins": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    },
+    {
+      "reference": "U2",
+      "manufacturer_part_number": null,
+      "footprint": "SOIC-8",
+      "physical_pins": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "model_id": null,
+      "model_verified": false,
+      "pin_map_status": "unverified",
+      "issues": [
+        "No vetted vendor SPICE model binding",
+        "Physical pin map not datasheet-reviewed",
+        "No exact manufacturer part number"
+      ]
+    }
+  ],
+  "unresolved": [
+    "C1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "C2: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "J1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "J2: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "U1: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number",
+    "U2: No vetted vendor SPICE model binding; Physical pin map not datasheet-reviewed; No exact manufacturer part number"
+  ]
+}

@@ -1,0 +1,17 @@
+
+> @edastack/tscircuit-worker@0.1.0 build:project
+> tsx src/build-cli.ts --project-root D:\ElectronicsDesignAI\eda-stack-starter\.worktrees\eda-erc-inventory\benchmarks\topola-routing\2026-11-09\runs\round2\fixed_j1\source-tscircuit --output-dir D:\ElectronicsDesignAI\eda-stack-starter\.worktrees\eda-erc-inventory\benchmarks\topola-routing\2026-11-09\runs\round2\fixed_j1\build-tscircuit
+
+{
+  "status": "compiled",
+  "projectName": "voltage-divider",
+  "outputDir": "D:\\ElectronicsDesignAI\\eda-stack-starter\\.worktrees\\eda-erc-inventory\\benchmarks\\topola-routing\\2026-11-09\\runs\\round2\\fixed_j1\\build-tscircuit",
+  "circuitJsonPath": "D:\\ElectronicsDesignAI\\eda-stack-starter\\.worktrees\\eda-erc-inventory\\benchmarks\\topola-routing\\2026-11-09\\runs\\round2\\fixed_j1\\build-tscircuit\\circuit.json",
+  "sourceGraphPath": "D:\\ElectronicsDesignAI\\eda-stack-starter\\.worktrees\\eda-erc-inventory\\benchmarks\\topola-routing\\2026-11-09\\runs\\round2\\fixed_j1\\build-tscircuit\\source-graph.json",
+  "sourceManifestPath": "D:\\ElectronicsDesignAI\\eda-stack-starter\\.worktrees\\eda-erc-inventory\\benchmarks\\topola-routing\\2026-11-09\\runs\\round2\\fixed_j1\\build-tscircuit\\source-manifest.json",
+  "kicadOutputDir": "D:\\ElectronicsDesignAI\\eda-stack-starter\\.worktrees\\eda-erc-inventory\\benchmarks\\topola-routing\\2026-11-09\\runs\\round2\\fixed_j1\\build-tscircuit\\kicad",
+  "manifestPath": "D:\\ElectronicsDesignAI\\eda-stack-starter\\.worktrees\\eda-erc-inventory\\benchmarks\\topola-routing\\2026-11-09\\runs\\round2\\fixed_j1\\build-tscircuit\\build-manifest.json",
+  "circuitJsonSha256": "6349b0b6a495f2cad93b39585e20c0ead3ec7810ae7135708e908ffc8244b85d",
+  "componentCount": 3,
+  "netCount": 3
+}

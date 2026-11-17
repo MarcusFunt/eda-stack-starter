@@ -1,0 +1,13 @@
+{
+  "blockers": [
+    "ldo-sensor-interface: KiCad ERC has unresolved findings",
+    "led-transistor: KiCad ERC has unresolved findings"
+  ],
+  "mode": "schematic",
+  "ready": false,
+  "scope": "general-native",
+  "checked": [
+    "ldo-sensor-interface",
+    "led-transistor"
+  ]
+}

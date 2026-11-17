@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-09T21:25:35.228Z",
+  "project_name": "power-rail",
+  "converter": {
+    "package": "circuit-json-to-kicad",
+    "version": "0.0.270"
+  },
+  "input": {
+    "circuit_json_sha256": "dc7d4ad0839703ecf76781fe67d51b0e59166429be768dbe08b615c15f9f3756"
+  },
+  "source_pin_net_groups": [
+    {
+      "netNames": [
+        "GND"
+      ],
+      "pins": [
+        "C1:2",
+        "C2:2"
+      ]
+    },
+    {
+      "netNames": [
+        "V24"
+      ],
+      "pins": [
+        "C1:1",
+        "C2:1"
+      ]
+    }
+  ],
+  "artifacts": {
+    "Custom.kicad_sym": {
+      "sha256": "6d69a32196d6914f8d81e3dfc60c70ddd5417e6bd446effda86917d955a785eb",
+      "bytes": 4873
+    },
+    "Device.kicad_sym": {
+      "sha256": "c7e27530feef3be0e125d654e86f430391816819353ab56f9fff777056405d17",
+      "bytes": 3386
+    },
+    "fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "power-rail.kicad_pcb": {
+      "sha256": "8c1ed78de2c3f3d5ba0c83a65ce207e7b982c5ec39153a83daeb08516a8946b7",
+      "bytes": 7018
+    },
+    "power-rail.kicad_pro": {
+      "sha256": "130512629493eda3d30cb7b5ab444999f8a5f590b6cde91c422e2f8e45d80311",
+      "bytes": 1729
+    },
+    "power-rail.kicad_sch": {
+      "sha256": "25bd387eb0de759da33b97f2808c9c00a83994467de9a3db7cc9e9fe218cb1ff",
+      "bytes": 18159
+    },
+    "sym-lib-table": {
+      "sha256": "5e4d9de6ee829d0da2b7f28027a3c159ad640d4367519b6b2272a717709874f9",
+      "bytes": 281
+    },
+    "tscircuit.pretty/capacitor_cap0603_nonpolarized.kicad_mod": {
+      "sha256": "d207064de061d4ffd053972297cf9cb424e288488567e195ecafc960ecb096e9",
+      "bytes": 2473
+    }
+  }
+}

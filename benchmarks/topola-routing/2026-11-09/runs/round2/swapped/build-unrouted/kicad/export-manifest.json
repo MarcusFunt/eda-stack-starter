@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-09T22:51:41.518Z",
+  "project_name": "voltage-divider",
+  "converter": {
+    "package": "circuit-json-to-kicad",
+    "version": "0.0.270"
+  },
+  "input": {
+    "circuit_json_sha256": "79cd3c725b397abb338042d4ac860cec5800e55309d6c882ce86f04842b19d06"
+  },
+  "source_pin_net_groups": [
+    {
+      "netNames": [
+        "GND"
+      ],
+      "pins": [
+        "J1:3",
+        "R2:2"
+      ]
+    },
+    {
+      "netNames": [
+        "MID"
+      ],
+      "pins": [
+        "J1:2",
+        "R1:2",
+        "R2:1"
+      ]
+    },
+    {
+      "netNames": [
+        "VIN"
+      ],
+      "pins": [
+        "J1:1",
+        "R1:1"
+      ]
+    }
+  ],
+  "artifacts": {
+    "Device.kicad_sym": {
+      "sha256": "6e13ee50b52c895c5bce6c79b33643ceaec2905c8672186d6e79818326b5e9a3",
+      "bytes": 6223
+    },
+    "fp-lib-table": {
+      "sha256": "5cee20e7ee8d3380826a60138eeb5719307bc317761235029c523f0841e26160",
+      "bytes": 167
+    },
+    "sym-lib-table": {
+      "sha256": "e6c068047fc46751e260693e3dc0fec8b5a1d68031212bb6d8ed99b105282f93",
+      "bytes": 155
+    },
+    "tscircuit.pretty/connector_pinrow3.kicad_mod": {
+      "sha256": "eff79e258e4c2fb7bb865289f28dc658be8e855022175fa7b33e475a4b8b4908",
+      "bytes": 2446
+    },
+    "tscircuit.pretty/resistor_res0603.kicad_mod": {
+      "sha256": "4b80b3610a2db41df162c903360a1feff315dab20f2c282ac1b2dfea9c977b86",
+      "bytes": 2323
+    },
+    "voltage-divider.kicad_pcb": {
+      "sha256": "af62be2d6334ccf889aa28a402cc05994d77a5b6a79aae6b56d77fca50aa945f",
+      "bytes": 9507
+    },
+    "voltage-divider.kicad_pro": {
+      "sha256": "f0301415397850d74e2bd3defcc76b87b6c832941b6b5db925e4c415c83a72a3",
+      "bytes": 1744
+    },
+    "voltage-divider.kicad_sch": {
+      "sha256": "ce750f14e3ab3b00ed30020cb8437d8cf4a84104f01fcf16c9e348a49533c103",
+      "bytes": 12857
+    }
+  }
+}

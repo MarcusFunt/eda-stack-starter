@@ -9,6 +9,7 @@ import {
   Routes,
   useOutletContext,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import {
   studioApi,
@@ -42,6 +43,7 @@ const toolDefinitions = [
 type ConnectionState = "loading" | "connected" | "offline";
 type PanelTab = "Problems" | "Jobs" | "Waveforms" | "Console" | "Evidence" | "Comparison";
 type CompileState = "idle" | "running" | "compiled" | "failed";
+type QuickItem = { kind: "view" | "project"; id: string; title: string; detail: string; icon: string };
 
 function StudioApp() {
   return (
@@ -85,11 +87,18 @@ function StudioShell() {
   const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const [mobileInspectorOpen, setMobileInspectorOpen] = useState(false);
   const [panelTab, setPanelTab] = useState<PanelTab>("Problems");
+  const [projectFilter, setProjectFilter] = useState("");
+  const [quickOpen, setQuickOpen] = useState(false);
+  const [quickQuery, setQuickQuery] = useState("");
+  const [quickIndex, setQuickIndex] = useState(0);
+  const quickInput = useRef<HTMLInputElement>(null);
+  const quickTrigger = useRef<HTMLButtonElement>(null);
   const navigationTrigger = useRef<HTMLButtonElement>(null);
   const inspectorTrigger = useRef<HTMLButtonElement>(null);
   const selectedProjectRef = useRef<string | null>(selectedProjectId);
   const toolchainRef = useRef<ToolchainResponse | null>(toolchain);
   const location = useLocation();
+  const navigate = useNavigate();
 
   selectedProjectRef.current = selectedProjectId;
   toolchainRef.current = toolchain;
@@ -144,6 +153,26 @@ function StudioShell() {
   }, [location.pathname]);
 
   useEffect(() => {
+    const onShortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setQuickOpen(true);
+        setQuickQuery("");
+        setQuickIndex(0);
+      } else if (event.key === "Escape" && quickOpen) {
+        event.preventDefault();
+        closeQuick();
+      }
+    };
+    window.addEventListener("keydown", onShortcut);
+    return () => window.removeEventListener("keydown", onShortcut);
+  }, [quickOpen]);
+
+  useEffect(() => {
+    if (quickOpen) quickInput.current?.focus();
+  }, [quickOpen]);
+
+  useEffect(() => {
     if (!mobileNavigationOpen && !mobileInspectorOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
@@ -185,6 +214,41 @@ function StudioShell() {
 
   const selectedSummary = projects?.projects.find((item) => item.project_id === selectedProjectId) ?? null;
   const projectName = project?.name ?? selectedSummary?.name ?? "No project open";
+  const filteredProjects = (projects?.projects ?? []).filter((item) =>
+    `${item.name} ${item.project_id}`.toLocaleLowerCase().includes(projectFilter.trim().toLocaleLowerCase()),
+  );
+  const quickItems: QuickItem[] = [
+    ...views.map((item) => ({ kind: "view" as const, id: item.path, title: item.label, detail: "Workspace view", icon: item.icon })),
+    { kind: "view" as const, id: "/settings", title: "Toolchain & settings", detail: "Local tools and workspace", icon: "⚙" },
+    ...(projects?.projects ?? []).map((item) => ({ kind: "project" as const, id: item.project_id, title: item.name, detail: item.project_id, icon: "▱" })),
+  ].filter((item) => `${item.title} ${item.detail}`.toLocaleLowerCase().includes(quickQuery.trim().toLocaleLowerCase()));
+
+  function openQuickItem(item: QuickItem) {
+    if (item.kind === "project") {
+      selectProject(item.id);
+      navigate("/design");
+    } else {
+      navigate(item.id);
+    }
+    closeQuick();
+  }
+
+  function closeQuick() {
+    setQuickOpen(false);
+    quickTrigger.current?.focus();
+  }
+
+  function handleQuickKeyDown(event: ReactKeyboardEvent<HTMLInputElement>) {
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      if (quickItems.length) {
+        setQuickIndex((index) => (index + (event.key === "ArrowDown" ? 1 : -1) + quickItems.length) % quickItems.length);
+      }
+    } else if (event.key === "Enter" && quickItems[quickIndex]) {
+      event.preventDefault();
+      openQuickItem(quickItems[quickIndex]);
+    }
+  }
 
   async function compileSelectedProject() {
     if (!project || compileState === "running" || healthState !== "connected") return;
@@ -244,6 +308,12 @@ function StudioShell() {
             {healthState === "loading" ? "Connecting" : healthState === "connected" ? "Local API connected" : "Local API offline"}
           </span>
           {healthState === "offline" && <button className="retry-api" onClick={() => setHealthReload((value) => value + 1)}>Retry</button>}
+          <button
+            ref={quickTrigger}
+            className="quick-open-trigger"
+            aria-label="Quick navigation (Ctrl or Command plus K)"
+            onClick={() => { setQuickOpen(true); setQuickQuery(""); setQuickIndex(0); }}
+          ><span aria-hidden="true">⌕</span><span>Quick open</span><kbd>Ctrl K</kbd></button>
           <div className="action-divider" aria-hidden="true" />
           <button
             className="action-button"
@@ -288,8 +358,19 @@ function StudioShell() {
           </div>
         ) : null}
         {projectsError && <div className="workspace-message warning" role="alert">{projectsError}<button onClick={() => setProjectsReload((value) => value + 1)}>Retry discovery</button></div>}
+        <div className="project-search">
+          <span aria-hidden="true">⌕</span>
+          <input
+            type="search"
+            value={projectFilter}
+            onChange={(event) => setProjectFilter(event.target.value)}
+            placeholder="Filter projects"
+            aria-label="Filter workspace projects"
+          />
+          {projectFilter && <button type="button" aria-label="Clear project filter" onClick={() => setProjectFilter("")}>×</button>}
+        </div>
         <div className="project-list" aria-label="Workspace projects">
-          {projects?.projects.map((item) => (
+          {filteredProjects.map((item) => (
             <button
               key={item.project_id}
               className={`project-choice${selectedProjectId === item.project_id ? " selected" : ""}`}
@@ -304,6 +385,7 @@ function StudioShell() {
           {projects?.workspace_status === "available" && projects.projects.length === 0 && (
             <div className="no-project-card"><span className="folder-icon" aria-hidden="true">▱</span><div><strong>No supported projects found</strong><small>Projects need an EDA Stack manifest and TSX entrypoint.</small></div></div>
           )}
+          {projects?.projects.length && filteredProjects.length === 0 && <div className="project-filter-empty">No projects match “{projectFilter}”.</div>}
           {!projects && !projectsError && <div className="navigation-loading" role="status">Discovering workspace projects…</div>}
         </div>
         {project && (
@@ -387,6 +469,68 @@ function StudioShell() {
         </div>
         <span className="api-build">API {health?.api_version ?? "v1"}{health ? ` · build ${health.build_version}` : ""}</span>
       </aside>
+
+      {quickOpen && (
+        <div className="quick-open-overlay">
+          <button className="quick-open-backdrop" aria-label="Close quick navigation" onClick={closeQuick} />
+          <section
+            className="quick-open-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Quick navigation"
+            onKeyDown={(event) => {
+              if (event.key !== "Tab") return;
+              const focusable = event.currentTarget.querySelectorAll<HTMLElement>("input, button:not([disabled])");
+              const first = focusable[0];
+              const last = focusable[focusable.length - 1];
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last?.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first?.focus();
+              }
+            }}
+          >
+            <div className="quick-open-search">
+              <span aria-hidden="true">⌕</span>
+              <input
+                ref={quickInput}
+                id="quick-open-title"
+                value={quickQuery}
+                onChange={(event) => { setQuickQuery(event.target.value); setQuickIndex(0); }}
+                onKeyDown={handleQuickKeyDown}
+                placeholder="Search projects and views…"
+                aria-label="Search projects and workspace views"
+                aria-activedescendant={quickItems[quickIndex] ? `quick-item-${quickIndex}` : undefined}
+                role="combobox"
+                aria-expanded="true"
+                aria-controls="quick-open-results"
+                autoComplete="off"
+              />
+              <kbd>ESC</kbd>
+            </div>
+            <div id="quick-open-results" className="quick-open-results" role="listbox" aria-label="Quick navigation results">
+              {quickItems.length ? quickItems.map((item, index) => (
+                <button
+                  id={`quick-item-${index}`}
+                  key={`${item.kind}-${item.id}`}
+                  className={`quick-open-item${index === quickIndex ? " highlighted" : ""}`}
+                  role="option"
+                  aria-selected={index === quickIndex}
+                  onMouseEnter={() => setQuickIndex(index)}
+                  onClick={() => openQuickItem(item)}
+                >
+                  <span className="quick-item-icon" aria-hidden="true">{item.icon}</span>
+                  <span><strong>{item.title}</strong><small>{item.detail}</small></span>
+                  <span className="quick-item-kind">{item.kind === "project" ? "PROJECT" : "VIEW"}</span>
+                </button>
+              )) : <p className="quick-open-empty">No matching projects or views.</p>}
+            </div>
+            <footer><span><kbd>↑</kbd><kbd>↓</kbd> to navigate</span><span><kbd>↵</kbd> to open</span><span>Quick navigation</span></footer>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
@@ -514,7 +658,7 @@ function WorkspaceView({ view }: { view: WorkspaceKind }) {
   };
   const text = copy[view];
   return (
-    <section className="view-content" aria-labelledby="workspace-title">
+    <section key={view} className="view-content" aria-labelledby="workspace-title">
       <div className="view-heading">
         <div><span className="eyebrow">{text.eyebrow} / WORKSPACE</span><h1 id="workspace-title">{text.title}</h1><p>{text.description}</p></div>
         <div className="revision-state"><span className="state-dot" />{build ? "Compiled · not verified" : project ? "Draft · not compiled" : "No project selected"}</div>

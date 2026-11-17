@@ -3,6 +3,7 @@ import { mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises"
 import os from "node:os";
 import path from "node:path";
 import { test } from "node:test";
+import { parseKicadSch, Xy } from "kicadts";
 
 type ExporterModule = typeof import("../src/export-kicad.js");
 let exporter: ExporterModule | undefined;
@@ -17,6 +18,21 @@ const fixtures = [
   { name: "two-resistor-labels", expectedGroups: 3 },
   { name: "power-rail", expectedGroups: 2 },
 ];
+
+const NATIVE_SCHEMATIC_GRID_MM = 1.27;
+
+function isOnNativeSchematicGrid(value: number): boolean {
+  const gridSteps = value / NATIVE_SCHEMATIC_GRID_MM;
+  return Math.abs(gridSteps - Math.round(gridSteps)) <= 1e-6;
+}
+
+function rotateSchematicPoint(point: { x: number; y: number }, angle: number): { x: number; y: number } {
+  const radians = (angle * Math.PI) / 180;
+  return {
+    x: point.x * Math.cos(radians) - point.y * Math.sin(radians),
+    y: point.x * Math.sin(radians) + point.y * Math.cos(radians),
+  };
+}
 
 function formEnd(text: string, start: number): number {
   let depth = 0;
@@ -138,6 +154,169 @@ test("Circuit JSON exports schematic, PCB, project, and a provenance manifest", 
     } finally {
       await rm(tempRoot, { recursive: true, force: true });
     }
+  }
+});
+
+test("native schematic electrical anchors use the KiCad 50 mil grid", { skip: !exporter }, async () => {
+  const circuitJson = JSON.parse(
+    await readFile(new URL("../fixtures/power-rail.circuit.json", import.meta.url), "utf8"),
+  ) as unknown[];
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "edastack-kicad-grid-"));
+  const outputDir = path.join(tempRoot, "power-rail");
+  try {
+    await exporter!.exportCircuitJsonToKicad({ circuitJson, outputDir, projectName: "power-rail" });
+    const schematic = parseKicadSch(await readFile(path.join(outputDir, "power-rail.kicad_sch"), "utf8"));
+    const definitions = new Map((schematic.libSymbols?.symbols ?? []).map((symbol) => [symbol.libraryId, symbol]));
+
+    for (const symbol of schematic.symbols) {
+      const reference = symbol.properties.find((property) => property.key === "Reference")?.value ?? symbol.libraryId;
+      assert.ok(symbol.at, `${reference} must have a position`);
+      const at = symbol.at;
+      const angle = (((at.angle ?? 0) % 360) + 360) % 360;
+      assert.ok([0, 90, 180, 270].includes(angle), `${reference} must use a cardinal rotation`);
+      assert.ok(isOnNativeSchematicGrid(at.x), `${reference} origin X must be on the 50 mil grid`);
+      assert.ok(isOnNativeSchematicGrid(at.y), `${reference} origin Y must be on the 50 mil grid`);
+
+      const definition = definitions.get(symbol.libraryId);
+      assert.ok(definition, `${reference} must have an embedded symbol definition`);
+      for (const unit of definition.subSymbols) {
+        for (const pin of unit.pins ?? []) {
+          assert.ok(pin.at, `${reference} pin ${pin.numberString} must have a position`);
+          const rotated = rotateSchematicPoint({ x: pin.at.x, y: pin.at.y }, angle);
+          const pinX = at.x + rotated.x;
+          const pinY = at.y - rotated.y;
+          assert.ok(isOnNativeSchematicGrid(pinX), `${reference} pin ${pin.numberString} X must be on the 50 mil grid`);
+          assert.ok(isOnNativeSchematicGrid(pinY), `${reference} pin ${pin.numberString} Y must be on the 50 mil grid`);
+        }
+      }
+    }
+
+    for (const wire of schematic.wires ?? []) {
+      for (const point of wire.points?.points ?? []) {
+        assert.ok(point instanceof Xy, "schematic wires must use straight XY points");
+        assert.ok(isOnNativeSchematicGrid(point.x), `wire endpoint X=${point.x} must be on the 50 mil grid`);
+        assert.ok(isOnNativeSchematicGrid(point.y), `wire endpoint Y=${point.y} must be on the 50 mil grid`);
+      }
+    }
+    for (const label of [...(schematic.labels ?? []), ...(schematic.globalLabels ?? [])]) {
+      assert.ok(label.at, `label ${label.value} must have a position`);
+      const at = label.at;
+      assert.ok(isOnNativeSchematicGrid(at.x), `label ${label.value} X must be on the 50 mil grid`);
+      assert.ok(isOnNativeSchematicGrid(at.y), `label ${label.value} Y must be on the 50 mil grid`);
+    }
+    for (const marker of [...(schematic.junctions ?? []), ...(schematic.noConnects ?? [])]) {
+      if (!marker.at) continue;
+      assert.ok(isOnNativeSchematicGrid(marker.at.x), "junction/no-connect X must be on the 50 mil grid");
+      assert.ok(isOnNativeSchematicGrid(marker.at.y), "junction/no-connect Y must be on the 50 mil grid");
+    }
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("native grid normalization preserves junction and no-connect marker syntax", { skip: !exporter }, async () => {
+  const circuitJson = JSON.parse(
+    await readFile(
+      new URL("../../../benchmarks/native-erc-inventory/2026-11-09/fixtures/ldo-sensor-interface/project-build/circuit.json", import.meta.url),
+      "utf8",
+    ),
+  ) as unknown[];
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "edastack-kicad-marker-syntax-"));
+  const outputDir = path.join(tempRoot, "ldo-sensor-interface");
+  try {
+    await exporter!.exportCircuitJsonToKicad({ circuitJson, outputDir, projectName: "ldo-sensor-interface" });
+    const schematic = parseKicadSch(
+      await readFile(path.join(outputDir, "power.kicad_sch"), "utf8"),
+    );
+    assert.ok(schematic.junctions.length > 0, "fixture must include native junctions");
+    assert.ok(schematic.noConnects.length > 0, "fixture must include native no-connect markers");
+    for (const marker of [...schematic.junctions, ...schematic.noConnects]) {
+      assert.equal(marker.at?.angle, undefined, "junction and no-connect markers must not gain an angle field");
+    }
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("native KiCad project enables ERC checks that KiCad defaults to ignoring", { skip: !exporter }, async () => {
+  const circuitJson = JSON.parse(
+    await readFile(new URL("../fixtures/power-rail.circuit.json", import.meta.url), "utf8"),
+  ) as unknown[];
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "edastack-kicad-erc-severity-"));
+  const outputDir = path.join(tempRoot, "power-rail");
+  try {
+    await exporter!.exportCircuitJsonToKicad({ circuitJson, outputDir, projectName: "power-rail" });
+    const project = JSON.parse(await readFile(path.join(outputDir, "power-rail.kicad_pro"), "utf8"));
+    for (const check of ["footprint_filter", "four_way_junction", "simulation_model_issue", "single_global_label"]) {
+      assert.equal(project.erc.rule_severities?.[check], "warning", `${check} must be reported, not ignored`);
+    }
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("single-sheet native schematics export non-power labels with local scope", { skip: !exporter }, async () => {
+  const circuitJson = JSON.parse(
+    await readFile(new URL("../fixtures/power-rail.circuit.json", import.meta.url), "utf8"),
+  ) as Array<Record<string, unknown>>;
+  circuitJson.push({
+    type: "schematic_net_label",
+    schematic_net_label_id: "test_local_label",
+    text: "LOCAL_ONLY",
+    source_net_id: "source_net_0",
+    anchor_position: { x: 10, y: 10 },
+    center: { x: 10, y: 10 },
+    anchor_side: "left",
+  });
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "edastack-kicad-local-labels-"));
+  const outputDir = path.join(tempRoot, "power-rail");
+  try {
+    await exporter!.exportCircuitJsonToKicad({ circuitJson, outputDir, projectName: "power-rail" });
+    const schematic = await readFile(path.join(outputDir, "power-rail.kicad_sch"), "utf8");
+    assert.match(schematic, /\(label "LOCAL_ONLY"/);
+    assert.doesNotMatch(schematic, /\(global_label "LOCAL_ONLY"/);
+    assert.match(schematic, /\(lib_id "Custom:rail_up"/);
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("native symbols carry the exact generated footprint and accept it in their library filter", { skip: !exporter }, async () => {
+  const circuitJson = JSON.parse(
+    await readFile(new URL("../fixtures/two-resistor-labels.circuit.json", import.meta.url), "utf8"),
+  ) as unknown[];
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "edastack-kicad-symbol-footprints-"));
+  const outputDir = path.join(tempRoot, "two-resistor-labels");
+  try {
+    await exporter!.exportCircuitJsonToKicad({ circuitJson, outputDir, projectName: "two-resistor-labels" });
+    const schematic = await readFile(path.join(outputDir, "two-resistor-labels.kicad_sch"), "utf8");
+    const symbols = await readFile(path.join(outputDir, "Device.kicad_sym"), "utf8");
+    const r1Symbol = /\(symbol\s+\(lib_id\s+"Device:boxresistor_right"\)[\s\S]*?\(property "Reference" "R1"[\s\S]*?\(property "Footprint" "([^"]*)"/.exec(schematic);
+    assert.equal(r1Symbol?.[1], "tscircuit:resistor_res0402");
+    assert.match(symbols, /\(property "ki_fp_filters" "[^\"]*resistor_res0402/);
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("native footprint binding uses the converter's sanitized name for parameterized footprints", { skip: !exporter }, async () => {
+  const circuitJson = JSON.parse(
+    await readFile(new URL("../fixtures/two-resistor-labels.circuit.json", import.meta.url), "utf8"),
+  ) as Array<Record<string, unknown>>;
+  const r1 = circuitJson.find((item) => item.type === "source_component" && item.name === "R1");
+  assert.ok(r1 && typeof r1.source_component_id === "string");
+  const r1Cad = circuitJson.find((item) => item.type === "cad_component" && item.source_component_id === r1.source_component_id);
+  assert.ok(r1Cad);
+  r1Cad.footprinter_string = "0603_color(red)";
+  const tempRoot = await mkdtemp(path.join(os.tmpdir(), "edastack-kicad-sanitized-footprint-"));
+  const outputDir = path.join(tempRoot, "two-resistor-labels");
+  try {
+    await exporter!.exportCircuitJsonToKicad({ circuitJson, outputDir, projectName: "two-resistor-labels" });
+    const schematic = await readFile(path.join(outputDir, "two-resistor-labels.kicad_sch"), "utf8");
+    assert.match(schematic, /\(property "Footprint" "tscircuit:resistor_0603_color_red"/);
+    assert.ok(await stat(path.join(outputDir, "tscircuit.pretty", "resistor_0603_color_red.kicad_mod")));
+  } finally {
+    await rm(tempRoot, { recursive: true, force: true });
   }
 });
 

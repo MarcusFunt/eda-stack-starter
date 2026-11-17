@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-11-09T21:25:33",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.8",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/dab3c21d-3bd1-4189-bb90-34514f53400f",
+            "violations": [
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWRschematic_net_label_0 Pin 1 [1, Power input, Line]",
+                            "pos": {
+                                "x": 102.87,
+                                "y": 100.33
+                            },
+                            "uuid": "7ef40f29-9e21-4279-a710-ed84885cb3ec"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "Input Power pin not driven by any Output Power pins",
+                    "items": [
+                        {
+                            "description": "Symbol #PWRschematic_net_label_1 Pin 1 [1, Power input, Line]",
+                            "pos": {
+                                "x": 194.31,
+                                "y": 110.49
+                            },
+                            "uuid": "bad82694-60d8-4510-b1da-3a0a3a46308a"
+                        }
+                    ],
+                    "severity": "error",
+                    "type": "power_pin_not_driven"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol R1 [boxresistor_right]",
+                            "pos": {
+                                "x": 110.49,
+                                "y": 105.41
+                            },
+                            "uuid": "2629cc4b-71d7-434d-9699-24b577d51966"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "The current configuration does not include the footprint library 'tscircuit'",
+                    "items": [
+                        {
+                            "description": "Symbol R2 [boxresistor_right]",
+                            "pos": {
+                                "x": 185.42,
+                                "y": 105.41
+                            },
+                            "uuid": "6b456df4-c0bb-44e8-ac36-d3fff3211ed9"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                }
+            ]
+        }
+    ],
+    "source": "two-resistor-labels.kicad_sch"
+}
